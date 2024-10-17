@@ -6,7 +6,10 @@ getControls();
 
 		//Get xspd
 	xspd = moveDir * moveSpd;
-
+	if moveDir != 0
+	{
+		image_xscale = moveDir;
+	}
 	//X Collision
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
