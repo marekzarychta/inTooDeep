@@ -92,3 +92,4 @@ getControls();
 		if jumpCount == 0{	jumpCount = 1;}
 	}
 	y += yspd;
+	

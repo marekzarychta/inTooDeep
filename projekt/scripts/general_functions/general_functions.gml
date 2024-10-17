@@ -37,11 +37,3 @@ upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
 
 	
 }
-
-function near_chest() {
-	if (distance_to_object(oChest) <= 10) {
-    oChest.openable = true;
-	} else {
-	oChest.openable = false;
-	}
-}
