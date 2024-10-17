@@ -2,7 +2,7 @@
 	//Movement direction
 
 moveDir = 1;
-moveSpd = 2;
+moveSpd = 0.5;
 xspd = 0;
 yspd = 0;
 
