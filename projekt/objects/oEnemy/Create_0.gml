@@ -1,11 +1,14 @@
-/// @description Spawn
-// W tym edytorze możesz zapisać swój kod
+//Movement
+	//Movement direction
 
-mov_dir = 1;
+moveDir = 1;
+moveSpd = 2;
+xspd = 0;
+yspd = 0;
 
-vel_x = 0.6;
-vel_y = 0;
+//Jumping
+grav = .275;
+	//Falling speed
+termVel = 4;
 
-vel_y_max = 1.7;
-
-grav = 0.3;
+controlsSetup();

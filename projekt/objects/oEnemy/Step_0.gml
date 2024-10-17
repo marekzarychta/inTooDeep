@@ -1,32 +1,61 @@
-/// @description Wstaw opis w tym miejscu
-// W tym edytorze możesz zapisać swój kod
+//Get inputs
 
-if vel_y < vel_y_max {
-		vel_y += grav;
-	} else {
-		vel_y = vel_y_max;	
+//X Movement
+		//Direction
+	
+
+		//Get xspd
+	xspd = moveDir * moveSpd;
+
+	//X Collision
+		//How close we can get to a wall etc.
+	var _subPixel = .5;
+	//Check wall collision
+	if place_meeting(x + xspd, y, oWall)
+	{
+		
+		var _pixelCheck = _subPixel * sign(xspd);
+	
+		//Move as close to the wall as possible in 0.5px increments
+		while !place_meeting(x+_pixelCheck, y, oWall)
+		{
+			x += _pixelCheck;
+		}
+	
+		moveDir *= -1;
 	}
 
-
-if place_meeting(x, y + vel_y, oWall) {
+	//Move
+	x += xspd;
 	
-	var _pixel_check = .5;
+//Y Movement
+	//Gravity
+	yspd += grav;
 	
-	while !place_meeting(x, y + _pixel_check, oWall) {
-		y -= _pixel_check;	
+	if yspd > termVel {yspd = termVel; };
+	
+	//Initiate jump
+	
+	
+	//Y Collision
+	var _subPixel = .5;
+	
+	//Check wall collision
+	if place_meeting(x, y + yspd, oWall)
+	{
+		//Move up to wall precisely
+		var _pixelCheck = _subPixel * sign(yspd);
+	
+		//Move as close to the wall as possible in 0.5px increments
+		while !place_meeting(x, y + _pixelCheck, oWall)
+		{
+			y += _pixelCheck;
+		}
+		//Bonk
+		
+		//Stop movement to collide
+		yspd = 0;
 	}
 	
-	vel_y = 0;
-}
-
-if place_meeting(x + vel_x, y, oWall) || !place_meeting(x + vel_x, y + vel_y, oWall) {
-	vel_x = -vel_x;
-}
-
-
-
-x += vel_x;
-
-y += vel_y;
-
-
+	
+	y += yspd;
