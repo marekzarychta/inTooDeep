@@ -1,1 +1,1 @@
-InventoryAdd(id,irandom(1));
+InventoryAdd(id,1);
