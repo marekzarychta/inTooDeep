@@ -10,7 +10,9 @@
 	
 	if dx == 0 && dy == 0 {
 		show_debug_message("Kolizja");	
-	} else if sqrt(dx * dx + dy * dy) < 72 {
+	}
+	
+	if sqrt(dx * dx + dy * dy) < 72 {
 		moveDir = sign(dx);	
 		following = true;
 	} else {
@@ -40,7 +42,20 @@
 		if !following {
 			moveDir *= -1;
 		} else {
-			xspd = 0;	
+			if jumpCount < jumpMax
+			{
+				jumpCount++;
+				jumpHoldTimer = jumpHoldFrames;
+			}
+	
+			//jump based on timer
+			if jumpHoldTimer > 0{
+				yspd = jspd;
+				//Count down timer
+				jumpHoldTimer--;
+			}
+			
+			xspd = 0;
 		}
 	}
 	
@@ -56,16 +71,17 @@
 			moveDir *= -1;
 		
 		}
-	
+				
 		//Setting buffor to make sure that object will leave a danger zone
 	
 		if edgeTimer > 0 {
 			edgeTimer--;	
+			
 		} else {
+			
 			edgeTimer = 0;
 		}
-	}
-	
+	} 
 	
 
 	//Move
@@ -100,6 +116,14 @@
 		yspd = 0;
 	}
 	
+	if yspd >=0 && place_meeting(x,y+1, oWall){
+		//onGround = true;
+		jumpCount = 0;
+		jumpHoldTimer = 0;
+	} else {
+		//onGround = false;
+		if jumpCount == 0{	jumpCount = 1;}
+	}
 	
 	y += yspd;
 	

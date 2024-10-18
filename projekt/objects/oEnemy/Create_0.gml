@@ -16,4 +16,11 @@ edgeTimer = 0;
 
 following = false; 
 
+jumpMax = 1;
+jumpCount = 0;
+jumpHoldTimer = 0;
+	//Jump values for successive jumps
+	jumpHoldFrames = 4;
+	jspd = -3.75;
+
 controlsSetup();
