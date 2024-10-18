@@ -11,4 +11,9 @@ grav = .275;
 	//Falling speed
 termVel = 4;
 
+edgeBuffer = 2;
+edgeTimer = 0;
+
+following = false; 
+
 controlsSetup();

@@ -1,17 +1,30 @@
 //Get inputs
 
 //X Movement
-		//Direction
+	
+	playerX = oPlayer.x;
+	playerY = oPlayer.y;
+	
+	var dx = playerX - x;
+	var dy = playerY - y;
+	
+	if dx == 0 && dy == 0 {
+		show_debug_message("Kolizja");	
+	} else if sqrt(dx * dx + dy * dy) < 72 {
+		moveDir = sign(dx);	
+		following = true;
+	}
+	
 	
 
 		//Get xspd
 	xspd = moveDir * moveSpd;
 
 	//X Collision
-		//How close we can get to a wall etc.
-	var _subPixel = .01;
+	//How close we can get to a wall etc.
+	var _subPixel = .5;
 	//Check wall collision
-	if place_meeting(x + xspd, y, oWall)
+	if place_meeting(x + xspd, y, oWall) 
 	{
 		
 		var _pixelCheck = _subPixel * sign(xspd);
@@ -22,8 +35,36 @@
 			x += _pixelCheck;
 		}
 	
-		moveDir *= -1;
+		if !following {
+			moveDir *= -1;
+		} else {
+			xspd = 0;	
+		}
 	}
+	
+	//Check edge falling
+	//Setting check side, so set width of the sprite
+	if !following {
+	
+		var edgeDir = oEnemy.sprite_width * sign(xspd) / 2;
+	
+		//if there is not a floor object has to come back
+		if !place_meeting(x + edgeDir , y + 0.1, oWall) && edgeTimer == 0 {
+			edgeTimer = edgeBuffer;
+			moveDir *= -1;
+		
+		}
+	
+		//Setting buffor to make sure that object will leave a danger zone
+	
+		if edgeTimer > 0 {
+			edgeTimer--;	
+		} else {
+			edgeTimer = 0;
+		}
+	}
+	
+	
 
 	//Move
 	x += xspd;
@@ -59,3 +100,5 @@
 	
 	
 	y += yspd;
+	
+	
