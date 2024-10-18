@@ -8,21 +8,40 @@
 	var dx = playerX - x;
 	var dy = playerY - y;
 	
-	if dx == 0 && dy == 0 {
+	if place_meeting(x, y, oPlayer) {
 		show_debug_message("Kolizja");	
 	}
 	
-	if sqrt(dx * dx + dy * dy) < 72 {
+	
+	
+	if sqrt(dx * dx + dy * dy) < 72 /*&& changeDirTimer == 0*/ {
 		moveDir = sign(dx);	
+		//changeDirTimer = changeDirBuffer;
 		following = true;
+		followingTimer = followingBuffer;
 	} else {
-		following = false;	
+		if followingTimer > 0 {
+			followingTimer--;	
+		} else {
+			following = false;	
+		}
 	}
+	
+	//if changeDirTimer > 0 {
+	//	changeDirTimer--;	
+	//} else {
+	//	changeDirTimer = 0;	
+	//}
+	
 	
 	
 
-		//Get xspd
+	//Get xspd
 	xspd = moveDir * moveSpd;
+
+	if abs(dx) < 0.5 && following {
+		xspd = 0;	
+	}
 
 	//X Collision
 	//How close we can get to a wall etc.
@@ -39,8 +58,11 @@
 			x += _pixelCheck;
 		}
 	
-		if !following {
+		if !following && wallTimer == 0 {
 			moveDir *= -1;
+			wallTimer = wallBuffer;
+		
+			
 		} else {
 			if jumpCount < jumpMax
 			{
@@ -49,7 +71,7 @@
 			}
 	
 			//jump based on timer
-			if jumpHoldTimer > 0{
+			if jumpHoldTimer > 0 {
 				yspd = jspd;
 				//Count down timer
 				jumpHoldTimer--;
@@ -57,6 +79,15 @@
 			
 			xspd = 0;
 		}
+		
+	}
+	
+	if wallTimer > 0 {
+		wallTimer--;	
+			
+	} else {
+			
+		wallTimer = 0;
 	}
 	
 	//Check edge falling
@@ -111,7 +142,9 @@
 			y += _pixelCheck;
 		}
 		//Bonk
-		
+		if (yspd < 0){
+			jumpHoldTimer = 0;
+		}
 		//Stop movement to collide
 		yspd = 0;
 	}
@@ -124,6 +157,8 @@
 		//onGround = false;
 		if jumpCount == 0{	jumpCount = 1;}
 	}
+	
+	
 	
 	y += yspd;
 	
