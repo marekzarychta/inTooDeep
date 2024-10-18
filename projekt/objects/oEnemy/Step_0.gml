@@ -13,6 +13,8 @@
 	} else if sqrt(dx * dx + dy * dy) < 72 {
 		moveDir = sign(dx);	
 		following = true;
+	} else {
+		following = false;	
 	}
 	
 	
