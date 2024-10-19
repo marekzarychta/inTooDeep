@@ -45,7 +45,7 @@ var shortestDistance = 9999;
 	
 
 		//Get xspd
-	xspd = moveDir * moveSpd;
+	xspd = moveDir * moveSpd[currentWeightLevel];
 
 	//X Collision
 		//How close we can get to a wall etc.
@@ -95,7 +95,7 @@ var shortestDistance = 9999;
 	}
 	//jump based on timer
 	if jumpHoldTimer > 0{
-		yspd = jspd[jumpCount-1];
+		yspd = jspd[jumpCount-1][currentWeightLevel];
 		//Count down timer
 		jumpHoldTimer--;
 	}
