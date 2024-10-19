@@ -2,14 +2,12 @@ if !opened {
 
 	if (oPlayer.chestId == id) {
 		marked = true;	
-		show_debug_message(id);
 	} else {
 		marked = false;	
 	}
 
 	var dis = point_distance(x, 0, oPlayer.x, 0);
 
-	show_debug_message(string(id) + ": " + string(dis))
 
 	if place_meeting(x, y, oPlayer) {
 	    openable = true; 
@@ -29,6 +27,12 @@ if !opened {
     
 	    openable = false;
 		opened = true;
+		
+		var itemsCount = irandom_range(2, 4);
+		for (var i = 0; i < itemsCount; i++) {
+			instance_create_depth(x, y - 8, Room1.depth - 1, oCoin);
+			
+		}
 	}
 } else {
 	sprite_index = openedSprite;	
