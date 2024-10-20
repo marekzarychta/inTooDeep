@@ -1,7 +1,7 @@
 //Movement
 	//Movement direction
 moveDir = 0;
-
+	//Movement speed
 moveSpd = 2;
 xspd = 0;
 yspd = 0;
@@ -10,7 +10,6 @@ face = 1;
 
 //Chests
 chestId = 0;
-
 
 
 //Jumping
