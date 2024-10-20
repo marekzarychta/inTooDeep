@@ -61,3 +61,15 @@ function InventoryRemove(rootObject, itemType){
 		show_debug_message("Inventory empty");
 	}
 }
+
+function InventoryCalculateWeight(rootObject){
+	if (!InventoryIsEmpty(rootObject)){
+		_weight = 0;
+        for (var i = 0; i < array_length(rootObject.inventory); i++) {
+            if (rootObject.inventory[i] == 1) {
+                _weight++;
+			}
+        }
+		oPlayer.inventoryWeight = _weight;
+	}
+}

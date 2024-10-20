@@ -64,7 +64,6 @@ if(inventoryWeight <= 3) {
 	
 
 		//Get xspd
-	xspd = moveDir * moveSpd;
 	if moveDir != 0
 	{
 		image_xscale = moveDir;
@@ -155,5 +154,6 @@ if(inventoryWeight <= 3) {
 		onGround = false;
 		if jumpCount == 0{	jumpCount = 1;}
 	}
+	InventoryCalculateWeight(oInventory);
 	y += yspd;
 	
