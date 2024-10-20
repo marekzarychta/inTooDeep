@@ -1,6 +1,11 @@
 //Get inputs
 getControls();
 //X Movement
+
+	if place_meeting(x, y, oEnemy) {
+		show_debug_message("Kolizja z wrogiem");	
+	}
+
 		//Direction
 	moveDir = rightKey - leftKey;
 
