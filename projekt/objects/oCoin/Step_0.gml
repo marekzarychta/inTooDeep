@@ -75,5 +75,7 @@ if flyingTimer > 0 {
 if place_meeting(x, y, oPlayer) && collectable {
 	
 	show_debug_message("Zebrano: " + string(id));
+	oPlayer.inventoryWeight += weight;
+	show_debug_message("Obecna waga: " + string(oPlayer.inventoryWeight));
 	instance_destroy(id);
 }

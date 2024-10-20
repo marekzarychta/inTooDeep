@@ -8,6 +8,20 @@ var horizontalRange = 48;
 var nearestCrate = noone; 
 var shortestDistance = 9999;
 
+
+// Modyfing speed and jump multipliers based on weight
+
+if(inventoryWeight <= 3) {
+	currentWeightLevel = weightLevels[0];
+} else if (inventoryWeight <= 6) {
+	currentWeightLevel = weightLevels[1];
+} else if (inventoryWeight <= 10) {
+	currentWeightLevel = weightLevels[2];
+} else {
+	currentWeightLevel = weightLevels[3];
+}
+
+
 //X Movement
 
 	if place_meeting(x, y, oEnemy) {
@@ -55,6 +69,8 @@ var shortestDistance = 9999;
 	{
 		image_xscale = moveDir;
 	}
+	xspd = moveDir * moveSpd[currentWeightLevel];
+
 	//X Collision
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
@@ -103,7 +119,7 @@ var shortestDistance = 9999;
 	}
 	//jump based on timer
 	if jumpHoldTimer > 0{
-		yspd = jspd[jumpCount-1];
+		yspd = jspd[jumpCount-1][currentWeightLevel];
 		//Count down timer
 		jumpHoldTimer--;
 	}

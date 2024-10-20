@@ -1,3 +1,5 @@
+weight = 1;
+
 yspd = -3.75;
 grav = .275;
 termVel = 3;
