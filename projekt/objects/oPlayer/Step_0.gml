@@ -1,5 +1,13 @@
 //Get inputs
 getControls();
+
+
+
+var cratesInRange = []; 
+var horizontalRange = 48;
+var nearestCrate = noone; 
+var shortestDistance = 9999;
+
 //X Movement
 
 	if place_meeting(x, y, oEnemy) {
@@ -8,6 +16,38 @@ getControls();
 
 		//Direction
 	moveDir = rightKey - leftKey;
+
+	if moveDir != 0 {
+		face = moveDir;
+	}
+
+	//Check Collision with chest
+
+	with (oChest) {
+	    
+		//Checking if chest is in range
+		
+	    if (abs(other.x - x) <= horizontalRange  && abs(other.y - y) <= 2) {
+	        // Adding chest to array
+	        array_push(cratesInRange, id);
+	    }
+	}
+	
+	for (var i = 0; i < array_length(cratesInRange); i++) {
+	    var crate = cratesInRange[i];
+    
+	    // Caluclating distance
+	    var dist = abs(crate.x - x);
+    
+	    // Finding shortes distance and chest id
+	    if (dist < shortestDistance) {
+	        nearestCrate = crate;
+	        shortestDistance = dist;
+	    }
+	}
+	//setting id nearest chest
+	chestId = nearestCrate;
+	
 
 		//Get xspd
 	xspd = moveDir * moveSpd;
@@ -100,3 +140,4 @@ getControls();
 		if jumpCount == 0{	jumpCount = 1;}
 	}
 	y += yspd;
+	
