@@ -208,7 +208,8 @@ function releaseItem(rootObject) {
 
 function DropItems(rootObject) {
 	var size = ds_list_size(rootObject.inventory);
-	var item = instance_create_depth(oPlayer.x, oPlayer.y, 20, oBag);
+	var item = instance_create_layer(oPlayer.x, oPlayer.y, oChest.layer, oBag);
+	
 	for (var i = 0; i < size; i++) {
 		ds_list_add(item.items, InventoryRemove(rootObject, 1));	
 	}
