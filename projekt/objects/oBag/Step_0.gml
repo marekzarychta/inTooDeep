@@ -7,12 +7,13 @@ if !opened {
 	    openable = false;
 		opened = true;
 		
-		var itemsCount = irandom_range(2, 4);
-		for (var i = 0; i < itemsCount; i++) {
-			instance_create_depth(x, y - 8, 20, oCoin);
-			
+		var size = ds_list_size(items);
+		
+		for (var i = 0; i < size; i++) {
+			InventoryAdd(oInventory, 1);
 		}
 	}	
 } else {
-	sprite_index = openedSprite;	
+	instance_destroy(id);	
 }
+

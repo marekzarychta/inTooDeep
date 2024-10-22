@@ -3,5 +3,6 @@
 
 if opened {
 	OpenInventory(id);	
+	//instance_destroy(but1);	
 }
 

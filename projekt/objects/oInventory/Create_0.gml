@@ -7,6 +7,7 @@
 
 //inventory = array_create(INVENTORY_SLOTS,-1);
 inventory = ds_list_create();
+//but1 = instance_create_depth(0, 0, 20, oTestButton);
 
 //ds_list_add(inventory, instance_create_depth(0, 0, 20, oTestCoin));
 

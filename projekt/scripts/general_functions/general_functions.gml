@@ -59,18 +59,4 @@ function chestHandling() {
 	if openable && marked {
 		sprite_index = markSprite;	
 	}
-
-
-
-	if (marked && openable && keyboard_check_pressed(ord("E"))) {
-    
-	    openable = false;
-		opened = true;
-		
-		var itemsCount = irandom_range(2, 4);
-		for (var i = 0; i < itemsCount; i++) {
-			instance_create_depth(x, y - 8, Level1.depth - 1, oCoin);
-			
-		}
-	}	
 }
