@@ -60,12 +60,8 @@ function InventoryAdd(rootObject, itemType){
 	}
 }
 
-function InventoryRemove(rootObject, itemType){
-	var l;
+function InventoryRemove(rootObject){
 	
-	if itemType == 1 {
-		l = oTestCoin;	
-	}
 	
 	if (!InventoryIsEmpty(rootObject)){
 		for (var _y = INVENTORY_GRID_Y - 1; _y >= 0; _y--) {
@@ -73,7 +69,7 @@ function InventoryRemove(rootObject, itemType){
 				var item = InventoryTakenPositon(rootObject, _x, _y);
 				
 			
-				if item != noone && item.object_index == l {
+				if item != noone {
 					
 					ds_list_delete(rootObject.inventory, ds_list_find_index(rootObject.inventory, item));
 					//instance_destroy(item);
@@ -84,6 +80,31 @@ function InventoryRemove(rootObject, itemType){
 			}
 		}
 		//show_debug_message(object_get_name(oTestCoin));
+		return noone;
+	}
+	else
+	{
+		show_debug_message("Inventory empty");
+	}
+}
+
+function InventoryRemoveChoosen(rootObject, itemType){
+	
+	
+	if (!InventoryIsEmpty(rootObject)){
+		for (var _y = INVENTORY_GRID_Y - 1; _y >= 0; _y--) {
+			for (var _x = INVENTORY_GRID_X - 1; _x >= 0 ; _x--) {
+				var item = InventoryTakenPositon(rootObject, _x, _y);
+				
+			
+				if item != noone  && item.choosen {
+					
+					ds_list_delete(rootObject.inventory, ds_list_find_index(rootObject.inventory, item));
+					
+					return item;
+				}
+			}
+		}
 		return noone;
 	}
 	else
@@ -129,6 +150,9 @@ function OpenInventory(rootObject) {
 		var item = ds_list_find_value(rootObject.inventory, i);
 		if item != rootObject.dragging_item
 			draw_sprite_stretched(item.inv_sprite, 0, x + item.grid_x * 16 + x_offset + 2, y + item.grid_y * 16 + y_offset + 2, 10, 10);
+		if item.choosen {
+			draw_sprite_stretched(sMarked, 0, x + item.grid_x * 16 + x_offset + 2, y + item.grid_y * 16 + y_offset + 2, 10, 10);	
+		}
 	}
 	
 	if (rootObject.dragging_item != noone) {
@@ -206,13 +230,59 @@ function releaseItem(rootObject) {
 	}	
 }
 
-function DropItems(rootObject) {
+function DropAllItems(rootObject) {
 	var size = ds_list_size(rootObject.inventory);
 	var item = instance_create_layer(oPlayer.x, oPlayer.y, oChest.layer, oBag);
 	
 	for (var i = 0; i < size; i++) {
-		ds_list_add(item.items, InventoryRemove(rootObject, 1));	
+		ds_list_add(item.items, InventoryRemove(rootObject));	
+		
 	}
 	
 	
+}
+
+function DropItems(rootObject) {
+	var size = choosenSize(rootObject);
+	var item = instance_create_layer(oPlayer.x, oPlayer.y, oChest.layer, oBag);
+	show_debug_message(string(size));
+	for (var i = 0; i < size; i++) {
+		ds_list_add(item.items, InventoryRemoveChoosen(rootObject, 1));	
+		item.choosen = false;
+	}
+}
+
+function choosenSize(rootObject) {
+	var counter = 0;
+	var size = ds_list_size(rootObject.inventory);
+	for (var i = 0; i < size; i++) {
+		var item = ds_list_find_value(rootObject.inventory, i);
+		if item.choosen {
+			counter++;	
+		}
+	}
+	return counter;
+}
+
+function MarkItem(rootObject) {
+	var _x = -1;
+	var _y = -1;
+	if mouse_x > rootObject.x + x_offset && mouse_x < rootObject.x + x_offset + 16 * INVENTORY_GRID_X {
+		_x = floor((mouse_x - x - x_offset) / 16);  
+	}
+	if mouse_y > rootObject.y + y_offset && mouse_y < rootObject.y + y_offset + 16 * INVENTORY_GRID_Y {
+		_y = floor((mouse_y - y - y_offset) / 16); 
+	}
+		
+	var item;
+	
+	show_debug_message(string(_x) + " " + string(_y));
+	
+	if _x != -1 && _y != -1 {
+		item = InventoryTakenPositon(rootObject, _x, _y);	
+		if item != noone {
+			
+			item.choosen = !item.choosen;		
+		}
+	}
 }

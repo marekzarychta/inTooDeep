@@ -1,2 +1,2 @@
 if opened
-	InventoryRemove(id, 1);
+	InventoryRemove(id);

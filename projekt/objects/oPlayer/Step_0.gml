@@ -1,5 +1,6 @@
 //Get inputs
-getControls();
+if !oInventory.opened
+	getControls();
 
 
 
