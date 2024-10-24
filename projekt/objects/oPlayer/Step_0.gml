@@ -12,15 +12,7 @@ var shortestDistance = 9999;
 
 // Modyfing speed and jump multipliers based on weight
 
-if(inventoryWeight <= 3) {
-	currentWeightLevel = weightLevels[0];
-} else if (inventoryWeight <= 6) {
-	currentWeightLevel = weightLevels[1];
-} else if (inventoryWeight <= 10) {
-	currentWeightLevel = weightLevels[2];
-} else {
-	currentWeightLevel = weightLevels[3];
-}
+ChangeWeight();
 
 
 //X Movement

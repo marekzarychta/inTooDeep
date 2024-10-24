@@ -44,8 +44,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"inventorySprites",
+    "path":"folders/Sprites/inventorySprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

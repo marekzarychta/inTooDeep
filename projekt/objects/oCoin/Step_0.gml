@@ -72,7 +72,7 @@ if flyingTimer > 0 {
 	collectable = true;	
 }
 
-if place_meeting(x, y, oPlayer) && collectable {
+if place_meeting(x, y, oPlayer) && collectable && 2 + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
 	
 	show_debug_message("Zebrano: " + string(id));
 	InventoryAdd(oInventory, 1);

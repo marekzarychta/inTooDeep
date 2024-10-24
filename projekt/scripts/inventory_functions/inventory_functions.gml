@@ -115,7 +115,7 @@ function InventoryRemoveChoosen(rootObject, itemType){
 
 function InventoryCalculateWeight(rootObject){
 	if (!InventoryIsEmpty(rootObject)){
-		_weight = 0;
+		var _weight = 0;
 		var size = ds_list_size(rootObject.inventory);
         for (var i = 0; i < size; i++) {
             _weight += ds_list_find_value(rootObject.inventory, i).weight;
@@ -247,8 +247,10 @@ function DropItems(rootObject) {
 	var item = instance_create_layer(oPlayer.x, oPlayer.y, oChest.layer, oBag);
 	show_debug_message(string(size));
 	for (var i = 0; i < size; i++) {
-		ds_list_add(item.items, InventoryRemoveChoosen(rootObject, 1));	
-		item.choosen = false;
+		var c = InventoryRemoveChoosen(rootObject, 1);
+		ds_list_add(item.items, c);	
+		c.choosen = false;
+		
 	}
 }
 

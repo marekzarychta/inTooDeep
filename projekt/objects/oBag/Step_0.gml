@@ -1,7 +1,7 @@
 if !opened {
 
 	chestHandling();
-	
+		
 	if (marked && openable && keyboard_check_pressed(ord("E"))) && !oInventory.opened {
     
 	    openable = false;

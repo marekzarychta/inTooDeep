@@ -5,7 +5,7 @@ moveDir = 0;
 moveSpd = 2;
 
 // Inventory load indicator
-weightLevels = [0, 1, 2, 3];
+SetWeights();
 currentWeightLevel = 0;
 
 // How much does inventory weigh

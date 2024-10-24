@@ -1,4 +1,4 @@
-/// @description Insert description here
+ /// @description Insert description here
 // You can write your code in this editor
 
 draw_sprite_stretched(sHealthBar, 0, x,y, MAX_HEALTH*16+6, 16);
