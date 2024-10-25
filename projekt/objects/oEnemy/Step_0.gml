@@ -8,9 +8,9 @@
 	var dx = playerX - x;
 	var dy = playerY - y;
 	
-	if place_meeting(x, y, oPlayer) {
-		show_debug_message("Kolizja");	
-	}
+	//if place_meeting(x, y, oPlayer) {
+	//	show_debug_message("Kolizja");	
+	//}
 	
 	
 	

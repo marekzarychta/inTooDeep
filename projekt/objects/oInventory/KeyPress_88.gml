@@ -1,2 +1,3 @@
-if opened
-	InventoryAdd(id, 1);
+if opened {
+	debugAdd();
+}

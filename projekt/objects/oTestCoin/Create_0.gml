@@ -1,6 +1,6 @@
 // in world
 
-weight = 1;
+world_sprite = sCoin;
 
 yspd = -3.75;
 grav = .275;
@@ -32,7 +32,9 @@ grid_y = 6;
 choosen = false;
 
 weight = 2;
-var value = 10;
+item_value = 10;
 name = "TestCoin";
 
 inv_sprite = sItem;
+
+in_inventory = false;

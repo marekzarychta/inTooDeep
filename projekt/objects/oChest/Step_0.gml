@@ -9,7 +9,7 @@ if !opened {
 		
 		var itemsCount = irandom_range(2, 4);
 		for (var i = 0; i < itemsCount; i++) {
-			instance_create_depth(x, y - 8, 20, oCoin);
+			instance_create_layer(x, y - 8, oChest.layer, oTestCoin);
 			
 		}
 	}	
