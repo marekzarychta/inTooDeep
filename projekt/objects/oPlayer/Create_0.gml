@@ -1,3 +1,7 @@
+//Health
+SetHP();
+isAlive = true;
+
 //Movement
 	//Movement direction
 moveDir = 0;
@@ -11,7 +15,7 @@ currentWeightLevel = 0;
 // How much does inventory weigh
 inventoryWeight = 0;
 
-moveSpd = [2, 1.5, 1, 0.5];
+moveSpd = [2, 1.6, 1.2, 1];
 xspd = 0;
 yspd = 0;
 

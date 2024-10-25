@@ -13,18 +13,21 @@
 	//}
 	
 	
-	
-	if sqrt(dx * dx + dy * dy) < 72 /*&& changeDirTimer == 0*/ {
-		moveDir = sign(dx);	
-		//changeDirTimer = changeDirBuffer;
-		following = true;
-		followingTimer = followingBuffer;
-	} else {
-		if followingTimer > 0 {
-			followingTimer--;	
+	if oPlayer.isAlive {
+		if sqrt(dx * dx + dy * dy) < 72 /*&& changeDirTimer == 0*/ {
+			moveDir = sign(dx);	
+			//changeDirTimer = changeDirBuffer;
+			following = true;
+			followingTimer = followingBuffer;
 		} else {
-			following = false;	
+			if followingTimer > 0 {
+				followingTimer--;	
+			} else {
+				following = false;	
+			}
 		}
+	} else {
+		following = false;	
 	}
 	
 	//if changeDirTimer > 0 {

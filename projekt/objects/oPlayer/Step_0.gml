@@ -1,18 +1,23 @@
-//Get inputs
-if !oInventory.opened
-	getControls();
+if isAlive {
+
+	HPManage();
+
+
+	//Get inputs
+	if !oInventory.opened
+		getControls();
 
 
 
-var cratesInRange = []; 
-var horizontalRange = 48;
-var nearestCrate = noone; 
-var shortestDistance = 9999;
+	var cratesInRange = []; 
+	var horizontalRange = 48;
+	var nearestCrate = noone; 
+	var shortestDistance = 9999;
 
 
-// Modyfing speed and jump multipliers based on weight
+	// Modyfing speed and jump multipliers based on weight
 
-ChangeWeight();
+	ChangeWeight();
 
 
 //X Movement
@@ -159,4 +164,4 @@ ChangeWeight();
 	}
 	InventoryCalculateWeight(oInventory);
 	y += yspd;
-	
+}
