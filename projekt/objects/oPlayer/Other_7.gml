@@ -1,5 +1,3 @@
-if isAlive {
-	sprite_index = sPlayer;
-} else {
+if !isAlive{
 	sprite_index = sPlayerDead;	
 }
