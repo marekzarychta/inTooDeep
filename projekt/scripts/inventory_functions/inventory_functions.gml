@@ -171,7 +171,7 @@ function OpenInventory(rootObject) {
 	draw_sprite_stretched(but1.sprite_index, 0, but1.x, but1.y, 32, 16);
 	draw_set_font(Fnt_small);
 	draw_set_color(c_black);
-	draw_text(but1.x + 2, but1.y + 1, string(but1.o_name));
+	draw_text(but1.x + but1.w / 2, but1.y + but1.h / 2, string(but1.o_name));
 }
 
 function CloseInventory() {
@@ -292,7 +292,7 @@ function MarkItem(rootObject) {
 }
 
 function debugAdd() {
-	var newItem = instance_create_layer(0, 0, oChest.layer, oTestCoin);
+	var newItem = instance_create_layer(0, 0, oChest.layer, oCoin);
 	if newItem.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
 		InventoryAdd(id, newItem);
 	} else {
