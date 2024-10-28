@@ -61,7 +61,7 @@ function InventoryAdd(rootObject, itemType){
 	}
 }
 
-function InventoryRemove(rootObject){
+function InventoryRemove(rootObject) {
 	
 	
 	if (!InventoryIsEmpty(rootObject)){
@@ -81,12 +81,13 @@ function InventoryRemove(rootObject){
 			}
 		}
 		//show_debug_message(object_get_name(oTestCoin));
-		return noone;
 	}
 	else
 	{
 		show_debug_message("Inventory empty");
+		
 	}
+	return noone;
 }
 
 function InventoryRemoveChoosen(rootObject){
