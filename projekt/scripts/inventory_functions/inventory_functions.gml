@@ -37,15 +37,16 @@ function InventoryAdd(rootObject, itemType){
 			for (var _x = 0; _x < INVENTORY_GRID_X; _x++) {
 				if InventoryTakenPositon(rootObject, _x, _y) == noone {
 				
-					var item;
+					var item = itemType;
 				
-					if itemType == 1 {
-						item = instance_create_depth(0, 0, 20, oTestCoin);		
-					}
+					//if itemType == 1 {
+					//	item = instance_create_depth(0, 0, 20, oTestCoin);		
+					//}
 					item.grid_x = _x;
 					item.grid_y = _y;
-					item.value = irandom_range(5, 20);
-					
+					item.item_value = irandom_range(5, 20);
+					item.in_inventory = true;
+					oPlayer.inventoryWeight += item.weight;
 					ds_list_add(rootObject.inventory, item);
 					return true;
 				}
@@ -88,7 +89,7 @@ function InventoryRemove(rootObject){
 	}
 }
 
-function InventoryRemoveChoosen(rootObject, itemType){
+function InventoryRemoveChoosen(rootObject){
 	
 	
 	if (!InventoryIsEmpty(rootObject)){
@@ -97,7 +98,7 @@ function InventoryRemoveChoosen(rootObject, itemType){
 				var item = InventoryTakenPositon(rootObject, _x, _y);
 				
 			
-				if item != noone  && item.choosen {
+				if item != noone && item.choosen {
 					
 					ds_list_delete(rootObject.inventory, ds_list_find_index(rootObject.inventory, item));
 					
@@ -115,7 +116,7 @@ function InventoryRemoveChoosen(rootObject, itemType){
 
 function InventoryCalculateWeight(rootObject){
 	if (!InventoryIsEmpty(rootObject)){
-		_weight = 0;
+		var _weight = 0;
 		var size = ds_list_size(rootObject.inventory);
         for (var i = 0; i < size; i++) {
             _weight += ds_list_find_value(rootObject.inventory, i).weight;
@@ -156,7 +157,7 @@ function OpenInventory(rootObject) {
 	}
 	
 	if (rootObject.dragging_item != noone) {
-		show_debug_message("tak");
+		
 	    draw_set_color(c_yellow); 
 	    draw_sprite_stretched(rootObject.dragging_item.inv_sprite, 0, mouse_x, mouse_y, 10, 10); // Rysowanie przedmiotu w miejscu kursora
 	}
@@ -247,8 +248,10 @@ function DropItems(rootObject) {
 	var item = instance_create_layer(oPlayer.x, oPlayer.y, oChest.layer, oBag);
 	show_debug_message(string(size));
 	for (var i = 0; i < size; i++) {
-		ds_list_add(item.items, InventoryRemoveChoosen(rootObject, 1));	
-		item.choosen = false;
+		var c = InventoryRemoveChoosen(rootObject);
+		ds_list_add(item.items, c);	
+		c.choosen = false;
+		
 	}
 }
 
@@ -284,5 +287,14 @@ function MarkItem(rootObject) {
 			
 			item.choosen = !item.choosen;		
 		}
+	}
+}
+
+function debugAdd() {
+	var newItem = instance_create_layer(0, 0, oChest.layer, oTestCoin);
+	if newItem.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
+		InventoryAdd(id, newItem);
+	} else {
+		instance_destroy(newItem);	
 	}
 }

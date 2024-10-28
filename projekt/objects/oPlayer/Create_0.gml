@@ -1,3 +1,7 @@
+//Health
+SetHP();
+isAlive = true;
+
 //Movement
 	//Movement direction
 moveDir = 0;
@@ -5,13 +9,13 @@ moveDir = 0;
 moveSpd = 2;
 
 // Inventory load indicator
-weightLevels = [0, 1, 2, 3];
+SetWeights();
 currentWeightLevel = 0;
 movementSprites = [sPlayerRun, sPlayerRun, sPlayerWalk, sPlayerWalk];
 // How much does inventory weigh
 inventoryWeight = 0;
 
-moveSpd = [2, 1.5, 1, 0.5];
+moveSpd = [2, 1.6, 1.2, 1];
 xspd = 0;
 yspd = 0;
 

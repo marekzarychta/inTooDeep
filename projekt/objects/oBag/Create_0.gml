@@ -7,5 +7,7 @@ opened = false;
 closedSprite = sBag;
 markSprite = sBagMarked;
 
+bagWeight = 0;
+
 items = ds_list_create();
 
