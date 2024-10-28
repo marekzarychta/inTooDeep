@@ -45,6 +45,7 @@
     {"id":{"name":"oBag","path":"objects/oBag/oBag.yy",},},
     {"id":{"name":"oBreakableWall","path":"objects/oBreakableWall/oBreakableWall.yy",},},
     {"id":{"name":"oButtonTemplate","path":"objects/oButtonTemplate/oButtonTemplate.yy",},},
+    {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},},
     {"id":{"name":"oChest","path":"objects/oChest/oChest.yy",},},
     {"id":{"name":"oCoin","path":"objects/oCoin/oCoin.yy",},},
     {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},},
@@ -59,6 +60,7 @@
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},},
     {"id":{"name":"oWeightBar","path":"objects/oWeightBar/oWeightBar.yy",},},
+    {"id":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
     {"id":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
     {"id":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
@@ -103,6 +105,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
     {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
   ],

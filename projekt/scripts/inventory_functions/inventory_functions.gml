@@ -132,8 +132,13 @@ function OpenInventory(rootObject) {
 	
 	draw_sprite_stretched(sInventory, 0, x, y, inventory_w, inventory_h);
 	
-	
+	show_debug_message(string(oCamera._camX));
 
+
+	
+	x = startX + oCamera._camX;
+	y = startY + oCamera._camY;
+	
 	
 	for (var i = 0; i < INVENTORY_GRID_Y; i++) {
 		var _y = y + i * 16 + y_offset;

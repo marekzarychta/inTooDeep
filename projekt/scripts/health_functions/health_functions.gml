@@ -8,6 +8,10 @@ function SetHP() {
 }
 
 function DrawHealthBar(RootObject) {
+	
+	x = startX + oCamera._camX;
+	y = startY + oCamera._camY;
+	
 	draw_sprite_stretched(sHealthBar, 0, x,y, MAX_HEALTH_WIDTH*16+6, 16);
 
 	var stretch = 16 * MAX_HEALTH_WIDTH / oPlayer.max_health;
