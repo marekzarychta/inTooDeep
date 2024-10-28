@@ -2,7 +2,7 @@ if !opened {
 
 	chestHandling();
 	
-	if (marked && openable && keyboard_check_pressed(ord("E"))) && !oInventory.opened {
+	if (marked && openable && keyboard_check_pressed(ord("E"))) && !oInventory.opened && oPlayer.isAlive {
     
 	    openable = false;
 		opened = true;

@@ -1,6 +1,6 @@
 function SetHP() {
 
-	max_health = 6;
+	max_health = 2;
 	current_health = max_health;
 	
 	bufferEnemyHit = 60;
@@ -24,9 +24,15 @@ function HPManage() {
 		LoseHP();
 		
 		if current_health == 0 {
+			toDown(oPlayer);
 			oPlayer.isAlive = false;
 			oPlayer.sprite_index = sPlayerDead;
 			timerEnemyHit = 0;
+			DropAllItems(oInventory);
+			if (oInventory.opened) {
+				oInventory.opened = false;	
+				CloseInventory(oInventory);
+			}
 		}
 	}
 	

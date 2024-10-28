@@ -173,8 +173,8 @@ function OpenInventory(rootObject) {
 	draw_text(but1.x + 2, but1.y + 1, string(but1.o_name));
 }
 
-function CloseInventory() {
-	instance_destroy(but1.id);	
+function CloseInventory(rootObject) {
+	instance_destroy(rootObject.but1.id);	
 }
 
 function dragItem(rootObject) {
