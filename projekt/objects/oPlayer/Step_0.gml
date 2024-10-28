@@ -192,9 +192,9 @@ if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
         sprite_index = sPlayerJump;
     }
 
-    if (jumpCount == 0) {
-        jumpCount = 1;
-    }
+    //if (jumpCount == 0) {
+    //    jumpCount = 1;
+    //}
 	
 }
 
