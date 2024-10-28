@@ -7,7 +7,7 @@ moveSpd = 2;
 // Inventory load indicator
 weightLevels = [0, 1, 2, 3];
 currentWeightLevel = 0;
-
+movementSprites = [sPlayerRun, sPlayerRun, sPlayerWalk, sPlayerWalk];
 // How much does inventory weigh
 inventoryWeight = 0;
 
@@ -30,6 +30,15 @@ onGround = true;
 	//Maximum number of jumps
 jumpMax = 2;
 jumpCount = 0;
+
+//Timers for in-between animations
+jumpStartTimer = 0;
+jumpDuration = 1;
+
+//See if player is interacting
+isInteracting = false; 
+interactionTimer = 60;
+
 jumpHoldTimer = 0;
 	//Jump values for successive jumps
 	jumpHoldFrames[0] = 9;

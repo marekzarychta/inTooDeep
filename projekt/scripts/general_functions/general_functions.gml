@@ -60,3 +60,8 @@ function chestHandling() {
 		sprite_index = markSprite;	
 	}
 }
+
+function interact() {
+	show_debug_message("interaktuje");
+	oPlayer.isInteracting = true;
+}

@@ -6,11 +6,10 @@ if !opened {
     
 	    openable = false;
 		opened = true;
-		
+		interact();
 		var itemsCount = irandom_range(2, 4);
 		for (var i = 0; i < itemsCount; i++) {
 			instance_create_depth(x, y - 8, 20, oCoin);
-			
 		}
 	}	
 } else {

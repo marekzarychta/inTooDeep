@@ -73,12 +73,27 @@ if(inventoryWeight <= 3) {
 	//setting id nearest chest
 	chestId = nearestCrate;
 	
-
+	//Flip horizontally according to movement direction
+	
+	
 		//Get xspd
 	if moveDir != 0
 	{
 		image_xscale = moveDir;
+		if(yspd==0){
+		//Change movement animation based on weight
+		sprite_index = movementSprites[currentWeightLevel];
+		//Move slower at certain weights
+		if (currentWeightLevel == 4 || currentWeightLevel == 1){
+			image_speed = 0.75;
+		}else{
+			image_speed = 1;
+		}
+		}
+	}else if (moveDir ==0 && yspd == 0){
+		sprite_index = sPlayerIdle;
 	}
+	//Set xspd
 	xspd = moveDir * moveSpd[currentWeightLevel];
 
 	//X Collision
@@ -100,13 +115,14 @@ if(inventoryWeight <= 3) {
 		xspd = 0;
 	}
 
-	//Move
+	//Move x
 	x += xspd;
 	
 //Y Movement
 	//Gravity
 	yspd += grav;
 	
+	//If speed would exceed terminal velocity, cap it
 	if yspd > termVel {yspd = termVel; };
 	
 	//Initiate jump
@@ -118,6 +134,7 @@ if(inventoryWeight <= 3) {
 		
 		//Add jump to count
 		jumpCount++;
+		jumpStartTimer = jumpDuration;
 		
 		//Set jump hold timer
 		jumpHoldTimer = jumpHoldFrames[jumpCount-1];
@@ -156,15 +173,32 @@ if(inventoryWeight <= 3) {
 		yspd = 0;
 	}
 	
-	//Check if on ground
-	if yspd >=0 && place_meeting(x,y+1, oWall){
-		onGround = true;
-		jumpCount = 0;
-		jumpHoldTimer = 0;
-	} else {
-		onGround = false;
-		if jumpCount == 0{	jumpCount = 1;}
-	}
+//Check if on ground, reset timers
+if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
+    onGround = true;
+    jumpCount = 0;
+    jumpHoldTimer = 0;
+} else {
+    onGround = false;
+    // Start jump animation
+    if (jumpStartTimer > 0) {
+        sprite_index = sPlayerStartJump;
+        jumpStartTimer--;
+    } else if (yspd > 0) {
+        // Fall animation
+        sprite_index = sPlayerFall;
+    } else if (!onGround && jumpCount > 0) {
+        // Jump animation
+        sprite_index = sPlayerJump;
+    }
+
+    if (jumpCount == 0) {
+        jumpCount = 1;
+    }
+	
+}
+
+	
 	InventoryCalculateWeight(oInventory);
 	y += yspd;
 	
