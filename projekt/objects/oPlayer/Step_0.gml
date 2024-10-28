@@ -14,12 +14,16 @@ var shortestDistance = 9999;
 
 if(inventoryWeight <= 3) {
 	currentWeightLevel = weightLevels[0];
+	can_break_floors = false;
 } else if (inventoryWeight <= 6) {
 	currentWeightLevel = weightLevels[1];
+	can_break_floors = false;
 } else if (inventoryWeight <= 10) {
 	currentWeightLevel = weightLevels[2];
+	can_break_floors = true;
 } else {
 	currentWeightLevel = weightLevels[3];
+	can_break_floors = true;
 }
 
 
@@ -85,13 +89,13 @@ if(inventoryWeight <= 3) {
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	//Check wall collision
-	if place_meeting(x + xspd, y, oWall)
+	if (place_meeting(x + xspd, y, oWall) || (place_meeting(x + xspd, y, oBreakableWall) && yspd == 0))
 	{
 		//Walk up to wall precisely
 		var _pixelCheck = _subPixel * sign(xspd);
 	
 		//Move as close to the wall as possible in 0.5px increments
-		while !place_meeting(x+_pixelCheck, y, oWall)
+		while !place_meeting(x+_pixelCheck, y, oWall) && !place_meeting(x+_pixelCheck, y, oBreakableWall)
 		{
 			x += _pixelCheck;
 		}
@@ -134,30 +138,38 @@ if(inventoryWeight <= 3) {
 		jumpHoldTimer--;
 	}
 	
-	//Y Collision
-	var _subPixel = .5;
-	
-	//Check wall collision
-	if place_meeting(x, y + yspd, oWall)
-	{
-		//Move up to wall precisely
-		var _pixelCheck = _subPixel * sign(yspd);
-	
-		//Move as close to the wall as possible in 0.5px increments
-		while !place_meeting(x, y + _pixelCheck, oWall)
-		{
-			y += _pixelCheck;
-		}
-		//Bonk
-		if (yspd < 0){
-			jumpHoldTimer = 0;
-		}
-		//Stop movement to collide
-		yspd = 0;
-	}
-	
+	// Y Collision
+var _subPixel = .5;
+
+// Check wall collision
+if (place_meeting(x, y + yspd, oWall) || place_meeting(x, y + yspd, oBreakableWall)) {
+    if (can_break_floors && place_meeting(x, y + yspd, oBreakableWall) && yspd > 0) {
+        var breakableWall = instance_place(x, y + yspd, oBreakableWall);
+        if (breakableWall != noone) {
+            with (breakableWall) {
+                instance_destroy();
+            }
+        }
+    } else {
+        // Move up to wall precisely
+        var _pixelCheck = _subPixel * sign(yspd);
+
+        // Move as close to the wall as possible in 0.5px increments
+        while !place_meeting(x, y + _pixelCheck, oWall) && !place_meeting(x, y + _pixelCheck, oBreakableWall) {
+            y += _pixelCheck;
+        }
+
+        // Bonk
+        if (yspd < 0) {
+            jumpHoldTimer = 0;
+        }
+
+        // Stop movement to collide
+        yspd = 0;  // Setting yspd to 0 only when truly colliding
+    }
+}
 	//Check if on ground
-	if yspd >=0 && place_meeting(x,y+1, oWall){
+	if yspd >=0 && place_meeting(x,y+1, oWall) {
 		onGround = true;
 		jumpCount = 0;
 		jumpHoldTimer = 0;

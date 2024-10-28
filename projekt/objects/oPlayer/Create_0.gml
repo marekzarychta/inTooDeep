@@ -21,6 +21,9 @@ face = 1;
 chestId = 0;
 
 
+// True if equipment load is met as well as a falling velocity
+can_break_floors = false;
+
 //Jumping
 grav = .275;
 	//Falling speed
