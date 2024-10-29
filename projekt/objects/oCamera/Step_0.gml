@@ -5,20 +5,20 @@ if instance_exists(oPlayer) {
 		midX += oPlayer.xspd;	
 	}
 	
-	var current_x = camera_get_view_x(view_camera[0]);
+	//var current_x = camera_get_view_x(view_camera[0]);
 	
-	_camX = midX - _camWidth / 2;
-	_camY = oPlayer.y - _camHeight / 2;
+	//_camX = midX - _camWidth / 2;
+	//_camY = oPlayer.y - _camHeight / 2;
 	
-	_camX = clamp(_camX, leftEdge, rightEdgeX);
-	_camY = clamp(_camY, leftEdge, rightEdgeY);
+	//_camX = clamp(_camX, leftEdge, rightEdgeX);
+	//_camY = clamp(_camY, leftEdge, rightEdgeY);
 	
 	
 	
-	if (abs(current_x - _camX) > 1) {
+	if (abs(oPlayer.xspd) > 0) {
 		timerNotMoving = bufferNotMoving;
 		xspd = 0;
-	} else if (abs(current_x - _camX) < 1 && timerNotMoving > 0) {
+	} else if (abs(oPlayer.xspd) == 0 && timerNotMoving > 0) {
 		timerNotMoving--;
 		xspd = 0;
 	} else if (abs(midX - oPlayer.x) > 1) {

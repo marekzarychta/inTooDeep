@@ -9,7 +9,7 @@ _camX = 0;
 _camY = 0;
 
 
-bufferNotMoving = 20;
+bufferNotMoving = 60;
 timerNotMoving = 0;
 
 centrVel = 1.5;
