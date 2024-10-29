@@ -22,7 +22,7 @@ if instance_exists(oPlayer) {
 		timerNotMoving--;
 		xspd = 0;
 	} else if (abs(midX - oPlayer.x) > 1) {
-		xspd = sign(oPlayer.x - midX);
+		xspd = sign(oPlayer.x - midX) * centrVel;
 	} else {
 		xspd = 0;	
 		timerNotMoving = bufferNotMoving;
