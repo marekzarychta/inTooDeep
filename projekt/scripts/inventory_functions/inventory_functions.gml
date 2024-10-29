@@ -133,6 +133,7 @@ function OpenInventory(rootObject) {
 	draw_sprite_stretched(sInventory, 0, x, y, inventory_w, inventory_h);
 	
 	show_debug_message(string(oCamera._camX));
+	show_debug_message(string(oCamera._camY));
 
 
 	

@@ -1,4 +1,4 @@
-boxSizeX = 72;
+boxSizeX = 16;
 boxSizeY = 24;
 
 midX = oPlayer.x;
@@ -10,7 +10,7 @@ yspd = 0;
 
 
 
-bufferNotMovingX = 60;
+bufferNotMovingX = 1;
 timerNotMovingX = 0;
 
 bufferNotMovingY = 5;
