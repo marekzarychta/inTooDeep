@@ -1,5 +1,7 @@
-if opened {
-	opened = false;	
-	CloseInventory();
+if oPlayer.isAlive {
+	if opened {
+		opened = false;	
+		CloseInventory(id);
+	}
 }
 

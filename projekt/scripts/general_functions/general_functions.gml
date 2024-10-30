@@ -39,7 +39,7 @@ upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
 }
 
 function chestHandling() {
-	if (oPlayer.chestId == id) {
+	if (oPlayer.chestId == id && oPlayer.isAlive) {
 		marked = true;	
 	} else {
 		marked = false;	
@@ -64,4 +64,14 @@ function chestHandling() {
 function interact() {
 	show_debug_message("interaktuje");
 	oPlayer.isInteracting = true;
+}
+
+function toDown(RootObject) {
+	var _pixelCheck = 0.9;	
+	
+	//Move as close to the wall as possible in 0.5px increments
+	while !place_meeting(RootObject.x, RootObject.y + _pixelCheck, oWall)
+	{
+		RootObject.y += _pixelCheck;
+	}	
 }
