@@ -75,3 +75,34 @@ function toDown(RootObject) {
 		RootObject.y += _pixelCheck;
 	}	
 }
+function checkingForSlopes(RootObject) {
+	
+	var _subPixel = 0.5;
+	if !place_meeting(RootObject.x + RootObject.xspd, RootObject.y - abs(RootObject.xspd) - 1, oWall) {
+		while place_meeting(RootObject.x + RootObject.xspd, RootObject.y, oWall) { RootObject.y -= _subPixel };
+	} else {
+		//Walk up to wall precisely
+		var _pixelCheck = _subPixel * sign(xspd);
+	
+		//Move as close to the wall as possible in 0.5px increments
+		while !place_meeting(x+_pixelCheck, y, oWall) && !place_meeting(x+_pixelCheck, y, oBreakableWall)
+		{
+			x += _pixelCheck;
+		}
+	
+		//Stop movement to collide
+		xspd = 0;	
+	}
+	
+	
+}
+
+function checkingForSlopesGoingDown(RootObject) {
+	
+	var _subPixel = 0.5;
+	
+	if RootObject.yspd >= 0 && !place_meeting(RootObject.x+ RootObject.xspd, RootObject.y + 1, oWall) && 
+	place_meeting(RootObject.x + RootObject.xspd, RootObject.y + abs(RootObject.xspd) + 1, oWall) {
+		while !place_meeting(RootObject.x + RootObject.xspd, RootObject.y + _subPixel, oWall) { RootObject.y += _subPixel; }
+	}
+}

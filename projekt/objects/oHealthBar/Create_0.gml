@@ -3,4 +3,5 @@
 
 #macro MAX_HEALTH_WIDTH 4
 
-
+startX = x;
+startY = y;

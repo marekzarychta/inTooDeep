@@ -19,6 +19,10 @@ function ChangeWeight() {
 function DrawWeightBar() {
 	SetWeights();
 	
+	x = startX + oCamera._camX;
+	y = startY + oCamera._camY;
+	show_debug_message("weight: "+string(y));
+	
 	draw_sprite_stretched(sRect, 0, x-1, y - 16, 16 * MAX_WEIGHT_WIDTH / 2+8, 33)
 	draw_sprite_stretched(sWeightBar, 0, x,y, 16 * MAX_WEIGHT_WIDTH / 2+6, 16);
 
@@ -32,7 +36,7 @@ function DrawWeightBar() {
 	}	
 	draw_set_font(Fnt_super_small);
 	draw_set_color(c_black);
-	draw_text(x + 32, y - 14, "Weight");
+	draw_text(x - 4 + (16 * MAX_WEIGHT_WIDTH / 2+8) / 2, y - 8, "Weight");
 	draw_line_width_color(x + weightChangeValue[0] * stretchLenght + 2, y + 2, x + weightChangeValue[0] * stretchLenght + 2, y + 12, 2, c_black, c_black);
 	draw_line_width_color(x + weightChangeValue[1] * stretchLenght + 2, y + 2, x + weightChangeValue[1] * stretchLenght + 2, y + 12, 2, c_black, c_black);
 	draw_line_width_color(x + weightChangeValue[2] * stretchLenght + 2, y + 2, x + weightChangeValue[2] * stretchLenght + 2, y + 12, 2, c_black, c_black);

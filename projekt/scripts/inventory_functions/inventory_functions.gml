@@ -61,7 +61,7 @@ function InventoryAdd(rootObject, itemType){
 	}
 }
 
-function InventoryRemove(rootObject){
+function InventoryRemove(rootObject) {
 	
 	
 	if (!InventoryIsEmpty(rootObject)){
@@ -81,12 +81,13 @@ function InventoryRemove(rootObject){
 			}
 		}
 		//show_debug_message(object_get_name(oTestCoin));
-		return noone;
 	}
 	else
 	{
 		show_debug_message("Inventory empty");
+		
 	}
+	return noone;
 }
 
 function InventoryRemoveChoosen(rootObject){
@@ -131,8 +132,14 @@ function OpenInventory(rootObject) {
 	
 	draw_sprite_stretched(sInventory, 0, x, y, inventory_w, inventory_h);
 	
-	
+	show_debug_message(string(oCamera._camX));
+	show_debug_message(string(oCamera._camY));
 
+
+	
+	x = startX + oCamera._camX;
+	y = startY + oCamera._camY;
+	
 	
 	for (var i = 0; i < INVENTORY_GRID_Y; i++) {
 		var _y = y + i * 16 + y_offset;
@@ -170,7 +177,7 @@ function OpenInventory(rootObject) {
 	draw_sprite_stretched(but1.sprite_index, 0, but1.x, but1.y, 32, 16);
 	draw_set_font(Fnt_small);
 	draw_set_color(c_black);
-	draw_text(but1.x + 2, but1.y + 1, string(but1.o_name));
+	draw_text(but1.x + but1.w / 2, but1.y + but1.h / 2, string(but1.o_name));
 }
 
 function CloseInventory(rootObject) {
@@ -291,7 +298,7 @@ function MarkItem(rootObject) {
 }
 
 function debugAdd() {
-	var newItem = instance_create_layer(0, 0, oChest.layer, oTestCoin);
+	var newItem = instance_create_layer(0, 0, oChest.layer, oCoin);
 	if newItem.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
 		InventoryAdd(id, newItem);
 	} else {

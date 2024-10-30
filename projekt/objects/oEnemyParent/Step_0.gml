@@ -53,13 +53,7 @@
 	if place_meeting(x + xspd, y, oWall) 
 	{
 		
-		var _pixelCheck = _subPixel * sign(xspd);
-	
-		//Move as close to the wall as possible in 0.5px increments
-		while !place_meeting(x + _pixelCheck, y, oWall)
-		{
-			x += _pixelCheck;
-		}
+		checkingForSlopes(id);
 	
 		if !following && wallTimer == 0 {
 			moveDir *= -1;

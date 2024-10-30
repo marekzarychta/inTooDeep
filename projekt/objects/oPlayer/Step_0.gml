@@ -112,18 +112,10 @@ if(inventoryWeight <= 3) {
 	//Check wall collision
 	if (place_meeting(x + xspd, y, oWall) || (place_meeting(x + xspd, y, oBreakableWall) && yspd == 0))
 	{
-		//Walk up to wall precisely
-		var _pixelCheck = _subPixel * sign(xspd);
-	
-		//Move as close to the wall as possible in 0.5px increments
-		while !place_meeting(x+_pixelCheck, y, oWall) && !place_meeting(x+_pixelCheck, y, oBreakableWall)
-		{
-			x += _pixelCheck;
-		}
-	
-		//Stop movement to collide
-		xspd = 0;
+		checkingForSlopes(id);
 	}
+
+	checkingForSlopesGoingDown(id);
 
 	//Move x
 	x += xspd;

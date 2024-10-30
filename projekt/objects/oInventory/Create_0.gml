@@ -13,6 +13,9 @@ inventory = ds_list_create();
 
 opened = false;
 
+startX = x;
+startY = y;
+
 dragging_item = noone;  
 dragging_index = -1;
 
