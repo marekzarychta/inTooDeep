@@ -47,6 +47,7 @@
     {"id":{"name":"oHealthPoint","path":"objects/oHealthPoint/oHealthPoint.yy",},},
     {"id":{"name":"oInventory","path":"objects/oInventory/oInventory.yy",},},
     {"id":{"name":"oItemTemplate","path":"objects/oItemTemplate/oItemTemplate.yy",},},
+    {"id":{"name":"oPause","path":"objects/oPause/oPause.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"oTestButton","path":"objects/oTestButton/oTestButton.yy",},},
     {"id":{"name":"oTestCoin","path":"objects/oTestCoin/oTestCoin.yy",},},
