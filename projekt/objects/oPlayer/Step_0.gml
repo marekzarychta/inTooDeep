@@ -136,6 +136,7 @@ if isAlive {
 	
 	yspd += grav;
 	
+	//ladders
 	if upKey && isLadder {
 		yspd = -ladderSpd; 	
 	} else if downKey && isLadder {
@@ -147,8 +148,8 @@ if isAlive {
 	//If speed would exceed terminal velocity, cap it
 	if yspd > termVel {yspd = termVel; };
 	
-	//Initiate jump
-	if upKeyBuffered && jumpCount < jumpMax && onGround && !place_meeting(x, y, oLadder)
+	//Initiate jump - cannot jump on ladders
+	if upKeyBuffered && jumpCount < jumpMax && onGround
 	{
 		//Reset the buffer
 		upKeyBuffered = false;
@@ -212,13 +213,14 @@ if (place_meeting(x, y + yspd, oWall)) {
     }
 }
 
+	//checking is player on ladder
 	if place_meeting(x, y, oLadder) && (upKey || downKey) {
 		isLadder = true;	
 	} 
 	if !place_meeting(x, y, oLadder) {
 		isLadder = false;
 	}
-
+	//checking top ladder
 	if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !isLadder && !downKey) {
 	    
 		var _subPixel = 0.5;
@@ -234,34 +236,33 @@ if (place_meeting(x, y + yspd, oWall)) {
 	    // Stop movement to collide
 		isLadder = false;
 	    yspd = 0;  // Setting yspd to 0 only when truly colliding
-	    
 	}
 
 	
-//Check if on ground, reset timers
-if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
-    onGround = true;
-    jumpCount = 0;
-    jumpHoldTimer = 0;
-} else {
-    onGround = false;
-    // Start jump animation
-    if (jumpStartTimer > 0) {
-        sprite_index = sPlayerStartJump;
-        jumpStartTimer--;
-    } else if (yspd > 0) {
-        // Fall animation
-        sprite_index = sPlayerFall;
-    } else if (!onGround && jumpCount > 0) {
-        // Jump animation
-        sprite_index = sPlayerJump;
-    }
+	//Check if on ground, reset timers
+	if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
+	    onGround = true;
+	    jumpCount = 0;
+	    jumpHoldTimer = 0;
+	} else {
+	    onGround = false;
+	    // Start jump animation
+	    if (jumpStartTimer > 0) {
+	        sprite_index = sPlayerStartJump;
+	        jumpStartTimer--;
+	    } else if (yspd > 0) {
+	        // Fall animation
+	        sprite_index = sPlayerFall;
+	    } else if (!onGround && jumpCount > 0) {
+	        // Jump animation
+	        sprite_index = sPlayerJump;
+	    }
 
-    //if (jumpCount == 0) {
-    //    jumpCount = 1;
-    //}
+	    //if (jumpCount == 0) {
+	    //    jumpCount = 1;
+	    //}
 	
-}
+	}
 
 
 	InventoryCalculateWeight(oInventory);

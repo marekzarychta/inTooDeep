@@ -31,7 +31,6 @@ isLadder = false;
 // True if equipment load is met as well as a falling velocity
 can_break_orange = false;
 can_break_red = false;
-
 //Jumping
 grav = .163;
 	//Falling speed
