@@ -11,7 +11,7 @@ grav = .275;
 	//Falling speed
 termVel = 4;
 
-edgeBuffer = 2;
+edgeBuffer = 4;
 edgeTimer = 0;
 
 wallTimer = 0;

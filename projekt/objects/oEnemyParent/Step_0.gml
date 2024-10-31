@@ -91,10 +91,10 @@
 	//Setting check side, so set width of the sprite
 	if !following {
 	
-		var edgeDir = oEnemy.sprite_width * sign(xspd) / 2;
+		var edgeDir = id.sprite_width / 2;
 	
 		//if there is not a floor object has to come back
-		if !place_meeting(x + edgeDir , y + 0.1, oWall) && edgeTimer == 0 {
+		if !place_meeting(x - edgeDir , y + 2, oWall) && edgeTimer == 0 {
 			edgeTimer = edgeBuffer;
 			moveDir *= -1;
 		
