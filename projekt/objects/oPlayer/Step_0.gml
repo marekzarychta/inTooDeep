@@ -1,13 +1,8 @@
 if isAlive {
 
 	HPManage();
-
-	if place_meeting(x, y, oLadder) && (upKey || downKey) {
-		isLadder = true;	
-	} 
-	if !place_meeting(x, y, oLadder) {
-		isLadder = false;
-	}
+	
+	
 
 	//Get inputs
 	if !oInventory.opened
@@ -153,7 +148,7 @@ if isAlive {
 	if yspd > termVel {yspd = termVel; };
 	
 	//Initiate jump
-	if upKeyBuffered && jumpCount < jumpMax && onGround && !isLadder
+	if upKeyBuffered && jumpCount < jumpMax && onGround && !place_meeting(x, y, oLadder)
 	{
 		//Reset the buffer
 		upKeyBuffered = false;
@@ -216,6 +211,32 @@ if (place_meeting(x, y + yspd, oWall)) {
         yspd = 0;  // Setting yspd to 0 only when truly colliding
     }
 }
+
+	if place_meeting(x, y, oLadder) && (upKey || downKey) {
+		isLadder = true;	
+	} 
+	if !place_meeting(x, y, oLadder) {
+		isLadder = false;
+	}
+
+	if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !isLadder && !downKey) {
+	    
+		var _subPixel = 0.5;
+		
+	    // Move up to wall precisely
+	    var _pixelCheck = _subPixel;
+
+	    // Move as close to the wall as possible in 0.5px increments
+	    while !place_meeting(x, y + _pixelCheck, oLadder) {
+	        y += _pixelCheck;
+	    }
+
+	    // Stop movement to collide
+		isLadder = false;
+	    yspd = 0;  // Setting yspd to 0 only when truly colliding
+	    
+	}
+
 	
 //Check if on ground, reset timers
 if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
