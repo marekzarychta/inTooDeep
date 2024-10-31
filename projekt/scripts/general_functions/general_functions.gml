@@ -22,6 +22,9 @@ upKeyPressed = keyboard_check_pressed(ord("W")) + keyboard_check_pressed(vk_spac
 upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
 	upKey = clamp (upKey, 0, 1);
 	
+	downKey = keyboard_check(ord("S"));
+	//downKey = clamp (downKey, 0, 1);
+	
 	//Jump key buffering
 	if upKeyPressed
 	{

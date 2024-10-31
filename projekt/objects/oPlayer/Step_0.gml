@@ -2,6 +2,11 @@ if isAlive {
 
 	HPManage();
 
+	if place_meeting(x, y, oLadder) {
+		isLadder = true;	
+	} else {
+		isLadder = false;
+	}
 
 	//Get inputs
 	if !oInventory.opened
@@ -94,7 +99,7 @@ if isAlive {
 			image_speed = 1;
 		}
 		}
-	}else if (moveDir ==0 && yspd == 0){
+	}else if (moveDir ==0 && yspd == 0) {
 		sprite_index = sPlayerIdle;
 	}
 	//Set xspd
@@ -116,13 +121,28 @@ if isAlive {
 	
 //Y Movement
 	//Gravity
+	
+	if isLadder {
+		grav = 0; 	
+	} else {
+		grav = .163;	
+	}
+	
 	yspd += grav;
+	
+	if upKey && isLadder {
+		yspd = -ladderSpd; 	
+	} else if downKey && isLadder {
+		yspd = ladderSpd;	
+	} else if isLadder {
+		yspd = 0;	
+	}
 	
 	//If speed would exceed terminal velocity, cap it
 	if yspd > termVel {yspd = termVel; };
 	
 	//Initiate jump
-	if upKeyBuffered && jumpCount < jumpMax
+	if upKeyBuffered && jumpCount < jumpMax && onGround && !isLadder
 	{
 		//Reset the buffer
 		upKeyBuffered = false;
@@ -136,6 +156,7 @@ if isAlive {
 		jumpHoldTimer = jumpHoldFrames[jumpCount-1];
 		
 	}
+	
 	//cut off jump
 	if !upKey{
 		jumpHoldTimer = 0;	
@@ -145,7 +166,6 @@ if isAlive {
 		yspd = jspd[jumpCount-1][currentWeightLevel];
 		//Count down timer
 		jumpHoldTimer--;
-		show_debug_message("raz");
 	}
 
 	//Y Collision

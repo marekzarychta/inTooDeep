@@ -24,6 +24,9 @@ face = 1;
 //Chests
 chestId = 0;
 
+ladderSpd = 1;
+isLadder = false;
+
 
 // True if equipment load is met as well as a falling velocity
 can_break_floors = false;
@@ -53,5 +56,7 @@ jumpHoldTimer = 0;
 	jspd[0] = [-3.20, -3, -2.83, -2.5];
 	//jumpHoldFrames[1] = 5;
 	//jspd[1] = [-2.70, -2.4, -2.05, -1.75];
+
+top = false;
 
 controlsSetup();
