@@ -25,12 +25,22 @@ if isAlive {
 
 	ChangeWeight();
 
-	termVel = termVelValues[currentWeightLevel / 2];
+	if currentWeightLevel < 2 {
+		termVel = termVelValues[0];
+	} else {
+		termVel = termVelValues[currentWeightLevel - 1]; // 2 and 3 -> 1 and 2
+	}
 
 	if yspd > 5.5 {
-		can_break_floors = true;	
+		can_break_red = true;	
 	} else {
-		can_break_floors = false;	
+		can_break_red = false;	
+	}
+	
+	if yspd > 4.5 {
+		can_break_orange = true;	
+	} else {
+		can_break_orange = false;	
 	}
 //X Movement
 
@@ -109,7 +119,7 @@ if isAlive {
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	//Check wall collision
-	if (place_meeting(x + xspd, y, oWall) || (place_meeting(x + xspd, y, oBreakableWall) && yspd == 0))
+	if (place_meeting(x + xspd, y, oWall) || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0))
 	{
 		checkingForSlopes(id);
 	}
@@ -173,8 +183,15 @@ if isAlive {
 	
 // Check wall collision
 if (place_meeting(x, y + yspd, oWall)) {
-    if (can_break_floors && place_meeting(x, y + yspd, oBreakableWall) && yspd > 0) {
-        var breakableWall = instance_place(x, y + yspd, oBreakableWall);
+    if (can_break_orange && place_meeting(x, y + yspd, oBreakableWallOrange) && yspd > 0) {
+        var breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
+        if (breakableWall != noone) {
+            with (breakableWall) {
+                instance_destroy();
+            }
+        }
+    } else if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
+        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
         if (breakableWall != noone) {
             with (breakableWall) {
                 instance_destroy();
@@ -185,7 +202,7 @@ if (place_meeting(x, y + yspd, oWall)) {
         var _pixelCheck = _subPixel * sign(yspd);
 
         // Move as close to the wall as possible in 0.5px increments
-        while !place_meeting(x, y + _pixelCheck, oWall) && !place_meeting(x, y + _pixelCheck, oBreakableWall) {
+        while !place_meeting(x, y + _pixelCheck, oWall) && !place_meeting(x, y + _pixelCheck, oBreakableWallOrange) {
             y += _pixelCheck;
         }
 

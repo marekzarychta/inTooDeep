@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"oBreakableWall",
+  "%Name":"oBreakableWallRed",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"oBreakableWall",
+  "name":"oBreakableWallRed",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sBreakableWall",
-    "path":"sprites/sBreakableWall/sBreakableWall.yy",
+    "name":"sBreakableWall_Red",
+    "path":"sprites/sBreakableWall_Red/sBreakableWall_Red.yy",
   },
   "spriteMaskId":null,
   "visible":true,

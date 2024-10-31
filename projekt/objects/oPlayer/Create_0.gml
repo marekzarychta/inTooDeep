@@ -29,12 +29,13 @@ isLadder = false;
 
 
 // True if equipment load is met as well as a falling velocity
-can_break_floors = false;
+can_break_orange = false;
+can_break_red = false;
 
 //Jumping
 grav = .163;
 	//Falling speed
-termVelValues = [4, 6];
+termVelValues = [4, 5, 6];
 termVel = termVelValues[0];
 	//On ground
 onGround = true;
