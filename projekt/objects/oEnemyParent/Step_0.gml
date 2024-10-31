@@ -11,7 +11,7 @@
 	//if place_meeting(x, y, oPlayer) {
 	//	show_debug_message("Kolizja");	
 	//}
-	
+	image_xscale = -moveDir;
 	
 	if oPlayer.isAlive {
 		if sqrt(dx * dx + dy * dy) < 72 /*&& changeDirTimer == 0*/ {
@@ -160,3 +160,10 @@
 	y += yspd;
 	
 	
+	//Select sprite depending on movement
+	if(xspd == 0){
+		sprite_index = sprites[0];
+	}else if(xspd!=0){
+		sprite_index = sprites[1];
+	}
+	//tu dodac warunek do ataku, nw jaki

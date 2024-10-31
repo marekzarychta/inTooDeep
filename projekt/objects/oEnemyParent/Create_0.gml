@@ -1,6 +1,6 @@
 //Movement
 	//Movement direction
-
+sprites = [];
 moveDir = 1;
 moveSpd = 0.7;
 xspd = 0;
