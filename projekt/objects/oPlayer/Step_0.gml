@@ -2,9 +2,10 @@ if isAlive {
 
 	HPManage();
 
-	if place_meeting(x, y, oLadder) {
+	if place_meeting(x, y, oLadder) && (upKey || downKey) {
 		isLadder = true;	
-	} else {
+	} 
+	if !place_meeting(x, y, oLadder) {
 		isLadder = false;
 	}
 
