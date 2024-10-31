@@ -18,21 +18,15 @@ if isAlive {
 	// Modyfing speed and jump multipliers based on weight
 
 
-if(inventoryWeight <= 3) {
-	currentWeightLevel = weightLevels[0];
-	can_break_floors = false;
-} else if (inventoryWeight <= 6) {
-	currentWeightLevel = weightLevels[1];
-	can_break_floors = false;
-} else if (inventoryWeight <= 10) {
-	currentWeightLevel = weightLevels[2];
-	can_break_floors = true;
-} else {
-	currentWeightLevel = weightLevels[3];
-	can_break_floors = true;
-}
+	ChangeWeight();
 
+	termVel = termVelValues[currentWeightLevel / 2];
 
+	if yspd > 5.5 {
+		can_break_floors = true;	
+	} else {
+		can_break_floors = false;	
+	}
 //X Movement
 
 	//if place_meeting(x, y, oEnemy) {
@@ -151,13 +145,14 @@ if(inventoryWeight <= 3) {
 		yspd = jspd[jumpCount-1][currentWeightLevel];
 		//Count down timer
 		jumpHoldTimer--;
+		show_debug_message("raz");
 	}
 
 	//Y Collision
 	var _subPixel = .5;
 	
 // Check wall collision
-if (place_meeting(x, y + yspd, oWall) || place_meeting(x, y + yspd, oBreakableWall)) {
+if (place_meeting(x, y + yspd, oWall)) {
     if (can_break_floors && place_meeting(x, y + yspd, oBreakableWall) && yspd > 0) {
         var breakableWall = instance_place(x, y + yspd, oBreakableWall);
         if (breakableWall != noone) {

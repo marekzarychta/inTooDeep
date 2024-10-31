@@ -5,11 +5,11 @@ function SetWeights() {
 }
 
 function ChangeWeight() {
-	if(inventoryWeight <= weightChangeValue[0]) {
+	if(inventoryWeight < weightChangeValue[0]) {
 		currentWeightLevel = weightLevels[0];
-	} else if (inventoryWeight <= weightChangeValue[1]) {
+	} else if (inventoryWeight < weightChangeValue[1]) {
 		currentWeightLevel = weightLevels[1];
-	} else if (inventoryWeight <= weightChangeValue[2]) {
+	} else if (inventoryWeight < weightChangeValue[2]) {
 		currentWeightLevel = weightLevels[2];
 	} else {
 		currentWeightLevel = weightLevels[3];
@@ -21,7 +21,6 @@ function DrawWeightBar() {
 	
 	x = startX + oCamera._camX;
 	y = startY + oCamera._camY;
-	show_debug_message("weight: "+string(y));
 	
 	draw_sprite_stretched(sRect, 0, x-1, y - 16, 16 * MAX_WEIGHT_WIDTH / 2+8, 33)
 	draw_sprite_stretched(sWeightBar, 0, x,y, 16 * MAX_WEIGHT_WIDTH / 2+6, 16);

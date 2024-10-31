@@ -29,13 +29,14 @@ chestId = 0;
 can_break_floors = false;
 
 //Jumping
-grav = .275;
+grav = .163;
 	//Falling speed
-termVel = 4;
+termVelValues = [4, 6];
+termVel = termVelValues[0];
 	//On ground
 onGround = true;
 	//Maximum number of jumps
-jumpMax = 2;
+jumpMax = 1;
 jumpCount = 0;
 
 //Timers for in-between animations
@@ -48,9 +49,9 @@ interactionTimer = 60;
 
 jumpHoldTimer = 0;
 	//Jump values for successive jumps
-	jumpHoldFrames[0] = 9;
-	jspd[0] = [-3.15, -2.85, -2.5, -2];
-	jumpHoldFrames[1] = 5;
-	jspd[1] = [-2.70, -2.4, -2.05, -1.75];
+	jumpHoldFrames[0] = 8;
+	jspd[0] = [-3.20, -3, -2.83, -2.5];
+	//jumpHoldFrames[1] = 5;
+	//jspd[1] = [-2.70, -2.4, -2.05, -1.75];
 
 controlsSetup();
