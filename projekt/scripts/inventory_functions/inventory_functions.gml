@@ -128,21 +128,40 @@ function InventoryCalculateWeight(rootObject){
 	}
 }
 
-function OpenInventory(rootObject) {
-	
-	draw_sprite_stretched(sInventory, 0, x, y, inventory_w, inventory_h);
-	
 
+function OpenDeposit(rootObject) {
+	var ox = rootObject.startX + oCamera._camX;
+	var oy = rootObject.startY + oCamera._camY;
+	
+	
+	
+	draw_sprite_stretched(sInventory, 0, ox, oy, rootObject.inventory_w, rootObject.inventory_h);
 
-	
-	x = startX + oCamera._camX;
-	y = startY + oCamera._camY;
-	
 	
 	for (var i = 0; i < INVENTORY_GRID_Y; i++) {
-		var _y = y + i * 16 + y_offset;
+		var _y = oy + i * 16 + rootObject.y_offset;
 		for (var j = 0; j < INVENTORY_GRID_X; j++) {
-			var _x = x + j * 16 + x_offset;
+			var _x = ox + j * 16 + rootObject.x_offset;
+			draw_sprite(sGrid, 0, _x-1, _y-1);
+			draw_sprite_stretched(sSlot, 0, _x, _y, 14, 14);
+			
+		}
+		
+	}	
+}
+
+function OpenInventory(rootObject) {
+	
+	x = rootObject.startX + oCamera._camX;
+	y = rootObject.startY + oCamera._camY;
+	
+	draw_sprite_stretched(sInventory, 0, x, y, rootObject.inventory_w, rootObject.inventory_h);
+
+	
+	for (var i = 0; i < INVENTORY_GRID_Y; i++) {
+		var _y = y + i * 16 + rootObject.y_offset;
+		for (var j = 0; j < INVENTORY_GRID_X; j++) {
+			var _x = x + j * 16 + rootObject.x_offset;
 			draw_sprite(sGrid, 0, _x-1, _y-1);
 			draw_sprite_stretched(sSlot, 0, _x, _y, 14, 14);
 			

@@ -62,17 +62,7 @@ if isAlive {
 	        array_push(cratesInRange, id);
 	    }
 	}
-	
-	with (oBag) {
-	    
-		//Checking if chest is in range
 		
-	    if (abs(other.x - x) <= horizontalRange  && abs(other.y - y) <= 2) {
-	        // Adding chest to array
-	        array_push(cratesInRange, id);
-	    }
-	}
-	
 	for (var i = 0; i < array_length(cratesInRange); i++) {
 	    var crate = cratesInRange[i];
     
