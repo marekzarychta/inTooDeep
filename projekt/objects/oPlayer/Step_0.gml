@@ -141,6 +141,7 @@ if isAlive {
 		yspd = -ladderSpd; 	
 	} else if downKey && isLadder {
 		yspd = ladderSpd;	
+
 	} else if isLadder {
 		yspd = 0;	
 	}
@@ -268,3 +269,11 @@ if (place_meeting(x, y + yspd, oWall)) {
 	InventoryCalculateWeight(oInventory);
 	y += yspd;
 }
+
+	//ladders
+	if (upKey || downKey) && isLadder {
+		sprite_index = sPlayerLadderClimb;
+	} 
+	else if isLadder {
+		sprite_index = sPlayerLadderIdle;
+	}
