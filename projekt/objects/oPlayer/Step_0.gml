@@ -239,27 +239,27 @@ if (place_meeting(x, y + yspd, oWall)) {
 	    onGround = false;
 	    // Start jump animation
 	    if (jumpStartTimer > 0) {
-	        sprite_index = sPlayerStartJump;
 	        jumpStartTimer--;
-	    } else if (yspd > 0) {
-	        // Fall animation
-	        sprite_index = sPlayerFall;
-	    } else if (!onGround && jumpCount > 0) {
-	        // Jump animation
-	        sprite_index = sPlayerJump;
-	    }
+	    } 
 
-	    //if (jumpCount == 0) {
-	    //    jumpCount = 1;
-	    //}
-	
+		if !isLadder {
+			if (jumpStartTimer > 0) {
+		        sprite_index = sPlayerStartJump;
+		    } else if (yspd > 0) {
+		        // Fall animation
+		        sprite_index = sPlayerFall;
+		    } else if (!onGround && jumpCount > 0) {
+		        // Jump animation
+		        sprite_index = sPlayerJump;
+		    }	
+		}
 	}
 
 
 	InventoryCalculateWeight(oInventory);
 	y += yspd;
-}
-
+	
+	
 	//ladders
 	if (upKey || downKey) && isLadder {
 		sprite_index = sPlayerLadderClimb;
@@ -267,3 +267,6 @@ if (place_meeting(x, y + yspd, oWall)) {
 	else if isLadder {
 		sprite_index = sPlayerLadderIdle;
 	}
+}
+
+	
