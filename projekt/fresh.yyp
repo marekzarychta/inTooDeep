@@ -104,6 +104,8 @@
     {"id":{"name":"sPlayerIdle","path":"sprites/sPlayerIdle/sPlayerIdle.yy",},},
     {"id":{"name":"sPlayerInteract","path":"sprites/sPlayerInteract/sPlayerInteract.yy",},},
     {"id":{"name":"sPlayerJump","path":"sprites/sPlayerJump/sPlayerJump.yy",},},
+    {"id":{"name":"sPlayerLadderClimb","path":"sprites/sPlayerLadderClimb/sPlayerLadderClimb.yy",},},
+    {"id":{"name":"sPlayerLadderIdle","path":"sprites/sPlayerLadderIdle/sPlayerLadderIdle.yy",},},
     {"id":{"name":"sPlayerLand","path":"sprites/sPlayerLand/sPlayerLand.yy",},},
     {"id":{"name":"sPlayerRun","path":"sprites/sPlayerRun/sPlayerRun.yy",},},
     {"id":{"name":"sPlayerStartJump","path":"sprites/sPlayerStartJump/sPlayerStartJump.yy",},},
