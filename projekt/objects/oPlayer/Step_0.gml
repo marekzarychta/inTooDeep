@@ -133,7 +133,10 @@ if isAlive {
 		yspd = ladderSpd;	
 
 	} else if isLadder {
-		yspd = 0;	
+		yspd = 0;
+		if currentWeightLevel == 3 {
+			yspd = weightLadderSlip;
+		}
 	}
 	
 	//If speed would exceed terminal velocity, cap it
@@ -261,7 +264,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	
 	
 	//ladders
-	if (upKey || downKey) && isLadder {
+	if upKey && isLadder {
 		sprite_index = sPlayerLadderClimb;
 	} 
 	else if isLadder {

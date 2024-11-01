@@ -25,6 +25,7 @@ face = 1;
 chestId = 0;
 
 ladderSpd = 1;
+weightLadderSlip = 0.1;
 isLadder = false;
 
 
