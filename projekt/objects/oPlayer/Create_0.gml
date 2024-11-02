@@ -24,10 +24,17 @@ face = 1;
 //Chests
 chestId = 0;
 
+//ladder
 ladderSpd = 1;
 weightLadderSlip = 0.1;
 isLadder = false;
 
+//dash
+dashBuffer = 80;
+dashTimer = 0;
+dashCooldown = 120;
+dashCooldownTimer = 0;
+dashHoldTimer = 0;
 
 // True if equipment load is met as well as a falling velocity
 can_break_orange = false;

@@ -104,6 +104,17 @@ if isAlive {
 	//X Collision
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
+	
+	if (place_meeting(x + xspd, y, oBreakableWallOrange) && dashTimer > 0 && currentWeightLevel == 2 && xspd >= moveSpd[currentWeightLevel] - 0.1) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
+	{
+		var b = instance_place(x + xspd, y, oBreakableWallOrange);
+		if  b != noone {
+			with (b) {
+                instance_destroy();
+            }
+		}
+	}
+	
 	//Check wall collision
 	if (place_meeting(x + xspd, y, oWall)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
@@ -193,7 +204,7 @@ if (place_meeting(x, y + yspd, oWall)) {
         var _pixelCheck = _subPixel * sign(yspd);
 
         // Move as close to the wall as possible in 0.5px increments
-        while !place_meeting(x, y + _pixelCheck, oWall) && !place_meeting(x, y + _pixelCheck, oBreakableWallOrange) {
+        while !place_meeting(x, y + _pixelCheck, oWall) {
             y += _pixelCheck;
         }
 
@@ -214,6 +225,26 @@ if (place_meeting(x, y + yspd, oWall)) {
 	if !place_meeting(x, y, oLadder) {
 		isLadder = false;
 	}
+	
+	if !isLadder && onGround && downKey && dashCooldownTimer <= 0 { //if player is on ground and dont touching ladder start dash
+		dashTimer = dashBuffer;
+	}
+	
+	if dashTimer > 0 {
+		dashTimer--;	
+	} else if dashTimer == 0 {
+		dashTimer--;
+		dashCooldownTimer = dashCooldown;	
+		show_debug_message("dash cooldown");	
+	}
+	
+	if dashCooldownTimer > 0 {
+		dashCooldownTimer--;	
+	} else if dashCooldownTimer == 0 {
+		dashCooldownTimer--;
+		show_debug_message("dash rdy");	
+	}
+	
 	//checking top ladder
 	if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !isLadder && !downKey) {
 	    

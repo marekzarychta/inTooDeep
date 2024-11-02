@@ -88,7 +88,7 @@ function checkingForSlopes(RootObject) {
 		var _pixelCheck = _subPixel * sign(xspd);
 	
 		//Move as close to the wall as possible in 0.5px increments
-		while !place_meeting(x+_pixelCheck, y, oWall) && !place_meeting(x+_pixelCheck, y, oBreakableWallOrange)
+		while !place_meeting(x+_pixelCheck, y, oWall)
 		{
 			x += _pixelCheck;
 		}
