@@ -5,7 +5,7 @@ if (attackCooldownTimer > 0) {
 }
 
 // We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
-if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && onGround) {
+if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && onGround && !global.openedDep && !isLadder) {
 	
 	// Call the attack function from the combat_functions script
 	attack();
