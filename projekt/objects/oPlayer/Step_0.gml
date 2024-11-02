@@ -100,7 +100,7 @@ if isAlive {
 	}
 	//Set xspd with smoothing
 	xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel]);
-
+	image_speed = xspd/2;
 	//X Collision
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
