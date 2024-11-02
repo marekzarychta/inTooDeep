@@ -21,7 +21,6 @@ function DrawWeightBar() {
 	
 	x = startX + oCamera._camX;
 	y = startY + oCamera._camY;
-	show_debug_message("weight: "+string(y));
 	
 	draw_sprite_stretched(sRect, 0, x-1, y - 16, 16 * MAX_WEIGHT_WIDTH / 2+8, 33)
 	draw_sprite_stretched(sWeightBar, 0, x,y, 16 * MAX_WEIGHT_WIDTH / 2+6, 16);

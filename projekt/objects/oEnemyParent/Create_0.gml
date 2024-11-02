@@ -1,3 +1,7 @@
+// Health and combat related variables
+health_points = 0;
+isAlive = true;
+
 //Movement
 	//Movement direction
 

@@ -1,3 +1,7 @@
+//Attack controller
+attackCooldown = 60; // Attack cooldown of 60 frames -> roughly 1 second
+attackCooldownTimer = 0; // Timer that resets the cooldown after attacking
+
 //Health
 SetHP();
 isAlive = true;

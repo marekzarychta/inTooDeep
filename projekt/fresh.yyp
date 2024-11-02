@@ -65,6 +65,7 @@
     {"id":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
     {"id":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
     {"id":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
+    {"id":{"name":"combat_functions","path":"scripts/combat_functions/combat_functions.yy",},},
     {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
     {"id":{"name":"health_functions","path":"scripts/health_functions/health_functions.yy",},},
     {"id":{"name":"inventory_functions","path":"scripts/inventory_functions/inventory_functions.yy",},},
