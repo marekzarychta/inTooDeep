@@ -1,5 +1,5 @@
 draw_self();
 
-if opened {
+if global.openedDep {
 	OpenDeposit(id);	
 }

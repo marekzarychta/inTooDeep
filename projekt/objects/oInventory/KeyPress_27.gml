@@ -1,7 +1,7 @@
 if oPlayer.isAlive {
 	if opened {
 		opened = false;	
-		oDeposit.opened = false;
+		global.openedDep = false;
 		CloseInventory(id);
 	}
 }

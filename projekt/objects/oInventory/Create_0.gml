@@ -12,7 +12,7 @@ inventory = ds_list_create();
 //ds_list_add(inventory, instance_create_depth(0, 0, 20, oTestCoin));
 
 opened = false;
-
+but1 = noone;
 startX = x;
 startY = y;
 
