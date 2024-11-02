@@ -105,7 +105,7 @@ if isAlive {
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	//Check wall collision
-	if (place_meeting(x + xspd, y, oWall) || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0))
+	if (place_meeting(x + xspd, y, oWall)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
 		checkingForSlopes(id);
 	}
