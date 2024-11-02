@@ -1,5 +1,3 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function InventoryIsEmpty(rootObject) {
     with (rootObject) {
         var size = ds_list_size(inventory);
@@ -344,12 +342,16 @@ function DropItems(rootObject) {
 }
 
 function MoveItems(_src, _dest) {
+	//checking size of _src list
+	
 	var size = ds_list_size(_src);
 	
 	for (var i = 0; i < size; i++) {
 		if (ds_list_size(_dest) < INVENTORY_GRID_X * INVENTORY_GRID_Y) {
+			//taking all of the choosen item
 			var c = ListRemoveChoosen(_src);
 			if c != noone {
+				//if listRemoveChoosen return item it means that it is choosen item and it has to be added to _dest list
 				c.choosen = false;
 				ListAdd(_dest, c);	
 			}
@@ -392,6 +394,8 @@ function MarkItem(rootObject) {
 }
 
 function MarkItemDep(rootObject) {
+	//markItem func but used in deposit with global.lista
+	
 	var _x = -1;
 	var _y = -1;
 	if mouse_x > rootObject.ox + x_offset && mouse_x < rootObject.ox + x_offset + 16 * INVENTORY_GRID_X {

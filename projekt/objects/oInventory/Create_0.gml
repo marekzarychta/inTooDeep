@@ -16,6 +16,8 @@ but1 = noone;
 startX = x;
 startY = y;
 
+
+
 dragging_item = noone;  
 dragging_index = -1;
 

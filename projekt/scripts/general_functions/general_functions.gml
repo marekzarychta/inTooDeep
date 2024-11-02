@@ -109,3 +109,8 @@ function checkingForSlopesGoingDown(RootObject) {
 		while !place_meeting(RootObject.x + RootObject.xspd, RootObject.y + _subPixel, oWall) { RootObject.y += _subPixel; }
 	}
 }
+
+function smooth(vel, targetSpeed) {
+	var _smooth = 0.91;
+	return (targetSpeed * (1 - _smooth) + vel * _smooth);
+}

@@ -98,8 +98,8 @@ if isAlive {
 	}else if (moveDir ==0 && yspd == 0) {
 		sprite_index = sPlayerIdle;
 	}
-	//Set xspd
-	xspd = moveDir * moveSpd[currentWeightLevel];
+	//Set xspd with smoothing
+	xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel]);
 
 	//X Collision
 		//How close we can get to a wall etc.
