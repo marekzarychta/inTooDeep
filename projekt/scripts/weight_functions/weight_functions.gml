@@ -5,11 +5,11 @@ function SetWeights() {
 }
 
 function ChangeWeight() {
-	if(inventoryWeight <= weightChangeValue[0]) {
+	if(inventoryWeight < weightChangeValue[0]) {
 		currentWeightLevel = weightLevels[0];
-	} else if (inventoryWeight <= weightChangeValue[1]) {
+	} else if (inventoryWeight < weightChangeValue[1]) {
 		currentWeightLevel = weightLevels[1];
-	} else if (inventoryWeight <= weightChangeValue[2]) {
+	} else if (inventoryWeight < weightChangeValue[2]) {
 		currentWeightLevel = weightLevels[2];
 	} else {
 		currentWeightLevel = weightLevels[3];
@@ -31,7 +31,9 @@ function DrawWeightBar() {
 	
 	for (var i = 0; i < currentWeight; i++){
 		var xx = x + (i mod MAX_WEIGHT) * stretchLenght + 3;
-		draw_sprite_stretched(sWeightPoint,0,xx,y+3,stretchLenght,10);
+		if (oPlayer.currentWeightLevel == 2) draw_sprite_stretched(sWeightPoint1,0,xx,y+3,stretchLenght,10);
+		else if (oPlayer.currentWeightLevel == 3) draw_sprite_stretched(sWeightPoint2,0,xx,y+3,stretchLenght,10);
+		else draw_sprite_stretched(sWeightPoint,0,xx,y+3,stretchLenght,10);
 	}	
 	draw_set_font(Fnt_super_small);
 	draw_set_color(c_black);

@@ -1,6 +1,6 @@
 function controlsSetup()
 {
-	bufferTime = 5;
+	bufferTime = 1;
 	
 	upKeyBuffered = 0;
 	upKeyBufferTimer = 0;
@@ -21,6 +21,9 @@ upKeyPressed = keyboard_check_pressed(ord("W")) + keyboard_check_pressed(vk_spac
 	upKeyPressed = clamp (upKeyPressed, 0, 1);
 upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
 	upKey = clamp (upKey, 0, 1);
+	
+	downKey = keyboard_check(ord("S"));
+	//downKey = clamp (downKey, 0, 1);
 	
 	//Jump key buffering
 	if upKeyPressed
@@ -85,7 +88,7 @@ function checkingForSlopes(RootObject) {
 		var _pixelCheck = _subPixel * sign(xspd);
 	
 		//Move as close to the wall as possible in 0.5px increments
-		while !place_meeting(x+_pixelCheck, y, oWall) && !place_meeting(x+_pixelCheck, y, oBreakableWall)
+		while !place_meeting(x+_pixelCheck, y, oWall) && !place_meeting(x+_pixelCheck, y, oBreakableWallOrange)
 		{
 			x += _pixelCheck;
 		}
@@ -105,4 +108,9 @@ function checkingForSlopesGoingDown(RootObject) {
 	place_meeting(RootObject.x + RootObject.xspd, RootObject.y + abs(RootObject.xspd) + 1, oWall) {
 		while !place_meeting(RootObject.x + RootObject.xspd, RootObject.y + _subPixel, oWall) { RootObject.y += _subPixel; }
 	}
+}
+
+function smooth(vel, targetSpeed) {
+	var _smooth = 0.91;
+	return (targetSpeed * (1 - _smooth) + vel * _smooth);
 }

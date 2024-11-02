@@ -11,7 +11,7 @@
 	//if place_meeting(x, y, oPlayer) {
 	//	show_debug_message("Kolizja");	
 	//}
-	
+	image_xscale = -moveDir;
 	
 	if oPlayer.isAlive {
 		if sqrt(dx * dx + dy * dy) < 72 /*&& changeDirTimer == 0*/ {
@@ -91,10 +91,10 @@
 	//Setting check side, so set width of the sprite
 	if !following {
 	
-		var edgeDir = oEnemy.sprite_width * sign(xspd) / 2;
+		var edgeDir = id.sprite_width / 2;
 	
 		//if there is not a floor object has to come back
-		if !place_meeting(x + edgeDir , y + 0.1, oWall) && edgeTimer == 0 {
+		if !place_meeting(x - edgeDir , y + 2, oWall) && edgeTimer == 0 {
 			edgeTimer = edgeBuffer;
 			moveDir *= -1;
 		
@@ -160,3 +160,10 @@
 	y += yspd;
 	
 	
+	//Select sprite depending on movement
+	if(xspd == 0){
+		sprite_index = sprites[0];
+	}else if(xspd!=0){
+		sprite_index = sprites[1];
+	}
+	//tu dodac warunek do ataku, nw jaki

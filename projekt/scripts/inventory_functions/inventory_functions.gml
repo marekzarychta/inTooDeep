@@ -1,5 +1,3 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function InventoryIsEmpty(rootObject) {
     with (rootObject) {
         var size = ds_list_size(inventory);
@@ -30,24 +28,38 @@ function InventoryTakenPositon(rootObject, _x, _y){
 	return noone;
 }
 
+function ListTakenPositon(list, _x, _y){
+	var size = ds_list_size(list);
+	for(var i = 0; i < size; i++){
+		var item = ds_list_find_value(list, i);
+		if(item.grid_x == _x && item.grid_y == _y)
+		{
+			return item;
+		}
+	}
+		
+	return noone;
+}
+
 	
 function InventoryAdd(rootObject, itemType){
-	if(!InventoryIsFull(rootObject)) {
+	ListAdd(rootObject.inventory, itemType);
+	oPlayer.inventoryWeight += itemType.weight;
+}
+
+function ListAdd(list, itemType){
+	if(ds_list_size(list) < INVENTORY_GRID_X * INVENTORY_GRID_Y) {
 		for (var _y = 0; _y < INVENTORY_GRID_Y; _y++) {
 			for (var _x = 0; _x < INVENTORY_GRID_X; _x++) {
-				if InventoryTakenPositon(rootObject, _x, _y) == noone {
+				if ListTakenPositon(list, _x, _y) == noone {
 				
 					var item = itemType;
 				
-					//if itemType == 1 {
-					//	item = instance_create_depth(0, 0, 20, oTestCoin);		
-					//}
 					item.grid_x = _x;
 					item.grid_y = _y;
 					item.item_value = irandom_range(5, 20);
 					item.in_inventory = true;
-					oPlayer.inventoryWeight += item.weight;
-					ds_list_add(rootObject.inventory, item);
+					ds_list_add(list, item);
 					return true;
 				}
 			}
@@ -64,15 +76,19 @@ function InventoryAdd(rootObject, itemType){
 function InventoryRemove(rootObject) {
 	
 	
-	if (!InventoryIsEmpty(rootObject)){
+	return Remove(rootObject.inventory);
+}
+
+function Remove(list) {
+	if (ds_list_size(list) != 0) {
 		for (var _y = INVENTORY_GRID_Y - 1; _y >= 0; _y--) {
 			for (var _x = INVENTORY_GRID_X - 1; _x >= 0 ; _x--) {
-				var item = InventoryTakenPositon(rootObject, _x, _y);
+				var item = ListTakenPositon(list, _x, _y);
 				
 			
 				if item != noone {
 					
-					ds_list_delete(rootObject.inventory, ds_list_find_index(rootObject.inventory, item));
+					ds_list_delete(list, ds_list_find_index(list, item));
 					//instance_destroy(item);
 					
 					
@@ -115,6 +131,30 @@ function InventoryRemoveChoosen(rootObject){
 	}
 }
 
+function ListRemoveChoosen(list) {
+	if (ds_list_size(list) != 0){
+		for (var _y = INVENTORY_GRID_Y - 1; _y >= 0; _y--) {
+			for (var _x = INVENTORY_GRID_X - 1; _x >= 0 ; _x--) {
+				var item = ListTakenPositon(list, _x, _y);
+				
+			
+				if item != noone && item.choosen {
+					
+					ds_list_delete(list, ds_list_find_index(list, item));
+					
+					return item;
+				}
+			}
+		}
+		
+	}
+	else
+	{
+		show_debug_message("Inventory empty");
+	}
+	return noone;
+}
+
 function InventoryCalculateWeight(rootObject){
 	if (!InventoryIsEmpty(rootObject)){
 		var _weight = 0;
@@ -128,23 +168,60 @@ function InventoryCalculateWeight(rootObject){
 	}
 }
 
-function OpenInventory(rootObject) {
-	
-	draw_sprite_stretched(sInventory, 0, x, y, inventory_w, inventory_h);
-	
-	show_debug_message(string(oCamera._camX));
-	show_debug_message(string(oCamera._camY));
 
+function OpenDeposit(rootObject) {
+	ox = rootObject.startX + oCamera._camX;
+	oy = rootObject.startY + oCamera._camY;
+	
+	
+	
+	draw_sprite_stretched(sInventory, 0, ox, oy, rootObject.inventory_w, rootObject.inventory_h);
 
-	
-	x = startX + oCamera._camX;
-	y = startY + oCamera._camY;
-	
 	
 	for (var i = 0; i < INVENTORY_GRID_Y; i++) {
-		var _y = y + i * 16 + y_offset;
+		var _y = oy + i * 16 + rootObject.y_offset;
 		for (var j = 0; j < INVENTORY_GRID_X; j++) {
-			var _x = x + j * 16 + x_offset;
+			var _x = ox + j * 16 + rootObject.x_offset;
+			draw_sprite(sGrid, 0, _x-1, _y-1);
+			draw_sprite_stretched(sSlot, 0, _x, _y, 14, 14);
+			
+		}
+		
+	}	
+	
+	
+	var size = ds_list_size(global.lista);
+	//show_debug_message(string(size));
+	for (var i = 0; i < size; i++) {
+		var item = ds_list_find_value(global.lista, i);
+		
+		draw_sprite_stretched(item.inv_sprite, 0, ox + item.grid_x * 16 + x_offset + 2, oy + item.grid_y * 16 + y_offset + 2, 10, 10);
+		if item.choosen {
+			draw_sprite_stretched(sMarked, 0, ox + item.grid_x * 16 + x_offset + 2, oy + item.grid_y * 16 + y_offset + 2, 10, 10);	
+		}
+	}
+	
+	rootObject.but1Dep.x = rootObject.ox + INVENTORY_GRID_X * 16 + x_offset * 2;
+	rootObject.but1Dep.y = rootObject.oy + y_offset;
+	
+	draw_sprite_stretched(but1Dep.sprite_index, 0, but1Dep.x, but1Dep.y, 32, 16);
+	draw_set_font(Fnt_small);
+	draw_set_color(c_black);
+	draw_text(but1Dep.x + but1Dep.w / 2, but1Dep.y + but1Dep.h / 2, string(but1Dep.o_name));
+}
+
+function OpenInventory(rootObject) {
+	
+	x = rootObject.startX + oCamera._camX;
+	y = rootObject.startY + oCamera._camY;
+	
+	draw_sprite_stretched(sInventory, 0, x, y, rootObject.inventory_w, rootObject.inventory_h);
+
+	
+	for (var i = 0; i < INVENTORY_GRID_Y; i++) {
+		var _y = y + i * 16 + rootObject.y_offset;
+		for (var j = 0; j < INVENTORY_GRID_X; j++) {
+			var _x = x + j * 16 + rootObject.x_offset;
 			draw_sprite(sGrid, 0, _x-1, _y-1);
 			draw_sprite_stretched(sSlot, 0, _x, _y, 14, 14);
 			
@@ -182,6 +259,9 @@ function OpenInventory(rootObject) {
 
 function CloseInventory(rootObject) {
 	instance_destroy(rootObject.but1.id);	
+	if global.openedDep {
+		instance_destroy(rootObject.but1Dep.id);	
+	}
 }
 
 function dragItem(rootObject) {
@@ -253,12 +333,29 @@ function DropAllItems(rootObject) {
 function DropItems(rootObject) {
 	var size = choosenSize(rootObject);
 	var item = instance_create_layer(oPlayer.x, oPlayer.y, oChest.layer, oBag);
-	show_debug_message(string(size));
 	for (var i = 0; i < size; i++) {
 		var c = InventoryRemoveChoosen(rootObject);
 		ds_list_add(item.items, c);	
 		c.choosen = false;
 		
+	}
+}
+
+function MoveItems(_src, _dest) {
+	//checking size of _src list
+	
+	var size = ds_list_size(_src);
+	
+	for (var i = 0; i < size; i++) {
+		if (ds_list_size(_dest) < INVENTORY_GRID_X * INVENTORY_GRID_Y) {
+			//taking all of the choosen item
+			var c = ListRemoveChoosen(_src);
+			if c != noone {
+				//if listRemoveChoosen return item it means that it is choosen item and it has to be added to _dest list
+				c.choosen = false;
+				ListAdd(_dest, c);	
+			}
+		}
 	}
 }
 
@@ -286,13 +383,38 @@ function MarkItem(rootObject) {
 		
 	var item;
 	
-	show_debug_message(string(_x) + " " + string(_y));
 	
 	if _x != -1 && _y != -1 {
 		item = InventoryTakenPositon(rootObject, _x, _y);	
 		if item != noone {
 			
 			item.choosen = !item.choosen;		
+		}
+	}
+}
+
+function MarkItemDep(rootObject) {
+	//markItem func but used in deposit with global.lista
+	
+	var _x = -1;
+	var _y = -1;
+	if mouse_x > rootObject.ox + x_offset && mouse_x < rootObject.ox + x_offset + 16 * INVENTORY_GRID_X {
+		_x = floor((mouse_x - ox - x_offset) / 16);  
+	}
+	if mouse_y > rootObject.oy + y_offset && mouse_y < rootObject.oy + y_offset + 16 * INVENTORY_GRID_Y {
+		_y = floor((mouse_y - oy - y_offset) / 16); 
+	}
+		
+		
+	show_debug_message(string(_x) + " " + string(_y));
+	var item;
+	
+	
+	if _x != -1 && _y != -1 {
+		item = ListTakenPositon(global.lista, _x, _y);	
+		if item != noone {
+			
+			item.choosen = true;// !item.choosen;		
 		}
 	}
 }

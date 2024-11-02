@@ -18,7 +18,8 @@ if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && onGround)
 if isAlive {
 
 	HPManage();
-
+	
+	
 
 	//Get inputs
 	if !oInventory.opened
@@ -35,21 +36,25 @@ if isAlive {
 	// Modyfing speed and jump multipliers based on weight
 
 
-if(inventoryWeight <= 3) {
-	currentWeightLevel = weightLevels[0];
-	can_break_floors = false;
-} else if (inventoryWeight <= 6) {
-	currentWeightLevel = weightLevels[1];
-	can_break_floors = false;
-} else if (inventoryWeight <= 10) {
-	currentWeightLevel = weightLevels[2];
-	can_break_floors = true;
-} else {
-	currentWeightLevel = weightLevels[3];
-	can_break_floors = true;
-}
+	ChangeWeight();
 
+	if currentWeightLevel < 2 {
+		termVel = termVelValues[0];
+	} else {
+		termVel = termVelValues[currentWeightLevel - 1]; // 2 and 3 -> 1 and 2
+	}
 
+	if yspd > 5.5 {
+		can_break_red = true;	
+	} else {
+		can_break_red = false;	
+	}
+	
+	if yspd > 4.5 {
+		can_break_orange = true;	
+	} else {
+		can_break_orange = false;	
+	}
 //X Movement
 
 	//if place_meeting(x, y, oEnemy) {
@@ -74,17 +79,7 @@ if(inventoryWeight <= 3) {
 	        array_push(cratesInRange, id);
 	    }
 	}
-	
-	with (oBag) {
-	    
-		//Checking if chest is in range
 		
-	    if (abs(other.x - x) <= horizontalRange  && abs(other.y - y) <= 2) {
-	        // Adding chest to array
-	        array_push(cratesInRange, id);
-	    }
-	}
-	
 	for (var i = 0; i < array_length(cratesInRange); i++) {
 	    var crate = cratesInRange[i];
     
@@ -117,17 +112,17 @@ if(inventoryWeight <= 3) {
 			image_speed = 1;
 		}
 		}
-	}else if (moveDir ==0 && yspd == 0){
+	}else if (moveDir ==0 && yspd == 0) {
 		sprite_index = sPlayerIdle;
 	}
-	//Set xspd
-	xspd = moveDir * moveSpd[currentWeightLevel];
-
+	//Set xspd with smoothing
+	xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel]);
+	image_speed = xspd/2;
 	//X Collision
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	//Check wall collision
-	if (place_meeting(x + xspd, y, oWall) || (place_meeting(x + xspd, y, oBreakableWall) && yspd == 0))
+	if (place_meeting(x + xspd, y, oWall)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
 		checkingForSlopes(id);
 	}
@@ -139,13 +134,33 @@ if(inventoryWeight <= 3) {
 	
 //Y Movement
 	//Gravity
+	
+	if isLadder {
+		grav = 0; 	
+	} else {
+		grav = .163;	
+	}
+	
 	yspd += grav;
+	
+	//ladders
+	if upKey && isLadder {
+		yspd = -ladderSpd; 	
+	} else if downKey && isLadder {
+		yspd = ladderSpd;	
+
+	} else if isLadder {
+		yspd = 0;
+		if currentWeightLevel == 3 {
+			yspd = weightLadderSlip;
+		}
+	}
 	
 	//If speed would exceed terminal velocity, cap it
 	if yspd > termVel {yspd = termVel; };
 	
-	//Initiate jump
-	if upKeyBuffered && jumpCount < jumpMax
+	//Initiate jump - cannot jump on ladders
+	if upKeyBuffered && jumpCount < jumpMax && onGround
 	{
 		//Reset the buffer
 		upKeyBuffered = false;
@@ -159,6 +174,7 @@ if(inventoryWeight <= 3) {
 		jumpHoldTimer = jumpHoldFrames[jumpCount-1];
 		
 	}
+	
 	//cut off jump
 	if !upKey{
 		jumpHoldTimer = 0;	
@@ -174,9 +190,16 @@ if(inventoryWeight <= 3) {
 	var _subPixel = .5;
 	
 // Check wall collision
-if (place_meeting(x, y + yspd, oWall) || place_meeting(x, y + yspd, oBreakableWall)) {
-    if (can_break_floors && place_meeting(x, y + yspd, oBreakableWall) && yspd > 0) {
-        var breakableWall = instance_place(x, y + yspd, oBreakableWall);
+if (place_meeting(x, y + yspd, oWall)) {
+    if (can_break_orange && place_meeting(x, y + yspd, oBreakableWallOrange) && yspd > 0) {
+        var breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
+        if (breakableWall != noone) {
+            with (breakableWall) {
+                instance_destroy();
+            }
+        }
+    } else if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
+        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
         if (breakableWall != noone) {
             with (breakableWall) {
                 instance_destroy();
@@ -187,7 +210,7 @@ if (place_meeting(x, y + yspd, oWall) || place_meeting(x, y + yspd, oBreakableWa
         var _pixelCheck = _subPixel * sign(yspd);
 
         // Move as close to the wall as possible in 0.5px increments
-        while !place_meeting(x, y + _pixelCheck, oWall) && !place_meeting(x, y + _pixelCheck, oBreakableWall) {
+        while !place_meeting(x, y + _pixelCheck, oWall) && !place_meeting(x, y + _pixelCheck, oBreakableWallOrange) {
             y += _pixelCheck;
         }
 
@@ -200,33 +223,70 @@ if (place_meeting(x, y + yspd, oWall) || place_meeting(x, y + yspd, oBreakableWa
         yspd = 0;  // Setting yspd to 0 only when truly colliding
     }
 }
-	
-//Check if on ground, reset timers
-if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
-    onGround = true;
-    jumpCount = 0;
-    jumpHoldTimer = 0;
-} else {
-    onGround = false;
-    // Start jump animation
-    if (jumpStartTimer > 0) {
-        sprite_index = sPlayerStartJump;
-        jumpStartTimer--;
-    } else if (yspd > 0) {
-        // Fall animation
-        sprite_index = sPlayerFall;
-    } else if (!onGround && jumpCount > 0) {
-        // Jump animation
-        sprite_index = sPlayerJump;
-    }
 
-    //if (jumpCount == 0) {
-    //    jumpCount = 1;
-    //}
+	//checking is player on ladder
+	if place_meeting(x, y, oLadder) && (upKey || downKey) {
+		isLadder = true;	
+	} 
+	if !place_meeting(x, y, oLadder) {
+		isLadder = false;
+	}
+	//checking top ladder
+	if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !isLadder && !downKey) {
+	    
+		var _subPixel = 0.5;
+		
+	    // Move up to wall precisely
+	    var _pixelCheck = _subPixel;
+
+	    // Move as close to the wall as possible in 0.5px increments
+	    while !place_meeting(x, y + _pixelCheck, oLadder) {
+	        y += _pixelCheck;
+	    }
+
+	    // Stop movement to collide
+		isLadder = false;
+	    yspd = 0;  // Setting yspd to 0 only when truly colliding
+	}
+
 	
-}
+	//Check if on ground, reset timers
+	if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
+	    onGround = true;
+	    jumpCount = 0;
+	    jumpHoldTimer = 0;
+	} else {
+	    onGround = false;
+	    // Start jump animation
+	    if (jumpStartTimer > 0) {
+	        jumpStartTimer--;
+	    } 
+
+		if !isLadder {
+			if (jumpStartTimer > 0) {
+		        sprite_index = sPlayerStartJump;
+		    } else if (yspd > 0) {
+		        // Fall animation
+		        sprite_index = sPlayerFall;
+		    } else if (!onGround && jumpCount > 0) {
+		        // Jump animation
+		        sprite_index = sPlayerJump;
+		    }	
+		}
+	}
 
 
 	InventoryCalculateWeight(oInventory);
 	y += yspd;
+	
+	
+	//ladders
+	if upKey && isLadder {
+		sprite_index = sPlayerLadderClimb;
+	} 
+	else if isLadder {
+		sprite_index = sPlayerLadderIdle;
+	}
 }
+
+	

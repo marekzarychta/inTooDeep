@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
   "%Name":"sPlayerInteract",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":31,
-  "bbox_left":6,
-  "bbox_right":28,
+  "bbox_left":9,
+  "bbox_right":23,
   "bbox_top":8,
   "collisionKind":1,
   "collisionTolerance":0,
