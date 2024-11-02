@@ -42,27 +42,42 @@ upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
 }
 
 function chestHandling() {
-	if (oPlayer.chestId == id && oPlayer.isAlive) {
-		marked = true;	
-	} else {
-		marked = false;	
-	}
+    // Upewnij się, że `textBoxInstance` jest zainicjalizowana, jeśli jeszcze tego nie zrobiono
+    if (!variable_instance_exists(id, "textBoxInstance")) {
+        textBoxInstance = noone;
+    }
 
-	var dis = point_distance(x, 0, oPlayer.x, 0);
+    if (oPlayer.chestId == id && oPlayer.isAlive) {
+        marked = true;    
+    } else {
+        marked = false;    
+    }
 
+    var dis = point_distance(x, 0, oPlayer.x, 0);
 
-	if place_meeting(x, y, oPlayer) {
-	    openable = true; 
-	} else {
-	    openable = false; 
-	}
+    if (place_meeting(x, y, oPlayer)) {
+        openable = true; 
+    } else {
+        openable = false; 
+    }
 
-	sprite_index = closedSprite;	
+    sprite_index = closedSprite;    
 
-	if openable && marked {
-		sprite_index = markSprite;	
-	}
+    // Tworzenie lub usuwanie `oTextbox`
+    if (openable && marked) {
+        if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
+            textBoxInstance = createTextbox(x, y - 20, "open"); // Tworzymy textbox
+        }
+        sprite_index = markSprite;    
+    } else {
+        if (textBoxInstance != noone && instance_exists(textBoxInstance)) { // Jeśli istnieje textbox
+            instance_destroy(textBoxInstance); // Usuwamy go
+            textBoxInstance = noone; // Resetujemy wskaźnik
+        }
+    }
 }
+
+
 
 function interact() {
 	show_debug_message("interaktuje");
