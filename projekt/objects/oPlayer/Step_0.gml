@@ -102,12 +102,16 @@ if isAlive {
 	}else if (moveDir == 0 && yspd == 0) {
 		sprite_index = sPlayerIdle;
 	}
+	
+	
 	//Set xspd with smoothing and dash
 	if (isDashing) {
 		xspd = moveDir * (moveSpd[currentWeightLevel] + dashAddSpd);//smooth(xspd, moveDir * (moveSpd[currentWeightLevel] + dashAddSpd));
 	} else {
-		if abs(xspd) <= moveSpd[currentWeightLevel] {
-			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel]);
+		if abs(xspd) <= moveSpd[currentWeightLevel] && moveDir != 0 {
+			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.91);
+		} else if moveDir == 0 {
+			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.86);
 		} else {
 			xspd = moveDir * moveSpd[currentWeightLevel];
 		}

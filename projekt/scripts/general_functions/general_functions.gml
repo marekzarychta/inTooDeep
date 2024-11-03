@@ -110,7 +110,7 @@ function checkingForSlopesGoingDown(RootObject) {
 	}
 }
 
-function smooth(vel, targetSpeed) {
-	var _smooth = 0.91;
+function smooth(vel, targetSpeed, _smooth) {
+	
 	return (targetSpeed * (1 - _smooth) + vel * _smooth);
 }
