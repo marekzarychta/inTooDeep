@@ -44,8 +44,12 @@ if isAlive {
 	//	show_debug_message("Kolizja z wrogiem");	
 	//}
 
-		//Direction
-	moveDir = rightKey - leftKey;
+	//Direction not changing when dashing
+	if !isDashing {
+		moveDir = rightKey - leftKey;
+	} else {
+		moveDir = face;	
+	}
 
 	if moveDir != 0 {
 		face = moveDir;
@@ -99,7 +103,7 @@ if isAlive {
 		sprite_index = sPlayerIdle;
 	}
 	//Set xspd with smoothing and dash
-	if (dashTimer > 0) {
+	if (isDashing) {
 		xspd = moveDir * (moveSpd[currentWeightLevel] + dashAddSpd);//smooth(xspd, moveDir * (moveSpd[currentWeightLevel] + dashAddSpd));
 	} else {
 		if abs(xspd) <= moveSpd[currentWeightLevel] {
@@ -112,9 +116,19 @@ if isAlive {
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	
-	if (place_meeting(x + xspd, y, oBreakableWallOrange) && dashTimer > 0 && currentWeightLevel == 2 && xspd >= moveSpd[currentWeightLevel] - 0.1) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
+	if (place_meeting(x + xspd, y, oBreakableWallOrange) && dashTimer > 0 && currentWeightLevel >= 2 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
 		var b = instance_place(x + xspd, y, oBreakableWallOrange);
+		if  b != noone {
+			with (b) {
+                instance_destroy();
+            }
+		}
+	}
+	
+	if (place_meeting(x + xspd, y, oBreakableWallRed) && dashTimer > 0 && currentWeightLevel == 3 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
+	{
+		var b = instance_place(x + xspd, y, oBreakableWallRed);
 		if  b != noone {
 			with (b) {
                 instance_destroy();
@@ -161,7 +175,7 @@ if isAlive {
 	if yspd > termVel {yspd = termVel; };
 	
 	//Initiate jump - cannot jump on ladders
-	if upKeyBuffered && jumpCount < jumpMax && onGround && dashTimer <= 0
+	if upKeyBuffered && jumpCount < jumpMax && onGround && !isDashing
 	{
 		//Reset the buffer
 		upKeyBuffered = false;
@@ -226,23 +240,29 @@ if (place_meeting(x, y + yspd, oWall)) {
 }
 
 	//checking is player on ladder
-	if place_meeting(x, y, oLadder) && (upKey || downKey) {
+	if place_meeting(x, y, oLadder) && (upKey || downKey) && !isDashing {
 		isLadder = true;	
 	} 
 	if !place_meeting(x, y, oLadder) {
 		isLadder = false;
 	}
 	
-	if !isLadder && onGround && downKey && dashCooldownTimer <= 0 && dashTimer < 0 { //if player is on ground and dont touching ladder start dash
+	if !isLadder && onGround && downKey && dashCooldownTimer <= 0 && !isDashing { //if player is on ground and dont touching ladder start dash
 		dashTimer = dashBuffer;
 	}
 	
-	if !downKey
+	//if !downKey
+	
+	if !downKey && isDashing {
+		dashTimer = 0;	
+	}
 	
 	if dashTimer > 0 {
 		dashTimer--;	
+		isDashing = true;
 		
 	} else if dashTimer == 0 {
+		isDashing = false;
 		dashTimer--;
 		dashCooldownTimer = dashCooldown;	
 		show_debug_message("dash cooldown");	
@@ -286,7 +306,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	        jumpStartTimer--;
 	    } 
 
-		if !isLadder && dashTimer <= 0 {
+		if !isLadder && !isDashing {
 			if (jumpStartTimer > 0) {
 		        sprite_index = sPlayerStartJump;
 		    } else if (yspd > 0) {
@@ -303,7 +323,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	InventoryCalculateWeight(oInventory);
 	y += yspd;
 	
-	if dashTimer > 0 {
+	if isDashing {
 		sprite_index = sPlayerDash;
 	}
 	

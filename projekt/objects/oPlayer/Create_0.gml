@@ -35,7 +35,8 @@ dashTimer = 0;
 dashCooldown = 120;
 dashCooldownTimer = 0;
 dashHoldTimer = 0;
-dashAddSpd = 1;
+dashAddSpd = 0.3;
+isDashing = false;
 
 // True if equipment load is met as well as a falling velocity
 can_break_orange = false;
