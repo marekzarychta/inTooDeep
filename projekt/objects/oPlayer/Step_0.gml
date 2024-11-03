@@ -95,12 +95,19 @@ if isAlive {
 			image_speed = 1;
 		}
 		}
-	}else if (moveDir ==0 && yspd == 0) {
+	}else if (moveDir == 0 && yspd == 0) {
 		sprite_index = sPlayerIdle;
 	}
-	//Set xspd with smoothing
-	xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel]);
-
+	//Set xspd with smoothing and dash
+	if (dashTimer > 0) {
+		xspd = moveDir * (moveSpd[currentWeightLevel] + dashAddSpd);//smooth(xspd, moveDir * (moveSpd[currentWeightLevel] + dashAddSpd));
+	} else {
+		if abs(xspd) <= moveSpd[currentWeightLevel] {
+			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel]);
+		} else {
+			xspd = moveDir * moveSpd[currentWeightLevel];
+		}
+	}
 	//X Collision
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
@@ -154,7 +161,7 @@ if isAlive {
 	if yspd > termVel {yspd = termVel; };
 	
 	//Initiate jump - cannot jump on ladders
-	if upKeyBuffered && jumpCount < jumpMax && onGround
+	if upKeyBuffered && jumpCount < jumpMax && onGround && dashTimer <= 0
 	{
 		//Reset the buffer
 		upKeyBuffered = false;
@@ -226,12 +233,15 @@ if (place_meeting(x, y + yspd, oWall)) {
 		isLadder = false;
 	}
 	
-	if !isLadder && onGround && downKey && dashCooldownTimer <= 0 { //if player is on ground and dont touching ladder start dash
+	if !isLadder && onGround && downKey && dashCooldownTimer <= 0 && dashTimer < 0 { //if player is on ground and dont touching ladder start dash
 		dashTimer = dashBuffer;
 	}
 	
+	if !downKey
+	
 	if dashTimer > 0 {
 		dashTimer--;	
+		
 	} else if dashTimer == 0 {
 		dashTimer--;
 		dashCooldownTimer = dashCooldown;	
@@ -276,7 +286,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	        jumpStartTimer--;
 	    } 
 
-		if !isLadder {
+		if !isLadder && dashTimer <= 0 {
 			if (jumpStartTimer > 0) {
 		        sprite_index = sPlayerStartJump;
 		    } else if (yspd > 0) {
@@ -293,6 +303,9 @@ if (place_meeting(x, y + yspd, oWall)) {
 	InventoryCalculateWeight(oInventory);
 	y += yspd;
 	
+	if dashTimer > 0 {
+		sprite_index = sPlayerDash;
+	}
 	
 	//ladders
 	if upKey && isLadder {
