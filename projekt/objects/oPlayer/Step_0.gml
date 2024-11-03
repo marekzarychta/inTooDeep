@@ -101,7 +101,7 @@ if isAlive {
 	//Set xspd with smoothing
 	xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel]);
 	if(abs(xspd)>0.1){
-	image_speed = xspd/2;
+	image_speed = abs(xspd)/2;
 	}else{
 		image_speed = 1;
 	}
