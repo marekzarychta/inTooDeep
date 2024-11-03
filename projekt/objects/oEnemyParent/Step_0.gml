@@ -1,3 +1,20 @@
+if (knockback_duration > 0) {
+    // Odrzut
+    x += knockback_x;
+    y += knockback_y;
+
+    // Zmniejszaj czas trwania odrzutu
+    knockback_duration--;
+
+    // Powoli zmniejszaj prędkość odrzutu (opcjonalnie dla efektu oporu)
+    knockback_x *= 0.9;
+    knockback_y *= 0.9;
+} else {
+    // Normalne poruszanie się, gdy knockback się skończy
+    knockback_x = 0;
+    knockback_y = 0;
+}
+
 //Get inputs
 
 //X Movement

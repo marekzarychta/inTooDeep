@@ -1,13 +1,15 @@
 /// @description Collision with Enemies
 
 // oHitbox -> Collision Event with oEnemy
-if (other.health_points != undefined) {
-    other.health_points -= 10;  // Zadaj obrażenia przeciwnikowi
+if (other.health_points != undefined && !other.wasHit) {
+    other.health_points -= 10;  // Zadaj obrażenia przeciwnikowi]
+	other.wasHit = true;
     show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));
-    
-	var knockback = 10; // Prędkość odrzutu
-	var x_dir = (image_xscale == 1) ? 1: -1;
-    other.xspd = knockback * x_dir;
+	
+	var directionKnockback = point_direction(other.x, other.y, x, y);
+	other.knockback_x = lengthdir_x(other.knockback_power, -directionKnockback);
+    other.knockback_y = lengthdir_y(other.knockback_power, directionKnockback);
+    other.knockback_duration = 15; // Czas trwania knockbacku
 	
     // Sprawdź, czy przeciwnik zginął
     if (other.health_points <= 0) {
@@ -17,6 +19,6 @@ if (other.health_points != undefined) {
     }
 }
 
-instance_destroy();
+//instance_destroy();
 
 //var offset_x = (image_xscale == 1) ? 32 : -32;

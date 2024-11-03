@@ -2,7 +2,11 @@ function attack() {
 	
 	show_debug_message("attacking");
 	
-	var offset_x = (image_xscale == 1) ? 32 : -32; // Ustaw odpowiednią pozycję względem kierunku
+	with(oEnemyParent) {
+		wasHit = false;
+	}
+	
+	var offset_x = (image_xscale == 1) ? 16 : -16; // Ustaw odpowiednią pozycję względem kierunku
     var hitbox = instance_create_layer(x + offset_x, y, "Instances", oHitbox);
 	hitbox.life = 5;
 	
