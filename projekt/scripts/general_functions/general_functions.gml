@@ -81,14 +81,16 @@ function toDown(RootObject) {
 function checkingForSlopes(RootObject) {
 	
 	var _subPixel = 0.5;
+	var isSlope = false;
 	if !place_meeting(RootObject.x + RootObject.xspd, RootObject.y - abs(RootObject.xspd) - 1, oWall) {
 		while place_meeting(RootObject.x + RootObject.xspd, RootObject.y, oWall) { RootObject.y -= _subPixel };
+		isSlope = true;
 	} else {
 		//Walk up to wall precisely
 		var _pixelCheck = _subPixel * sign(xspd);
 	
 		//Move as close to the wall as possible in 0.5px increments
-		while !place_meeting(x+_pixelCheck, y, oWall) && !place_meeting(x+_pixelCheck, y, oBreakableWallOrange)
+		while !place_meeting(x+_pixelCheck, y, oWall)
 		{
 			x += _pixelCheck;
 		}
@@ -97,7 +99,7 @@ function checkingForSlopes(RootObject) {
 		xspd = 0;	
 	}
 	
-	
+	return isSlope;
 }
 
 function checkingForSlopesGoingDown(RootObject) {

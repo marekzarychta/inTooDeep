@@ -1,19 +1,4 @@
-if (knockback_duration > 0) {
-    // Odrzut
-    x += knockback_x;
-    y += knockback_y;
 
-    // Zmniejszaj czas trwania odrzutu
-    knockback_duration--;
-
-    // Powoli zmniejszaj prędkość odrzutu (opcjonalnie dla efektu oporu)
-    knockback_x *= 0.9;
-    knockback_y *= 0.9;
-} else {
-    // Normalne poruszanie się, gdy knockback się skończy
-    knockback_x = 0;
-    knockback_y = 0;
-}
 
 //Get inputs
 
@@ -31,7 +16,7 @@ if (knockback_duration > 0) {
 	image_xscale = -moveDir;
 	
 	if oPlayer.isAlive {
-		if sqrt(dx * dx + dy * dy) < 72 /*&& changeDirTimer == 0*/ {
+		if sqrt(dx * dx + dy * dy) < 144 /*&& changeDirTimer == 0*/ {
 			moveDir = sign(dx);	
 			//changeDirTimer = changeDirBuffer;
 			following = true;
@@ -57,7 +42,27 @@ if (knockback_duration > 0) {
 	
 
 	//Get xspd
-	xspd = moveDir * moveSpd;
+	if onGround
+		xspd = moveDir * moveSpd;
+	else 
+		xspd = 0;
+	
+	if (knockback_duration > 0) {
+	    // Odrzut
+	    xspd = knockback_x;
+	    yspd = knockback_y;
+
+	    // Zmniejszaj czas trwania odrzutu
+	    knockback_duration--;
+
+	    // Powoli zmniejszaj prędkość odrzutu (opcjonalnie dla efektu oporu)
+	    knockback_x *= 0.8;
+	    knockback_y *= 0.8;
+	} else {
+	    // Normalne poruszanie się, gdy knockback się skończy
+	    knockback_x = 0;
+	    knockback_y = 0;
+	}
 
 	if abs(dx) < 0.5 && following {
 		xspd = 0;	
@@ -70,31 +75,34 @@ if (knockback_duration > 0) {
 	if place_meeting(x + xspd, y, oWall) 
 	{
 		
-		checkingForSlopes(id);
+		isSlope = checkingForSlopes(id);
 	
-		if !following && wallTimer == 0 {
+		if !following && wallTimer == 0 && !isSlope {
 			moveDir *= -1;
 			wallTimer = wallBuffer;
 		
 			
 		} else {
-			if jumpCount < jumpMax
-			{
-				jumpCount++;
-				jumpHoldTimer = jumpHoldFrames;
-			}
+			//if jumpCount < jumpMax
+			//{
+			//	jumpCount++;
+			//	jumpHoldTimer = jumpHoldFrames;
+			//}
 	
-			//jump based on timer
-			if jumpHoldTimer > 0 {
-				yspd = jspd;
-				//Count down timer
-				jumpHoldTimer--;
-			}
+			////jump based on timer
+			//if jumpHoldTimer > 0 {
+			//	yspd = jspd;
+			//	//Count down timer
+			//	jumpHoldTimer--;
+			//}
 			
-			xspd = 0;
+			//xspd = 0;
 		}
 		
 	}
+	
+	checkingForSlopesGoingDown(id);
+	
 	
 	if wallTimer > 0 {
 		wallTimer--;	
@@ -111,7 +119,7 @@ if (knockback_duration > 0) {
 		var edgeDir = id.sprite_width / 2;
 	
 		//if there is not a floor object has to come back
-		if !place_meeting(x - edgeDir , y + 2, oWall) && edgeTimer == 0 {
+		if !place_meeting(x - edgeDir , y + 2, oWall) && edgeTimer == 0 && !isSlope {
 			edgeTimer = edgeBuffer;
 			moveDir *= -1;
 		
@@ -164,12 +172,12 @@ if (knockback_duration > 0) {
 	}
 	
 	if yspd >=0 && place_meeting(x,y+1, oWall){
-		//onGround = true;
-		jumpCount = 0;
-		jumpHoldTimer = 0;
+		onGround = true;
+		//jumpCount = 0;
+		//jumpHoldTimer = 0;
 	} else {
-		//onGround = false;
-		if jumpCount == 0{	jumpCount = 1;}
+		onGround = false;
+		//if jumpCount == 0{	jumpCount = 1;}
 	}
 	
 	

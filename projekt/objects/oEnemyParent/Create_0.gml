@@ -2,7 +2,7 @@
 knockback_x = 0;
 knockback_y = 0;
 knockback_duration = 0; // Ile klatek trwa odrzut
-knockback_power = 4; // Sila odrzutu
+knockback_power = 5; // Sila odrzutu
 
 // Health and combat related variables
 health_points = 0;
@@ -41,3 +41,5 @@ jumpHoldTimer = 0;
 //Jump values for successive jumps
 jumpHoldFrames = 4;
 jspd = -3.25;
+onGround = true;
+isSlope = false;
