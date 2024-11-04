@@ -58,6 +58,7 @@
     {"id":{"name":"oDoorButton","path":"objects/oDoorButton/oDoorButton.yy",},},
     {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},},
     {"id":{"name":"oEnemyParent","path":"objects/oEnemyParent/oEnemyParent.yy",},},
+    {"id":{"name":"oEnemyStatic","path":"objects/oEnemyStatic/oEnemyStatic.yy",},},
     {"id":{"name":"oGlobal","path":"objects/oGlobal/oGlobal.yy",},},
     {"id":{"name":"oHealthBar","path":"objects/oHealthBar/oHealthBar.yy",},},
     {"id":{"name":"oHealthPoint","path":"objects/oHealthPoint/oHealthPoint.yy",},},

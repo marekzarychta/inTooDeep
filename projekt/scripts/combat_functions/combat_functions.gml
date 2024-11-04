@@ -7,7 +7,7 @@ function attack() {
 	}
 	
 	var offset_x = (image_xscale == 1) ? 16 : -16 // Ustaw odpowiednią pozycję względem kierunku
-    var hitbox = instance_create_layer(x + offset_x, y, "Instances", oHitbox);
+    var hitbox = instance_create_layer(x + offset_x, y, oPlayer.layer, oHitbox);
 	hitbox.image_xscale = 2;
 	hitbox.life = 5;
 	
