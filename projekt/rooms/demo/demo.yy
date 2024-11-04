@@ -26,6 +26,7 @@
     {"name":"inst_6BA97F8B","path":"rooms/demo/demo.yy",},
     {"name":"inst_2CF0D72","path":"rooms/demo/demo.yy",},
     {"name":"inst_74DBF696","path":"rooms/demo/demo.yy",},
+    {"name":"inst_5E265C16","path":"rooms/demo/demo.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -45,6 +46,9 @@
     {"$GMRInstanceLayer":"","%Name":"interaktywne","depth":200,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_2D5374C4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2D5374C4","objectId":{"name":"oChest","path":"objects/oChest/oChest.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":208.0,"y":144.0,},
         {"$GMRInstance":"v1","%Name":"inst_C981DBC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_C981DBC","objectId":{"name":"oLadder","path":"objects/oLadder/oLadder.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":8.0,"x":176.0,"y":272.0,},
+        {"$GMRInstance":"v1","%Name":"inst_5E265C16","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5E265C16","objectId":{"name":"oTextbox","path":"objects/oTextbox/oTextbox.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTextbox","path":"objects/oTextbox/oTextbox.yy",},"propertyId":{"name":"textVal","path":"objects/oTextbox/oTextbox.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"skacz",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":144.0,"y":112.0,},
       ],"layers":[],"name":"interaktywne","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"tileTerrain","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"tileTerrain","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":48,"SerialiseWidth":86,"TileCompressedData":[
           -174,-2147483648,1,3,-20,25,1,4,-63,-2147483648,2,3,26,-20,13,1,12,-63,-2147483648,1,14,-21,13,1,12,
