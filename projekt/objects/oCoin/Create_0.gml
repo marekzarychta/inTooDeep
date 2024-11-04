@@ -15,9 +15,9 @@ random_set_seed(random(400));
 var zakres = irandom(1); 
 
 if (zakres == 0) {
-    xspd = random_range(-1.7, -0.5);
+    xspd = random_range(-0.5, -0.1);
 } else {
-    xspd = random_range(0.5, 1.7);
+    xspd = random_range(0.1, 0.5);
 }
 fric = -sign(xspd) * 0.2;
 

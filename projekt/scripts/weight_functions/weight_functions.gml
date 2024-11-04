@@ -1,6 +1,6 @@
 function SetWeights() {
-	maxInventoryWeight = 18;
-	weightChangeValue = [2, 8, 14, maxInventoryWeight];
+	maxInventoryWeight = 8;
+	weightChangeValue = [2, 4, 6, maxInventoryWeight];
 	weightLevels = [0, 1, 2, 3];
 }
 

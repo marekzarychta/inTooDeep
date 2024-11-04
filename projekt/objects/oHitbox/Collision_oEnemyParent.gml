@@ -2,7 +2,7 @@
 
 // oHitbox -> Collision Event with oEnemy
 if (other.health_points != undefined && !other.wasHit) {
-    other.health_points -= 20;  // Zadaj obrażenia przeciwnikowi]
+    other.health_points -= 5;  // Zadaj obrażenia przeciwnikowi]
 	other.wasHit = true;
     //show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));
 	

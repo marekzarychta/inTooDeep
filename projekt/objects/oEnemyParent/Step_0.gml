@@ -73,7 +73,33 @@ if isAlive {
 
 	//X Collision
 	//How close we can get to a wall etc.
+	
+	
+	
 	var _subPixel = .5;
+	
+	var obj = instance_place(x + xspd, y, oDoor);
+	if  (place_meeting(x + xspd, y, oDoor) && !obj.opened) {
+		
+		if !following && wallTimer == 0 {
+			moveDir *= -1;
+			wallTimer = wallBuffer;
+		} 
+		
+		if following {
+			var _pixelCheck = _subPixel * sign(xspd);
+	
+			//Move as close to the wall as possible in 0.5px increments
+			while !place_meeting(x+_pixelCheck, y, oDoor)
+			{
+				x += _pixelCheck;
+			}
+	
+			//Stop movement to collide
+			xspd = 0;	
+		}
+	}
+	
 	//Check wall collision
 	if place_meeting(x + xspd, y, oWall) 
 	{
@@ -100,6 +126,7 @@ if isAlive {
 			//}
 			
 			//xspd = 0;
+			
 		}
 		
 	}
