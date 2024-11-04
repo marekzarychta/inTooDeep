@@ -69,6 +69,7 @@
     {"id":{"name":"oLadder","path":"objects/oLadder/oLadder.yy",},},
     {"id":{"name":"oMenuButton_exit","path":"objects/oMenuButton_exit/oMenuButton_exit.yy",},},
     {"id":{"name":"oMenuButton_start","path":"objects/oMenuButton_start/oMenuButton_start.yy",},},
+    {"id":{"name":"oPause","path":"objects/oPause/oPause.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"oSlopeDown","path":"objects/oSlopeDown/oSlopeDown.yy",},},
     {"id":{"name":"oSlopeUp","path":"objects/oSlopeUp/oSlopeUp.yy",},},
