@@ -2,7 +2,7 @@
 if (health_points <= 0) {
     isAlive = false;
     //with (other) instance_destroy();  // Usuń przeciwnika
-    show_debug_message("Wróg pokonany!");
+    //show_debug_message("Wróg pokonany!");
 }
 
 //X Movement
@@ -14,7 +14,7 @@ if isAlive {
 	var dy = playerY - y;
 	
 	//if place_meeting(x, y, oPlayer) {
-	//	show_debug_message("Kolizja");	
+	//	//show_debug_message("Kolizja");	
 	//}
 	image_xscale = -moveDir;
 	
@@ -185,19 +185,33 @@ if isAlive {
 		//if jumpCount == 0{	jumpCount = 1;}
 	}
 	
-	
+	if (attacking) {
+	    if (attackTimer > 0) {
+	        attackTimer--;
+	        //show_debug_message("Attacking in progress. Attack Timer: " + string(attackTimer));
+	        sprite_index = sprites[2];  // Ustaw animację ataku
+	    } else {
+	        attacking = false;
+	        //show_debug_message("Attack ended.");
+	    }
+	}
 	
 	y += yspd;
 	
 	
 	//Select sprite depending on movement
+	
 	if isAlive {
-		if(xspd == 0){
+		if attacking {
+			//show_debug_message("tak")
+			sprite_index = sprites[2];
+		} else if(xspd == 0){
 			sprite_index = sprites[0];
-		} else if(xspd!=0){
+		} else if(xspd != 0){
 			sprite_index = sprites[1];
 		}
 	} else {
 		sprite_index = sprites[4];	
 	}
+	
 	//tu dodac warunek do ataku, nw jaki

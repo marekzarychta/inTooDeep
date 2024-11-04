@@ -1,6 +1,6 @@
 function attack() {
 	
-	show_debug_message("attacking");
+	//show_debug_message("attacking");
 	
 	with(oEnemyParent) {
 		wasHit = false;
@@ -27,7 +27,7 @@ function attack() {
 		
 		//if (targetEnemy.health_points != undefined) {
 		//	targetEnemy.health_points -= damage;
-		//	show_debug_message("current enemy hp: " + string(targetEnemy.health_points));
+		//	//show_debug_message("current enemy hp: " + string(targetEnemy.health_points));
 		//}
 		
 		//var knockback_x = 10;  // Left-right knockback
@@ -41,7 +41,7 @@ function attack() {
         //    with (targetEnemy) {
 		//		instance_destroy(); 
 		//	}
-		//	show_debug_message("Enemy slain!");
+		//	//show_debug_message("Enemy slain!");
         //}
 		
 	//}

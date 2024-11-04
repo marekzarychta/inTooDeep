@@ -69,7 +69,7 @@ function ListAdd(list, itemType){
 	}
 	else
 	{
-		show_debug_message("Inventory full");
+		//show_debug_message("Inventory full");
 	}
 }
 
@@ -96,11 +96,11 @@ function Remove(list) {
 				}
 			}
 		}
-		//show_debug_message(object_get_name(oTestCoin));
+		////show_debug_message(object_get_name(oTestCoin));
 	}
 	else
 	{
-		show_debug_message("Inventory empty");
+		//show_debug_message("Inventory empty");
 		
 	}
 	return noone;
@@ -127,7 +127,7 @@ function InventoryRemoveChoosen(rootObject){
 	}
 	else
 	{
-		show_debug_message("Inventory empty");
+		//show_debug_message("Inventory empty");
 	}
 }
 
@@ -150,7 +150,7 @@ function ListRemoveChoosen(list) {
 	}
 	else
 	{
-		show_debug_message("Inventory empty");
+		//show_debug_message("Inventory empty");
 	}
 	return noone;
 }
@@ -191,7 +191,7 @@ function OpenDeposit(rootObject) {
 	
 	
 	var size = ds_list_size(global.lista);
-	//show_debug_message(string(size));
+	////show_debug_message(string(size));
 	for (var i = 0; i < size; i++) {
 		var item = ds_list_find_value(global.lista, i);
 		
@@ -276,7 +276,7 @@ function dragItem(rootObject) {
 		
 	var item;
 	
-	show_debug_message(string(_x) + " " + string(_y));
+	//show_debug_message(string(_x) + " " + string(_y));
 	
 	if _x != -1 && _y != -1 {
 		item = InventoryTakenPositon(rootObject, _x, _y);	
@@ -406,7 +406,7 @@ function MarkItemDep(rootObject) {
 	}
 		
 		
-	show_debug_message(string(_x) + " " + string(_y));
+	//show_debug_message(string(_x) + " " + string(_y));
 	var item;
 	
 	

@@ -65,7 +65,7 @@ function chestHandling() {
 }
 
 function interact() {
-	show_debug_message("interaktuje");
+	//show_debug_message("interaktuje");
 	oPlayer.isInteracting = true;
 }
 

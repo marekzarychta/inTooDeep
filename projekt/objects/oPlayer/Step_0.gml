@@ -58,7 +58,7 @@ if isAlive {
 //X Movement
 
 	//if place_meeting(x, y, oEnemy) {
-	//	show_debug_message("Kolizja z wrogiem");	
+	//	//show_debug_message("Kolizja z wrogiem");	
 	//}
 
 		//Direction
@@ -122,6 +122,22 @@ if isAlive {
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	//Check wall collision
+	var obj = instance_place(x + xspd, y, oDoor);
+	if  (place_meeting(x + xspd, y, oDoor) && !obj.opened) {
+		var _pixelCheck = _subPixel * sign(xspd);
+	
+		//Move as close to the wall as possible in 0.5px increments
+		while !place_meeting(x+_pixelCheck, y, oDoor)
+		{
+			x += _pixelCheck;
+		}
+	
+		//Stop movement to collide
+		xspd = 0;	
+	}
+	
+	
+	
 	if (place_meeting(x + xspd, y, oWall)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
 		checkingForSlopes(id);
@@ -191,11 +207,29 @@ if isAlive {
 	
 if (place_meeting(x, y + yspd, oEnemyParent) && can_break_orange) {
 	var enemy = instance_place(x, y + yspd, oEnemyParent);
-	show_debug_message("tak")
+	//show_debug_message("tak")
 	with (enemy) {
 		health_points = 0;
 	}
 }
+	obj = instance_place(x, y + yspd, oDoor);
+	
+	if (place_meeting(x, y + yspd, oDoor) && !obj.opened) {
+		var _pixelCheck = _subPixel * sign(yspd);
+
+		// Move as close to the wall as possible in 0.5px increments
+		while !place_meeting(x, y + _pixelCheck, oDoor) {
+			y += _pixelCheck;
+		}
+
+		// Bonk
+		if (yspd < 0) {
+			jumpHoldTimer = 0;
+		}
+
+		// Stop movement to collide
+		yspd = 0;
+	}
 	
 	
 // Check wall collision
@@ -260,7 +294,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 
 	
 	//Check if on ground, reset timers
-	if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
+	if (yspd == 0 && (place_meeting(x, y + 1, oWall) || place_meeting(x, y + 1, oDoor))) {
 	    onGround = true;
 	    jumpCount = 0;
 	    jumpHoldTimer = 0;

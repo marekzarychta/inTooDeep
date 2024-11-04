@@ -4,7 +4,7 @@
 if (other.health_points != undefined && !other.wasHit) {
     other.health_points -= 20;  // Zadaj obrażenia przeciwnikowi]
 	other.wasHit = true;
-    show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));
+    //show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));
 	
 	var directionKnockbackX = sign(other.x - x);//point_direction(other.x, other.y, x, y);
 	var directionKnockbackY = -1;//point_direction(other.x, other.y, x, y);

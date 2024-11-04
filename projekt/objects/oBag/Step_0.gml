@@ -25,7 +25,7 @@ if !opened {
 		}
 		
 		for (var j = 0; j < counter; j++) {
-			show_debug_message(string(ds_list_find_value(items, 0)));
+			//show_debug_message(string(ds_list_find_value(items, 0)));
 			ds_list_delete(items, 0);				
 		}
 	}
