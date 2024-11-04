@@ -166,9 +166,25 @@ if isAlive {
 		}
 	} 
 	
+	if !attacking {
+			
+		if(xspd == 0){
+			sprite_index = sprites[0];
+		} else if(xspd != 0){
+			sprite_index = sprites[1];
+		}
+		
+	} else {
+		sprite_index = sprites[2];
+		if image_index >= image_number - 1 {
+			attacking = false;	
+		}
+	}
 
 	//Move
 	x += xspd;
+} else {
+	sprite_index = sprites[4];		
 }
 
 
@@ -220,24 +236,7 @@ if isAlive {
 	//Select sprite depending on movement
 	
 	
-	if !attacking {
-		if isAlive {
-			
-			if(xspd == 0){
-				sprite_index = sprites[0];
-			} else if(xspd != 0){
-				sprite_index = sprites[1];
-			}
-			
-		} else {
-			sprite_index = sprites[4];	
-		}
-	} else {
-		sprite_index = sprites[2];
-		if image_index >= image_number - 1 {
-			attacking = false;	
-		}
-	}
+	
 	
 	
 	

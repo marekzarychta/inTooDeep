@@ -24,6 +24,10 @@ if isAlive {
 	//Get inputs
 	if !oInventory.opened
 		getControls();
+	else {
+		rightKey = 0;	
+		leftKey = 0;	
+	}
 
 
 
@@ -116,7 +120,7 @@ if isAlive {
 			image_speed = 1;
 		}
 		}
-	}else if (moveDir == 0 && yspd == 0) {
+	} else if (moveDir == 0 && yspd == 0) {
 		sprite_index = sPlayerIdle;
 	}
 
