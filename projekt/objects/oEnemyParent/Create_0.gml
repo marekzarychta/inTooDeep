@@ -1,3 +1,18 @@
+// Knockback variables for getting hit
+knockback_x = 0;
+knockback_y = 0;
+knockback_duration = 0; // Ile klatek trwa odrzut
+knockback_power = 5; // Sila odrzutu
+
+// Health and combat related variables
+health_points = 0;
+wasHit = false;
+isAlive = true;
+dying = false;
+attacking = false;
+attackTimer = 0;
+attackBuffer = 30;
+
 //Movement
 	//Movement direction
 sprites = [];
@@ -30,3 +45,5 @@ jumpHoldTimer = 0;
 //Jump values for successive jumps
 jumpHoldFrames = 4;
 jspd = -3.25;
+onGround = true;
+isSlope = false;

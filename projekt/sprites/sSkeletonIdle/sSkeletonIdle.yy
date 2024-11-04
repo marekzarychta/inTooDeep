@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
   "%Name":"sSkeletonIdle",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":31,
-  "bbox_left":1,
-  "bbox_right":30,
+  "bbox_left":2,
+  "bbox_right":26,
   "bbox_top":3,
   "collisionKind":1,
   "collisionTolerance":0,

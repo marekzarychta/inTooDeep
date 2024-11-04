@@ -65,7 +65,7 @@ function chestHandling() {
 }
 
 function interact() {
-	show_debug_message("interaktuje");
+	//show_debug_message("interaktuje");
 	oPlayer.isInteracting = true;
 }
 
@@ -81,8 +81,10 @@ function toDown(RootObject) {
 function checkingForSlopes(RootObject) {
 	
 	var _subPixel = 0.5;
+	var isSlope = false;
 	if !place_meeting(RootObject.x + RootObject.xspd, RootObject.y - abs(RootObject.xspd) - 1, oWall) {
 		while place_meeting(RootObject.x + RootObject.xspd, RootObject.y, oWall) { RootObject.y -= _subPixel };
+		isSlope = true;
 	} else {
 		//Walk up to wall precisely
 		var _pixelCheck = _subPixel * sign(xspd);
@@ -97,7 +99,7 @@ function checkingForSlopes(RootObject) {
 		xspd = 0;	
 	}
 	
-	
+	return isSlope;
 }
 
 function checkingForSlopesGoingDown(RootObject) {

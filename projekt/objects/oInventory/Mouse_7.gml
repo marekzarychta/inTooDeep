@@ -1,2 +1,2 @@
-show_debug_message("Myszka puszczona!");
+//show_debug_message("Myszka puszczona!");
 //releaseItem(id);

@@ -1,6 +1,6 @@
 function SetHP() {
 
-	max_health = 2;
+	max_health = 10;
 	current_health = max_health;
 	
 	bufferEnemyHit = 60;
@@ -22,32 +22,66 @@ function DrawHealthBar(RootObject) {
 	}	
 }
 
-function HPManage() {
-	if place_meeting(x, y, oEnemyParent) && timerEnemyHit == 0 {
-		timerEnemyHit = bufferEnemyHit;
-		LoseHP();
+//function HPManage() {
+//	if IsInRangeAttack() && timerEnemyHit == 0 && oEnemyParent.isAlive {
+//		timerEnemyHit = bufferEnemyHit;
+//		with (oEnemyParent) {
+//			other.attacking = true;
+//		}
+//		LoseHP();
 		
-		if current_health == 0 {
-			toDown(oPlayer);
-			oPlayer.isAlive = false;
-			oPlayer.sprite_index = sPlayerDead;
-			timerEnemyHit = 0;
-			DropAllItems(oInventory);
-			if (oInventory.opened) {
-				oInventory.opened = false;	
-				CloseInventory(oInventory);
-			}
-		}
-	}
+		
+//		if current_health == 0 {
+//			toDown(oPlayer);
+//			oPlayer.isAlive = false;
+//			oPlayer.sprite_index = sPlayerDead;
+//			timerEnemyHit = 0;
+//			DropAllItems(oInventory);
+//			if (oInventory.opened) {
+//				oInventory.opened = false;	
+//				CloseInventory(oInventory);
+//			}
+//		}
+//	}
 	
 	
 	
-	if timerEnemyHit > 30 {
-		timerEnemyHit--;	
-		oPlayer.sprite_index = sPlayerGotHit;
-	} else if timerEnemyHit > 0 {
-		timerEnemyHit--;	
-	}
+//	if timerEnemyHit > 30 {
+//		timerEnemyHit--;	
+//		oPlayer.sprite_index = sPlayerGotHit;
+//	} else if timerEnemyHit > 0 {
+//		timerEnemyHit--;	
+//	}
+//}
+
+function HPManage() {
+    if IsInRangeAttack() && timerEnemyHit == 0 && oEnemyParent.isAlive {
+        timerEnemyHit = bufferEnemyHit;
+        with (oEnemyParent) {
+            other.attacking = true;
+            //show_debug_message("Attack started by Enemy!");
+        }
+        LoseHP();
+        
+        if current_health == 0 {
+            toDown(oPlayer);
+            oPlayer.isAlive = false;
+            oPlayer.sprite_index = sPlayerDead;
+            timerEnemyHit = 0;
+            DropAllItems(oInventory);
+            if (oInventory.opened) {
+                oInventory.opened = false;    
+                CloseInventory(oInventory);
+            }
+        }
+    }
+    
+    if timerEnemyHit > 30 {
+        timerEnemyHit--;    
+        oPlayer.sprite_index = sPlayerGotHit;
+    } else if timerEnemyHit > 0 {
+        timerEnemyHit--;    
+    }
 }
 
 function LoseHP() {
@@ -60,4 +94,17 @@ function GainHP() {
 	if current_health < max_health {
 		current_health++;	
 	}
+}
+
+function IsInRangeAttack() {
+	
+	with (oEnemyParent) {
+		var rangeX = abs(x - other.x);
+		var rangeY = abs(y - other.y);
+		if rangeX <= 24 && rangeY <= 5 {
+			return true;	
+		}
+	
+	}
+	return false;
 }

@@ -1,3 +1,20 @@
+// So basically this drops towards 0 every frame to make a 60 frames cooldown
+// 0 means we can attack and then it resets back to whatever cooldown is set to
+if (attackCooldownTimer > 0) {
+	attackCooldownTimer--;
+}
+
+// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
+if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && onGround && !global.openedDep && !isLadder && isAlive) {
+	
+	// Call the attack function from the combat_functions script
+	attack();
+	
+	// And reset the timer to cooldown value
+	attackCooldownTimer = attackCooldown;
+	
+}
+
 if isAlive {
 
 	HPManage();
@@ -41,7 +58,7 @@ if isAlive {
 //X Movement
 
 	//if place_meeting(x, y, oEnemy) {
-	//	show_debug_message("Kolizja z wrogiem");	
+	//	//show_debug_message("Kolizja z wrogiem");	
 	//}
 
 	//Direction not changing when dashing
@@ -142,6 +159,22 @@ if isAlive {
 	}
 	
 	//Check wall collision
+	var obj = instance_place(x + xspd, y, oDoor);
+	if  (place_meeting(x + xspd, y, oDoor) && !obj.opened) {
+		var _pixelCheck = _subPixel * sign(xspd);
+	
+		//Move as close to the wall as possible in 0.5px increments
+		while !place_meeting(x+_pixelCheck, y, oDoor)
+		{
+			x += _pixelCheck;
+		}
+	
+		//Stop movement to collide
+		xspd = 0;	
+	}
+	
+	
+	
 	if (place_meeting(x + xspd, y, oWall)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
 		checkingForSlopes(id);
@@ -208,6 +241,33 @@ if isAlive {
 
 	//Y Collision
 	var _subPixel = .5;
+	
+if (place_meeting(x, y + yspd, oEnemyParent) && can_break_orange) {
+	var enemy = instance_place(x, y + yspd, oEnemyParent);
+	//show_debug_message("tak")
+	with (enemy) {
+		health_points = 0;
+	}
+}
+	obj = instance_place(x, y + yspd, oDoor);
+	
+	if (place_meeting(x, y + yspd, oDoor) && !obj.opened) {
+		var _pixelCheck = _subPixel * sign(yspd);
+
+		// Move as close to the wall as possible in 0.5px increments
+		while !place_meeting(x, y + _pixelCheck, oDoor) {
+			y += _pixelCheck;
+		}
+
+		// Bonk
+		if (yspd < 0) {
+			jumpHoldTimer = 0;
+		}
+
+		// Stop movement to collide
+		yspd = 0;
+	}
+	
 	
 // Check wall collision
 if (place_meeting(x, y + yspd, oWall)) {
@@ -300,7 +360,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 
 	
 	//Check if on ground, reset timers
-	if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
+	if (yspd == 0 && (place_meeting(x, y + 1, oWall) || place_meeting(x, y + 1, oDoor))) {
 	    onGround = true;
 	    jumpCount = 0;
 	    jumpHoldTimer = 0;

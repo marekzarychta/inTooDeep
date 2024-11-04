@@ -1,1 +1,1 @@
-show_debug_message(inventory);
+//show_debug_message(inventory);

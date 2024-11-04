@@ -75,9 +75,9 @@ if !in_inventory {
 
 	if place_meeting(x, y, oPlayer) && collectable && weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
 	
-		show_debug_message("Zebrano: " + string(id));
+		//show_debug_message("Zebrano: " + string(id));
 		InventoryAdd(oInventory, id);
-		//show_debug_message("Obecna waga: " + string(oPlayer.inventoryWeight));
+		////show_debug_message("Obecna waga: " + string(oPlayer.inventoryWeight));
 		//instance_destroy(id);
 		
 	}
