@@ -55,10 +55,14 @@ function DrawHealthBar(RootObject) {
 //}
 
 function HPManage() {
-    if IsInRangeAttack() && timerEnemyHit == 0 && oEnemyParent.isAlive {
+	var en = IsInRangeAttack()
+    if en != noone && timerEnemyHit == 0 && oEnemyParent.isAlive {
         timerEnemyHit = bufferEnemyHit;
-        with (oEnemyParent) {
-            other.attacking = true;
+		
+		
+		
+        with (en) {
+            id.attacking = true;
             //show_debug_message("Attack started by Enemy!");
         }
         LoseHP();
@@ -98,13 +102,17 @@ function GainHP() {
 
 function IsInRangeAttack() {
 	
-	with (oEnemyParent) {
+	//with (oEnemyParent) {
 		var rangeX = abs(x - other.x);
 		var rangeY = abs(y - other.y);
 		if rangeX <= 24 && rangeY <= 5 {
-			return true;	
+			var a = instance_place(x + rangeX, y, oEnemyParent);
+			if a == noone {
+					a = instance_place(x - rangeX, y, oEnemyParent);
+			}
+			return a;	
 		}
 	
-	}
-	return false;
+	//}
+	return noone;
 }

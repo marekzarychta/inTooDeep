@@ -212,33 +212,33 @@ if isAlive {
 		//if jumpCount == 0{	jumpCount = 1;}
 	}
 	
-	if (attacking) {
-	    if (attackTimer > 0) {
-	        attackTimer--;
-	        //show_debug_message("Attacking in progress. Attack Timer: " + string(attackTimer));
-	        sprite_index = sprites[2];  // Ustaw animację ataku
-	    } else {
-	        attacking = false;
-	        //show_debug_message("Attack ended.");
-	    }
-	}
+	
 	
 	y += yspd;
 	
 	
 	//Select sprite depending on movement
 	
-	if isAlive {
-		if attacking {
-			//show_debug_message("tak")
-			sprite_index = sprites[2];
-		} else if(xspd == 0){
-			sprite_index = sprites[0];
-		} else if(xspd != 0){
-			sprite_index = sprites[1];
+	
+	if !attacking {
+		if isAlive {
+			
+			if(xspd == 0){
+				sprite_index = sprites[0];
+			} else if(xspd != 0){
+				sprite_index = sprites[1];
+			}
+			
+		} else {
+			sprite_index = sprites[4];	
 		}
 	} else {
-		sprite_index = sprites[4];	
+		sprite_index = sprites[2];
+		if image_index >= image_number - 1 {
+			attacking = false;	
+		}
 	}
+	
+	
 	
 	//tu dodac warunek do ataku, nw jaki
