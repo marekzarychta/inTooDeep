@@ -189,6 +189,15 @@ if isAlive {
 	//Y Collision
 	var _subPixel = .5;
 	
+if (place_meeting(x, y + yspd, oEnemyParent) && can_break_orange) {
+	var enemy = instance_place(x, y + yspd, oEnemyParent);
+	show_debug_message("tak")
+	with (enemy) {
+		health_points = 0;
+	}
+}
+	
+	
 // Check wall collision
 if (place_meeting(x, y + yspd, oWall)) {
     if (can_break_orange && place_meeting(x, y + yspd, oBreakableWallOrange) && yspd > 0) {

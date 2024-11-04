@@ -23,7 +23,7 @@ function DrawHealthBar(RootObject) {
 }
 
 function HPManage() {
-	if place_meeting(x, y, oEnemyParent) && timerEnemyHit == 0 {
+	if place_meeting(x, y, oEnemyParent) && timerEnemyHit == 0 && oEnemyParent.isAlive {
 		timerEnemyHit = bufferEnemyHit;
 		LoseHP();
 		

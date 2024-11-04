@@ -8,6 +8,7 @@ knockback_power = 5; // Sila odrzutu
 health_points = 0;
 wasHit = false;
 isAlive = true;
+dying = false;
 
 //Movement
 	//Movement direction

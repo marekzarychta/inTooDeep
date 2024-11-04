@@ -117,6 +117,8 @@
     {"id":{"name":"sPlayerWalk","path":"sprites/sPlayerWalk/sPlayerWalk.yy",},},
     {"id":{"name":"sRect","path":"sprites/sRect/sRect.yy",},},
     {"id":{"name":"sSkeletonAttack","path":"sprites/sSkeletonAttack/sSkeletonAttack.yy",},},
+    {"id":{"name":"sSkeletonDead","path":"sprites/sSkeletonDead/sSkeletonDead.yy",},},
+    {"id":{"name":"sSkeletonDeath","path":"sprites/sSkeletonDeath/sSkeletonDeath.yy",},},
     {"id":{"name":"sSkeletonIdle","path":"sprites/sSkeletonIdle/sSkeletonIdle.yy",},},
     {"id":{"name":"sSkeletonWalk","path":"sprites/sSkeletonWalk/sSkeletonWalk.yy",},},
     {"id":{"name":"sSlopeDown","path":"sprites/sSlopeDown/sSlopeDown.yy",},},

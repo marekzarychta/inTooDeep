@@ -1,9 +1,12 @@
-
-
-//Get inputs
+// Sprawdź, czy przeciwnik zginął
+if (health_points <= 0) {
+    isAlive = false;
+    //with (other) instance_destroy();  // Usuń przeciwnika
+    show_debug_message("Wróg pokonany!");
+}
 
 //X Movement
-	
+if isAlive {
 	playerX = oPlayer.x;
 	playerY = oPlayer.y;
 	
@@ -139,7 +142,9 @@
 
 	//Move
 	x += xspd;
-	
+}
+
+
 //Y Movement
 	//Gravity
 	yspd += grav;
@@ -186,9 +191,13 @@
 	
 	
 	//Select sprite depending on movement
-	if(xspd == 0){
-		sprite_index = sprites[0];
-	}else if(xspd!=0){
-		sprite_index = sprites[1];
+	if isAlive {
+		if(xspd == 0){
+			sprite_index = sprites[0];
+		} else if(xspd!=0){
+			sprite_index = sprites[1];
+		}
+	} else {
+		sprite_index = sprites[4];	
 	}
 	//tu dodac warunek do ataku, nw jaki

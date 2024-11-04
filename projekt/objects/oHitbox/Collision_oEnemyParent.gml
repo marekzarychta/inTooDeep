@@ -2,7 +2,7 @@
 
 // oHitbox -> Collision Event with oEnemy
 if (other.health_points != undefined && !other.wasHit) {
-    other.health_points -= 5;  // Zadaj obrażenia przeciwnikowi]
+    other.health_points -= 20;  // Zadaj obrażenia przeciwnikowi]
 	other.wasHit = true;
     show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));
 	
@@ -12,12 +12,6 @@ if (other.health_points != undefined && !other.wasHit) {
     other.knockback_y = other.knockback_power * directionKnockbackY;//lengthdir_y(other.knockback_power, -directionKnockback);
     other.knockback_duration = 10; // Czas trwania knockbacku
 	
-    // Sprawdź, czy przeciwnik zginął
-    if (other.health_points <= 0) {
-        other.isAlive = false;
-        with (other) instance_destroy();  // Usuń przeciwnika
-        show_debug_message("Wróg pokonany!");
-    }
 }
 
 //instance_destroy();
