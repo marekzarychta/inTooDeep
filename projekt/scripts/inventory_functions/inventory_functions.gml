@@ -204,6 +204,8 @@ function OpenDeposit(rootObject) {
 	rootObject.but1Dep.x = rootObject.ox + INVENTORY_GRID_X * 16 + x_offset * 2;
 	rootObject.but1Dep.y = rootObject.oy + y_offset;
 	
+	draw_text(rootObject.ox + INVENTORY_GRID_X * 16 + x_offset * 2 + 5, rootObject.oy + y_offset + 25,"deposit");
+
 	draw_sprite_stretched(but1Dep.sprite_index, 0, but1Dep.x, but1Dep.y, 32, 16);
 	draw_set_font(Fnt_small);
 	draw_set_color(c_black);
@@ -240,6 +242,7 @@ function OpenInventory(rootObject) {
 		}
 	}
 	
+	
 	if (rootObject.dragging_item != noone) {
 		
 	    draw_set_color(c_yellow); 
@@ -250,11 +253,14 @@ function OpenInventory(rootObject) {
 	
 	but1.x = rootObject.x + INVENTORY_GRID_X * 16 + x_offset * 2;
 	but1.y = rootObject.y + y_offset;
+
 	
 	draw_sprite_stretched(but1.sprite_index, 0, but1.x, but1.y, 32, 16);
 	draw_set_font(Fnt_small);
 	draw_set_color(c_black);
 	draw_text(but1.x + but1.w / 2, but1.y + but1.h / 2, string(but1.o_name));
+	draw_text(but1.x + but1.w / 2, but1.y + but1.h / 2 + 15,"inventory");
+
 }
 
 function CloseInventory(rootObject) {
