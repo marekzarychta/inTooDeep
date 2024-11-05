@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sBackground",
-    "path":"sprites/sBackground/sBackground.yy",
+    "name":"sEndFlag",
+    "path":"sprites/sEndFlag/sEndFlag.yy",
   },
   "spriteMaskId":null,
   "visible":true,
