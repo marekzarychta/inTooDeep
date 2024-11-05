@@ -24,7 +24,7 @@ upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
 	
 	downKey = keyboard_check(ord("S"));
 	
-	dashKey = keyboard_check(vk_control);
+	dashKey = keyboard_check(vk_shift);
 	
 	//downKey = clamp (downKey, 0, 1);
 	
