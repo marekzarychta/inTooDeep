@@ -5,4 +5,5 @@ if !isAlive {
 	y = 187;
 	timerEnemyHit = 0;
 	oCamera.midX = x;
+	oCamera.midY = y;
 }

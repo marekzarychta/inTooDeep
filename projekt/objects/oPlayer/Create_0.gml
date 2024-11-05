@@ -4,6 +4,9 @@ attackCooldownTimer = 0; // Timer that resets the cooldown after attacking
 attackingTimer = 0;
 damage = 10;
 
+reviveTimer = 0;
+reviveBuffer = 200;
+
 //Health
 SetHP();
 isAlive = true;

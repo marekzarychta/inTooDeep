@@ -431,4 +431,13 @@ if (place_meeting(x, y + yspd, oWall)) {
 	sprite_index = sPlayerDead;	
 }
 
-	
+if reviveTimer == 0 && !isAlive {
+	reviveTimer = reviveBuffer;	
+}
+
+if reviveTimer > 0 && !isAlive {
+	reviveTimer--;
+	if reviveTimer == 0 {
+		event_perform(ev_keypress, vk_enter);	
+	}	
+}
