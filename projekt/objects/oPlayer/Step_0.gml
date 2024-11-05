@@ -2,6 +2,7 @@
 // 0 means we can attack and then it resets back to whatever cooldown is set to
 if (attackCooldownTimer > 0) {
 	attackCooldownTimer--;
+	
 }
 
 // We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
@@ -9,7 +10,7 @@ if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && onGround 
 	
 	// Call the attack function from the combat_functions script
 	attack();
-	
+	attackingTimer = 40;
 	// And reset the timer to cooldown value
 	attackCooldownTimer = attackCooldown;
 	
@@ -407,6 +408,21 @@ if (place_meeting(x, y + yspd, oWall)) {
 	else if isLadder {
 		sprite_index = sPlayerLadderIdle;
 	}
+	if timerEnemyHit > 0 {
+		sprite_index = sPlayerGotHit;	
+	}
+	
+	if attackingTimer > 0 {
+		sprite_index = sPlayerAttack;
+		attackingTimer--;
+	}
+} else if isdying {
+	sprite_index = sPlayerDying;
+	if image_index >= image_number - 1 {
+		isdying = false;	
+	}
+} else {
+	sprite_index = sPlayerDead;	
 }
 
 	

@@ -1,6 +1,6 @@
 function SetHP() {
 
-	max_health = 10;
+	max_health = 2;
 	current_health = max_health;
 	
 	bufferEnemyHit = 60;
@@ -59,18 +59,13 @@ function HPManage() {
     if en != noone && timerEnemyHit == 0 && en.isAlive {
         timerEnemyHit = bufferEnemyHit;
 		
-		
-		
-        with (en) {
-            id.attacking = true;
-            //show_debug_message("Attack started by Enemy!");
-        }
+		en.attacking = true;
         LoseHP();
         
         if current_health == 0 {
             toDown(oPlayer);
             oPlayer.isAlive = false;
-            oPlayer.sprite_index = sPlayerDead;
+            oPlayer.isdying = true;
             timerEnemyHit = 0;
             DropAllItems(oInventory);
             if (oInventory.opened) {
@@ -82,7 +77,7 @@ function HPManage() {
     
     if timerEnemyHit > 30 {
         timerEnemyHit--;    
-        //oPlayer.sprite_index = sPlayerGotHit;
+        oPlayer.sprite_index = sPlayerGotHit;
     } else if timerEnemyHit > 0 {
         timerEnemyHit--;    
     }
