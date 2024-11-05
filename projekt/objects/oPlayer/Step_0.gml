@@ -23,10 +23,10 @@ if isAlive {
 	}
 
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
-	if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && onGround && !oInventory.opened && !isLadder) {
+	if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && !oInventory.opened && !isLadder) {
 	
 		// Call the attack function from the combat_functions script
-		attack();
+		
 		attackingTimer = 40;
 		image_index = 0;
 		// And reset the timer to cooldown value
@@ -382,7 +382,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	        jumpStartTimer--;
 	    } 
 
-		if !isLadder && !isDashing {
+		if !isLadder && !isDashing && attackingTimer == 0 {
 			if (jumpStartTimer > 0) {
 		        sprite_index = sPlayerStartJump;
 		    } else if (yspd > 0) {
@@ -416,6 +416,9 @@ if (place_meeting(x, y + yspd, oWall)) {
 	
 	if attackingTimer > 0 {
 		sprite_index = sPlayerAttack;
+		if image_index == 1 {
+			attack();	
+		}
 		attackingTimer--;
 	}
 } else if isdying {

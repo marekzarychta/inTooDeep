@@ -7,9 +7,9 @@ function attack() {
 	}
 	
 	var offset_x = (image_xscale == 1) ? 16 : -16 // Ustaw odpowiednią pozycję względem kierunku
-    var hitbox = instance_create_layer(x + offset_x, y, oPlayer.layer, oHitbox);
+    var hitbox = instance_create_layer(x + offset_x, y - 16, oPlayer.layer, oHitbox);
 	hitbox.image_xscale = 2;
-	hitbox.life = 5;
+	hitbox.life = 30;
 	
 	// For now there is no hitbox, just the distance of 32 pixels
 	/*var attack_range = 32;

@@ -5,7 +5,8 @@ if (marked && openable && keyboard_check_pressed(ord("E"))) && !oInventory.opene
     //when player opened -> open 2 windows
 	global.openedDep = true;
 	with (oInventory) {
-		event_perform(ev_keypress, ord("I"));		
+		//event_perform(ev_keypress, ord("I"));	
+		inventoryActiveFunc();
 	}
 		
 }
