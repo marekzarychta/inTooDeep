@@ -107,6 +107,7 @@
     {"id":{"name":"sDoorButtonPushed","path":"sprites/sDoorButtonPushed/sDoorButtonPushed.yy",},},
     {"id":{"name":"sDoorClosed","path":"sprites/sDoorClosed/sDoorClosed.yy",},},
     {"id":{"name":"sDoorOpened","path":"sprites/sDoorOpened/sDoorOpened.yy",},},
+    {"id":{"name":"sEndFlag","path":"sprites/sEndFlag/sEndFlag.yy",},},
     {"id":{"name":"sEnemy","path":"sprites/sEnemy/sEnemy.yy",},},
     {"id":{"name":"sGrid","path":"sprites/sGrid/sGrid.yy",},},
     {"id":{"name":"sHealthBar","path":"sprites/sHealthBar/sHealthBar.yy",},},
