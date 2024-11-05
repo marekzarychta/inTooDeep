@@ -11,6 +11,7 @@ if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && onGround 
 	// Call the attack function from the combat_functions script
 	attack();
 	attackingTimer = 40;
+	image_index = 0;
 	// And reset the timer to cooldown value
 	attackCooldownTimer = attackCooldown;
 	
@@ -418,6 +419,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	}
 } else if isdying {
 	sprite_index = sPlayerDying;
+	
 	if image_index >= image_number - 1 {
 		isdying = false;	
 	}
