@@ -32,8 +32,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"doorX","filters":[],"listItems":[],"multiselect":false,"name":"doorX","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"doorY","filters":[],"listItems":[],"multiselect":false,"name":"doorY","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"doorX","filters":[],"listItems":[],"multiselect":false,"name":"doorX","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"960","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"doorY","filters":[],"listItems":[],"multiselect":false,"name":"doorY","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"620","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

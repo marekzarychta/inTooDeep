@@ -1,6 +1,6 @@
 // in world
 
-world_sprite = sCoin;
+world_sprite = sItem;
 
 yspd = -3.75;
 grav = .275;

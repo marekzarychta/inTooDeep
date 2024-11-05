@@ -23,7 +23,7 @@
   ],
   "name":"sDeposit",
   "nineSlice":null,
-  "origin":6,
+  "origin":7,
   "parent":{
     "name":"depositSprites",
     "path":"folders/Sprites/depositSprites.yy",
@@ -75,7 +75,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":8,
     "yorigin":16,
   },
   "swatchColours":null,

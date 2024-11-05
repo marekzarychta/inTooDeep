@@ -23,7 +23,7 @@
   ],
   "name":"sChestOpen",
   "nineSlice":null,
-  "origin":6,
+  "origin":7,
   "parent":{
     "name":"chestSprites",
     "path":"folders/Sprites/chestSprites.yy",
@@ -75,7 +75,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":16,
     "yorigin":32,
   },
   "swatchColours":null,

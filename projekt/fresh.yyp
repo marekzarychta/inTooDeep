@@ -116,6 +116,7 @@
     {"id":{"name":"sItem","path":"sprites/sItem/sItem.yy",},},
     {"id":{"name":"sKeyE","path":"sprites/sKeyE/sKeyE.yy",},},
     {"id":{"name":"sLadder","path":"sprites/sLadder/sLadder.yy",},},
+    {"id":{"name":"sLogo","path":"sprites/sLogo/sLogo.yy",},},
     {"id":{"name":"sMarked","path":"sprites/sMarked/sMarked.yy",},},
     {"id":{"name":"sPlayerAttack","path":"sprites/sPlayerAttack/sPlayerAttack.yy",},},
     {"id":{"name":"sPlayerDash","path":"sprites/sPlayerDash/sPlayerDash.yy",},},

@@ -82,7 +82,7 @@ function HPManage() {
     
     if timerEnemyHit > 30 {
         timerEnemyHit--;    
-        oPlayer.sprite_index = sPlayerGotHit;
+        //oPlayer.sprite_index = sPlayerGotHit;
     } else if timerEnemyHit > 0 {
         timerEnemyHit--;    
     }
