@@ -1,2 +1,2 @@
-room_persistent = true;
-room_goto_previous();
+//room_persistent = true;
+//room_goto_previous();

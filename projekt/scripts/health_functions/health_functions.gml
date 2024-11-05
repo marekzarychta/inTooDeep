@@ -1,6 +1,6 @@
 function SetHP() {
 
-	max_health = 2;
+	max_health = 8;
 	current_health = max_health;
 	
 	bufferEnemyHit = 60;
@@ -60,6 +60,7 @@ function HPManage() {
         timerEnemyHit = bufferEnemyHit;
 		
 		en.attacking = true;
+		en.image_index = 0;
         LoseHP();
         
         if current_health == 0 {

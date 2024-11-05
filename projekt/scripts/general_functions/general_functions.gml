@@ -69,7 +69,7 @@ function chestHandling() {
     // Tworzenie lub usuwanie `oTextbox`
     if (openable && marked) {
         if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-            textBoxInstance = createTextbox(x, y - 20, "open"); // Tworzymy textbox
+            textBoxInstance = createTextbox(x, y - 20, "E - \nopen"); // Tworzymy textbox
         }
         sprite_index = markSprite;    
     } else {

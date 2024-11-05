@@ -1,21 +1,6 @@
 // So basically this drops towards 0 every frame to make a 60 frames cooldown
 // 0 means we can attack and then it resets back to whatever cooldown is set to
-if (attackCooldownTimer > 0) {
-	attackCooldownTimer--;
-	
-}
 
-// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
-if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && onGround && !global.openedDep && !isLadder && isAlive) {
-	
-	// Call the attack function from the combat_functions script
-	attack();
-	attackingTimer = 40;
-	image_index = 0;
-	// And reset the timer to cooldown value
-	attackCooldownTimer = attackCooldown;
-	
-}
 
 if isAlive {
 
@@ -26,12 +11,28 @@ if isAlive {
 	//Get inputs
 	if !oInventory.opened
 		getControls();
+		
 	else {
 		rightKey = 0;	
 		leftKey = 0;	
 	}
 
+	if (attackCooldownTimer > 0) {
+		attackCooldownTimer--;
+	
+	}
 
+	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
+	if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && onGround && !oInventory.opened && !isLadder) {
+	
+		// Call the attack function from the combat_functions script
+		attack();
+		attackingTimer = 40;
+		image_index = 0;
+		// And reset the timer to cooldown value
+		attackCooldownTimer = attackCooldown;
+	
+	}
 
 	var cratesInRange = []; 
 	var horizontalRange = 48;
