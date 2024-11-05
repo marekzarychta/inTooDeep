@@ -7,7 +7,6 @@ if (marked && openable && keyboard_check_pressed(ord("E"))) && !oInventory.opene
 	with (oInventory) {
 		event_perform(ev_keypress, ord("I"));		
 	}
-	
 		
 }
 	
