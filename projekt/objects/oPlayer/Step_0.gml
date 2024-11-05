@@ -282,14 +282,18 @@ if (place_meeting(x, y + yspd, oWall)) {
                 instance_destroy();
             }
         }
-    } else if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
+    } 
+	if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
         var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
         if (breakableWall != noone) {
             with (breakableWall) {
                 instance_destroy();
             }
         }
-    } else {
+    } 
+}
+
+if (place_meeting(x, y + yspd, oWall)) {
         // Move up to wall precisely
         var _pixelCheck = _subPixel * sign(yspd);
 
@@ -305,7 +309,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 
         // Stop movement to collide
         yspd = 0;  // Setting yspd to 0 only when truly colliding
-    }
+
 }
 
 	//checking is player on ladder
@@ -316,15 +320,15 @@ if (place_meeting(x, y + yspd, oWall)) {
 		isLadder = false;
 	}
 	
-	if !isLadder && onGround && downKey && dashCooldownTimer <= 0 && !isDashing { //if player is on ground and dont touching ladder start dash
+	if !isLadder && onGround && moveDir != 0 && dashKey && dashCooldownTimer <= 0 && !isDashing { //if player is on ground and dont touching ladder start dash
 		dashTimer = dashBuffer;
 	}
 	
 	//if !downKey
 	
-	if !downKey && isDashing {
-		dashTimer = 0;	
-	}
+	//if !downKey && isDashing {
+	//	dashTimer = 0;	
+	//}
 	
 	if dashTimer > 0 {
 		dashTimer--;	

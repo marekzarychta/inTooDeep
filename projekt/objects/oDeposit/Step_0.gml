@@ -16,5 +16,11 @@ if (mouse_check_button_pressed(mb_right) && global.openedDep) {
 	//marking in deposit window
 }
 
+if (mouse_check_button_pressed(mb_left) && global.openedDep) {
+    dragDepItem(id);
+}
 
+if (mouse_check_button_released(mb_left) && global.openedDep) {
+	releaseItem(id);	
+}
 

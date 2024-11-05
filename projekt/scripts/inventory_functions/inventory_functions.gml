@@ -64,13 +64,14 @@ function ListAdd(list, itemType){
 				}
 			}
 		}
-		return false;
+		
 		
 	}
 	else
 	{
 		//show_debug_message("Inventory full");
 	}
+	return false;
 }
 
 function InventoryRemove(rootObject) {
@@ -194,12 +195,18 @@ function OpenDeposit(rootObject) {
 	////show_debug_message(string(size));
 	for (var i = 0; i < size; i++) {
 		var item = ds_list_find_value(global.lista, i);
-		
-		draw_sprite_stretched(item.inv_sprite, 0, ox + item.grid_x * 16 + x_offset + 2, oy + item.grid_y * 16 + y_offset + 2, 10, 10);
+		if item != rootObject.dragging_item
+			draw_sprite_stretched(item.inv_sprite, 0, ox + item.grid_x * 16 + x_offset + 2, oy + item.grid_y * 16 + y_offset + 2, 10, 10);
 		if item.choosen {
 			draw_sprite_stretched(sMarked, 0, ox + item.grid_x * 16 + x_offset + 2, oy + item.grid_y * 16 + y_offset + 2, 10, 10);	
 		}
 	}
+	
+	//if (rootObject.dragging_item != noone) {
+		
+	//    //draw_set_color(c_yellow); 
+	//    draw_sprite_stretched(rootObject.dragging_item.inv_sprite, 0, mouse_x, mouse_y, 10, 10); // Rysowanie przedmiotu w miejscu kursora
+	//}
 	
 	rootObject.but1Dep.x = rootObject.ox + INVENTORY_GRID_X * 16 + x_offset * 2;
 	rootObject.but1Dep.y = rootObject.oy + y_offset;
@@ -245,10 +252,13 @@ function OpenInventory(rootObject) {
 	
 	if (rootObject.dragging_item != noone) {
 		
-	    draw_set_color(c_yellow); 
+	    //draw_set_color(c_yellow); 
 	    draw_sprite_stretched(rootObject.dragging_item.inv_sprite, 0, mouse_x, mouse_y, 10, 10); // Rysowanie przedmiotu w miejscu kursora
 	}
 	
+	if (oDeposit.dragging_item != noone) {
+		draw_sprite_stretched(oDeposit.dragging_item.inv_sprite, 0, mouse_x, mouse_y, 10, 10);	
+	}
 	// przyciski
 	
 	but1.x = rootObject.x + INVENTORY_GRID_X * 16 + x_offset * 2;
@@ -292,35 +302,123 @@ function dragItem(rootObject) {
 		
 		}
 	}
+}
+
+function dragDepItem(rootObject) {
+	var _x = -1;
+	var _y = -1;
+	if mouse_x > rootObject.ox + x_offset && mouse_x < rootObject.ox + x_offset + 16 * INVENTORY_GRID_X {
+		_x = floor((mouse_x - ox - x_offset) / 16);  
+	}
+	if mouse_y > rootObject.oy + y_offset && mouse_y < rootObject.oy + y_offset + 16 * INVENTORY_GRID_Y {
+		_y = floor((mouse_y - oy - y_offset) / 16); 
+	}
+		
+	var item;
 	
+	//show_debug_message(string(_x) + " " + string(_y));
 	
+	if _x != -1 && _y != -1 {
+		item = ListTakenPositon(global.lista, _x, _y);	
+		if item != noone {
+			rootObject.dragging_index = ds_list_find_index(global.lista, item);
+			rootObject.dragging_item = item;
+		
+		}
+	}
 }
 
 function releaseItem(rootObject) {
 	if (rootObject.dragging_item != noone) {
-	    var _x = -1;
-		var _y = -1;
-		if mouse_x > rootObject.x + x_offset && mouse_x < rootObject.x + x_offset + 16 * INVENTORY_GRID_X {
-			_x = floor((mouse_x - x - x_offset) / 16);  
-		}
-		if mouse_y > rootObject.y + y_offset && mouse_y < rootObject.y + y_offset + 16 * INVENTORY_GRID_Y {
-			_y = floor((mouse_y - y - y_offset) / 16);  
-		}
-		
-		var item;
-	
-		if _x != -1 && _y != -1 {
-			item = InventoryTakenPositon(rootObject, _x, _y);	
-			if item == noone {
-				rootObject.dragging_item.grid_x = _x;
-				rootObject.dragging_item.grid_y = _y;
+		if (!rootObject.dragging_item.inDep) {
+		    var _x = -1;
+			var _y = -1;
+			if mouse_x > rootObject.x + x_offset && mouse_x < rootObject.x + x_offset + 16 * INVENTORY_GRID_X {
+				_x = floor((mouse_x - x - x_offset) / 16);  
 			}
+			if mouse_y > rootObject.y + y_offset && mouse_y < rootObject.y + y_offset + 16 * INVENTORY_GRID_Y {
+				_y = floor((mouse_y - y - y_offset) / 16);  
+			}
+		
+			var item;
+	
+			if _x != -1 && _y != -1 {
+				item = InventoryTakenPositon(rootObject, _x, _y);	
+				if item == noone {
+					rootObject.dragging_item.grid_x = _x;
+					rootObject.dragging_item.grid_y = _y;
+					//rootObject.dragging_item.inDep = false;
+				}
+			} else if global.openedDep {
+				if mouse_x > oDeposit.ox + x_offset && mouse_x <oDeposit.ox + x_offset + 16 * INVENTORY_GRID_X {
+					_x = floor((mouse_x - oDeposit.ox - x_offset) / 16);  
+				}
+				if mouse_y > oDeposit.oy + y_offset && mouse_y < oDeposit.oy + y_offset + 16 * INVENTORY_GRID_Y {
+					_y = floor((mouse_y - oDeposit.oy - y_offset) / 16);  
+				}
+			
+				if _x != -1 && _y != -1 {
+					item = ListTakenPositon(global.lista, _x, _y);	
+					if item == noone {
+						oInventory.dragging_item.grid_x = _x;
+						oInventory.dragging_item.grid_y = _y;
+						oInventory.dragging_item.inDep = true;
+						ds_list_add(global.lista, oInventory.dragging_item);
+						ds_list_delete(oInventory.inventory, ds_list_find_index(oInventory.inventory, oInventory.dragging_item));
+						}
+					}
+				}
+			} else {
+				//szukamy w depozycie i przenosimy w depozyt
+				var _x = -1;
+				var _y = -1;
+				if mouse_x > rootObject.ox + x_offset && mouse_x < rootObject.ox + x_offset + 16 * INVENTORY_GRID_X {
+					_x = floor((mouse_x - ox - x_offset) / 16);  
+				}
+				if mouse_y > rootObject.oy + y_offset && mouse_y < rootObject.oy + y_offset + 16 * INVENTORY_GRID_Y {
+					_y = floor((mouse_y - oy - y_offset) / 16);  
+				}
+		
+				var item;
+	
+				if _x != -1 && _y != -1 {
+					item = ListTakenPositon(global.lista, _x, _y);	
+					if item == noone {
+						rootObject.dragging_item.grid_x = _x;
+						rootObject.dragging_item.grid_y = _y;
+						//rootObject.dragging_item.inDep = false;
+					}
+				} else if global.openedDep {
+					//szukamy w depozycie i przenosimy w inventory
+					if mouse_x > oInventory.x + x_offset && mouse_x < oInventory.x + x_offset + 16 * INVENTORY_GRID_X {
+						_x = floor((mouse_x - oInventory.x - x_offset) / 16);  
+					}
+					if mouse_y > oInventory.y + y_offset && mouse_y < oInventory.y + y_offset + 16 * INVENTORY_GRID_Y {
+						_y = floor((mouse_y - oInventory.y - y_offset) / 16);  
+					}
+			
+					if _x != -1 && _y != -1 {
+						item = InventoryTakenPositon(oInventory, _x, _y);	
+						if item == noone {
+							oDeposit.dragging_item.grid_x = _x;
+							oDeposit.dragging_item.grid_y = _y;
+							oDeposit.dragging_item.inDep = false;
+							ds_list_add(oInventory.inventory, oDeposit.dragging_item);
+							ds_list_delete(global.lista, ds_list_find_index(global.lista, oDeposit.dragging_item));
+						}
+					}
+				}	
+			
+			
 		}
+		 
 	
 		
 	
-	    rootObject.dragging_item = noone;
-	    rootObject.dragging_index = -1;
+	    oDeposit.dragging_item = noone;
+	    oDeposit.dragging_index = -1;
+	    oInventory.dragging_item = noone;
+	    oInventory.dragging_index = -1;
 	}	
 }
 
@@ -359,6 +457,7 @@ function MoveItems(_src, _dest) {
 			if c != noone {
 				//if listRemoveChoosen return item it means that it is choosen item and it has to be added to _dest list
 				c.choosen = false;
+				c.inDep = !c.inDep;
 				ListAdd(_dest, c);	
 			}
 		}

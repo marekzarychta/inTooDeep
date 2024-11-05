@@ -23,6 +23,9 @@ upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
 	upKey = clamp (upKey, 0, 1);
 	
 	downKey = keyboard_check(ord("S"));
+	
+	dashKey = keyboard_check(ord("F"));
+	
 	//downKey = clamp (downKey, 0, 1);
 	
 	//Jump key buffering

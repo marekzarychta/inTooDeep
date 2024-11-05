@@ -38,3 +38,5 @@ name = "TestCoin";
 inv_sprite = sItem;
 
 in_inventory = false;
+
+inDep = false;

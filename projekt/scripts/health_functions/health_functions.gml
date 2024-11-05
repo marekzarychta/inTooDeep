@@ -56,7 +56,7 @@ function DrawHealthBar(RootObject) {
 
 function HPManage() {
 	var en = IsInRangeAttack()
-    if en != noone && timerEnemyHit == 0 && oEnemyParent.isAlive {
+    if en != noone && timerEnemyHit == 0 && en.isAlive {
         timerEnemyHit = bufferEnemyHit;
 		
 		

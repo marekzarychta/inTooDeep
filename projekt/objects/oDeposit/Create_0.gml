@@ -20,6 +20,8 @@ inventory_h = INVENTORY_GRID_Y * 16 + y_offset * 2;//16 * 12;
 startX = oInventory.startX - inventory_w - 16;
 startY = oInventory.startY;
 
+dragging_item = noone;  
+dragging_index = -1;
 
 current_slot = 0;
 but1Dep = noone;

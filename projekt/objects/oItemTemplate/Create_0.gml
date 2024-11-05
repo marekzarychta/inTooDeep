@@ -11,7 +11,9 @@ name = "";
 
 inv_sprite = sSpriteTemplete;
 
-in_inventory = false;
+in_inventory = false; //czy swiat czy inventory
+inDep = false; //czy depozyt czy inventory
+
 // in world
 
 world_sprite = sSpriteTemplete;

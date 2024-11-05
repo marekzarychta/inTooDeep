@@ -36,7 +36,7 @@ weightLadderSlip = 0.1;
 isLadder = false;
 
 //dash
-dashBuffer = 40;
+dashBuffer = 30;
 dashTimer = 0;
 dashCooldown = 120;
 dashCooldownTimer = 0;
