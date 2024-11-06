@@ -9,11 +9,11 @@ function controlsSetup()
 function getControls()
 {
 	//direction
-rightKey = keyboard_check(ord("D")) + keyboard_check(vk_right);
+rightKey = keyboard_check(ord("D"));
 	rightKey = clamp( rightKey, 0, 1);
 
 
-leftKey = keyboard_check(ord("A")) + keyboard_check(vk_left);
+leftKey = keyboard_check(ord("A"));
 	leftKey = clamp (leftKey, 0, 1);
 	
 	//action

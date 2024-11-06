@@ -4,7 +4,7 @@ if life % 10 == 0 {
 	addy += 8;	
 }
 
-x = oPlayer.x + oPlayer.face * 16;
+x = oPlayer.x + oPlayer.attackDir * 16;
 
 y = oPlayer.y - 16 + addy;
 
