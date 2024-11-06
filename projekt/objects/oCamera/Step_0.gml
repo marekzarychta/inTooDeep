@@ -50,7 +50,9 @@ if instance_exists(oPlayer) {
 	//}
 
 	midX += xspd;
-	midY += yspd;
+	
+	if abs(midY - oPlayer.y) + yspd > 1
+		midY += yspd;
 
 	_camX = midX - _camWidth / 2;
 	_camY = midY - _camHeight / 2;
