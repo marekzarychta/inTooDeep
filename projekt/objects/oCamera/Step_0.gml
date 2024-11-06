@@ -39,7 +39,7 @@ if instance_exists(oPlayer) {
 	//	timerNotMovingY = bufferNotMovingY;
 	//}
 	
-	if (abs(midY - oPlayer.y) > 1) && !playerFollowing {
+	if (abs(midY - oPlayer.y) > 1) && !playerFollowing && oPlayer.onGround {
 		yspd = sign(oPlayer.y - midY) * centrVel;
 	} else {
 		yspd = 0;	
