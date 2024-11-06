@@ -11,3 +11,4 @@ y = oPlayer.y - 16 + addy;
 if(life <= 0) {
 	instance_destroy();
 }
+
