@@ -112,7 +112,7 @@ if isAlive {
 		//Get xspd
 	if moveDir != 0
 	{
-		image_xscale = moveDir;
+		image_xscale = face;
 		if(yspd==0){
 		//Change movement animation based on weight
 		sprite_index = movementSprites[currentWeightLevel];
