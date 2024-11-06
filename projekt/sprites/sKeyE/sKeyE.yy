@@ -19,11 +19,12 @@
   "height":32,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"88f72223-a7f8-4a02-9050-d3bbd3bbbf22","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"88f72223-a7f8-4a02-9050-d3bbd3bbbf22","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"df102dbb-36c7-43c1-83a9-44559f482793","blendMode":0,"displayName":"default","isLocked":false,"name":"df102dbb-36c7-43c1-83a9-44559f482793","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"sKeyE",
   "nineSlice":null,
-  "origin":7,
+  "origin":4,
   "parent":{
     "name":"Sprites",
     "path":"folders/Sprites.yy",
@@ -76,7 +77,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":16,
-    "yorigin":32,
+    "yorigin":16,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
