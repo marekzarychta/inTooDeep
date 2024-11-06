@@ -1,5 +1,5 @@
 boxSizeX = 16;
-boxSizeY = 60;
+boxSizeY = 30;
 
 midX = oPlayer.x;
 midY = oPlayer.y;
