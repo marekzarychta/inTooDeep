@@ -71,11 +71,17 @@ function inventoryActiveFunc() {
 	}
 }
 
-function chestHandling() {
+function chestHandling(_text) {
     // Upewnij się, że `textBoxInstance` jest zainicjalizowana, jeśli jeszcze tego nie zrobiono
     if (!variable_instance_exists(id, "textBoxInstance")) {
         textBoxInstance = noone;
     }
+	var text;
+	if _text == "" {
+		text = "open";
+	} else {
+		text = _text;	
+	}
 
     if (oPlayer.chestId == id && oPlayer.isAlive) {
         marked = true;    
@@ -96,8 +102,10 @@ function chestHandling() {
     // Tworzenie lub usuwanie `oTextbox`
     if (openable && marked) {
         if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-            textBoxInstance = createTextbox(x, y - 20, "open"); // Tworzymy textbox
-        }
+            textBoxInstance = createTextbox(x, y - 20, text, sKeyE); // Tworzymy textbox
+        } else if instance_exists(textBoxInstance) {
+			textBoxInstance.textVal = text;
+		}
         sprite_index = markSprite;    
     } else {
         if (textBoxInstance != noone && instance_exists(textBoxInstance)) { // Jeśli istnieje textbox

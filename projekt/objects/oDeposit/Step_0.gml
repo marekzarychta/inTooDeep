@@ -1,5 +1,12 @@
 //treating interactive things like chests
-chestHandling();
+var text;
+if InventoryIsEmpty(oInventory) {
+	text = "retrive";
+} else {
+	text = "deposit";	
+}
+
+chestHandling(text);
 		
 if (marked && openable && keyboard_check_pressed(ord("E"))) /*&& !oInventory.opened*/ && oPlayer.isAlive {
     
@@ -14,9 +21,6 @@ if (marked && openable && keyboard_check_pressed(ord("E"))) /*&& !oInventory.ope
 			}
 		}
 	} else {
-		
-		
-		
 		for (var i = ds_list_size(items) - 1; i >= 0 ; i--) {	
 			var item = ds_list_find_value(items, i);	
 			if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
@@ -29,6 +33,7 @@ if (marked && openable && keyboard_check_pressed(ord("E"))) /*&& !oInventory.ope
 			}
 		}
 	}
+	
 	
 	
 	//when player opened -> open 2 windows
