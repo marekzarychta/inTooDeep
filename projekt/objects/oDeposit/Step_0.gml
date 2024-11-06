@@ -1,9 +1,13 @@
 //treating interactive things like chests
 var text;
-if InventoryIsEmpty(oInventory) {
-	text = "retrive";
+if !InventoryIsEmpty(oInventory) {
+	text = "   deposit";
 } else {
-	text = "deposit";	
+	text = "   retrieve";
+}
+
+if InventoryIsEmpty(oInventory) && ds_list_size(global.lista) == 0 {
+	text = "   deposit";	
 }
 
 chestHandling(text);
