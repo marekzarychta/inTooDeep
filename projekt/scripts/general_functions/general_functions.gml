@@ -17,9 +17,9 @@ leftKey = keyboard_check(ord("A"));
 	leftKey = clamp (leftKey, 0, 1);
 	
 	//action
-upKeyPressed = keyboard_check_pressed(ord("W")) + keyboard_check_pressed(vk_space);
+	upKeyPressed = keyboard_check_pressed(ord("W")) + keyboard_check_pressed(vk_space);
 	upKeyPressed = clamp (upKeyPressed, 0, 1);
-upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
+	upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
 	upKey = clamp (upKey, 0, 1);
 	
 	downKey = keyboard_check(ord("S"));
