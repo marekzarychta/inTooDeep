@@ -23,9 +23,15 @@ if isAlive {
 	}
 
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
-	if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && !oInventory.opened && !isLadder) {
+	if (attackCooldownTimer == 0 && (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right)) && !oInventory.opened && !isLadder) {
 	
 		// Call the attack function from the combat_functions script
+		
+		if(keyboard_check_pressed(vk_left)) {
+			attackDir = -1;
+		} else if (keyboard_check_pressed(vk_right)) {
+			attackDir = 1;
+		}
 		
 		attackingTimer = 40;
 		image_index = 0;
@@ -415,6 +421,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	}
 	
 	if attackingTimer > 0 {
+		image_xscale = attackDir;
 		sprite_index = sPlayerAttack;
 		if image_index == 1 {
 			attack();	

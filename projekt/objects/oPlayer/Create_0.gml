@@ -14,6 +14,7 @@ isAlive = true;
 //Movement
 	//Movement direction
 moveDir = 0;
+attackDir = 1;
 	//Movement speed
 moveSpd = 2;
 
