@@ -4,10 +4,11 @@ if instance_exists(oPlayer) {
 	if (oPlayer.x < midX - boxSizeX && oPlayer.xspd < 0) || (oPlayer.x > midX + boxSizeX && oPlayer.xspd > 0 ) {
 		midX += oPlayer.xspd;	
 	}
-	
-	//if (oPlayer.y < midY - boxSizeY && oPlayer.yspd < 0) || (oPlayer.y > midY + boxSizeY && oPlayer.yspd > 0 ) {
+	var playerFollowing = false;
+	if (oPlayer.y < midY - boxSizeY && oPlayer.yspd < 0) || (oPlayer.y > midY + boxSizeY && oPlayer.yspd > 0 ) {
 		midY += oPlayer.yspd;	
-	//}
+		playerFollowing = true;
+	}
 	
 	
 	//var dy = oPlayer.y - _camHeight / 2 - _camY;
@@ -37,6 +38,12 @@ if instance_exists(oPlayer) {
 	//	yspd = 0;	
 	//	timerNotMovingY = bufferNotMovingY;
 	//}
+	
+	if (abs(midY - oPlayer.y) > 1) && !playerFollowing {
+		yspd = sign(oPlayer.y - midY) * centrVel;
+	} else {
+		yspd = 0;	
+	}
 
 	//if abs(dy) > 1 { 
 	//	_camY += yspd * sign(dy);
