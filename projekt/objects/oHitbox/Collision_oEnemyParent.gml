@@ -1,13 +1,17 @@
 /// @description Collision with Enemies
 
-if place_meeting(x, y - sprite_height / 2, oWall) && place_meeting(x, y - sprite_height / 2, oEnemyParent) {
-	var wall = instance_place(x, y - sprite_height / 2, oWall);	
-	var enemy = instance_place(x, y - sprite_height / 2, oEnemyParent);	
-	if abs(wall.x - oPlayer.x) < abs(enemy.x - oPlayer.x) {
-		isDamaging = false;
-	} else {
-		isDamaging = true;	
-	}
+if place_meeting(x, y , oWall) && place_meeting(x, y , oEnemyParent) {
+	var wall = instance_place(x, y, oWall);	
+	var enemy = instance_place(x, y, oEnemyParent);	
+	
+	var wall_distance = abs(wall.x - oPlayer.x);  // Odległość do ściany
+    var enemy_distance = abs(enemy.x - oPlayer.x);
+	if (wall_distance < enemy_distance) {
+        isDamaging = false; 
+    } else {
+        isDamaging = true; 
+    }
+	
 }
 
 
