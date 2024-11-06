@@ -16,7 +16,7 @@ timerNotMovingX = 0;
 bufferNotMovingY = 5;
 timerNotMovingY = 0;
 
-centrVel = 1.5;
+centrVel = 2.5//1.85;
 
 _camWidth = camera_get_view_width(view_camera[0]);
 _camHeight = camera_get_view_height(view_camera[0]);
