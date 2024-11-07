@@ -1,12 +1,13 @@
 life-=1;
 
+
 if life % 10 == 0 {
 	addy += 8;	
 }
 
-x = oPlayer.x + oPlayer.attackDir * 16;
+x = oPlayer.x + oPlayer.attackDir * 13;
 
-y = oPlayer.y - 16 + addy;
+y = oPlayer.y - 8 + addy;
 
 if(life <= 0) {
 	instance_destroy();

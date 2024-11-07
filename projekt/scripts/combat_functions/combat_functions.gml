@@ -1,16 +1,19 @@
 function attack() {
 	
+	//hitbox_delay = 10;
+	
 	//show_debug_message("attacking");
 	
 	with(oEnemyParent) {
 		wasHit = false;
 	}
 	
-	var offset_x = (image_xscale == 1) ? 16 : -16 // Ustaw odpowiednią pozycję względem kierunku
-    var hitbox = instance_create_layer(x + offset_x, y - 16, oPlayer.layer, oHitbox);
-	hitbox.image_xscale = 1.6;
-	hitbox.life = 30;
-	
+	//if(hitbox_delay == 0) {
+		var offset_x = (image_xscale == 1) ? 13 : -13 // Ustaw odpowiednią pozycję względem kierunku
+		var hitbox = instance_create_layer(x + offset_x, y - 8, oPlayer.layer, oHitbox);
+		hitbox.image_xscale = 1.6;
+		hitbox.life = 20;
+	//}
 	// For now there is no hitbox, just the distance of 32 pixels
 	/*var attack_range = 32;
 	
