@@ -170,24 +170,39 @@ if isAlive {
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	
-	if (place_meeting(x + xspd, y, oBreakableWallOrange) && dashTimer > 0 && currentWeightLevel >= 2 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
-	{
-		var b = instance_place(x + xspd, y, oBreakableWallOrange);
-		if  b != noone {
-			with (b) {
+	if (place_meeting(x + xspd, y, oBreakableWallOrange) && dashTimer > 0) {
+    var b = instance_place(x + xspd, y, oBreakableWallOrange);
+    if (b != noone) {
+        if (currentWeightLevel >= 2 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
+            with (b) {
                 instance_destroy();
             }
-		}
-	}
+        } else {
+            // Check if there is already an instance of oTextbox in the same spot
+            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+				show_debug_message("x");
+                createFollowingTextbox(x-16, y-16, "i need more weight");
+            }
+        }
+    }
+}
 	
 	if (place_meeting(x + xspd, y, oBreakableWallRed) && dashTimer > 0 && currentWeightLevel == 3 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
 		var b = instance_place(x + xspd, y, oBreakableWallRed);
-		if  b != noone {
-			with (b) {
+		if (b != noone) {
+        if (currentWeightLevel >= 3 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
+            with (b) {
                 instance_destroy();
             }
-		}
+        } else {
+            // Check if there is already an instance of oTextbox in the same spot
+            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+				show_debug_message("x");
+                createFollowingTextbox(x-16, y-16, "i need more weight");
+            }
+        }
+    }
 	}
 	
 	//Check wall collision
