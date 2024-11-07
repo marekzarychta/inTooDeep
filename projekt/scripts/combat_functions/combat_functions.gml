@@ -49,9 +49,10 @@ function attack() {
 }
 
 function attackEnemy(_id) {
-	var offset_x = (moveDir == 1) ? 16 : -16 // Ustaw odpowiednią pozycję względem kierunku
+	var valoffset = 4;
+	var offset_x = (-face == 1) ? valoffset : -valoffset // Ustaw odpowiednią pozycję względem kierunku
     var hitbox = instance_create_layer(x + offset_x, y - 16, oPlayer.layer, oHitboxEnemy);
-	hitbox.image_xscale = 1.0;
+	hitbox.image_xscale = 1.4;
 	hitbox.life = 30;
 	hitbox.idEnemy = _id
 }

@@ -16,12 +16,16 @@ if isAlive {
 	if IsInRangeAttack() && !attacking {
 		image_index = 0;
 		attacking = true;
+		face = -moveDir;
 	} 
 	
 	//if place_meeting(x, y, oPlayer) {
 	//	//show_debug_message("Kolizja");	
 	//}
-	image_xscale = -moveDir;
+	if attacking 
+		image_xscale = face;
+	else
+		image_xscale = -moveDir;
 	
 	if oPlayer.isAlive {
 		if sqrt(dx * dx + dy * dy) < 144 /*&& changeDirTimer == 0*/ {
@@ -79,7 +83,9 @@ if isAlive {
 	//X Collision
 	//How close we can get to a wall etc.
 	
-	
+	if attacking {
+		xspd = 0;	
+	}
 	
 	var _subPixel = .5;
 	

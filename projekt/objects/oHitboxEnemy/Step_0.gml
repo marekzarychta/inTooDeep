@@ -4,7 +4,7 @@ if life % 20 == 0 {
 	addy += 16;	
 }
 
-x = idEnemy.x + idEnemy.moveDir * 16;
+x = idEnemy.x - idEnemy.face * offset_x;
 
 y = idEnemy.y - 16 + addy;
 

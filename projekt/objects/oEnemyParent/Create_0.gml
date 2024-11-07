@@ -13,6 +13,8 @@ attacking = false;
 attackTimer = 0;
 attackBuffer = 30;
 
+face = 1;
+
 //Movement
 	//Movement direction
 sprites = [];
