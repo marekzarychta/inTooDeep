@@ -38,6 +38,7 @@ chestId = 0;
 ladderSpd = 1;
 weightLadderSlip = 0.1;
 isLadder = false;
+topLadder = false;
 
 //dash
 dashBuffer = 30;

@@ -6,6 +6,25 @@ if isAlive {
 
 	HPManage();
 	
+	//if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !isLadder && !downKey) {
+	    
+	//	var _subPixel = 0.5;
+		
+	//    // Move up to wall precisely
+	//    var _pixelCheck = _subPixel;
+
+	//    // Move as close to the wall as possible in 0.5px increments
+	//    while !place_meeting(x, y + _pixelCheck, oLadder) {
+	//        y += _pixelCheck;
+	//    }
+
+	//    // Stop movement to collide
+	//	isLadder = false;
+	//	onGround = true;
+	//	jumpCount = 0;
+	//    jumpHoldTimer = 0;
+	//    yspd = 0;  // Setting yspd to 0 only when truly colliding
+	//}
 	
 
 	//Get inputs
@@ -206,6 +225,11 @@ if isAlive {
 	} else {
 		grav = .163;	
 	}
+	if topLadder {
+		grav = 0;	
+	} else {
+		grav = .163;	
+	}
 	
 	yspd += grav;
 	
@@ -255,13 +279,13 @@ if isAlive {
 	//Y Collision
 	var _subPixel = .5;
 	
-if (place_meeting(x, y + yspd, oEnemyParent) && can_break_orange) {
-	var enemy = instance_place(x, y + yspd, oEnemyParent);
-	//show_debug_message("tak")
-	with (enemy) {
-		health_points = 0;
+	if (place_meeting(x, y + yspd, oEnemyParent) && can_break_orange) {
+		var enemy = instance_place(x, y + yspd, oEnemyParent);
+		//show_debug_message("tak")
+		with (enemy) {
+			health_points = 0;
+		}
 	}
-}
 	obj = instance_place(x, y + yspd, oDoor);
 	
 	if (place_meeting(x, y + yspd, oDoor) && !obj.opened) {
@@ -324,10 +348,17 @@ if (place_meeting(x, y + yspd, oWall)) {
 	//checking is player on ladder
 	if place_meeting(x, y, oLadder) && (upKey || downKey) && !isDashing {
 		isLadder = true;	
+		topLadder = false;
 	} 
 	if !place_meeting(x, y, oLadder) {
 		isLadder = false;
+		topLadder = false;
 	}
+	
+	//if place_meeting(x, y + 2, oLadder) && isLadder && !place_meeting(x, y, oLadder) {
+	//	isLadder = false;
+	//	topLadder = true;
+	//}
 	
 	if !isLadder && onGround && moveDir != 0 && dashKey && dashCooldownTimer <= 0 && !isDashing { //if player is on ground and dont touching ladder start dash
 		dashTimer = dashBuffer;
@@ -358,7 +389,10 @@ if (place_meeting(x, y + yspd, oWall)) {
 	}
 	
 	//checking top ladder
-	if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !isLadder && !downKey) {
+	
+	y += yspd;
+	
+	if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !topLadder && !downKey) {
 	    
 		var _subPixel = 0.5;
 		
@@ -372,12 +406,14 @@ if (place_meeting(x, y + yspd, oWall)) {
 
 	    // Stop movement to collide
 		isLadder = false;
+		topLadder = true;
 	    yspd = 0;  // Setting yspd to 0 only when truly colliding
 	}
-
+	
+	
 	
 	//Check if on ground, reset timers
-	if (yspd == 0 && (place_meeting(x, y + 1, oWall) || place_meeting(x, y + 1, oDoor))) {
+	if ((yspd == 0 && (place_meeting(x, y + 1, oWall) || place_meeting(x, y + 1, oDoor))) || (yspd == 0 && topLadder)) {
 	    onGround = true;
 	    jumpCount = 0;
 	    jumpHoldTimer = 0;
@@ -403,7 +439,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 
 
 	InventoryCalculateWeight(oInventory);
-	y += yspd;
+	
 	
 	if isDashing {
 		sprite_index = sPlayerDash;
