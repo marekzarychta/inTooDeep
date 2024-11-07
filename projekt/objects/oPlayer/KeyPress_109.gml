@@ -1,1 +1,1 @@
-LoseHP(id);
+//LoseHP(id);

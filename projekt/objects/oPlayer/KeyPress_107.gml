@@ -1,1 +1,1 @@
-GainHP();
+//GainHP();
