@@ -54,27 +54,49 @@ function DrawHealthBar(RootObject) {
 //	}
 //}
 
-function HPManage() {
-	var en = IsInRangeAttack()
-    if en != noone && timerEnemyHit == 0 && en.isAlive {
-        timerEnemyHit = bufferEnemyHit;
+//function HPManage() {
+//	var en = IsInRangeAttack()
+//    if en != noone && timerEnemyHit == 0 && en.isAlive {
+//        timerEnemyHit = bufferEnemyHit;
 		
-		en.attacking = true;
-		en.image_index = 0;
-        LoseHP();
+//		en.attacking = true;
+//		en.image_index = 0;
+//        LoseHP();
         
-        if current_health == 0 {
-            toDown(oPlayer);
-            oPlayer.isAlive = false;
-            oPlayer.isdying = true;
-            timerEnemyHit = 0;
-            //DropAllItems(oInventory);
-            if (oInventory.opened) {
-                oInventory.opened = false;    
-                CloseInventory(oInventory);
-            }
+//        if current_health == 0 {
+//            toDown(oPlayer);
+//            oPlayer.isAlive = false;
+//            oPlayer.isdying = true;
+//            timerEnemyHit = 0;
+//            //DropAllItems(oInventory);
+//            if (oInventory.opened) {
+//                oInventory.opened = false;    
+//                CloseInventory(oInventory);
+//            }
+//        }
+//    }
+    
+//    if timerEnemyHit > 30 {
+//        timerEnemyHit--;    
+//        oPlayer.sprite_index = sPlayerGotHit;
+//    } else if timerEnemyHit > 0 {
+//        timerEnemyHit--;    
+//    }
+//}
+
+function HPManage() {
+    if current_health == 0 {
+        toDown(oPlayer);
+        oPlayer.isAlive = false;
+        oPlayer.isdying = true;
+        timerEnemyHit = 0;
+        //DropAllItems(oInventory);
+        if (oInventory.opened) {
+            oInventory.opened = false;    
+            CloseInventory(oInventory);
         }
     }
+    
     
     if timerEnemyHit > 30 {
         timerEnemyHit--;    
@@ -84,9 +106,9 @@ function HPManage() {
     }
 }
 
-function LoseHP() {
-	if current_health > 0 {
-		current_health--;	
+function LoseHP(rootObject) {
+	if rootObject.current_health > 0 {
+		rootObject.current_health--;	
 	}
 }
 
@@ -99,16 +121,16 @@ function GainHP() {
 function IsInRangeAttack() {
 	
 	//with (oEnemyParent) {
-		var rangeX = abs(x - other.x);
-		var rangeY = abs(y - other.y);
-		if rangeX <= 24 && rangeY <= 5 {
-			var a = instance_place(x + rangeX, y, oEnemyParent);
-			if a == noone {
-					a = instance_place(x - rangeX, y, oEnemyParent);
-			}
-			return a;	
+		var rangeX = abs(x - oPlayer.x);
+		var rangeY = abs(y - oPlayer.y);
+		if rangeX <= 24 && rangeY <= 5 && oPlayer.isAlive {
+			//var a = instance_place(x + rangeX, y, oPlayer);
+			//if a == noone {
+			//	a = instance_place(x - rangeX, y, oPlayer);
+			//}
+			return true;	
 		}
 	
 	//}
-	return noone;
+	return false;
 }
