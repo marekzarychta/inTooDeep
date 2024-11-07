@@ -380,7 +380,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	//	topLadder = true;
 	//}
 	
-	if !isLadder && onGround && moveDir != 0 && dashKey && dashCooldownTimer <= 0 && !isDashing { //if player is on ground and dont touching ladder start dash
+	if !isLadder && yspd == 0 && onGround && moveDir != 0 && dashKey && dashCooldownTimer <= 0 && !isDashing { //if player is on ground and dont touching ladder start dash
 		dashTimer = dashBuffer;
 	}
 	
