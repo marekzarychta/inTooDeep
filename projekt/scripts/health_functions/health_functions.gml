@@ -123,7 +123,7 @@ function IsInRangeAttack() {
 	//with (oEnemyParent) {
 		var rangeX = abs(x - oPlayer.x);
 		var rangeY = abs(y - oPlayer.y);
-		if rangeX <= 24 && rangeY <= 5 && oPlayer.isAlive {
+		if rangeX <= 20 && rangeY <= 5 && oPlayer.isAlive {
 			//var a = instance_place(x + rangeX, y, oPlayer);
 			//if a == noone {
 			//	a = instance_place(x - rangeX, y, oPlayer);
