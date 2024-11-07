@@ -192,8 +192,8 @@
           -2182,-2147483648,1,41,-3,28,1,57,-81,-2147483648,1,27,-85,-2147483648,1,27,-78,-2147483648,1,41,-6,
           28,1,57,-78,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,
           1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,
-          1,27,-85,-2147483648,1,27,-34,-2147483648,1,56,-20,28,1,57,-25,-2147483648,5,0,41,28,28,57,-80,-2147483648,
-          3,56,28,57,-579,-2147483648,
+          1,27,-18,-2147483648,1,64,-66,-2147483648,1,27,-34,-2147483648,1,56,-20,28,1,57,-25,-2147483648,5,0,
+          41,28,28,57,-80,-2147483648,3,56,28,57,-579,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"tileTerrain","depth":600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"tileTerrain","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":48,"SerialiseWidth":86,"TileCompressedData":[
           -393,0,1,62,-8,32,1,66,-5,0,1,62,-4,32,1,66,-54,0,1,62,-10,32,1,33,-8,0,2,31,66,-4,0,1,18,-4,0,1,31,
@@ -320,7 +320,7 @@
         {"$GMRInstance":"v1","%Name":"inst_13DEC31E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_13DEC31E","objectId":{"name":"oWall","path":"objects/oWall/oWall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":2.0,"x":336.0,"y":672.0,},
         {"$GMRInstance":"v1","%Name":"inst_782020E7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_782020E7","objectId":{"name":"oWall","path":"objects/oWall/oWall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":2.0,"x":288.0,"y":672.0,},
         {"$GMRInstance":"v1","%Name":"inst_6F86ACED","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6F86ACED","objectId":{"name":"oWall","path":"objects/oWall/oWall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0,"scaleY":1.0,"x":304.0,"y":672.0,},
-      ],"layers":[],"name":"Collision","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":false,},
+      ],"layers":[],"name":"Collision","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"TileBackgroundRoom","depth":800,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"TileBackgroundRoom","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":48,"SerialiseWidth":86,"TileCompressedData":[
           -480,-2147483648,-8,133,-7,-2147483648,-4,133,-56,-2147483648,-20,133,3,-2147483648,0,0,-3,-2147483648,
           -14,133,-13,-2147483648,-4,133,-3,-2147483648,-5,133,-2,-2147483648,-3,133,-13,-2147483648,-23,133,3,
