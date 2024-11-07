@@ -1,27 +1,27 @@
 {
   "$GMSprite":"",
-  "%Name":"sDoorButtonMarked",
+  "%Name":"sDoorButtonOff",
   "bboxMode":0,
   "bbox_bottom":12,
-  "bbox_left":3,
-  "bbox_right":12,
-  "bbox_top":5,
+  "bbox_left":4,
+  "bbox_right":11,
+  "bbox_top":8,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"745489b4-fb84-4605-afe8-676ce2c9d573","name":"745489b4-fb84-4605-afe8-676ce2c9d573","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"d5822de9-a48e-4e36-81f6-e64472d75113","name":"d5822de9-a48e-4e36-81f6-e64472d75113","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"d23d777f-e66d-4aae-b578-a7ab8f061825","blendMode":0,"displayName":"default","isLocked":false,"name":"d23d777f-e66d-4aae-b578-a7ab8f061825","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"38b545fc-2c3b-4066-9d97-a70cec37bb4d","blendMode":0,"displayName":"default","isLocked":false,"name":"38b545fc-2c3b-4066-9d97-a70cec37bb4d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sDoorButtonMarked",
+  "name":"sDoorButtonOff",
   "nineSlice":null,
   "origin":9,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"sDoorButtonMarked",
+    "%Name":"sDoorButtonOff",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sDoorButtonMarked",
+    "name":"sDoorButtonOff",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"745489b4-fb84-4605-afe8-676ce2c9d573","path":"sprites/sDoorButtonMarked/sDoorButtonMarked.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"3f004fb5-d140-466c-8d05-74af1fda81ad","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d5822de9-a48e-4e36-81f6-e64472d75113","path":"sprites/sDoorButtonOff/sDoorButtonOff.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"ef7628dd-2b8a-4534-9971-e83355a7e09e","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

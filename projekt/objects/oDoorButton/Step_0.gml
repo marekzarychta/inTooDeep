@@ -1,4 +1,4 @@
-if !clicking {
+if (!clicking && clickable) {
 
 	chestHandling("push");
 	
@@ -6,9 +6,19 @@ if !clicking {
     
 	    clicking = true;
 		target.opened = true;
+		clicked = true;
 	}	
-} else {
+} else if clickable {
 	sprite_index = openingSprite;
 	if image_index >= image_number - 1
 		clicking = false;
+}
+
+if clicked {
+	clickable = false;
+}
+
+if !clickable {
+	sprite_index = offSprite;
+	instance_destroy(textBoxInstance);
 }

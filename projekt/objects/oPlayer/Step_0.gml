@@ -1,6 +1,10 @@
 // So basically this drops towards 0 every frame to make a 60 frames cooldown
 // 0 means we can attack and then it resets back to whatever cooldown is set to
 
+//if(hitbox_delay > 0) {
+	//hitbox_delay -= 1;
+//}
+
 
 if isAlive {
 
@@ -474,7 +478,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	if attackingTimer > 0 {
 		image_xscale = attackDir;
 		sprite_index = sPlayerAttack;
-		if image_index == 1 {
+		if image_index == 2 {
 			attack();	
 		}
 		attackingTimer--;

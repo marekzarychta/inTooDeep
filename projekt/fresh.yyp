@@ -115,6 +115,7 @@
     {"id":{"name":"sDepositMarked","path":"sprites/sDepositMarked/sDepositMarked.yy",},},
     {"id":{"name":"sDoorButton","path":"sprites/sDoorButton/sDoorButton.yy",},},
     {"id":{"name":"sDoorButtonMarked","path":"sprites/sDoorButtonMarked/sDoorButtonMarked.yy",},},
+    {"id":{"name":"sDoorButtonOff","path":"sprites/sDoorButtonOff/sDoorButtonOff.yy",},},
     {"id":{"name":"sDoorButtonPushed","path":"sprites/sDoorButtonPushed/sDoorButtonPushed.yy",},},
     {"id":{"name":"sDoorClosed","path":"sprites/sDoorClosed/sDoorClosed.yy",},},
     {"id":{"name":"sDoorOpened","path":"sprites/sDoorOpened/sDoorOpened.yy",},},
