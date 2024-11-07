@@ -190,11 +190,9 @@ if isAlive {
         }
     }
 }
-	
-	if (place_meeting(x + xspd, y, oBreakableWallRed) && dashTimer > 0 && currentWeightLevel == 3 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
-	{
-		var b = instance_place(x + xspd, y, oBreakableWallRed);
-		if (b != noone) {
+	if (place_meeting(x + xspd, y, oBreakableWallRed) && dashTimer > 0) {
+    var b = instance_place(x + xspd, y, oBreakableWallRed);
+    if (b != noone) {
         if (currentWeightLevel >= 3 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
             with (b) {
                 instance_destroy();
@@ -207,7 +205,7 @@ if isAlive {
             }
         }
     }
-	}
+}
 	
 	//Check wall collision
 	var obj = instance_place(x + xspd, y, oDoor);
@@ -220,6 +218,9 @@ if isAlive {
 			x += _pixelCheck;
 		}
 	
+		if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+	        createFollowingTextbox(x - 16, y - 16, "this opens somewhere else");
+	    }
 		//Stop movement to collide
 		xspd = 0;	
 	}
