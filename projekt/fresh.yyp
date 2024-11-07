@@ -112,6 +112,8 @@
     {"id":{"name":"sChestOpen","path":"sprites/sChestOpen/sChestOpen.yy",},},
     {"id":{"name":"sCoin","path":"sprites/sCoin/sCoin.yy",},},
     {"id":{"name":"sDeposit","path":"sprites/sDeposit/sDeposit.yy",},},
+    {"id":{"name":"sDepositFull","path":"sprites/sDepositFull/sDepositFull.yy",},},
+    {"id":{"name":"sDepositFullMarked","path":"sprites/sDepositFullMarked/sDepositFullMarked.yy",},},
     {"id":{"name":"sDepositMarked","path":"sprites/sDepositMarked/sDepositMarked.yy",},},
     {"id":{"name":"sDoorButton","path":"sprites/sDoorButton/sDoorButton.yy",},},
     {"id":{"name":"sDoorButtonMarked","path":"sprites/sDoorButtonMarked/sDoorButtonMarked.yy",},},

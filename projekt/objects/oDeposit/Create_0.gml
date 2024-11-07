@@ -5,6 +5,8 @@ marked = false;
 
 closedSprite = sDeposit;
 markSprite = sDepositMarked;
+fullSprite = sDepositFull;
+markSpriteFull = sDepositFullMarked;
 
 bagWeight = 0;
 

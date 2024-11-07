@@ -12,8 +12,22 @@ if InventoryIsEmpty(oInventory) && ds_list_size(global.lista) == 0 {
 
 chestHandling(text);
 		
+if ds_list_size(global.lista) > 0 {
+	sprite_index = fullSprite;
+} else if ds_list_size(global.lista) == 0 {
+	sprite_index = closedSprite;	
+}
+
+if marked && openable && ds_list_size(global.lista) == 0 {
+	sprite_index = markSprite;	
+} else if marked && openable && ds_list_size(global.lista) > 0 {
+	sprite_index = markSpriteFull;	
+} 
+		
 if (marked && openable && keyboard_check_pressed(ord("E"))) /*&& !oInventory.opened*/ && oPlayer.isAlive {
     
+	
+	
 	if !InventoryIsEmpty(oInventory) {
 	
 		for (var i = ds_list_size(oInventory.inventory) - 1; i >= 0 ; i--) {	

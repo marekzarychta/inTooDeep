@@ -16,7 +16,7 @@ if(pause) {
 
 // We hit escape to pause the game
 
-if (keyboard_check(vk_escape)) {
+if (keyboard_check_pressed(vk_escape)) {
 
 	// If not paused, pause
 	if(!pause) {
