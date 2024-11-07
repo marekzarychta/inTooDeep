@@ -48,6 +48,11 @@ function attack() {
 
 }
 
-function attack_animation() {
-	
+function attackEnemy(_id) {
+	var offset_x = (moveDir == 1) ? 16 : -16 // Ustaw odpowiednią pozycję względem kierunku
+    var hitbox = instance_create_layer(x + offset_x, y - 16, oPlayer.layer, oHitboxEnemy);
+	hitbox.image_xscale = 1.0;
+	hitbox.life = 30;
+	hitbox.idEnemy = _id
 }
+

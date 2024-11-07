@@ -13,6 +13,11 @@ if isAlive {
 	var dx = playerX - x;
 	var dy = playerY - y;
 	
+	if IsInRangeAttack() && !attacking {
+		image_index = 0;
+		attacking = true;
+	} 
+	
 	//if place_meeting(x, y, oPlayer) {
 	//	//show_debug_message("Kolizja");	
 	//}
@@ -176,7 +181,13 @@ if isAlive {
 		
 	} else {
 		sprite_index = sprites[2];
-		if image_index >= image_number - 1 {
+		
+		if image_index == 2 {
+			attackEnemy(id);	
+			show_debug_message(string(image_index));
+		}
+		
+		if image_index >= image_number {
 			attacking = false;	
 		}
 	}
