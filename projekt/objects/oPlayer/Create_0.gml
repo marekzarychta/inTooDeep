@@ -84,5 +84,7 @@ top = false;
 
 attacking = false;
 isdying = false;
+slopes = false;
+downSlopes = false;
 
 controlsSetup();

@@ -225,14 +225,15 @@ if isAlive {
 		xspd = 0;	
 	}
 	
-	
+	slopes = false;
+	downSlopes = false;
 	
 	if (place_meeting(x + xspd, y, oWall)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
-		checkingForSlopes(id);
+		slopes = checkingForSlopes(id);
 	}
 
-	checkingForSlopesGoingDown(id);
+	downSlopes = checkingForSlopesGoingDown(id);
 
 	//Move x
 	x += xspd;

@@ -39,20 +39,34 @@ if instance_exists(oPlayer) {
 	//	timerNotMovingY = bufferNotMovingY;
 	//}
 	
+	
+	
+	
 	if (abs(midY - oPlayer.y) > 1) && !playerFollowing && oPlayer.onGround {
+		
 		yspd = sign(oPlayer.y - midY) * centrVel;
 	} else {
 		yspd = 0;	
 	}
 
+	if (oPlayer.slopes || oPlayer.downSlopes) 
+		//if oPlayer.rightKey || oPlayer.leftKey
+			midY = oPlayer.y;
+	else if abs(midY - oPlayer.y) + yspd > 1
+		midY += yspd;
+		
+
 	//if abs(dy) > 1 { 
 	//	_camY += yspd * sign(dy);
 	//}
+	
 
+	
 	midX += xspd;
 	
-	if abs(midY - oPlayer.y) + yspd > 1
-		midY += yspd;
+	
+		
+		
 
 	_camX = midX - _camWidth / 2;
 	_camY = midY - _camHeight / 2;
@@ -62,6 +76,7 @@ if instance_exists(oPlayer) {
 	_camY = clamp(_camY, leftEdge, rightEdgeY);
 	
 	camera_set_view_pos(view_camera[0], _camX, _camY);	
+	
 }
 
 

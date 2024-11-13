@@ -158,11 +158,13 @@ function checkingForSlopes(RootObject) {
 function checkingForSlopesGoingDown(RootObject) {
 	
 	var _subPixel = 0.5;
-	
+	var isSlope = false;
 	if RootObject.yspd >= 0 && !place_meeting(RootObject.x+ RootObject.xspd, RootObject.y + 1, oWall) && 
 	place_meeting(RootObject.x + RootObject.xspd, RootObject.y + abs(RootObject.xspd) + 1, oWall) {
 		while !place_meeting(RootObject.x + RootObject.xspd, RootObject.y + _subPixel, oWall) { RootObject.y += _subPixel; }
+		isSlope = true;
 	}
+	return isSlope;
 }
 
 function smooth(vel, targetSpeed, _smooth) {
