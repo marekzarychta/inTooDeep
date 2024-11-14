@@ -49,11 +49,12 @@ if instance_exists(oPlayer) {
 		yspd = 0;	
 	}
 
-	if (oPlayer.slopes || oPlayer.downSlopes) 
-		//if oPlayer.rightKey || oPlayer.leftKey
-			midY = oPlayer.y;
-	else if abs(midY - oPlayer.y) + yspd > 1
+	if (oPlayer.slopes || oPlayer.downSlopes) && abs(midY - oPlayer.y) < centrVel + 0.5 {
+		midY = oPlayer.y;
+	}
+	else if abs(midY - oPlayer.y) + yspd > 1 {
 		midY += yspd;
+	}
 		
 
 	//if abs(dy) > 1 { 

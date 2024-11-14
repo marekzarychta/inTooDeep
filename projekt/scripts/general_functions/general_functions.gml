@@ -76,7 +76,7 @@ function chestHandling(_text) {
     if (!variable_instance_exists(id, "textBoxInstance")) {
         textBoxInstance = noone;
     }
-	var text;
+	var text = "";
 	if _text == "" {
 		text = "open";
 	} else {

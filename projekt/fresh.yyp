@@ -79,6 +79,7 @@
     {"id":{"name":"oPause","path":"objects/oPause/oPause.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"oSlopeDown","path":"objects/oSlopeDown/oSlopeDown.yy",},},
+    {"id":{"name":"oSlopeParent","path":"objects/oSlopeParent/oSlopeParent.yy",},},
     {"id":{"name":"oSlopeUp","path":"objects/oSlopeUp/oSlopeUp.yy",},},
     {"id":{"name":"oTextbox","path":"objects/oTextbox/oTextbox.yy",},},
     {"id":{"name":"oTextboxCombat","path":"objects/oTextboxCombat/oTextboxCombat.yy",},},
@@ -175,8 +176,8 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
-    {"roomId":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
     {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
+    {"roomId":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
     {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
   ],
   "templateType":"game",
