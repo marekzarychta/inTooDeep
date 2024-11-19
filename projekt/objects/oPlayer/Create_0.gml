@@ -1,5 +1,7 @@
 //hitbox_delay = 0;
-
+//backpack object
+backpack = instance_create_layer(x,y,"Instances_1",oBackpack);
+backpackSprites = [noone, sBackpackSmall, sBackpackMedium, sBackpackMedium];
 //Attack controller
 attackCooldown = 45; // Attack cooldown of 60 frames -> roughly 1 second
 attackCooldownTimer = 0; // Timer that resets the cooldown after attacking
