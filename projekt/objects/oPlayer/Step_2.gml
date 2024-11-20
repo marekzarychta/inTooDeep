@@ -9,6 +9,7 @@ if (instance_exists(backpack)) {
 	backpack.sprite_index = backpackSprites[currentWeightLevel];
 	}else{
 	backpack.layer = layer_get_id("Player_overlay");
-	backpack.sprite_index = sBackpackSmallClimb;
+	backpack.sprite_index = backpackSpritesClimb[currentWeightLevel];
+
 	}
 }
