@@ -165,6 +165,7 @@ if isAlive {
 			moveDir *= -1;
 		
 		}
+		
 				
 		//Setting buffor to make sure that object will leave a danger zone
 	
@@ -245,6 +246,27 @@ if isAlive {
 		//if jumpCount == 0{	jumpCount = 1;}
 	}
 	
+var distance_from_spawn = abs(x - initial_x);
+if (nearest_logical_wall != noone) {
+
+	//enemy ignores logical walls if is following player or is far enough to come back to starting point
+    if (following || distance_from_spawn > distance_to_logical_wall_x-8) {
+		ignores_logical_walls = true;
+    }
+	
+	else{
+      if(!place_meeting(x - moveDir,y,oLogicalWall)) ignores_logical_walls = false;
+    }
+}
+
+if (!following && distance_from_spawn > distance_to_logical_wall_x-8){
+		moveDir = sign(initial_x - x);
+		show_debug_message("zmienil se kierunek ruchu na: " + string(moveDir));
+	}
+
+if !ignores_logical_walls && place_meeting(x - moveDir,y,oLogicalWall){
+	moveDir *= -1;
+}
 	
 	
 	y += yspd;

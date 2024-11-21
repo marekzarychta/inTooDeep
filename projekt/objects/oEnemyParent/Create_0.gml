@@ -12,9 +12,19 @@ dying = false;
 attacking = false;
 attackTimer = 0;
 attackBuffer = 30;
+nearest_logical_wall = instance_nearest(x, y, oLogicalWall);
 
+if(nearest_logical_wall != noone){
+	distance_to_logical_wall_x = abs(x - nearest_logical_wall.x);
+}else{
+	distance_to_logical_wall_x = -1;
+}
+
+
+ignores_logical_walls = false;
 face = 1;
-
+initial_x = x;
+initial_y = y;
 //Movement
 	//Movement direction
 sprites = [];

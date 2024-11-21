@@ -70,7 +70,7 @@ if isAlive {
 	}
 	
 	//Check wall collision
-	if place_meeting(x + xspd, y, oWall) 
+	if place_meeting(x + xspd, y, oWall) || place_meeting(x + xspd, y, oLogicalWall)
 	{
 		
 		isSlope = checkingForSlopes(id);
@@ -140,6 +140,9 @@ if isAlive {
 			sprite_index = sprites[1];
 		}
 		
+		if(place_meeting(x+xspd,y,oLogicalWall)){
+			moveDir *= -1;
+		}
 
 	//Move
 	x += xspd;
@@ -161,13 +164,13 @@ if isAlive {
 	var _subPixel = .01;
 	
 	//Check wall collision
-	if place_meeting(x, y + yspd, oWall)
+	if place_meeting(x, y + yspd, oWall) || place_meeting(x, y + yspd, oLogicalWall)
 	{
 		//Move up to wall precisely
 		var _pixelCheck = _subPixel * sign(yspd);
 	
 		//Move as close to the wall as possible in 0.5px increments
-		while !place_meeting(x, y + _pixelCheck, oWall)
+		while !place_meeting(x, y + _pixelCheck, oWall) && !place_meeting(x, y + _pixelCheck, oLogicalWall)
 		{
 			y += _pixelCheck;
 		}
@@ -179,7 +182,7 @@ if isAlive {
 		yspd = 0;
 	}
 	
-	if yspd >=0 && place_meeting(x,y+1, oWall){
+	if yspd >=0 && (place_meeting(x,y+1, oWall)||place_meeting(x,y+1, oLogicalWall)){
 		onGround = true;
 		//jumpCount = 0;
 		//jumpHoldTimer = 0;
@@ -187,7 +190,6 @@ if isAlive {
 		onGround = false;
 		//if jumpCount == 0{	jumpCount = 1;}
 	}
-	
 	
 	
 	y += yspd;
