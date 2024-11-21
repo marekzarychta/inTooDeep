@@ -5,7 +5,7 @@ if (instance_exists(backpack)) {
 	backpack.x = x;
 	backpack.y = y;
 	if(!isLadder){
-	backpack.layer = layer_get_id("Instances_1");
+	backpack.layer = layer_get_id("Player_below");
 	backpack.sprite_index = backpackSprites[currentWeightLevel];
 	}else{
 	backpack.layer = layer_get_id("Player_overlay");
