@@ -22,8 +22,8 @@ if (place_meeting(x + xspd, y, oWall) || place_meeting(x + xspd, y, oBlockade)) 
 //if (onGround) {
 	x += xspd;
 //}
-
-yspd += grav;
+if (abs(xspd) == 0)
+	yspd += grav;
 
 if (yspd > termVel) {
     yspd = termVel;
