@@ -9,27 +9,6 @@
 if isAlive {
 
 	HPManage();
-	
-	//if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !isLadder && !downKey) {
-	    
-	//	var _subPixel = 0.5;
-		
-	//    // Move up to wall precisely
-	//    var _pixelCheck = _subPixel;
-
-	//    // Move as close to the wall as possible in 0.5px increments
-	//    while !place_meeting(x, y + _pixelCheck, oLadder) {
-	//        y += _pixelCheck;
-	//    }
-
-	//    // Stop movement to collide
-	//	isLadder = false;
-	//	onGround = true;
-	//	jumpCount = 0;
-	//    jumpHoldTimer = 0;
-	//    yspd = 0;  // Setting yspd to 0 only when truly colliding
-	//}
-	
 
 	//Get inputs
 	if !oInventory.opened
@@ -173,12 +152,12 @@ if isAlive {
 		}
 	}
 	
-	var cart = instance_place(x, y + 2, oCart);
-	if (cart != noone) {
-		if (cart.xspd != 0) {
-			x += cart.xspd;
-		}
-	}
+	//var cart = instance_place(x, y + 2, oCart);
+	//if (cart != noone) {
+	//	if (cart.xspd != 0) {
+	//		x += cart.xspd;
+	//	}
+	//}
 	
 	//X Collision
 		//How close we can get to a wall etc.
@@ -217,11 +196,20 @@ if isAlive {
 	    }
 	}
 
-	if (place_meeting(x + xspd, y, oCart)) {
-		var cart = instance_place(x + xspd, y, oCart);
-	    if (cart != noone) {
-			cart.vel = abs(xspd);
-			cart.moveDir = moveDir;
+	//if (place_meeting(x + xspd, y, oCart)) {
+	//	var cart = instance_place(x + xspd, y, oCart);
+	//    if (cart != noone) {
+	//		cart.vel = abs(xspd);
+	//		cart.moveDir = moveDir;
+	//	}
+	//}
+	if (place_meeting(x + xspd, y, oBox) && isDashing && currentWeightLevel >= 2) {
+		var box = instance_place(x + xspd, y, oBox);
+	    if (box != noone) {
+			box.moveDir = moveDir;
+			
+			box.moveTimer = 0;
+			dashTimer = 0;
 		}
 	}
 	
