@@ -1,48 +1,15 @@
 // Sprawdź, czy przeciwnik zginął
-if (health_points <= 0) {
-    isAlive = false;
-    //with (other) instance_destroy();  // Usuń przeciwnika
-    //show_debug_message("Wróg pokonany!");
-}
 
 //X Movement
 if isAlive {
-	playerX = oPlayer.x;
-	playerY = oPlayer.y;
 	
-	var dx = playerX - x;
-	var dy = playerY - y;
-	
-	if IsInRangeAttack() && !attacking {
-		image_index = 0;
-		attacking = true;
-		face = -moveDir;
-	} 
 	
 	//if place_meeting(x, y, oPlayer) {
 	//	//show_debug_message("Kolizja");	
 	//}
-	if attacking 
-		image_xscale = face;
-	else
+
 		image_xscale = -moveDir;
 	
-	if oPlayer.isAlive {
-		if sqrt(dx * dx + dy * dy) < 144 /*&& changeDirTimer == 0*/ {
-			moveDir = sign(dx);	
-			//changeDirTimer = changeDirBuffer;
-			following = true;
-			followingTimer = followingBuffer;
-		} else {
-			if followingTimer > 0 {
-				followingTimer--;	
-			} else {
-				following = false;	
-			}
-		}
-	} else {
-		following = false;	
-	}
 	
 	//if changeDirTimer > 0 {
 	//	changeDirTimer--;	
@@ -76,43 +43,34 @@ if isAlive {
 	    knockback_y = 0;
 	}
 
-	if abs(dx) < 0.5 && following {
-		xspd = 0;	
-	}
 
 	//X Collision
 	//How close we can get to a wall etc.
 	
-	if attacking {
-		xspd = 0;	
-	}
+	if (stunned) {
+	sprite_index = sprites[1];
+	image_speed = 1;
+	moveSpd = 0;
+    stun_duration -= 1;
+    if (stun_duration <= 0) {
+        is_stunned = false;
+    }
+}
 	
 	var _subPixel = .5;
 	
 	var obj = instance_place(x + xspd, y, oDoor);
 	if  (place_meeting(x + xspd, y, oDoor) && !obj.opened) {
 		
-		if !following && wallTimer == 0 {
+		if wallTimer == 0 {
 			moveDir *= -1;
 			wallTimer = wallBuffer;
 		} 
 		
-		if following {
-			var _pixelCheck = _subPixel * sign(xspd);
-	
-			//Move as close to the wall as possible in 0.5px increments
-			while !place_meeting(x+_pixelCheck, y, oDoor)
-			{
-				x += _pixelCheck;
-			}
-	
-			//Stop movement to collide
-			xspd = 0;	
-		}
 	}
 	
 	//Check wall collision
-	if place_meeting(x + xspd, y, oWall) 
+	if place_meeting(x + xspd, y, oWall) || place_meeting(x + xspd, y, oLogicalWall)
 	{
 		
 		isSlope = checkingForSlopes(id);
@@ -155,7 +113,6 @@ if isAlive {
 	
 	//Check edge falling
 	//Setting check side, so set width of the sprite
-	if !following {
 	
 		var edgeDir = id.sprite_width / 2;
 	
@@ -165,7 +122,6 @@ if isAlive {
 			moveDir *= -1;
 		
 		}
-		
 				
 		//Setting buffor to make sure that object will leave a danger zone
 	
@@ -176,9 +132,7 @@ if isAlive {
 			
 			edgeTimer = 0;
 		}
-	} 
 	
-	if !attacking {
 			
 		if(xspd == 0){
 			sprite_index = sprites[0];
@@ -186,18 +140,9 @@ if isAlive {
 			sprite_index = sprites[1];
 		}
 		
-	} else {
-		sprite_index = sprites[2];
-		
-		if image_index == 2 {
-			attackEnemy(id);	
-			show_debug_message(string(image_index));
+		if(place_meeting(x+xspd,y,oLogicalWall)){
+			moveDir *= -1;
 		}
-		
-		if image_index >= image_number {
-			attacking = false;	
-		}
-	}
 
 	//Move
 	x += xspd;
@@ -219,13 +164,13 @@ if isAlive {
 	var _subPixel = .01;
 	
 	//Check wall collision
-	if place_meeting(x, y + yspd, oWall)
+	if place_meeting(x, y + yspd, oWall) || place_meeting(x, y + yspd, oLogicalWall)
 	{
 		//Move up to wall precisely
 		var _pixelCheck = _subPixel * sign(yspd);
 	
 		//Move as close to the wall as possible in 0.5px increments
-		while !place_meeting(x, y + _pixelCheck, oWall)
+		while !place_meeting(x, y + _pixelCheck, oWall) && !place_meeting(x, y + _pixelCheck, oLogicalWall)
 		{
 			y += _pixelCheck;
 		}
@@ -237,7 +182,7 @@ if isAlive {
 		yspd = 0;
 	}
 	
-	if yspd >=0 && place_meeting(x,y+1, oWall){
+	if yspd >=0 && (place_meeting(x,y+1, oWall)||place_meeting(x,y+1, oLogicalWall)){
 		onGround = true;
 		//jumpCount = 0;
 		//jumpHoldTimer = 0;
@@ -245,28 +190,6 @@ if isAlive {
 		onGround = false;
 		//if jumpCount == 0{	jumpCount = 1;}
 	}
-	
-var distance_from_spawn = abs(x - initial_x);
-if (nearest_logical_wall != noone) {
-
-	//enemy ignores logical walls if is following player or is far enough to come back to starting point
-    if (following || distance_from_spawn > distance_to_logical_wall_x-8) {
-		ignores_logical_walls = true;
-    }
-	
-	else{
-      if(!place_meeting(x - moveDir,y,oLogicalWall)) ignores_logical_walls = false;
-    }
-}
-
-if (!following && distance_from_spawn > distance_to_logical_wall_x-8){
-		moveDir = sign(initial_x - x);
-		show_debug_message("zmienil se kierunek ruchu na: " + string(moveDir));
-	}
-
-if !ignores_logical_walls && place_meeting(x - moveDir,y,oLogicalWall){
-	moveDir *= -1;
-}
 	
 	
 	y += yspd;
