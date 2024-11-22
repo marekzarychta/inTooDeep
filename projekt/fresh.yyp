@@ -92,6 +92,7 @@
     {"id":{"name":"oTextboxMove","path":"objects/oTextboxMove/oTextboxMove.yy",},},
     {"id":{"name":"oTextboxPlayer","path":"objects/oTextboxPlayer/oTextboxPlayer.yy",},},
     {"id":{"name":"oTextboxRam","path":"objects/oTextboxRam/oTextboxRam.yy",},},
+    {"id":{"name":"oTransition","path":"objects/oTransition/oTransition.yy",},},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},},
     {"id":{"name":"oWeightBar","path":"objects/oWeightBar/oWeightBar.yy",},},
     {"id":{"name":"demo","path":"rooms/demo/demo.yy",},},

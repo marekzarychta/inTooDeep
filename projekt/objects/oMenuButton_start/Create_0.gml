@@ -12,5 +12,6 @@ w = 64;
 h = 24;
 
 action = function() {
-	room_goto_next();
+	var transition = instance_create_layer(0, 0, "GUI", oTransition);
+	transition.fade_out = true;
 };
