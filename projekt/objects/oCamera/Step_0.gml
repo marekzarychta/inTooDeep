@@ -4,6 +4,7 @@ if instance_exists(oPlayer) {
 	if (oPlayer.x < midX - boxSizeX && oPlayer.xspd < 0) || (oPlayer.x > midX + boxSizeX && oPlayer.xspd > 0 ) {
 		midX += oPlayer.xspd;	
 	}
+	
 	var playerFollowing = false;
 	if (oPlayer.y < midY - boxSizeY && oPlayer.yspd < 0) || (oPlayer.y > midY && oPlayer.yspd > 0 ) {
 		midY += oPlayer.yspd;	
