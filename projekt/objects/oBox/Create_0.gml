@@ -4,7 +4,7 @@ dist = 48;
 f = velStart * velStart / (2 * dist);
 
 moveBuffer = velStart / f;
-moveTimer = moveBuffer;
+moveTimer = 0;
 
 blockadeInstance = noone;
 
