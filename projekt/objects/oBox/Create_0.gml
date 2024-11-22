@@ -6,9 +6,6 @@ f = velStart * velStart / (2 * dist);
 moveBuffer = velStart / f;
 moveTimer = moveBuffer;
 
-
-startX = x;
-
 blockadeInstance = noone;
 
 xspd = 0;
