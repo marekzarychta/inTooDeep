@@ -1,6 +1,6 @@
 if (moveTimer == 0) {
-    blockadeInstance = instance_create_layer(x + moveDir * (dist + sHitbox.sprite_width), y, layer, oBlockade);
-	
+    blockadeInstance = instance_create_layer(x + moveDir * (dist + sHitbox.sprite_width / 2), y, layer, oBlockade);
+	blockadeInstance.parentObj = id;
 }
 
 xspd = moveDir * (velStart - f * moveTimer);
@@ -19,9 +19,9 @@ if (place_meeting(x + xspd, y, oWall) || place_meeting(x + xspd, y, oBlockade)) 
 	moveTimer = moveBuffer;
 }
 
-if (onGround) {
+//if (onGround) {
 	x += xspd;
-}
+//}
 
 yspd += grav;
 
@@ -48,7 +48,7 @@ if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
 
 if ((xspd == 0 || moveTimer == moveBuffer) && blockadeInstance != noone) {
 	instance_destroy(blockadeInstance);	
-	
+	moveDir = 0;
 	moveTimer = moveBuffer;
 }
 
