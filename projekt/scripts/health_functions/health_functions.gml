@@ -7,20 +7,20 @@ function SetHP() {
     timerEnemyHit = 0;
 }
 
-function DrawHealthBar(RootObject) {
+//function DrawHealthBar(RootObject) {
 
-    x = startX + oCamera._camX;
-    y = startY + oCamera._camY;
+//    x = startX + oCamera._camX;
+//    y = startY + oCamera._camY;
 
-    draw_sprite_stretched(sHealthBar, 0, x, y, MAX_HEALTH_WIDTH * 16 + 6, 16);
+//    draw_sprite_stretched(sHealthBar, 0, x, y, MAX_HEALTH_WIDTH * 16 + 6, 16);
 
-    var stretch = 16 * MAX_HEALTH_WIDTH / oPlayer.max_health;
+//    var stretch = 16 * MAX_HEALTH_WIDTH / oPlayer.max_health;
 
-    for (var i = 0; i < oPlayer.current_health; i++) {
-        var xx = x + i * stretch + 3;
-        draw_sprite_stretched(sHealthPoint, 0, xx, y + 3, stretch, 10);
-    }
-}
+//    for (var i = 0; i < oPlayer.current_health; i++) {
+//        var xx = x + i * stretch + 3;
+//        draw_sprite_stretched(sHealthPoint, 0, xx, y + 3, stretch, 10);
+//    }
+//}
 
 //function HPManage() {
 //	if IsInRangeAttack() && timerEnemyHit == 0 && oEnemyParent.isAlive {
