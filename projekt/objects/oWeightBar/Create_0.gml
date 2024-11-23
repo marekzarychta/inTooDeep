@@ -4,5 +4,3 @@
 #macro MAX_WEIGHT oPlayer.maxInventoryWeight
 #macro MAX_WEIGHT_WIDTH 14
 
-startX = x;
-startY = y;

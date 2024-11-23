@@ -182,6 +182,7 @@
     {"id":{"name":"sSlot","path":"sprites/sSlot/sSlot.yy",},},
     {"id":{"name":"sSpriteTemplete","path":"sprites/sSpriteTemplete/sSpriteTemplete.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
+    {"id":{"name":"sWeight","path":"sprites/sWeight/sWeight.yy",},},
     {"id":{"name":"sWeightBar","path":"sprites/sWeightBar/sWeightBar.yy",},},
     {"id":{"name":"sWeightPoint","path":"sprites/sWeightPoint/sWeightPoint.yy",},},
     {"id":{"name":"sWeightPoint1","path":"sprites/sWeightPoint1/sWeightPoint1.yy",},},
