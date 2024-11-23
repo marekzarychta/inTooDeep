@@ -1,10 +1,14 @@
-velStart = 3;
+SetWeights();
+
+velStart = 2.5;
 dist = 48;
 
 f = velStart * velStart / (2 * dist);
 
+mass = 0;//weightChangeValue[0];
+
 moveBuffer = velStart / f;
-moveTimer = 0;
+moveTimer = moveBuffer;
 
 blockadeInstance = noone;
 

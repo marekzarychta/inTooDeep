@@ -28,29 +28,7 @@ if (marked && openable && keyboard_check_pressed(ord("E"))) /*&& !oInventory.ope
     
 	
 	
-	if !InventoryIsEmpty(oInventory) {
-	
-		for (var i = ds_list_size(oInventory.inventory) - 1; i >= 0 ; i--) {	
-			var item = ds_list_find_value(oInventory.inventory, i);	
-			if item != noone {
-				//ListAdd(items, item);	
-				ds_list_add(items, item);
-				ds_list_delete(oInventory.inventory, i);
-			}
-		}
-	} else {
-		for (var i = ds_list_size(items) - 1; i >= 0 ; i--) {	
-			var item = ds_list_find_value(items, i);	
-			if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
-				//ListAdd(items, item);	
-				ds_list_add(oInventory.inventory, item);
-				ds_list_delete(items, i);
-				InventoryCalculateWeight(oInventory);
-			} else {
-				break;	
-			}
-		}
-	}
+	InventoryListMove(items, 0);
 	
 	
 	

@@ -9,6 +9,10 @@
 if isAlive {
 
 	HPManage();
+	
+	InventoryCalculateWeight(oInventory);
+	
+	
 
 	//Get inputs
 	if !oInventory.opened
@@ -101,6 +105,16 @@ if isAlive {
 	with (oChest) {
 	    
 		//Checking if chest is in range
+		
+	    if (abs(other.x - x) <= horizontalRange  && abs(other.y - y) <= 2) {
+	        // Adding chest to array
+	        array_push(cratesInRange, id);
+	    }
+	}
+	
+	with (oCart) {
+	    
+		//Checking if cart is in range
 		
 	    if (abs(other.x - x) <= horizontalRange  && abs(other.y - y) <= 2) {
 	        // Adding chest to array
@@ -210,9 +224,9 @@ if isAlive {
 	//		cart.moveDir = moveDir;
 	//	}
 	//}
-	if (place_meeting(x + xspd, y, oBox) && isDashing && currentWeightLevel >= 2) {
+	if (place_meeting(x + xspd, y, oBox) && isDashing) {
 		var box = instance_place(x + xspd, y, oBox);
-	    if (box != noone) {
+	    if (box != noone && box.mass <= inventoryWeight) {
 			box.moveDir = moveDir;
 			
 			box.moveTimer = 0;
@@ -236,6 +250,9 @@ if isAlive {
 	    }
 		//Stop movement to collide
 		xspd = 0;	
+		isBlocked = true;
+	} else {
+		isBlocked = false;	
 	}
 	
 	
@@ -243,7 +260,9 @@ if isAlive {
 	if (place_meeting(x + xspd, y, oWall)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
 		checkingForSlopes(id);
-		
+		isBlocked = true;
+	} else {
+		isBlocked = false;	
 	}
 
 	checkingForSlopesGoingDown(id);
@@ -473,7 +492,7 @@ if isAlive {
 	}
 
 
-	InventoryCalculateWeight(oInventory);
+	
 	
 	
 	if isDashing {

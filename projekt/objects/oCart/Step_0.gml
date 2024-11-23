@@ -1,78 +1,119 @@
-if (place_meeting(x + xspd, y, oCart)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
-{
-	var otherCart = instance_place(x + xspd, y, oCart);
-	
-	var tempSpd = otherCart.xspd;
-	
-	otherCart.xspd = xspd;
-	
-	xspd = tempSpd;
-	
+if (place_meeting(x, y + 1, oTracks)) {
+	onTracks = true;	
+} else {
+	onTracks = false;
+	moveTimer = moveBuffer;
+	moveDir = 0;
 }
-
-
-vel = smooth(vel, 0, xfriction);
-
-xspd = moveDir * vel;
 
 var _subPixel = 0.5;
 
-if (place_meeting(x + xspd, y, oPlayer)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
-{
-	//var _pixelCheck = _subPixel * sign(xspd);
-	
-	////Move as close to the wall as possible in 0.5px increments
-	//while !place_meeting(x+_pixelCheck, y, oPlayer)
-	//{
-	//	x += _pixelCheck;
-	//}
-	
-	vel = smooth(vel, 0, xfriction);
-	
-	xspd = moveDir * vel;
-	
-	oPlayer.xspd = xspd;
+var text;
+if !InventoryIsEmpty(oInventory) {
+	text = "   deposit";
+} else {
+	text = "   retrieve";
 }
 
-if (place_meeting(x + xspd, y, oWall)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
-{
-	var _pixelCheck = _subPixel * sign(xspd);
+if InventoryIsEmpty(oInventory) && ds_list_size(content) == 0 {
+	text = "   deposit";	
+}
+
+chestHandling(text);
+		
+if ds_list_size(content) > 0 {
+	sprite_index = fullSprite;
+} else if ds_list_size(content) == 0 {
+	sprite_index = closedSprite;	
+}
+
+if marked && openable && ds_list_size(content) == 0 {
+	sprite_index = markSprite;	
+} else if marked && openable && ds_list_size(content) > 0 {
+	sprite_index = markSpriteFull;	
+} 
+
+if (marked && openable && keyboard_check_pressed(ord("E"))) && oPlayer.isAlive {
+	InventoryListMove(content, 1);
+}
+
+
+
+if (onTracks) {
 	
-	//Move as close to the wall as possible in 0.5px increments
-	while !place_meeting(x+_pixelCheck, y, oWall)
-	{
-		x += _pixelCheck;
+	if (moveTimer == 0) {
+
+
+		if (oPlayer.inventoryWeight >= 1.5 * mass) {
+			velStart = 4.5;	
+			dist = 96;
+		} else {
+			velStart = 3.5;	
+			dist = 80;
+		}
+
+		blockadeInstance = instance_create_layer(x + moveDir * (dist + 16/*sHitbox.sprite_width / 2*/), y, layer, oBlockade);
+		blockadeInstance.parentObj = id;
+
+		f = velStart * velStart / (2 * dist);
 	}
-	
-	//Stop movement to collide
-	moveDir *= -1;
-	vel = smooth(vel, 0, xfriction - 0.1);
-	
+
+	xspd = moveDir * (velStart - f * moveTimer);
+
+
+
+	if (place_meeting(x + xspd, y, oWall) || place_meeting(x + xspd, y, oRock) || place_meeting(x + xspd, y, oPlayer)) {
+	    // Precyzyjne dopasowanie do przeszkody
+	    var _pixelCheck = _subPixel * sign(xspd);
+	    while !place_meeting(x + _pixelCheck, y, oWall) && !place_meeting(x + _pixelCheck, y, oPlayer) && !place_meeting(x + _pixelCheck, y, oRock) {
+	        x += _pixelCheck;
+	    }
+	    xspd = 0;
+		moveTimer = moveBuffer;
+	}
+
+	if (blockadeInstance != noone && place_meeting(x + xspd, y, blockadeInstance)) {
+	    var _pixelCheck = _subPixel * sign(xspd);
+	    while !place_meeting(x + _pixelCheck, y, blockadeInstance) {
+	        x += _pixelCheck;
+	    }
+	    xspd = 0;
+		moveTimer = moveBuffer;
+	}
+
+	x += xspd;
+
+	if (moveTimer < moveBuffer) {
+		moveTimer++;	
+	} 
 }
 
-xspd = moveDir * vel;
 
-x += xspd;
+if (abs(xspd) == 0)
+	yspd += grav;
 
-yspd += grav;
+if (yspd > termVel) {
+	yspd = termVel;
+}
 
-if (place_meeting(x, y + yspd, oWall)) {
-        // Move up to wall precisely
-        var _pixelCheck = _subPixel * sign(yspd);
-
-        // Move as close to the wall as possible in 0.5px increments
-        while !place_meeting(x, y + _pixelCheck, oWall) {
-            y += _pixelCheck;
-        }
-
-        // Bonk
-        if (yspd < 0) {
-            jumpHoldTimer = 0;
-        }
-
-        // Stop movement to collide
-        yspd = 0;  // Setting yspd to 0 only when truly colliding
-
+if (place_meeting(x, y + yspd, oWall) || place_meeting(x, y + yspd, oPlayer)) {
+	var _pixelCheck = _subPixel * sign(yspd);
+	while !place_meeting(x, y + _pixelCheck, oWall) && !place_meeting(x, y + _pixelCheck, oPlayer) {
+	    y += _pixelCheck;
+	}
+	yspd = 0;
 }
 
 y += yspd;
+
+if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
+	onGround = true;
+} else {
+	onGround = false;
+}
+
+if ((xspd == 0 || moveTimer == moveBuffer) && blockadeInstance != noone) {
+	instance_destroy(blockadeInstance);	
+	moveDir = 0;
+	moveTimer = moveBuffer;
+}

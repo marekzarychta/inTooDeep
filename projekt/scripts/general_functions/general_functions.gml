@@ -89,9 +89,9 @@ function chestHandling(_text) {
         marked = false;    
     }
 
-    var dis = point_distance(x, 0, oPlayer.x, 0);
+    var dis = oPlayer.x - x;
 
-    if (place_meeting(x, y, oPlayer)) {
+    if (place_meeting(x, y, oPlayer) || (oCart == object_index)) {
         openable = true; 
     } else {
         openable = false; 

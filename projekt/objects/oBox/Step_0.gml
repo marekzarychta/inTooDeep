@@ -1,5 +1,5 @@
 if (moveTimer == 0) {
-    blockadeInstance = instance_create_layer(x + moveDir * (dist + sHitbox.sprite_width / 2), y, layer, oBlockade);
+    blockadeInstance = instance_create_layer(x + moveDir * (dist + 16/*sHitbox.sprite_width / 2*/), y, layer, oBlockade);
 	blockadeInstance.parentObj = id;
 }
 

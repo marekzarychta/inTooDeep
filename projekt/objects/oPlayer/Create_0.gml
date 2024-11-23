@@ -86,6 +86,7 @@ jumpHoldTimer = 0;
 
 top = false;
 
+isBlocked = false;
 attacking = false;
 isdying = false;
 
