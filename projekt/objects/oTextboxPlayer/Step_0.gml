@@ -1,13 +1,16 @@
-// Check if the textbox should follow the player
+draw_set_font(Fnt_textbox_player);
+
+textWidth = string_width(textVal);
+show_debug_message("text width: "+string(textWidth));
+// Jeśli textbox ma podążać za graczem
 if (followPlayer) {
-    // Assuming `obj_player` is the player object - in the future we could add following textboxes to other stuff
-    x = obj_player.x - 16;
-    y = obj_player.y - 32;
-    
-    // Decrement the timer
+    // Aktualizacja pozycji tak, aby był wyśrodkowany
+
+
+    // Zmniejsz licznik czasu
     followTimer -= 1;
-    
-    // Destroy the textbox when the timer reaches 0
+
+    // Zniszcz textbox, gdy licznik osiągnie 0
     if (followTimer <= 0) {
         instance_destroy();
     }

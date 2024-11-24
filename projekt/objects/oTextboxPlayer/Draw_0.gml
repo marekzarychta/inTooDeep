@@ -1,9 +1,12 @@
 draw_set_font(Fnt_textbox_player);
-
+x = obj_player.x;
+y = obj_player.y-32;
 // Set text color
 draw_set_color(c_white);
 
 // Draw the text, centered vertically with the icon and offset by 3 pixels
-draw_text(x + 16, y, textVal);
+// Rysuj tekst, dynamicznie wyśrodkowując go
+draw_text(x, y, textVal);
+
 
 draw_set_font(Fnt_small);

@@ -1,6 +1,6 @@
 // Draw the sprite icon, stretched to 16x16
 draw_sprite_stretched(sKeyE, 0, x-16, y-4, 16, 16);  // Centered at (x, y)
-
+draw_set_font(Fnt_super_small);
 // Set text color
 draw_set_color(c_white);
 

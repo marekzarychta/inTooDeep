@@ -1,5 +1,6 @@
 // Draw the sprite icon, stretched to 16x16
 textVal = "to attack";
+draw_set_font(Fnt_super_small);
 
 // Set text color
 draw_set_color(c_white);

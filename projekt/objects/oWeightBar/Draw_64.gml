@@ -3,7 +3,7 @@
 
     SetWeights();
 	draw_sprite_stretched(sWeight,0,x,y, sprite_get_width(sWeight)/2, sprite_get_height(sWeight)/2);
-    draw_sprite_stretched(sWeightBar, 0, x + sprite_get_width(sHeart)/2, y,sprite_get_width(sWeightBar)*0.75,sprite_get_height(sWeightBar)/2);
+    draw_sprite_stretched(sWeightBar, 0, x + sprite_get_width(sWeight)/2 + 16, y,sprite_get_width(sWeightBar)*0.75,sprite_get_height(sWeightBar)/2);
 
     var currentWeight = oPlayer.inventoryWeight;
 

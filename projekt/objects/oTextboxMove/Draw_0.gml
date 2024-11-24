@@ -4,6 +4,7 @@ textVal2 = "to jump";
 
 // Set text color
 draw_set_color(c_white);
+draw_set_font(Fnt_super_small);
 
 // Draw the text, centered vertically with the icon and offset by 3 pixels
 
