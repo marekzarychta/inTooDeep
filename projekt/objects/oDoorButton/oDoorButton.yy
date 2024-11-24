@@ -11,8 +11,8 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oChest","path":"objects/oChest/oChest.yy",},"propertyId":{"name":"openable","path":"objects/oChest/oChest.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
   ],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"interactive",
+    "path":"folders/Objects/interactive.yy",
   },
   "parentObjectId":{
     "name":"oChest",

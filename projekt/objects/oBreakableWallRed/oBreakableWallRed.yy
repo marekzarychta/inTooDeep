@@ -8,8 +8,8 @@
   "name":"oBreakableWallRed",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"breakable walls",
+    "path":"folders/Objects/terrain/breakable walls.yy",
   },
   "parentObjectId":{
     "name":"oWall",

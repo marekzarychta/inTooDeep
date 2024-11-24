@@ -27,7 +27,7 @@
   "origin":0,
   "parent":{
     "name":"keySprites",
-    "path":"folders/Sprites/keySprites.yy",
+    "path":"folders/Sprites/interfaceSprites/keySprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

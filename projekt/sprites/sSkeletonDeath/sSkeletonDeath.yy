@@ -28,7 +28,7 @@
   "origin":7,
   "parent":{
     "name":"skeleton",
-    "path":"folders/Sprites/enemySprites/skeleton.yy",
+    "path":"folders/Sprites/entitySprites/enemySprites/skeleton.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

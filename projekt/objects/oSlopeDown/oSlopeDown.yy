@@ -6,8 +6,8 @@
   "name":"oSlopeDown",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"collisions",
+    "path":"folders/Objects/terrain/collisions.yy",
   },
   "parentObjectId":{
     "name":"oWall",

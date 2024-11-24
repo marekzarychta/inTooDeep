@@ -10,8 +10,8 @@
   "name":"oDeposit",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"deposits",
+    "path":"folders/Objects/interactive/deposits.yy",
   },
   "parentObjectId":{
     "name":"oChest",

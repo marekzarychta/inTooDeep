@@ -9,8 +9,8 @@
   "name":"oWeightBar",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"weightbar",
+    "path":"folders/Objects/UI/weightbar.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"barSprites",
-    "path":"folders/Sprites/barSprites.yy",
+    "name":"weightbarSprites",
+    "path":"folders/Sprites/interfaceSprites/weightbarSprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

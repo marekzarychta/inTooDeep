@@ -10,8 +10,8 @@
   "name":"oHealthBar",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"healthbar",
+    "path":"folders/Objects/UI/healthbar.yy",
   },
   "parentObjectId":null,
   "persistent":false,

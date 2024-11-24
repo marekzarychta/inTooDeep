@@ -9,8 +9,8 @@
   "name":"oDoor",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"interactive",
+    "path":"folders/Objects/interactive.yy",
   },
   "parentObjectId":null,
   "persistent":false,

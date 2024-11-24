@@ -10,8 +10,8 @@
   "name":"oMenuButton_exit",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"menu",
+    "path":"folders/Objects/UI/menu.yy",
   },
   "parentObjectId":null,
   "persistent":false,

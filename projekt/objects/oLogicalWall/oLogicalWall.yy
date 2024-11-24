@@ -6,8 +6,8 @@
   "name":"oLogicalWall",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"logical",
+    "path":"folders/Objects/terrain/logical.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -8,8 +8,8 @@
   "name":"oEnemyStatic",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"enemies",
+    "path":"folders/Objects/entities/monsters/enemies.yy",
   },
   "parentObjectId":{
     "name":"oEnemyParent",

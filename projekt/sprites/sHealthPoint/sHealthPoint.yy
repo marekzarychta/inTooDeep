@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"barSprites",
-    "path":"folders/Sprites/barSprites.yy",
+    "name":"healthbarSprites",
+    "path":"folders/Sprites/interfaceSprites/healthbarSprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

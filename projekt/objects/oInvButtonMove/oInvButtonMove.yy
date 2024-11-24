@@ -10,8 +10,8 @@
   "name":"oInvButtonMove",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"inventory",
+    "path":"folders/Objects/UI/inventory.yy",
   },
   "parentObjectId":null,
   "persistent":false,

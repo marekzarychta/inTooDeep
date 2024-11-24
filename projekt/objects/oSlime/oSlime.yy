@@ -11,8 +11,8 @@
   "name":"oSlime",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"neutral",
+    "path":"folders/Objects/entities/monsters/neutral.yy",
   },
   "parentObjectId":{
     "name":"oNeutralParent",
