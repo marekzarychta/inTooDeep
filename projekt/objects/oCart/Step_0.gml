@@ -110,6 +110,26 @@ if (onTracks) {
 	        }
 	    }
 	}
+	
+	if (place_meeting(x + xspd, y, oBreakableWallRed)) {
+		var b = instance_place(x + xspd, y, oBreakableWallRed);
+	    if (b != noone) {
+	        if (mass >= weightChangeValue[2] && abs(xspd) > 1) {
+	            with (b) {
+	                instance_destroy();
+	            }
+	        } else {
+				moveDir *= -1;
+				moveTimer = moveBuffer / 2;
+				xspd = moveDir * (velStart - f * moveTimer);
+	            // Check if there is already an instance of oTextbox in the same spot
+	            //if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+				//	show_debug_message("x");
+	            //    createFollowingTextbox(x-16, y-16, "it has too be havie");
+	            //}
+	        }
+	    }
+	}
 
 	if (place_meeting(x + xspd, y, oWall) || place_meeting(x + xspd, y, oRock) || place_meeting(x + xspd, y, oPlayer)) {
 	    // Precyzyjne dopasowanie do przeszkody
