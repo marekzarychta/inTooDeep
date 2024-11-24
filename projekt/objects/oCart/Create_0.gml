@@ -5,21 +5,28 @@ dist = 72;
 
 f = velStart * velStart / (2 * dist);
 
+moveBuffer = ceil(velStart / f);
+moveTimer = moveBuffer;
+
 weightLvl = 0;
 mass = weightChangeValue[weightLvl];
 
 closedSprite = sCart;
+halfFullSprite = sCartHalfFull;
 fullSprite = sCartFull;
 markSprite = sCartMark;
 markSpriteFull = sCartMarkFull;
+markSpriteHalfFull = sCartMarkHalfFull;
 
 
 
 content = ds_list_create();
 
-var coin = instance_create_layer(x, y, layer, oCoin)
-coin.in_inventory = true;
-ds_list_add(content, coin);
+maxSize = 2;
+
+//var coin = instance_create_layer(x, y, layer, oCoin)
+//coin.in_inventory = true;
+//ds_list_add(content, coin);
 
 moveDir = 0;
 onTracks = true;

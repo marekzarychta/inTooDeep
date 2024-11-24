@@ -28,7 +28,7 @@ if (marked && openable && keyboard_check_pressed(ord("E"))) /*&& !oInventory.ope
     
 	
 	
-	InventoryListMove(items, 0);
+	InventoryListMoveAll(items);
 	
 	
 	

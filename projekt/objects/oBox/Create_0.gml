@@ -7,7 +7,7 @@ f = velStart * velStart / (2 * dist);
 
 mass = 0;//weightChangeValue[0];
 
-moveBuffer = velStart / f;
+moveBuffer = ceil(velStart / f);
 moveTimer = moveBuffer;
 
 blockadeInstance = noone;

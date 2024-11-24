@@ -1,12 +1,10 @@
-function InventoryListMove(list, num) {
+function InventoryListMoveAll(list) {
 	
-	if (num == 0) {
-		num	= ds_list_size(oInventory.inventory) - 1;
-	}
+	
 	
 	if !InventoryIsEmpty(oInventory) {
 	
-		for (var i = ds_list_size(oInventory.inventory) - 1; i >= ds_list_size(oInventory.inventory) - 1 - num ; i--) {	
+		for (var i = ds_list_size(oInventory.inventory) - 1; i >= 0 ; i--) {	
 			var item = ds_list_find_value(oInventory.inventory, i);	
 			if item != noone {
 				//ListAdd(items, item);	
@@ -15,7 +13,7 @@ function InventoryListMove(list, num) {
 			}
 		}
 	} else {
-		for (var i = ds_list_size(list) - 1; i >= ds_list_size(oInventory.inventory) - 1 - num ; i--) {	
+		for (var i = ds_list_size(list) - 1; i >= 0; i--) {	
 			var item = ds_list_find_value(list, i);	
 			if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
 				//ListAdd(items, item);	

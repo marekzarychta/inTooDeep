@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"movableSprites",
-    "path":"folders/Sprites/movableSprites.yy",
+    "name":"cartSprites",
+    "path":"folders/Sprites/movableSprites/cartSprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

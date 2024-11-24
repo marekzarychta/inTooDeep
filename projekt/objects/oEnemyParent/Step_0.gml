@@ -190,7 +190,7 @@ if isAlive {
 		
 		if image_index == 2 {
 			attackEnemy(id);	
-			show_debug_message(string(image_index));
+			//show_debug_message(string(image_index));
 		}
 		
 		if image_index >= image_number {

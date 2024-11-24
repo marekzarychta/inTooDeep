@@ -194,7 +194,7 @@ if isAlive {
 	        } else {
 	            // Check if there is already an instance of oTextbox in the same spot
 	            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
-					show_debug_message("x");
+					//show_debug_message("x");
 	                createFollowingTextbox(x-16, y-16, "i need more weight");
 	            }
 	        }
@@ -210,7 +210,7 @@ if isAlive {
 	        } else {
 	            // Check if there is already an instance of oTextbox in the same spot
 	            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
-					show_debug_message("x");
+					//show_debug_message("x");
 	                createFollowingTextbox(x-16, y-16, "i need more weight");
 	            }
 	        }
@@ -226,7 +226,7 @@ if isAlive {
 	//}
 	if (place_meeting(x + xspd, y, oBox) && isDashing) {
 		var box = instance_place(x + xspd, y, oBox);
-	    if (box != noone && box.mass <= inventoryWeight) {
+	    if (box != noone) {
 			box.moveDir = moveDir;
 			
 			box.moveTimer = 0;

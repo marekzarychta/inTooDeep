@@ -5,7 +5,7 @@ if (moveTimer == 0) {
 
 xspd = moveDir * (velStart - f * moveTimer);
 
-show_debug_message(string(xspd))
+//show_debug_message(string(xspd))
 
 var _subPixel = 0.5;
 if (place_meeting(x + xspd, y, oWall) || place_meeting(x + xspd, y, oRock) || place_meeting(x + xspd, y, oPlayer)) {
