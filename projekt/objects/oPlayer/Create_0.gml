@@ -46,6 +46,9 @@ weightLadderSlip = 0.1;
 isLadder = false;
 topLadder = false;
 
+// traps
+isLava = false;
+
 //dash
 dashBuffer = 30;
 dashTimer = 0;

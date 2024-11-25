@@ -165,9 +165,17 @@ if isAlive {
 		xspd = moveDir * (moveSpd[currentWeightLevel] + dashAddSpd);//smooth(xspd, moveDir * (moveSpd[currentWeightLevel] + dashAddSpd));
 	} else {
 		if abs(xspd) <= moveSpd[currentWeightLevel] && moveDir != 0 {
+			if(isLava) {
+				xspd = smooth(xspd, moveDir * 0.8, 0.91);
+			} else {
 			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.91);
+			}
 		} else if moveDir == 0 {
+			if(isLava) {
+				xspd = smooth(xspd, moveDir * 0.8, 0.86);
+			} else {
 			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.86);
+			}
 		} else {
 			xspd = moveDir * moveSpd[currentWeightLevel];
 		}
@@ -498,8 +506,13 @@ if isAlive {
 		}
 	}
 
+	// Lava movement
 
-	
+	if(place_meeting(x, y, oLava)) {
+		isLava = true;
+	} else if (!place_meeting(x, y, oLava)) {
+		isLava = false;
+	}
 	
 	
 	if isDashing {
