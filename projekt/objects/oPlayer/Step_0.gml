@@ -513,7 +513,7 @@ if isAlive {
 	else if isLadder {
 		sprite_index = sPlayerLadderIdle;
 	}
-	if timerEnemyHit > 0 {
+	if timerEnemyHit > 0 || oLava.lavaPlayerDamageTimer > 0 {
 		sprite_index = sPlayerGotHit;	
 	}
 	

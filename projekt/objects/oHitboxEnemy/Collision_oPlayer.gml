@@ -15,9 +15,9 @@ if place_meeting(x, y , oWall) && place_meeting(x, y , oEnemyParent) {
 }
 
 
-// oHitbox -> Collision Event with oEnemy
+// oHitbox -> Collision Event with oPlayer
 if (other.current_health != undefined && other.timerEnemyHit == 0 && isDamaging) {
-    LoseHP(other);  
+    LoseHP(other, 1);  
 	
     other.timerEnemyHit = other.bufferEnemyHit;
 	

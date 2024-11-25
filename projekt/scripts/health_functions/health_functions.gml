@@ -106,9 +106,9 @@ function HPManage() {
     }
 }
 
-function LoseHP(rootObject) {
+function LoseHP(rootObject, damage) {
     if rootObject.current_health > 0 {
-        rootObject.current_health--;
+        rootObject.current_health -= damage;
     }
 }
 
