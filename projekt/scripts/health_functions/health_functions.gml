@@ -85,7 +85,7 @@ function SetHP() {
 //}
 
 function HPManage() {
-    if current_health == 0 {
+    if current_health <= 0 {
         toDown(oPlayer);
         oPlayer.isAlive = false;
         oPlayer.isdying = true;
