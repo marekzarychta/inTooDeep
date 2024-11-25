@@ -6,8 +6,8 @@
   "name":"oTracks",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"logical",
+    "path":"folders/Objects/terrain/logical.yy",
   },
   "parentObjectId":{
     "name":"oWall",
