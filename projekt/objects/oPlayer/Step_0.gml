@@ -10,25 +10,8 @@ if isAlive {
 
 	HPManage();
 	
-	//if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !isLadder && !downKey) {
-	    
-	//	var _subPixel = 0.5;
-		
-	//    // Move up to wall precisely
-	//    var _pixelCheck = _subPixel;
-
-	//    // Move as close to the wall as possible in 0.5px increments
-	//    while !place_meeting(x, y + _pixelCheck, oLadder) {
-	//        y += _pixelCheck;
-	//    }
-
-	//    // Stop movement to collide
-	//	isLadder = false;
-	//	onGround = true;
-	//	jumpCount = 0;
-	//    jumpHoldTimer = 0;
-	//    yspd = 0;  // Setting yspd to 0 only when truly colliding
-	//}
+	InventoryCalculateWeight(oInventory);
+	
 	
 
 	//Get inputs
@@ -46,15 +29,22 @@ if isAlive {
 	}
 
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
-	if (attackCooldownTimer == 0 && (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right)) && !oInventory.opened && !isLadder) {
+	if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && !oInventory.opened && !isLadder) {
 	
 		// Call the attack function from the combat_functions script
 		
-		if(keyboard_check_pressed(vk_left)) {
-			attackDir = -1;
-		} else if (keyboard_check_pressed(vk_right)) {
+		if (mouse_x > x) {
 			attackDir = 1;
+		} else {
+			attackDir = -1;	
 		}
+		
+		
+		//if(keyboard_check_pressed(vk_left)) {
+		//	attackDir = -1;
+		//} else if (keyboard_check_pressed(vk_right)) {
+		//	attackDir = 1;
+		//}
 		
 		attackingTimer = 40;
 		image_index = 0;
@@ -110,9 +100,21 @@ if isAlive {
 
 	//Check Collision with chest
 
+	
+
 	with (oChest) {
 	    
 		//Checking if chest is in range
+		
+	    if (abs(other.x - x) <= horizontalRange  && abs(other.y - y) <= 2) {
+	        // Adding chest to array
+	        array_push(cratesInRange, id);
+	    }
+	}
+	
+	with (oCart) {
+	    
+		//Checking if cart is in range
 		
 	    if (abs(other.x - x) <= horizontalRange  && abs(other.y - y) <= 2) {
 	        // Adding chest to array
@@ -170,42 +172,67 @@ if isAlive {
 			xspd = moveDir * moveSpd[currentWeightLevel];
 		}
 	}
+	
+	//var cart = instance_place(x, y + 2, oCart);
+	//if (cart != noone) {
+	//	if (cart.xspd != 0) {
+	//		x += cart.xspd;
+	//	}
+	//}
+	
 	//X Collision
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	
 	if (place_meeting(x + xspd, y, oBreakableWallOrange) && dashTimer > 0) {
-    var b = instance_place(x + xspd, y, oBreakableWallOrange);
-    if (b != noone) {
-        if (currentWeightLevel >= 2 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
-            with (b) {
-                instance_destroy();
-            }
-        } else {
-            // Check if there is already an instance of oTextbox in the same spot
-            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
-				show_debug_message("x");
-                createFollowingTextbox(x-16, y-16, "i need more weight");
-            }
-        }
-    }
-}
+	    var b = instance_place(x + xspd, y, oBreakableWallOrange);
+	    if (b != noone) {
+	        if (currentWeightLevel >= 2 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
+	            with (b) {
+	                instance_destroy();
+	            }
+	        } else {
+	            // Check if there is already an instance of oTextbox in the same spot
+	            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+					//show_debug_message("x");
+	                createFollowingTextbox(x-16, y-16, "i need more weight");
+	            }
+	        }
+	    }
+	}
 	if (place_meeting(x + xspd, y, oBreakableWallRed) && dashTimer > 0) {
-    var b = instance_place(x + xspd, y, oBreakableWallRed);
-    if (b != noone) {
-        if (currentWeightLevel >= 3 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
-            with (b) {
-                instance_destroy();
-            }
-        } else {
-            // Check if there is already an instance of oTextbox in the same spot
-            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
-				show_debug_message("x");
-                createFollowingTextbox(x-16, y-16, "i need more weight");
-            }
-        }
-    }
-}
+	    var b = instance_place(x + xspd, y, oBreakableWallRed);
+	    if (b != noone) {
+	        if (currentWeightLevel >= 3 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
+	            with (b) {
+	                instance_destroy();
+	            }
+	        } else {
+	            // Check if there is already an instance of oTextbox in the same spot
+	            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+					//show_debug_message("x");
+	                createFollowingTextbox(x-16, y-16, "i need more weight");
+	            }
+	        }
+	    }
+	}
+
+	//if (place_meeting(x + xspd, y, oCart)) {
+	//	var cart = instance_place(x + xspd, y, oCart);
+	//    if (cart != noone) {
+	//		cart.vel = abs(xspd);
+	//		cart.moveDir = moveDir;
+	//	}
+	//}
+	if (place_meeting(x + xspd, y, oBox) && isDashing) {
+		var box = instance_place(x + xspd, y, oBox);
+	    if (box != noone) {
+			box.moveDir = moveDir;
+			
+			box.moveTimer = 0;
+			dashTimer = 0;
+		}
+	}
 	
 	//Check wall collision
 	var obj = instance_place(x + xspd, y, oDoor);
@@ -223,6 +250,9 @@ if isAlive {
 	    }
 		//Stop movement to collide
 		xspd = 0;	
+		isBlocked = true;
+	} else {
+		isBlocked = false;	
 	}
 	
 	
@@ -230,6 +260,9 @@ if isAlive {
 	if (place_meeting(x + xspd, y, oWall)) // || (place_meeting(x + xspd, y, oBreakableWallOrange) && yspd == 0)
 	{
 		checkingForSlopes(id);
+		isBlocked = true;
+	} else {
+		isBlocked = false;	
 	}
 
 	checkingForSlopesGoingDown(id);
@@ -326,44 +359,45 @@ if isAlive {
 	}
 	
 	
-// Check wall collision
-if (place_meeting(x, y + yspd, oWall)) {
-    if (can_break_orange && place_meeting(x, y + yspd, oBreakableWallOrange) && yspd > 0) {
-        var breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
-        if (breakableWall != noone) {
-            with (breakableWall) {
-                instance_destroy();
-            }
-        }
-    } 
-	if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
-        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
-        if (breakableWall != noone) {
-            with (breakableWall) {
-                instance_destroy();
-            }
-        }
-    } 
-}
+	// Check wall collision
+	if (place_meeting(x, y + yspd, oWall)) {
+	    if (can_break_orange && place_meeting(x, y + yspd, oBreakableWallOrange) && yspd > 0) {
+	        var breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
+	        if (breakableWall != noone) {
+	            with (breakableWall) {
+	                instance_destroy();
+	            }
+	        }
+	    } 
+		if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
+	        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
+	        if (breakableWall != noone) {
+	            with (breakableWall) {
+	                instance_destroy();
+	            }
+	        }
+	    } 
+	}
 
-if (place_meeting(x, y + yspd, oWall)) {
-        // Move up to wall precisely
-        var _pixelCheck = _subPixel * sign(yspd);
+	if (place_meeting(x, y + yspd, oWall)) {
+	    // Move up to wall precisely
+	    var _pixelCheck = _subPixel * sign(yspd);
 
-        // Move as close to the wall as possible in 0.5px increments
-        while !place_meeting(x, y + _pixelCheck, oWall) {
-            y += _pixelCheck;
-        }
+	    // Move as close to the wall as possible in 0.5px increments
+	    while !place_meeting(x, y + _pixelCheck, oWall) {
+	        y += _pixelCheck;
+	    }
 
-        // Bonk
-        if (yspd < 0) {
-            jumpHoldTimer = 0;
-        }
+	    // Bonk
+	    if (yspd < 0) {
+	        jumpHoldTimer = 0;
+	    }
 
-        // Stop movement to collide
-        yspd = 0;  // Setting yspd to 0 only when truly colliding
+	    // Stop movement to collide
+	    yspd = 0;  // Setting yspd to 0 only when truly colliding
 
-}
+		
+	}
 
 	//checking is player on ladder
 	if place_meeting(x, y, oLadder) && (upKey || downKey) && !isDashing {
@@ -458,7 +492,7 @@ if (place_meeting(x, y + yspd, oWall)) {
 	}
 
 
-	InventoryCalculateWeight(oInventory);
+	
 	
 	
 	if isDashing {

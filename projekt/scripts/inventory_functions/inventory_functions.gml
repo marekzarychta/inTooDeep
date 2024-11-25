@@ -1,3 +1,33 @@
+function InventoryListMoveAll(list) {
+	
+	
+	
+	if !InventoryIsEmpty(oInventory) {
+	
+		for (var i = ds_list_size(oInventory.inventory) - 1; i >= 0 ; i--) {	
+			var item = ds_list_find_value(oInventory.inventory, i);	
+			if item != noone {
+				//ListAdd(items, item);	
+				ds_list_add(list, item);
+				ds_list_delete(oInventory.inventory, i);
+			}
+		}
+	} else {
+		for (var i = ds_list_size(list) - 1; i >= 0; i--) {	
+			var item = ds_list_find_value(list, i);	
+			if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
+				//ListAdd(items, item);	
+				ds_list_add(oInventory.inventory, item);
+				ds_list_delete(list, i);
+				InventoryCalculateWeight(oInventory);
+			} else {
+				break;	
+			}
+		}
+	}	
+}
+
+
 function InventoryIsEmpty(rootObject) {
     with(rootObject) {
         var size = ds_list_size(inventory);

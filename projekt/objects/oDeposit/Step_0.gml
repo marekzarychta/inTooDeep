@@ -26,8 +26,7 @@ if marked && openable && ds_list_size(global.lista) == 0 {
 		
 if (marked && openable && keyboard_check_pressed(ord("E"))) /*&& !oInventory.opened*/ && oPlayer.isAlive {
     
-	
-	
+
 	if !InventoryIsEmpty(oInventory) {
 	
 		for (var i = ds_list_size(oInventory.inventory) - 1; i >= 0 ; i--) {	
@@ -56,6 +55,7 @@ if (marked && openable && keyboard_check_pressed(ord("E"))) /*&& !oInventory.ope
 		
 	}
 	}
+
 	
 	
 	
