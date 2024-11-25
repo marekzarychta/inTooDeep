@@ -30,6 +30,10 @@ function slowCameraMoveToPos(_x, _y, vel) {
 	
 }
 
+function zoom(k) {
+	
+}
+
 function getVel(_x, _y, time, stayingTime) {
 	if stayingTime >= time {
 		return 0;
