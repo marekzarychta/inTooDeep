@@ -143,6 +143,7 @@
     {"name":"inst_4E77BF3D","path":"rooms/demo/demo.yy",},
     {"name":"inst_52F3D826","path":"rooms/demo/demo.yy",},
     {"name":"inst_13B057A4","path":"rooms/demo/demo.yy",},
+    {"name":"inst_5B0FDCEA","path":"rooms/demo/demo.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -208,6 +209,7 @@
         {"$GMRInstance":"v1","%Name":"inst_4E77BF3D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4E77BF3D","objectId":{"name":"oRock","path":"objects/oRock/oRock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":445.0,"y":320.0,},
         {"$GMRInstance":"v1","%Name":"inst_52F3D826","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_52F3D826","objectId":{"name":"oBox","path":"objects/oBox/oBox.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":306.0,"y":318.0,},
         {"$GMRInstance":"v1","%Name":"inst_13B057A4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_13B057A4","objectId":{"name":"oCart","path":"objects/oCart/oCart.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":367.0,"y":312.0,},
+        {"$GMRInstance":"v1","%Name":"inst_5B0FDCEA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5B0FDCEA","objectId":{"name":"oBreakableWallOrange","path":"objects/oBreakableWallOrange/oBreakableWallOrange.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":2.5,"x":400.0,"y":320.0,},
       ],"layers":[],"name":"Interactive","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"tileWires","depth":1000,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"tileWires","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":48,"SerialiseWidth":86,"TileCompressedData":[
           -2182,-2147483648,1,41,-3,28,1,57,-81,-2147483648,1,27,-85,-2147483648,1,27,-78,-2147483648,1,41,-6,
