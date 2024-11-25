@@ -90,5 +90,6 @@ top = false;
 isBlocked = false;
 attacking = false;
 isdying = false;
+isActive = true;
 
 controlsSetup();

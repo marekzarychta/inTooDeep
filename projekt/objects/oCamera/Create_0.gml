@@ -7,7 +7,7 @@ midY = oPlayer.y;
 xspd = 0;
 yspd = 0;
 
-
+changing = true;
 
 
 bufferNotMovingX = 1;

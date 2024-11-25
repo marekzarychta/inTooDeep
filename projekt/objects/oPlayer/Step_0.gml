@@ -7,7 +7,7 @@
 
 
 if isAlive {
-
+	
 	HPManage();
 	
 	InventoryCalculateWeight(oInventory);
@@ -15,7 +15,7 @@ if isAlive {
 	
 
 	//Get inputs
-	if !oInventory.opened
+	if !oInventory.opened && isActive
 		getControls();
 		
 	else {
@@ -525,6 +525,7 @@ if isAlive {
 		}
 		attackingTimer--;
 	}
+	
 } else if isdying {
 	sprite_index = sPlayerDying;
 	
