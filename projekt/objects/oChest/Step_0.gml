@@ -7,9 +7,9 @@ if !opened {
 	    openable = false;
 		opened = true;
 		interact();
-		var itemsCount = 1//irandom_range(2, 4);
+		//var itemsCount = 1//irandom_range(2, 4);
 		//for (var i = 0; i < itemsCount; i++) {
-		instance_create_layer(x, y - 8, oPlayer.layer, oCoin);
+		instance_create_layer(x, y - 8, oPlayer.layer, contents);
 		//}
 	}	
 } else {
