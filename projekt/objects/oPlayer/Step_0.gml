@@ -415,8 +415,10 @@ if isAlive {
 	//}
 	
 	if !isLadder && yspd == 0 && onGround && moveDir != 0 && dashKey && dashCooldownTimer <= 0 && !isDashing { //if player is on ground and dont touching ladder start dash
+   
 		dashTimer = dashBuffer;
 	}
+	
 	
 	//if !downKey
 	
@@ -427,12 +429,17 @@ if isAlive {
 	if dashTimer > 0 {
 		dashTimer--;	
 		isDashing = true;
-		
+		hasDashed = true;
+
 	} else if dashTimer == 0 {
 		isDashing = false;
 		dashTimer--;
 		dashCooldownTimer = dashCooldown;	
-		show_debug_message("dash cooldown");	
+		if (hasDashed && !instance_exists(oDashCooldownBar)) { // Pasek tworzy się tylko po dashu
+        var cooldownBar = instance_create_depth(x, y, -10, oDashCooldownBar);
+    }
+		show_debug_message("dash cooldown");
+		
 	}
 	
 	if dashCooldownTimer > 0 {
