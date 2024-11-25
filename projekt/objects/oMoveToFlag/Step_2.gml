@@ -1,8 +1,11 @@
 if (!wasPlayed) {
 	
-	if (place_meeting(x, y, oPlayer) && goToPlaceTimer == 0 && backToPlayerTimer == 0) {
+	//sprawdzanie kolizji z graczem, aby aktywowac pokazanie
+	if ((place_meeting(x, y, oPlayer) || condition) && goToPlaceTimer == 0 && backToPlayerTimer == 0) {
 		oPlayer.isActive = false;
 		oCamera.changing = false; 
+		
+		//stworzenie instancji cutscenki
 		cutSceneInstance = instance_create_layer(x, y, layer, oTransitionCutScene);
 		goToPlaceTimer = goToPlaceBuffer;
 		
@@ -10,6 +13,8 @@ if (!wasPlayed) {
 		oCamera.midY = oCamera._camY + oCamera._camHeight / 2;
 		
 	}
+	
+	//przejscie do danego miejsca
 	var middleScreen = oPlayer.x;
 	if (goToPlaceTimer > 0) {
 		goToPlaceTimer--;	
@@ -40,6 +45,7 @@ if (!wasPlayed) {
 			oPlayer.isActive = true;
 			oCamera.midX = oPlayer.x;
 			oCamera.midY = oPlayer.y;
+			instance_destroy();
 		}
 	} 
 			

@@ -6,6 +6,8 @@ goToPlaceTimer = 0;
 backToPlayerTimer = 0;
 stayTime = 60;
 
+condition = false;
+
 cutSceneInstance = noone;
 
  velGo = floor(getVel(wspX, wspY, goToPlaceBuffer, stayTime));

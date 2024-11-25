@@ -30,9 +30,13 @@ function slowCameraMoveToPos(_x, _y, vel) {
 	
 }
 
-function zoom(k) {
-	
+function activateCutScene(_x, _y) {
+	var obj = instance_create_layer(x, y, layer, oMoveToFlag);
+	obj.condition = true;
+	obj.wspX = _x;
+	obj.wspY = _y;
 }
+
 
 function getVel(_x, _y, time, stayingTime) {
 	if stayingTime >= time {

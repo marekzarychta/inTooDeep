@@ -7,6 +7,7 @@ if (!clicking && clickable) {
 	    clicking = true;
 		target.opened = true;
 		clicked = true;
+		activateCutScene(doorX, doorY);
 	}	
 } else if clickable {
 	sprite_index = openingSprite;
