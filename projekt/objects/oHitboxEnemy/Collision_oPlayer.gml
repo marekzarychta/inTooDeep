@@ -20,7 +20,7 @@ if (other.current_health != undefined && other.timerEnemyHit == 0 && isDamaging)
     LoseHP(other);  
 	
     other.timerEnemyHit = other.bufferEnemyHit;
-	
+	other.image_index = 0;
 	
 }
 

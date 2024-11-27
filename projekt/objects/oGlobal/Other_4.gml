@@ -1,5 +1,5 @@
 if (!layer_exists("GUI")) {
-	layer_create(0, "GUI");	
+	layer_create(-20, "GUI");	
 }
 
 if (!layer_exists("Player_below")) {
