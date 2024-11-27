@@ -10,5 +10,5 @@ condition = false;
 
 cutSceneInstance = noone;
 
- velGo = floor(getVel(wspX, wspY, goToPlaceBuffer, stayTime));
- velBack = 0;
+velGo = 0;
+velBack = 0;

@@ -12,6 +12,6 @@ w = 64;
 h = 24;
 
 action = function() {
-	var transition = instance_create_layer(0, 0, "GUI", oTransition);
+	var transition = instance_create_layer(0, 0, layer, oTransition);
 	transition.fade_out = true;
 };

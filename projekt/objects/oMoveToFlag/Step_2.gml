@@ -6,12 +6,12 @@ if (!wasPlayed) {
 		oCamera.changing = false; 
 		
 		//stworzenie instancji cutscenki
-		cutSceneInstance = instance_create_layer(x, y, layer, oTransitionCutScene);
+		cutSceneInstance = instance_create_layer(x, y, oGlobal.layer, oTransitionCutScene);
 		goToPlaceTimer = goToPlaceBuffer;
 		
 		oCamera.midX = oCamera._camX + oCamera._camWidth / 2;
 		oCamera.midY = oCamera._camY + oCamera._camHeight / 2;
-		
+		velGo = floor(getVel(wspX, wspY, goToPlaceBuffer, stayTime));
 	}
 	
 	//przejscie do danego miejsca

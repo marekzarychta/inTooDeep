@@ -7,3 +7,7 @@ speed = 6;          // Prędkość efektu
 
 height_rect = 200//room_height / 4;
 _y = height_rect;
+
+if (instance_exists(oGlobal)) {
+	layer = oGlobal.layer;
+}

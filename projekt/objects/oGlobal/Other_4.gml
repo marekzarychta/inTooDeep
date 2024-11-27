@@ -20,10 +20,10 @@ if (!layer_exists("Popups")) {
 
 
 interface = instance_create_layer(x, y, layer, oInterface);
-//interface.persistent = true;
+
 ds_list_clear(inventory.inventory);
 ds_list_clear(global.lista)
 camera = instance_create_layer(x, y, layer, oCamera);
 
-var transition = instance_create_layer(x, y, layer, oTransition);
+var transition = instance_create_layer(x, y, oGlobal.layer, oTransition);
 //camera.persistent = true;
