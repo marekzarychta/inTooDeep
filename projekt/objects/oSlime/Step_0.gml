@@ -19,7 +19,7 @@ var bottom_offsets = [
     2,  // Klatka 2
     -7,  // Klatka 3
     -11,  // Klatka 4
-    -8,  // Klatka 5
+    -11,  // Klatka 5
     -11,  // Klatka 6
     -7, // Klatka 7
     2, // Klatka 8
@@ -29,13 +29,16 @@ var bottom_offsets = [
 
 // Ustawienie przesunięcia dolnej krawędzi
 var bottom_offset = bottom_offsets[floor(image_index)];
-
+if(sprite_index == sprites[1]){
+	offset = bottom_offset;
+}else{
+	offset = 0;
+}
 	// Check if the player is on top of the slime
-		if (place_meeting(x, y+bottom_offset, oPlayer)) {
+		if (place_meeting(x, y+offset, oPlayer)) {
 			if(oPlayer.yspd>0){
 		    // Check if the player's bottom edge is at the level of y - sprite height of the slime
 		        // Player is on top of the slime
-				show_debug_message("bounced at: "+string(y+bottom_offset));
 		        oPlayer.yspd = -2.5 + -2.5*(oPlayer.currentWeightLevel); // Adjust the value as needed for trampoline effect
 			}
 }
