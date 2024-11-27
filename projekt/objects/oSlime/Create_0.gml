@@ -1,6 +1,9 @@
 event_inherited();
+
 health_points = 100000000;
-sprites = [sSlimeIdle, sSlimeStunned, sSlimeIdle, sSlimeIdle, sSlimeIdle];
-is_stunned = false;
+sprites = [sSlimeIdle, sSlimeWalk, sSlimeStunned];
+stunned = false;
 moveSpd = 0.6;
 stun_duration = 0;
+sprite_index = sprites[0];
+

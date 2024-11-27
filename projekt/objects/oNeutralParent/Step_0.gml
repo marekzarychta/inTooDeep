@@ -1,7 +1,5 @@
 // Sprawdź, czy przeciwnik zginął
 
-//X Movement
-if isAlive {
 	
 	
 	//if place_meeting(x, y, oPlayer) {
@@ -47,15 +45,6 @@ if isAlive {
 	//X Collision
 	//How close we can get to a wall etc.
 	
-	if (stunned) {
-	sprite_index = sprites[1];
-	image_speed = 1;
-	moveSpd = 0;
-    stun_duration -= 1;
-    if (stun_duration <= 0) {
-        is_stunned = false;
-    }
-}
 	
 	var _subPixel = .5;
 	
@@ -134,9 +123,9 @@ if isAlive {
 		}
 	
 			
-		if(xspd == 0){
+		if(xspd == 0 && !stunned){
 			sprite_index = sprites[0];
-		} else if(xspd != 0){
+		} else if(xspd != 0 && !stunned){
 			sprite_index = sprites[1];
 		}
 		
@@ -146,9 +135,6 @@ if isAlive {
 
 	//Move
 	x += xspd;
-} else {
-	sprite_index = sprites[4];		
-}
 
 
 //Y Movement

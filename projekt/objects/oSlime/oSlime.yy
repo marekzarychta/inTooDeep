@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sSlimeIdle",
-    "path":"sprites/sSlimeIdle/sSlimeIdle.yy",
+    "name":"sSlimeWalk",
+    "path":"sprites/sSlimeWalk/sSlimeWalk.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -7,11 +7,7 @@ knockback_power = 5; // Sila odrzutu
 // Health and combat related variables
 health_points = 0;
 wasHit = false;
-isAlive = true;
-dying = false;
-attacking = false;
-attackTimer = 0;
-attackBuffer = 30;
+
 
 face = 1;
 
