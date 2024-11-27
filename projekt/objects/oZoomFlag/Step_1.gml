@@ -1,32 +1,23 @@
-if ((place_meeting(x, y, oPlayer) || condition)) {
-	
-	oCamera.changing = false; 
-		
-	goToPlaceTimer = goToPlaceBuffer;
-		
-	//oCamera.midX = oCamera._camX + oCamera._camWidth / 2;
-	//oCamera.midY = oCamera._camY + oCamera._camHeight / 2;
-			
-	
-	
-}
-
-if (oPlayer.x > x && increase_dir == 1) || (oPlayer.x < x && increase_dir == -1) {
-	zoom(k, orginalW, orginalH);	
-	oCamera.changing = false;
-} else if ((oPlayer.x < x && increase_dir == 1) || (oPlayer.x > x && increase_dir == -1)) {
-	zoom(1, orginalW, orginalH);
-	oCamera.changing = true; 
+if (place_meeting(x, y, oPlayer) && global.current_k == 1) {
+	if (oCamera.midX - x < 0) {
+		step_offset = x - oCamera.midX;
+	}
 }
 
 if (place_meeting(x, y, oPlayer)) {
 	oCamera.changing = false;
-	current_k = 1 + speed_x * (oPlayer.x - x);
-	if (current_k > k) {
-		current_k = k;	
-	} else if (current_k < 1) {
-		current_k = 1;	
+	global.current_k = 1 + speed_x * (oPlayer.x - x);
+	if (global.current_k > k) {
+		global.current_k = k;	
+	} else if (global.current_k < 1) {
+		global.current_k = 1;	
 	}
-	zoom(current_k, orginalW, orginalH);
-	instantCameraMoveToPos(x + step_x * (current_k - 1), y + step_y * (current_k - 1));
+	
+	instantCameraMoveToPos(x + (step_x) * (global.current_k - 1) - step_offset, y + step_y * (global.current_k - 1));
+}
+
+zoom(global.current_k, orginalW, orginalH);
+
+if (global.current_k == 1) {
+	oCamera.changing = true;
 }

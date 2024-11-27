@@ -13,8 +13,10 @@ if (wspX > x) {
 	increase_dir = -1;	
 }
 
-current_k = 1;
 
+global.current_k = 1;
+
+step_offset = 0;
 
 dx = wspX - x;
 dy = wspY - y;
