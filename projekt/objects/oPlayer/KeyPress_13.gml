@@ -8,4 +8,5 @@ if !isAlive {
 	//oCamera.midY = y;
 	
 	room_goto(Menu);
+	instance_destroy(oGlobal);
 }

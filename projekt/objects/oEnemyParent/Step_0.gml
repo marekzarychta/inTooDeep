@@ -1,8 +1,10 @@
 // Sprawdź, czy przeciwnik zginął
-if (health_points <= 0) {
+if (health_points <= 0 && isAlive) {
     isAlive = false;
     //with (other) instance_destroy();  // Usuń przeciwnika
     //show_debug_message("Wróg pokonany!");
+	dying = true;
+	image_index = 0;
 }
 
 //X Movement
@@ -44,15 +46,6 @@ if isAlive {
 		following = false;	
 	}
 	
-	//if changeDirTimer > 0 {
-	//	changeDirTimer--;	
-	//} else {
-	//	changeDirTimer = 0;	
-	//}
-	
-	
-	
-
 	//Get xspd
 	if onGround
 		xspd = moveDir * moveSpd;
@@ -116,29 +109,6 @@ if isAlive {
 	{
 		
 		isSlope = checkingForSlopes(id);
-	
-		if !following && wallTimer == 0 && !isSlope {
-			moveDir *= -1;
-			wallTimer = wallBuffer;
-		
-			
-		} else {
-			//if jumpCount < jumpMax
-			//{
-			//	jumpCount++;
-			//	jumpHoldTimer = jumpHoldFrames;
-			//}
-	
-			////jump based on timer
-			//if jumpHoldTimer > 0 {
-			//	yspd = jspd;
-			//	//Count down timer
-			//	jumpHoldTimer--;
-			//}
-			
-			//xspd = 0;
-			
-		}
 		
 	}
 	
@@ -153,30 +123,6 @@ if isAlive {
 		wallTimer = 0;
 	}
 	
-	//Check edge falling
-	//Setting check side, so set width of the sprite
-	if !following {
-	
-		var edgeDir = id.sprite_width / 2;
-	
-		//if there is not a floor object has to come back
-		if !place_meeting(x - edgeDir , y + 2, oWall) && edgeTimer == 0 && !isSlope {
-			edgeTimer = edgeBuffer;
-			moveDir *= -1;
-		
-		}
-		
-				
-		//Setting buffor to make sure that object will leave a danger zone
-	
-		if edgeTimer > 0 {
-			edgeTimer--;	
-			
-		} else {
-			
-			edgeTimer = 0;
-		}
-	} 
 	
 	if !attacking {
 			
@@ -201,8 +147,14 @@ if isAlive {
 
 	//Move
 	x += xspd;
+} else if dying {
+	sprite_index = sprites[3];
+	
+	if image_index >= image_number - 1 {
+		dying = false;	
+	}
 } else {
-	sprite_index = sprites[4];		
+	sprite_index = sprites[4];	
 }
 
 
