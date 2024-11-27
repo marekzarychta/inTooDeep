@@ -1,8 +1,11 @@
 boxSizeX = 24;
 boxSizeY = 60;
-
-midX = oPlayer.x;
-midY = oPlayer.y;
+midX = 0;
+midY = 0;
+if instance_exists(oPlayer) {
+	midX = oPlayer.x;
+	midY = oPlayer.y;
+}
 
 xspd = 0;
 yspd = 0;

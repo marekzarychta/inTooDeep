@@ -1,5 +1,9 @@
 //hitbox_delay = 0;
 //backpack object
+if (!layer_exists("Player_below")) {
+	layer_create(0, "Player_below");	
+}
+
 backpack = instance_create_layer(x,y,"Player_below",oBackpack);
 backpackSprites = [noone, sBackpackSmall, sBackpackMedium, sBackpackMedium];
 backpackSpritesClimb = [noone, sBackpackSmallClimb, sBackpackSmallClimb, sBackpackSmallClimb];

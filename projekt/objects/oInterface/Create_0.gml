@@ -1,6 +1,12 @@
 global.view_width = 1920;
 global.view_height = 1080;
 
+cam = camera_create_view(0, 0, 480, 270, 0, -1, 0, 0, 1920, 1080);
+
+view_set_camera(0, cam);
+view_enabled = true;
+
+
 var health_x = 16;
 var health_y = 16;
 
