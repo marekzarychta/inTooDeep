@@ -7,7 +7,7 @@
 
 
 if isAlive {
-
+	
 	HPManage();
 	
 	InventoryCalculateWeight(oInventory);
@@ -15,7 +15,7 @@ if isAlive {
 	
 
 	//Get inputs
-	if !oInventory.opened
+	if !oInventory.opened && isActive
 		getControls();
 		
 	else {
@@ -332,11 +332,14 @@ if isAlive {
 	//Y Collision
 	var _subPixel = .5;
 	
-	if (place_meeting(x, y + yspd, oEnemyParent) && can_break_orange) {
+	if (place_meeting(x, y + yspd, oEnemyParent) && currentWeightLevel >= 2 && yspd > 3) {
 		var enemy = instance_place(x, y + yspd, oEnemyParent);
 		//show_debug_message("tak")
 		with (enemy) {
 			health_points = 0;
+		}
+		if (enemy.isAlive) {
+			yspd = -2;
 		}
 	}
 	obj = instance_place(x, y + yspd, oDoor);
@@ -525,6 +528,7 @@ if isAlive {
 		}
 		attackingTimer--;
 	}
+	
 } else if isdying {
 	sprite_index = sPlayerDying;
 	
@@ -532,7 +536,8 @@ if isAlive {
 		isdying = false;	
 	}
 } else {
-	sprite_index = sPlayerDead;	
+	sprite_index = sPlayerDying;	
+	image_index = image_number - 1;
 }
 
 if reviveTimer == 0 && !isAlive {

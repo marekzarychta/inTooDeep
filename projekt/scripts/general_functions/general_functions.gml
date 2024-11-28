@@ -1,3 +1,15 @@
+function toGold() {
+	var size = ds_list_size(oInventory.inventory);
+	for (var i = 0; i < size; i++) {
+		oGlobal.gold += ds_list_find_value(oInventory.inventory, i).item_value;
+	}
+	size = ds_list_size(global.lista);
+	show_debug_message(string(size));
+	for (var i = 0; i < size; i++) {
+		var item = ds_list_find_value(global.lista, i);
+		oGlobal.gold += item.item_value;
+	}
+}
 
 function controlsSetup() {
     bufferTime = 1;

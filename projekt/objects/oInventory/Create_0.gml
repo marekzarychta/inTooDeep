@@ -1,15 +1,8 @@
-/// @description Inventory size etc
-// You can write your code in this editor
-
 #macro INVENTORY_SLOTS  15
 #macro INVENTORY_GRID_X  3 
 #macro INVENTORY_GRID_Y  3 
 
-//inventory = array_create(INVENTORY_SLOTS,-1);
 inventory = ds_list_create();
-//but1 = instance_create_depth(0, 0, 20, oTestButton);
-
-//ds_list_add(inventory, instance_create_depth(0, 0, 20, oTestCoin));
 
 opened = false;
 but1 = noone;
