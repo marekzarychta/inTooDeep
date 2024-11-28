@@ -8,7 +8,7 @@ function slowCameraMoveToPos(_x, _y, vel) {
 	var dx = _x - oCamera.midX;
 	var dy = _y - oCamera.midY;
 	
-	
+	show_debug_message(string(vel) + " " + string(dy))
 	
 	var len = sqrt(dx * dx + dy * dy);
 	
@@ -18,23 +18,23 @@ function slowCameraMoveToPos(_x, _y, vel) {
 	if (len != 0) {
 		 dny = dy / len;
 		 dnx = dx / len;
-		 show_debug_message(string(dnx) + " " + string(dny))
+		 
 	}
-	if (abs(dx) >= vel) {
+	//if (abs(dx) >= 2) {
 		oCamera.midX += dnx * vel;
-	}
-	if (abs(dy) >= vel) {
+	//}
+	//if (abs(dy) >= 2) {
 		oCamera.midY += dny * vel;
 
-	}
+	//}
 	
 }
 
 function activateCutScene(_x, _y) {
 	var obj = instance_create_layer(x, y, layer, oMoveToFlag);
-	obj.condition = true;
 	obj.wspX = _x;
 	obj.wspY = _y;
+	obj.condition = true;
 }
 
 

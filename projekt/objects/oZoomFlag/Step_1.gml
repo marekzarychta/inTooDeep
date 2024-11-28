@@ -29,6 +29,11 @@ zoom(global.current_k, orginalW, orginalH);
 
 if (global.current_k == 1) {
 	oCamera.changing = true;
+	if (instance_exists(oMoveToFlag)) {
+		if (oMoveToFlag.condition) {
+			oCamera.changing = false;
+		}
+	}
 }
 
 //if (oPlayer.x > wspX) {

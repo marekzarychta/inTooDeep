@@ -2,12 +2,14 @@ if (!clicking && clickable) {
 
 	chestHandling("push");
 	
-	if (marked && openable && keyboard_check_pressed(ord("E"))) && !oInventory.opened && oPlayer.isAlive {
+	if (marked && openable && keyboard_check_pressed(ord("E")) && !oInventory.opened && oPlayer.isAlive) {
     
 	    clicking = true;
 		target.opened = true;
 		clicked = true;
-		activateCutScene(doorX, doorY);
+		if (cutScene) {
+			activateCutScene(doorX, doorY);
+		}
 	}	
 } else if clickable {
 	sprite_index = openingSprite;

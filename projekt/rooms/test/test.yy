@@ -22,6 +22,7 @@
     {"name":"inst_A33542","path":"rooms/test/test.yy",},
     {"name":"inst_7808AE5C","path":"rooms/test/test.yy",},
     {"name":"inst_6A52BCAA","path":"rooms/test/test.yy",},
+    {"name":"inst_424E0245","path":"rooms/test/test.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -41,6 +42,11 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oMoveToFlag","path":"objects/oMoveToFlag/oMoveToFlag.yy",},"propertyId":{"name":"wspY","path":"objects/oMoveToFlag/oMoveToFlag.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"240",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":384.0,},
         {"$GMRInstance":"v1","%Name":"inst_6A52BCAA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6A52BCAA","objectId":{"name":"oFinish","path":"objects/oFinish/oFinish.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":544.0,"y":192.0,},
+        {"$GMRInstance":"v1","%Name":"inst_424E0245","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_424E0245","objectId":{"name":"oDoorButton","path":"objects/oDoorButton/oDoorButton.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oDoorButton","path":"objects/oDoorButton/oDoorButton.yy",},"propertyId":{"name":"doorX","path":"objects/oDoorButton/oDoorButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"512",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oDoorButton","path":"objects/oDoorButton/oDoorButton.yy",},"propertyId":{"name":"doorY","path":"objects/oDoorButton/oDoorButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"192",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oDoorButton","path":"objects/oDoorButton/oDoorButton.yy",},"propertyId":{"name":"targetInstance","path":"objects/oDoorButton/oDoorButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":96.0,"y":384.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Player_below","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Player_below","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances_2","depth":300,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[

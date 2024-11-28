@@ -19,4 +19,4 @@ draw_set_color(c_red);  // Ustaw kolor linii (np. czarny)
 draw_line(line_x, line_start_y, line_x, line_end_y);
 draw_line(0, global.view_height/2, global.view_width, global.view_height/2);
 
-show_debug_message(width);
+
