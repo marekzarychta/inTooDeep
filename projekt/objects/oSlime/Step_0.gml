@@ -37,8 +37,8 @@ if(sprite_index == sprites[1]){
 	// Check if the player is on top of the slime
 		if (place_meeting(x, y+offset, oPlayer)) {
 			if(oPlayer.yspd>0){
-		    // Check if the player's bottom edge is at the level of y - sprite height of the slime
-		        // Player is on top of the slime
+		        // Play bounce sound
+				    audio_play_sound(snd_bounce, 0, false);
 		        oPlayer.yspd = -2.5 + -2.5*(oPlayer.currentWeightLevel); // Adjust the value as needed for trampoline effect
 			}
 }

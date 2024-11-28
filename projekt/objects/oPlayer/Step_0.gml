@@ -32,7 +32,7 @@ if isAlive {
 	if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && !oInventory.opened && !isLadder) {
 	
 		// Call the attack function from the combat_functions script
-		
+		audio_play_sound(snd_axe,0,false);
 		if (mouse_x > x) {
 			attackDir = 1;
 		} else {
@@ -309,6 +309,7 @@ if isAlive {
 		upKeyBuffered = false;
 		upKeyBufferTimer = 0;
 		
+		audio_play_sound(snd_jump, 0, false);
 		//Add jump to count
 		jumpCount++;
 		jumpStartTimer = jumpDuration;
@@ -380,6 +381,7 @@ if isAlive {
 	}
 
 	if (place_meeting(x, y + yspd, oWall)) {
+		
 	    // Move up to wall precisely
 	    var _pixelCheck = _subPixel * sign(yspd);
 
@@ -475,11 +477,17 @@ if isAlive {
 	
 	//Check if on ground, reset timers
 	if ((yspd == 0 && (place_meeting(x, y + 1, oWall) || place_meeting(x, y + 1, oDoor))) || (yspd == 0 && topLadder)) {
-	    onGround = true;
+		if (wasMidair && !audio_is_playing(snd_playerland)) {
+	        // Odtwarzamy dźwięk tylko przy pierwszym kontakcie z ziemią
+	        audio_play_sound(snd_playerland, 0, false);
+	    }
+		onGround = true;
+		wasMidair = false;
 	    jumpCount = 0;
 	    jumpHoldTimer = 0;
 	} else {
 	    onGround = false;
+		wasMidair = true;
 	    // Start jump animation
 	    if (jumpStartTimer > 0) {
 	        jumpStartTimer--;

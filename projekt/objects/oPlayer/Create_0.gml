@@ -66,6 +66,8 @@ termVelValues = [4, 5, 6];
 termVel = termVelValues[0];
 	//On ground
 onGround = true;
+	//was in air - needed for first contact with ground
+wasMidair = false;
 	//Maximum number of jumps
 jumpMax = 1;
 jumpCount = 0;

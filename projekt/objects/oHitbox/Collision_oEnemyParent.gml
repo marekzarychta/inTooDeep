@@ -17,6 +17,9 @@ if place_meeting(x, y , oWall) && place_meeting(x, y , oEnemyParent) {
 
 // oHitbox -> Collision Event with oEnemy
 if (other.health_points != undefined && !other.wasHit && isDamaging) {
+	if(oEnemyParent.isAlive && !audio_is_playing(snd_attack_impact)){
+		audio_play_sound(snd_attack_impact,0,false);
+	}
     other.health_points -= 5;  // Zadaj obrażenia przeciwnikowi]
 	other.wasHit = true;
     //show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));

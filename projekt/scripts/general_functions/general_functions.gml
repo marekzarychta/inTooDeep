@@ -1,6 +1,6 @@
 
 function controlsSetup() {
-    bufferTime = 1;
+    bufferTime = 5;
 
     upKeyBuffered = 0;
     upKeyBufferTimer = 0;
