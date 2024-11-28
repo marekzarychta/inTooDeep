@@ -11,11 +11,11 @@ if (!layer_exists("Player_overlay")) {
 }
 
 if (!layer_exists("Text")) {
-	layer_create(0, "Text");	
+	layer_create(-40, "Text");	
 }
 
 if (!layer_exists("Popups")) {
-	layer_create(0, "Popups");	
+	layer_create(-50, "Popups");	
 }
 
 ds_list_clear(inventory.inventory);

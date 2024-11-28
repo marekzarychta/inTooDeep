@@ -242,8 +242,8 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
-    {"roomId":{"name":"Test1","path":"rooms/Test1/Test1.yy",},},
     {"roomId":{"name":"Test2","path":"rooms/Test2/Test2.yy",},},
+    {"roomId":{"name":"Test1","path":"rooms/Test1/Test1.yy",},},
     {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
     {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
     {"roomId":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
