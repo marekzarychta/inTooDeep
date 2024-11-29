@@ -1,6 +1,6 @@
 if instance_exists(oPlayer) {
 	if (changing) {
-	
+		centrVel = abs(oPlayer.xspd) - 0.01;
 		if (oPlayer.x < midX - boxSizeX && oPlayer.xspd < 0) || (oPlayer.x > midX + boxSizeX && oPlayer.xspd > 0 ) {
 			midX += oPlayer.xspd;	
 		}
