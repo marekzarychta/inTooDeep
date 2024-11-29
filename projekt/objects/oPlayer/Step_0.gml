@@ -230,7 +230,7 @@ if (sprite_index == sPlayerRun) {
 	            }
 	        } else {
 	            // Check if there is already an instance of oTextbox in the same spot
-	            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+	            if (!instance_exists(oTextboxPlayer)) {
 					//show_debug_message("x");
 	                createFollowingTextbox(x-16, y-16, "i need more weight");
 	            }
@@ -246,7 +246,7 @@ if (sprite_index == sPlayerRun) {
 	            }
 	        } else {
 	            // Check if there is already an instance of oTextbox in the same spot
-	            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+	            if (!instance_exists(oTextboxPlayer)) {
 					//show_debug_message("x");
 	                createFollowingTextbox(x-16, y-16, "i need more weight");
 	            }
@@ -282,7 +282,7 @@ if (sprite_index == sPlayerRun) {
 			x += _pixelCheck;
 		}
 	
-		if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+		if (!instance_exists(oTextboxPlayer)) {
 	        createFollowingTextbox(x - 16, y - 16, "this opens somewhere else");
 	    }
 		//Stop movement to collide
@@ -416,22 +416,25 @@ if (sprite_index == sPlayerRun) {
 	        }
 	    } 
 	}
-
+	
+	
 	if (place_meeting(x, y + yspd, oWall)) {
 		
+		var wall = instance_nearest(x,y,oWall);
+		show_debug_message("player y: "+string(y)+"; floor y: "+string(wall.y));
+	
 	    // Move up to wall precisely
 	    var _pixelCheck = _subPixel * sign(yspd);
 
 	    // Move as close to the wall as possible in 0.5px increments
-	    while !place_meeting(x, y + _pixelCheck, oWall) {
+	    while !place_meeting(x, y, oWall) {
 	        y += _pixelCheck;
 	    }
-
+		show_debug_message("new y: "+string(y));
 	    // Bonk
 	    if (yspd < 0) {
 	        jumpHoldTimer = 0;
 	    }
-
 	    // Stop movement to collide
 	    yspd = 0;  // Setting yspd to 0 only when truly colliding
 
@@ -510,7 +513,7 @@ if (sprite_index == sPlayerRun) {
 	    yspd = 0;  // Setting yspd to 0 only when truly colliding
 	}
 	
-	
+
 	
 	//Check if on ground, reset timers
 	if ((yspd == 0 && (place_meeting(x, y + 1, oWall) || place_meeting(x, y + 1, oDoor))) || (yspd == 0 && topLadder)) {

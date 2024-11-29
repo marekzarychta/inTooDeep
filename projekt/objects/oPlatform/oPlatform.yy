@@ -1,17 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"oWall",
+  "%Name":"oPlatform",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"oWall",
+  "name":"oPlatform",
   "overriddenProperties":[],
   "parent":{
     "name":"collisions",
     "path":"folders/Objects/terrain/collisions.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"oWall",
+    "path":"objects/oWall/oWall.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sWall",
-    "path":"sprites/sWall/sWall.yy",
+    "name":"sPlatform",
+    "path":"sprites/sPlatform/sPlatform.yy",
   },
   "spriteMaskId":null,
   "visible":true,
