@@ -9,8 +9,8 @@ if (!wasPlayed) {
 		cutSceneInstance = instance_create_layer(x, y, oGlobal.layer, oTransitionCutScene);
 		goToPlaceTimer = goToPlaceBuffer;
 		
-		//oCamera.midX = oCamera._camX + oCamera._camWidth / 2;
-		//oCamera.midY = oCamera._camY + oCamera._camHeight / 2;
+		oCamera.midX = oCamera._camX + oCamera._camWidth / 2;
+		oCamera.midY = oCamera._camY + oCamera._camHeight / 2;
 		velGo = getVel(wspX, wspY, goToPlaceBuffer, stayTime);
 		//show_debug_message(string(wspX) + " " + string(wspY));
 	}
