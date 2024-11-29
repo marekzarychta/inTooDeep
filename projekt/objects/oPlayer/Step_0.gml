@@ -5,6 +5,18 @@
 	//hitbox_delay -= 1;
 //}
 
+function setOnGround(_val = true)
+{
+	if _val == true
+	{
+		onGround = true;
+	}
+	else
+	{
+		onGround = false;
+		currentfloor = noone;
+	}
+}
 if(debug_mode){
 getControls();
 
@@ -417,7 +429,7 @@ if (sprite_index == sPlayerRun) {
 	    } 
 	}
 	
-	
+	if(yspd < 0){
 	if (place_meeting(x, y + yspd, oWall)) {
 		
 		var wall = instance_nearest(x,y,oWall);
@@ -427,7 +439,7 @@ if (sprite_index == sPlayerRun) {
 	    var _pixelCheck = _subPixel * sign(yspd);
 
 	    // Move as close to the wall as possible in 0.5px increments
-	    while !place_meeting(x, y, oWall) {
+	    while !place_meeting(x, y + _pixelCheck, oWall) {
 	        y += _pixelCheck;
 	    }
 		show_debug_message("new y: "+string(y));
@@ -440,7 +452,59 @@ if (sprite_index == sPlayerRun) {
 
 		
 	}
+	}
+	
+	//downwards Y collision
+	//check for solid platforms
+	var _clampYspd = max (0, yspd);
+	var _list = ds_list_create(); //create a list of objects we collide with
+	var _array = array_create(0);
+	array_push(_array, oWall); //array of objects we collide with
 
+	//check and add objects to list
+	var _listSize = instance_place_list(x, y + 1 + _clampYspd, _array, _list, false);
+	
+	//loop through colliding instances and return one if it's top is below player
+	for( var i = 0; i < _listSize; i++)
+	{
+		//get oWall instance
+		var _listInst = _list[| i];	
+		
+		//return a solid wall
+		if _listInst.object_index == oWall
+		|| object_is_ancestor(_listInst.object_index, oWall)
+		|| floor(bbox_bottom) <= ceil (_listInst.bbox_top)
+		{
+			if !instance_exists(currentfloor)
+			|| _listInst.bbox_top <= currentfloor.bbox_top
+			|| _listInst.bbox_top <= bbox_bottom
+			{
+				currentfloor = _listInst;
+			}
+		}
+	}
+	
+	//Destroy instance list
+	ds_list_destroy(_list);
+	
+	//if instance_exists(currentfloor) && !place_meeting(x,y,currentfloor)
+	//{
+	//	currentfloor = noone;
+	//}
+	
+	//land
+	if instance_exists(currentfloor)
+	{
+		var _subPixel = 0.1;
+		while !place_meeting(x,y+_subPixel,currentfloor) && !place_meeting(x,y,oWall){
+		y+=_subPixel;
+		}
+		
+		y=floor(y);
+		show_debug_message(y);
+		yspd = 0;
+		setOnGround(true);
+	}
 	//checking is player on ladder
 	if place_meeting(x, y, oLadder) && (upKey || downKey) && !isDashing {
 		isLadder = true;	
