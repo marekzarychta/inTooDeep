@@ -10,6 +10,8 @@ attackCooldownTimer = 0; // Timer that resets the cooldown after attacking
 attackingTimer = 0;
 damage = 10;
 
+
+
 reviveTimer = 0;
 reviveBuffer = 200;
 
@@ -92,5 +94,9 @@ top = false;
 isBlocked = false;
 attacking = false;
 isdying = false;
+
+
+//debug noclip
+noclip = false;
 
 controlsSetup();

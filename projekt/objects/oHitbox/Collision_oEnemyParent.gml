@@ -24,7 +24,12 @@ if (other.health_points != undefined && !other.wasHit && isDamaging) {
 	other.wasHit = true;
     //show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));
 	
+	
+	//-----------------------------------
+	//!!DO EDYCJI - JAK STOIMY ZA ŚRODKIEM PRZECIWNIKA TO GO WYWALI W DRUGĄ STRONĘ!!
 	var directionKnockbackX = sign(other.x - x);//point_direction(other.x, other.y, x, y);
+	//-----------------------------------
+
 	var directionKnockbackY = -1;//point_direction(other.x, other.y, x, y);
 	other.knockback_x = other.knockback_power * directionKnockbackX; //lengthdir_x(other.knockback_power, -directionKnockback);
     other.knockback_y = other.knockback_power * directionKnockbackY;//lengthdir_y(other.knockback_power, -directionKnockback);

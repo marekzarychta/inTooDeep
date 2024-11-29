@@ -5,6 +5,38 @@
 	//hitbox_delay -= 1;
 //}
 
+if(debug_mode){
+getControls();
+
+if (keyboard_check_pressed(ord("N"))) {
+    noclip = !noclip; // Przełącz tryb noclip
+    if (noclip) {
+		isAlive = false;
+        show_debug_message("Noclip: ON");
+    } else {
+		isAlive = true;
+        show_debug_message("Noclip: OFF");
+    }
+}
+}
+
+if (noclip) {
+		var multiplier = 1;
+		if(keyboard_check(vk_shift)) multiplier = 2;
+		image_alpha = 0.5; // Gracz półprzezroczysty w trybie noclip
+	    // Swobodne poruszanie się w trybie noclip
+	    if (rightKey) xspd = 2.5 * multiplier;
+	    if (leftKey) xspd = -2.5 * multiplier;
+		if ((rightKey - leftKey) == 0) xspd = 0;
+	    if (upKey) yspd = -2.5 * multiplier;
+	    if (downKey) yspd = 2.5 * multiplier;
+		if ((upKey - downKey) == 0) yspd = 0;
+	
+		x+=xspd;
+		y+=yspd;
+}
+else{
+image_alpha = 1; // Normalny wygląd
 
 if isAlive {
 
@@ -98,9 +130,14 @@ if isAlive {
 		face = moveDir;
 	}
 
-	//Check Collision with chest
-
+if (sprite_index == sPlayerRun) {
 	
+    if(floor(image_index) == 1 || floor(image_index) == 7){
+		if(!audio_is_playing(snd_playerland)){
+        audio_play_sound(snd_playerland, 0, false);
+		}
+	}
+}
 
 	with (oChest) {
 	    
@@ -148,11 +185,11 @@ if isAlive {
 		//Change movement animation based on weight
 		sprite_index = movementSprites[currentWeightLevel];
 		//Move slower at certain weights
-		if (currentWeightLevel == 4 || currentWeightLevel == 1){
-			image_speed = 0.75;
-		}else{
-			image_speed = 1;
-		}
+		//if (currentWeightLevel == 4 || currentWeightLevel == 1){
+		//	image_speed = 0.75;
+		//}else{
+		//	image_speed = 1;
+		//}
 		}
 	} else if (moveDir == 0 && yspd == 0) {
 		sprite_index = sPlayerIdle;
@@ -440,7 +477,7 @@ if isAlive {
 		if (hasDashed && !instance_exists(oDashCooldownBar)) { // Pasek tworzy się tylko po dashu
         var cooldownBar = instance_create_depth(x, y, -10, oDashCooldownBar);
     }
-		show_debug_message("dash cooldown");
+		if(debug_mode) show_debug_message("dash cooldown");
 		
 	}
 	
@@ -448,7 +485,7 @@ if isAlive {
 		dashCooldownTimer--;	
 	} else if dashCooldownTimer == 0 {
 		dashCooldownTimer--;
-		show_debug_message("dash rdy");	
+		if(debug_mode) show_debug_message("dash rdy");	
 	}
 	
 	//checking top ladder
@@ -527,19 +564,24 @@ if isAlive {
 	
 	if attackingTimer > 0 {
 		image_xscale = attackDir;
+		if(sprite_index != sPlayerAttack){
 		sprite_index = sPlayerAttack;
+		}
 		if image_index == 2 {
 			attack();	
 		}
 		attackingTimer--;
 	}
 } else if isdying {
+	instance_destroy(backpack);
+	if(sprite_index !=sPlayerDying){
 	sprite_index = sPlayerDying;
-	
-	if image_index >= image_number - 1 {
+	}
+	if image_index >= image_number  {
 		isdying = false;	
 	}
-} else {
+} else if !isAlive{
+	//trzeba zmienic sprite na lezacego
 	sprite_index = sPlayerDead;	
 }
 
@@ -553,3 +595,5 @@ if reviveTimer > 0 && !isAlive {
 		event_perform(ev_keypress, vk_enter);	
 	}	
 }
+}
+

@@ -261,7 +261,7 @@ if (nearest_logical_wall != noone) {
 
 if (!following && distance_from_spawn > distance_to_logical_wall_x-8){
 		moveDir = sign(initial_x - x);
-		show_debug_message("zmienil se kierunek ruchu na: " + string(moveDir));
+		//show_debug_message("zmienil se kierunek ruchu na: " + string(moveDir));
 	}
 
 if !ignores_logical_walls && place_meeting(x - moveDir,y,oLogicalWall){
