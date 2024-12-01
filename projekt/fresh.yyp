@@ -245,9 +245,9 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
+    {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
     {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
-    {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
     {"roomId":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
   ],
   "templateType":"game",

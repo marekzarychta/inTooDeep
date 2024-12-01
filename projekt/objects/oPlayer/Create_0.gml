@@ -99,6 +99,4 @@ isdying = false;
 //debug noclip
 noclip = false;
 
-//current floor
-currentfloor = noone;
 controlsSetup();
