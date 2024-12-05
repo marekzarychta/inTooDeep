@@ -38,7 +38,7 @@ if (noclip) {
 }
 else{
 image_alpha = 1; // Normalny wygląd
-
+}
 if isAlive {
 	
 	HPManage();
