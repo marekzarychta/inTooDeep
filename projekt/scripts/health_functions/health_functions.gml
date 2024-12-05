@@ -1,6 +1,6 @@
 function SetHP() {
 
-    max_health = 5;
+    max_health = 4;
     current_health = max_health;
 
     bufferEnemyHit = 60;

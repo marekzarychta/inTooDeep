@@ -4,4 +4,4 @@
 #macro MAX_HEALTH_WIDTH 4
 width = sprite_get_width(sHealthBar);
 height = sprite_get_height(sHealthBar);
-stretch = width*0.18;
+stretch = 60;
