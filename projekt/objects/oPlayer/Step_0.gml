@@ -29,15 +29,11 @@ if isAlive {
 	}
 
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
-	if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && !oInventory.opened && !isLadder) {
+	if (attackCooldownTimer == 0 && keyboard_check_pressed(vk_space) && !oInventory.opened && !isLadder) {
 	
 		// Call the attack function from the combat_functions script
 		
-		if (mouse_x > x) {
-			attackDir = 1;
-		} else {
-			attackDir = -1;	
-		}
+		attackDir = face;
 		
 		
 		//if(keyboard_check_pressed(vk_left)) {
