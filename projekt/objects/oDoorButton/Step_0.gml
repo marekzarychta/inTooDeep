@@ -1,8 +1,5 @@
 if (place_meeting(x, y - 2, oPlayer) && oPlayer.yspd > 0 && clickable) {
 
-	//chestHandling("push");
-	
-	//if (marked && openable && keyboard_check_pressed(ord("E")) && !oInventory.opened && oPlayer.isAlive) {
 		oPlayer.yspd = -1;
 	    clicking = true;
 		target.opened = true;
@@ -10,7 +7,7 @@ if (place_meeting(x, y - 2, oPlayer) && oPlayer.yspd > 0 && clickable) {
 		if (cutScene) {
 			activateCutScene(doorX, doorY);
 		}
-	//}	
+		
 } else if clicking {
 	
 	sprite_index = openingSprite;
