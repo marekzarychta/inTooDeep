@@ -4,3 +4,4 @@ draw_set_halign(fa_left);
 
 draw_text(20, 300, string("Score: ") + string(gold));
 draw_set_halign(fa_center);
+

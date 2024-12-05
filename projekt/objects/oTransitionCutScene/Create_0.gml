@@ -4,6 +4,7 @@ fade_in = true;       // Czy trwa fade-in? (domyślnie nie)
 alpha = 0; // Jeśli fade-in, zaczynamy od pełnej czerni
 speed = 6;          // Prędkość efektu
 
+gui_surface = 0;
 
 height_rect = 200//room_height / 4;
 _y = height_rect;
