@@ -181,7 +181,7 @@ if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
 	onGround = false;
 }
 
-show_debug_message(string(moveTimer));
+if(debug_mode) show_debug_message("moveTimer: "+string(moveTimer));
 if ((xspd == 0 || moveTimer == moveBuffer) && blockadeInstance != noone) {
 	instance_destroy(blockadeInstance);	
 	moveDir = 0;

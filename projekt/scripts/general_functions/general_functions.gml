@@ -12,27 +12,31 @@ function toGold() {
 }
 
 function controlsSetup() {
-    bufferTime = 1;
+    bufferTime = 5;
 
     upKeyBuffered = 0;
     upKeyBufferTimer = 0;
 }
 
 function getControls() {
+	if(debug_mode && gamepad_is_connected(0)){
+		show_debug_message("gamepad connected");
+	}
     //direction
-    rightKey = keyboard_check(ord("D"));
+    rightKey = keyboard_check(ord("D")) + gamepad_button_check(0,gp_padr);
     rightKey = clamp(rightKey, 0, 1);
 
 
-    leftKey = keyboard_check(ord("A"));
+    leftKey = keyboard_check(ord("A"))  + gamepad_button_check(0,gp_padl);
     leftKey = clamp(leftKey, 0, 1);
 
-    //action
+	useKey = keyboard_check(ord("E")) + gamepad_button_check(0,gp_face4);
+	useKey = clamp(useKey,0,1);
 
     upKeyPressed = keyboard_check_pressed(ord("W")) + gamepad_button_check_pressed(0,gp_face1);
 
     upKeyPressed = clamp(upKeyPressed, 0, 1);
-    upKey = keyboard_check(ord("W")) + keyboard_check(vk_space);
+    upKey = keyboard_check(ord("W")) + keyboard_check(vk_space) + gamepad_button_check(0,gp_face1);
     upKey = clamp(upKey, 0, 1);
 
     downKey = keyboard_check(ord("S"));

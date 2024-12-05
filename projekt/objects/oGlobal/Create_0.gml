@@ -6,3 +6,4 @@ inventory.persistent = true;
 interface = noone;
 
 camera = noone;
+persistent = true;

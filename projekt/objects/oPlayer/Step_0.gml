@@ -5,6 +5,39 @@
 	//hitbox_delay -= 1;
 //}
 
+if(debug_mode){
+getControls();
+
+if (keyboard_check_pressed(ord("N"))) {
+    noclip = !noclip; // Przełącz tryb noclip
+    if (noclip) {
+		isAlive = false;
+        show_debug_message("Noclip: ON");
+    } else {
+		isAlive = true;
+        show_debug_message("Noclip: OFF");
+    }
+}
+}
+
+
+if (noclip) {
+		var multiplier = 1;
+		if(keyboard_check(vk_shift)) multiplier = 2;
+		image_alpha = 0.5; // Gracz półprzezroczysty w trybie noclip
+	    // Swobodne poruszanie się w trybie noclip
+	    if (rightKey) xspd = 2.5 * multiplier;
+	    if (leftKey) xspd = -2.5 * multiplier;
+		if ((rightKey - leftKey) == 0) xspd = 0;
+	    if (upKey) yspd = -2.5 * multiplier;
+	    if (downKey) yspd = 2.5 * multiplier;
+		if ((upKey - downKey) == 0) yspd = 0;
+	
+		x+=xspd;
+		y+=yspd;
+}
+else{
+image_alpha = 1; // Normalny wygląd
 
 if isAlive {
 	
@@ -28,12 +61,18 @@ if isAlive {
 	
 	}
 
+if(useKey){
+	isInteracting = true;
+}else{
+	isInteracting = false;
+}
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
 	if (attackCooldownTimer == 0 && keyboard_check_pressed(vk_space) && !oInventory.opened && !isLadder) {
 	
 		// Call the attack function from the combat_functions script
 		
 		attackDir = face;
+		audio_play_sound(snd_axe,0,false);
 		
 		
 		//if(keyboard_check_pressed(vk_left)) {
@@ -94,9 +133,14 @@ if isAlive {
 		face = moveDir;
 	}
 
-	//Check Collision with chest
-
+if (sprite_index == sPlayerRun) {
 	
+    if(floor(image_index) == 1 || floor(image_index) == 7){
+		if(!audio_is_playing(snd_playerstep) && !audio_is_playing(snd_playerland)){
+        audio_play_sound(snd_playerstep, 0, false);
+		}
+	}
+}
 
 	with (oChest) {
 	    
@@ -149,6 +193,7 @@ if isAlive {
 			} else{
 				image_speed = clamp(abs(xspd)/moveSpd[currentWeightLevel], 0, 1);
 			}
+
 		}
 		
 	} else if (moveDir == 0 && yspd == 0) {
@@ -192,7 +237,7 @@ if isAlive {
 	            }
 	        } else {
 	            // Check if there is already an instance of oTextbox in the same spot
-	            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+	            if (!instance_exists(oTextboxPlayer)) {
 					//show_debug_message("x");
 	                createFollowingTextbox(x-16, y-16, "i need more weight");
 	            }
@@ -208,7 +253,7 @@ if isAlive {
 	            }
 	        } else {
 	            // Check if there is already an instance of oTextbox in the same spot
-	            if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+	            if (!instance_exists(oTextboxPlayer)) {
 					//show_debug_message("x");
 	                createFollowingTextbox(x-16, y-16, "i need more weight");
 	            }
@@ -244,7 +289,7 @@ if isAlive {
 			x += _pixelCheck;
 		}
 	
-		if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
+		if (!instance_exists(oTextboxPlayer)) {
 	        createFollowingTextbox(x - 16, y - 16, "this opens somewhere else");
 	    }
 		//Stop movement to collide
@@ -308,6 +353,7 @@ if isAlive {
 		upKeyBuffered = false;
 		upKeyBufferTimer = 0;
 		
+		audio_play_sound(snd_jump, 0, false);
 		//Add jump to count
 		jumpCount++;
 		jumpStartTimer = jumpDuration;
@@ -380,8 +426,11 @@ if isAlive {
 	        }
 	    } 
 	}
-
+	
+	
 	if (place_meeting(x, y + yspd, oWall)) {
+		
+	
 	    // Move up to wall precisely
 	    var _pixelCheck = _subPixel * sign(yspd);
 
@@ -389,12 +438,10 @@ if isAlive {
 	    while !place_meeting(x, y + _pixelCheck, oWall) {
 	        y += _pixelCheck;
 	    }
-
 	    // Bonk
 	    if (yspd < 0) {
 	        jumpHoldTimer = 0;
 	    }
-
 	    // Stop movement to collide
 	    yspd = 0;  // Setting yspd to 0 only when truly colliding
 
@@ -440,7 +487,7 @@ if isAlive {
 		if (hasDashed && !instance_exists(oDashCooldownBar)) { // Pasek tworzy się tylko po dashu
         var cooldownBar = instance_create_depth(x, y, -10, oDashCooldownBar);
     }
-		show_debug_message("dash cooldown");
+		if(debug_mode) show_debug_message("dash cooldown");
 		
 	}
 	
@@ -448,7 +495,7 @@ if isAlive {
 		dashCooldownTimer--;	
 	} else if dashCooldownTimer == 0 {
 		dashCooldownTimer--;
-		show_debug_message("dash rdy");	
+		if(debug_mode) show_debug_message("dash rdy");	
 	}
 	
 	//checking top ladder
@@ -473,15 +520,21 @@ if isAlive {
 	    yspd = 0;  // Setting yspd to 0 only when truly colliding
 	}
 	
-	
+
 	
 	//Check if on ground, reset timers
 	if ((yspd == 0 && (place_meeting(x, y + 1, oWall) || place_meeting(x, y + 1, oDoor))) || (yspd == 0 && topLadder)) {
-	    onGround = true;
+		if (wasMidair && !audio_is_playing(snd_playerland)) {
+	        // Odtwarzamy dźwięk tylko przy pierwszym kontakcie z ziemią
+	        audio_play_sound(snd_playerland, 0, false);
+	    }
+		onGround = true;
+		wasMidair = false;
 	    jumpCount = 0;
 	    jumpHoldTimer = 0;
 	} else {
 	    onGround = false;
+		wasMidair = true;
 	    // Start jump animation
 	    if (jumpStartTimer > 0) {
 	        jumpStartTimer--;
@@ -529,7 +582,9 @@ if isAlive {
 	if attackingTimer > 0 {
 		image_xscale = attackDir;
 		image_speed = 1;
+		if(sprite_index != sPlayerAttack){
 		sprite_index = sPlayerAttack;
+		}
 		if image_index == 2 {
 			attack();	
 		}
@@ -537,6 +592,8 @@ if isAlive {
 	}
 	
 } else if isdying {
+	instance_destroy(backpack);
+	if(sprite_index !=sPlayerDying){
 	sprite_index = sPlayerDying;
 	image_speed = 1;
 	if image_index >= image_number - 1 {
@@ -558,3 +615,5 @@ if reviveTimer > 0 && !isAlive {
 		event_perform(ev_keypress, vk_enter);	
 	}	
 }
+}
+

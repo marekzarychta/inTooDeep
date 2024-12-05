@@ -1,7 +1,6 @@
 draw_set_font(Fnt_textbox_player);
 
 textWidth = string_width(textVal);
-show_debug_message("text width: "+string(textWidth));
 // Jeśli textbox ma podążać za graczem
 if (followPlayer) {
     // Aktualizacja pozycji tak, aby był wyśrodkowany

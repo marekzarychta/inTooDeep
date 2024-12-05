@@ -26,3 +26,6 @@ camera = instance_create_layer(x, y, layer, oCamera);
 
 var transition = instance_create_layer(x, y, oGlobal.layer, oTransition);
 //camera.persistent = true;
+	if(layer_exists("Collision")){
+		layer_set_visible("Collision",false);
+	}

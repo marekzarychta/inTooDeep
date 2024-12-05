@@ -9,10 +9,12 @@ backpackSprites = [noone, sBackpackSmall, sBackpackMedium, sBackpackMedium];
 backpackSpritesClimb = [noone, sBackpackSmallClimb, sBackpackSmallClimb, sBackpackSmallClimb];
 
 //Attack controller
-attackCooldown = 45; // Attack cooldown of 60 frames -> roughly 1 second
+attackCooldown = 60; // Attack cooldown of 60 frames -> roughly 1 second
 attackCooldownTimer = 0; // Timer that resets the cooldown after attacking
 attackingTimer = 0;
 damage = 10;
+
+
 
 reviveTimer = 0;
 reviveBuffer = 200;
@@ -70,6 +72,8 @@ termVelValues = [4, 5, 6];
 termVel = termVelValues[0];
 	//On ground
 onGround = true;
+	//was in air - needed for first contact with ground
+wasMidair = false;
 	//Maximum number of jumps
 jumpMax = 1;
 jumpCount = 0;
@@ -80,7 +84,6 @@ jumpDuration = 1;
 
 //See if player is interacting
 isInteracting = false; 
-interactionTimer = 60;
 
 jumpHoldTimer = 0;
 	//Jump values for successive jumps
@@ -95,5 +98,9 @@ isBlocked = false;
 attacking = false;
 isdying = false;
 isActive = true;
+
+
+//debug noclip
+noclip = false;
 
 controlsSetup();

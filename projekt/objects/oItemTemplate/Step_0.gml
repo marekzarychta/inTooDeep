@@ -77,9 +77,9 @@ if !in_inventory {
 	
 		//show_debug_message("Zebrano: " + string(id));
 		InventoryAdd(oInventory, id);
-		////show_debug_message("Obecna waga: " + string(oPlayer.inventoryWeight));
+		audio_play_sound(snd_pickup,0,false);
+		if(debug_mode) show_debug_message("Current weight: " + string(oPlayer.inventoryWeight));
 		//instance_destroy(id);
-		
 	}
 	
 } 
