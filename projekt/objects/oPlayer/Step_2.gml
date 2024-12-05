@@ -13,3 +13,4 @@ if (instance_exists(backpack)) {
 
 	}
 }
+//show_debug_message(string(image_speed));

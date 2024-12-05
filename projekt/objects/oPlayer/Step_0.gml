@@ -144,24 +144,27 @@ if isAlive {
 		//Change movement animation based on weight
 		sprite_index = movementSprites[currentWeightLevel];
 		//Move slower at certain weights
-		if (currentWeightLevel == 4 || currentWeightLevel == 1){
-			image_speed = 0.75;
-		}else{
-			image_speed = 1;
+			if (currentWeightLevel == 3 || currentWeightLevel == 1) {
+				image_speed = clamp(abs(xspd)/moveSpd[currentWeightLevel], 0, 0.75);
+			} else{
+				image_speed = clamp(abs(xspd)/moveSpd[currentWeightLevel], 0, 1);
+			}
 		}
-		}
+		
 	} else if (moveDir == 0 && yspd == 0) {
 		sprite_index = sPlayerIdle;
 	}
-
+	
 	
 	
 	//Set xspd with smoothing and dash
 	if (isDashing) {
 		xspd = moveDir * (moveSpd[currentWeightLevel] + dashAddSpd);//smooth(xspd, moveDir * (moveSpd[currentWeightLevel] + dashAddSpd));
 	} else {
-		if abs(xspd) <= moveSpd[currentWeightLevel] && moveDir != 0 {
-			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.91);
+		if abs(xspd) <= 2 * moveSpd[currentWeightLevel] / 3 && moveDir != 0 {
+			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.95);
+		} else if (abs(xspd) <= moveSpd[currentWeightLevel] && moveDir != 0) {
+			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.92);
 		} else if moveDir == 0 {
 			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.86);
 		} else {
@@ -487,12 +490,15 @@ if isAlive {
 		if !isLadder && !isDashing && attackingTimer == 0 {
 			if (jumpStartTimer > 0) {
 		        sprite_index = sPlayerStartJump;
+				image_speed = 1;
 		    } else if (yspd > 0) {
 		        // Fall animation
 		        sprite_index = sPlayerFall;
+				image_speed = 1;
 		    } else if (!onGround && jumpCount > 0) {
 		        // Jump animation
 		        sprite_index = sPlayerJump;
+				image_speed = 1;
 		    }	
 		}
 	}
@@ -503,21 +509,26 @@ if isAlive {
 	
 	if isDashing {
 		sprite_index = sPlayerDash;
+		image_speed = 1;
 	}
 	
 	//ladders
 	if upKey && isLadder {
 		sprite_index = sPlayerLadderClimb;
+		image_speed = 1;
 	} 
 	else if isLadder {
 		sprite_index = sPlayerLadderIdle;
+		image_speed = 1;
 	}
 	if timerEnemyHit > 0 {
-		sprite_index = sPlayerGotHit;	
+		sprite_index = sPlayerGotHit;
+		image_speed = 1;
 	}
 	
 	if attackingTimer > 0 {
 		image_xscale = attackDir;
+		image_speed = 1;
 		sprite_index = sPlayerAttack;
 		if image_index == 2 {
 			attack();	
@@ -527,12 +538,13 @@ if isAlive {
 	
 } else if isdying {
 	sprite_index = sPlayerDying;
-	
+	image_speed = 1;
 	if image_index >= image_number - 1 {
 		isdying = false;	
 	}
 } else {
 	sprite_index = sPlayerDying;	
+	image_speed = 1;
 	image_index = image_number - 1;
 }
 
