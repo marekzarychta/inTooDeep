@@ -14,46 +14,70 @@ function toGold() {
 function controlsSetup() {
     bufferTime = 5;
 
-    upKeyBuffered = 0;
-    upKeyBufferTimer = 0;
+    jumpKeyBuffered = 0;
+    jumpKeyBufferTimer = 0;
 }
 
 function getControls() {
 	if(debug_mode && gamepad_is_connected(0)){
 		show_debug_message("gamepad connected");
 	}
+	attackKey = keyboard_check(ord("X")) + gamepad_button_check(0,gp_face3);
+	attackKey = clamp(attackKey, 0, 1);
+	
+	dashKey = keyboard_check(vk_shift) + gamepad_button_check(0,gp_face2);
+	dashKey = clamp(dashKey, 0, 1);
     //direction
-    rightKey = keyboard_check(ord("D")) + gamepad_button_check(0,gp_padr);
+    rightKey = keyboard_check(vk_right) + gamepad_button_check(0,gp_padr);
     rightKey = clamp(rightKey, 0, 1);
 
 
-    leftKey = keyboard_check(ord("A"))  + gamepad_button_check(0,gp_padl);
+    leftKey = keyboard_check(vk_left)  + gamepad_button_check(0,gp_padl);
     leftKey = clamp(leftKey, 0, 1);
 
 	useKey = keyboard_check(ord("E")) + gamepad_button_check(0,gp_face4);
 	useKey = clamp(useKey,0,1);
 
-    upKeyPressed = keyboard_check_pressed(ord("W")) + gamepad_button_check_pressed(0,gp_face1);
-
+    jumpKeyPressed = keyboard_check_pressed(ord("Z")) + gamepad_button_check_pressed(0,gp_face1);
+    jumpKeyPressed = clamp(jumpKeyPressed, 0, 1);
+    jumpKey = keyboard_check(ord("Z")) + gamepad_button_check(0,gp_face1);
+    jumpKey = clamp(jumpKey, 0, 1);
+	
+	upKeyPressed = keyboard_check_pressed(vk_up) + gamepad_button_check_pressed(0,gp_padu);
     upKeyPressed = clamp(upKeyPressed, 0, 1);
-    upKey = keyboard_check(ord("W")) + keyboard_check(vk_space) + gamepad_button_check(0,gp_face1);
+    upKey = keyboard_check(vk_up) + gamepad_button_check(0,gp_padu);
     upKey = clamp(upKey, 0, 1);
 
-    downKey = keyboard_check(ord("S"));
-
-    dashKey = keyboard_check(vk_shift);
+    downKey = keyboard_check(vk_down) + gamepad_button_check(0,gp_padd);
+	downKey = clamp(downKey, 0, 1);
 
     //downKey = clamp (downKey, 0, 1);
+	    // Obsługa gałki analogowej z deadzone
+	    var deadzone = 0.2; // Ustawienie strefy martwej
+	    axisX = gamepad_axis_value(0, gp_axislh);
+	    axisY = gamepad_axis_value(0, gp_axislv);
 
+	    // Sprawdź, czy wartości osi są poza strefą martwą
+	    if (abs(axisX) < deadzone) {
+	        axisX = 0;
+	    } else {
+	        axisX = (axisX - sign(axisX) * deadzone) / (1 - deadzone);
+	    }
+
+	    if (abs(axisY) < deadzone) {
+	        axisY = 0;
+	    } else {
+	        axisY = (axisY - sign(axisY) * deadzone) / (1 - deadzone);
+	    }
     //Jump key buffering
-    if upKeyPressed {
-        upKeyBufferTimer = bufferTime;
+    if jumpKeyPressed {
+        jumpKeyBufferTimer = bufferTime;
     }
-    if upKeyBufferTimer > 0 {
-        upKeyBuffered = 1;
-        upKeyBufferTimer--;
+    if jumpKeyBufferTimer > 0 {
+        jumpKeyBuffered = 1;
+        jumpKeyBufferTimer--;
     } else {
-        upKeyBuffered = 0;
+        jumpKeyBuffered = 0;
     }
 
 

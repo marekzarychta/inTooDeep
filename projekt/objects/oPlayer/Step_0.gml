@@ -23,15 +23,11 @@ if (keyboard_check_pressed(ord("N"))) {
 
 if (noclip) {
 		var multiplier = 1;
-		if(keyboard_check(vk_shift)) multiplier = 2;
+		if(dashKey) multiplier = 2;
 		image_alpha = 0.5; // Gracz półprzezroczysty w trybie noclip
 	    // Swobodne poruszanie się w trybie noclip
-	    if (rightKey) xspd = 2.5 * multiplier;
-	    if (leftKey) xspd = -2.5 * multiplier;
-		if ((rightKey - leftKey) == 0) xspd = 0;
-	    if (upKey) yspd = -2.5 * multiplier;
-	    if (downKey) yspd = 2.5 * multiplier;
-		if ((upKey - downKey) == 0) yspd = 0;
+		 xspd = 2.5 * multiplier * (rightKey - leftKey + axisX);
+		 yspd = 2.5 * multiplier * (downKey - upKey + axisY);
 	
 		x+=xspd;
 		y+=yspd;
@@ -48,9 +44,11 @@ if isAlive {
 	
 
 	//Get inputs
-	if !oInventory.opened && isActive
+	if !oInventory.opened && isActive 
+	{
 		getControls();
-		
+		window_set_cursor(cr_none);
+	}
 	else {
 		rightKey = 0;	
 		leftKey = 0;	
@@ -67,7 +65,7 @@ if(useKey){
 	isInteracting = false;
 }
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
-	if (attackCooldownTimer == 0 && keyboard_check_pressed(vk_space) && !oInventory.opened && !isLadder) {
+	if (attackCooldownTimer == 0 && attackKey && !oInventory.opened && !isLadder) {
 	
 		// Call the attack function from the combat_functions script
 		
@@ -124,13 +122,14 @@ if(useKey){
 
 	//Direction not changing when dashing
 	if !isDashing {
-		moveDir = rightKey - leftKey;
+		if(axisX == 0) moveDir = rightKey - leftKey;
+		else moveDir = sign(axisX);
 	} else {
 		moveDir = face;	
 	}
 
 	if moveDir != 0 {
-		face = moveDir;
+		face = sign(moveDir);
 	}
 
 if (sprite_index == sPlayerRun) {
@@ -202,20 +201,29 @@ if (sprite_index == sPlayerRun) {
 	
 	
 	
-	//Set xspd with smoothing and dash
-	if (isDashing) {
-		xspd = moveDir * (moveSpd[currentWeightLevel] + dashAddSpd);//smooth(xspd, moveDir * (moveSpd[currentWeightLevel] + dashAddSpd));
-	} else {
-		if abs(xspd) <= 2 * moveSpd[currentWeightLevel] / 3 && moveDir != 0 {
-			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.95);
-		} else if (abs(xspd) <= moveSpd[currentWeightLevel] && moveDir != 0) {
-			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.92);
-		} else if moveDir == 0 {
-			xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.86);
-		} else {
-			xspd = moveDir * moveSpd[currentWeightLevel];
-		}
-	}
+if (!isDashing) {
+    if (gamepad_is_connected(0)) { 
+        // Sterowanie za pomocą pada
+        if (abs(axisX) > 0) {
+            // Analogowy stick
+            xspd = smooth(xspd, axisX * moveSpd[currentWeightLevel], 0.92);
+        } else if (rightKey || leftKey) {
+            // D-Pad
+            xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.92);
+        } else {
+            // Neutralna pozycja
+            xspd = smooth(xspd, 0, 0.86);
+        }
+    } else { 
+        // Sterowanie za pomocą klawiatury
+        if (rightKey - leftKey != 0) {
+            xspd = smooth(xspd, moveDir * moveSpd[currentWeightLevel], 0.92);
+        } else {
+            xspd = smooth(xspd, 0, 0.86);
+        }
+    }
+}
+
 	
 	//var cart = instance_place(x, y + 2, oCart);
 	//if (cart != noone) {
@@ -330,28 +338,29 @@ if (sprite_index == sPlayerRun) {
 	
 	yspd += grav;
 	
-	//ladders
-	if upKey && isLadder {
-		yspd = -ladderSpd; 	
-	} else if downKey && isLadder {
-		yspd = ladderSpd;	
-
-	} else if isLadder {
-		yspd = 0;
-		if currentWeightLevel == 3 {
-			yspd = weightLadderSlip;
-		}
-	}
+	// Ladders
+	    // Sterowanie za pomocą klawiatury
+	    if ((upKey || axisY <0) && isLadder) {
+	        yspd = -ladderSpd; // Wspinaczka do góry
+	    } else if ((downKey || axisY > 0) && isLadder) {
+	        yspd = ladderSpd; // Zejście na dół
+	    } else if (isLadder) {
+	        yspd = 0;
+	        if (currentWeightLevel == 3) {
+	            yspd = weightLadderSlip; // Ślizganie się przy maksymalnym obciążeniu
+	        }
+	    }
+	
 	
 	//If speed would exceed terminal velocity, cap it
 	if yspd > termVel {yspd = termVel; };
 	
 	//Initiate jump - cannot jump on ladders
-	if upKeyBuffered && jumpCount < jumpMax && onGround && !isDashing
+	if jumpKeyBuffered && jumpCount < jumpMax && onGround && !isDashing
 	{
 		//Reset the buffer
-		upKeyBuffered = false;
-		upKeyBufferTimer = 0;
+		jumpKeyBuffered = false;
+		jumpKeyBufferTimer = 0;
 		
 		audio_play_sound(snd_jump, 0, false);
 		//Add jump to count
@@ -364,7 +373,7 @@ if (sprite_index == sPlayerRun) {
 	}
 	
 	//cut off jump
-	if !upKey{
+	if !jumpKey{
 		jumpHoldTimer = 0;	
 	}
 	//jump based on timer
@@ -448,15 +457,16 @@ if (sprite_index == sPlayerRun) {
 		
 	}
 
-	//checking is player on ladder
-	if place_meeting(x, y, oLadder) && (upKey || downKey) && !isDashing {
-		isLadder = true;	
-		topLadder = false;
-	} 
-	if !place_meeting(x, y, oLadder) {
+	// Checking if the player is on the ladder
+	    // Sterowanie za pomocą klawiatury
+	    if (place_meeting(x, y, oLadder) && (upKey || downKey || (abs(axisY) > 0.5)) && !isDashing) {
+	        isLadder = true;
+	        topLadder = false;
+		}
+		if !place_meeting(x, y, oLadder) {
 		isLadder = false;
 		topLadder = false;
-	}
+		}
 	
 	//if place_meeting(x, y + 2, oLadder) && isLadder && !place_meeting(x, y, oLadder) {
 	//	isLadder = false;
@@ -502,7 +512,7 @@ if (sprite_index == sPlayerRun) {
 	
 	y += yspd;
 	
-	if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !topLadder && !downKey) {
+	if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !topLadder && !downKey && abs(axisY<=0.5)) {
 	    
 		var _subPixel = 0.5;
 		
@@ -566,7 +576,7 @@ if (sprite_index == sPlayerRun) {
 	}
 	
 	//ladders
-	if upKey && isLadder {
+	if yspd<0 && isLadder {
 		sprite_index = sPlayerLadderClimb;
 		image_speed = 1;
 	} 

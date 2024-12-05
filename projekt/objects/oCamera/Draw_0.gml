@@ -1,1 +1,1 @@
-draw_circle(midX, midY, 10, 2);
+if debug_mode draw_circle(midX, midY, 10, 2);

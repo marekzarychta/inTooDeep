@@ -24,7 +24,7 @@ if marked && openable && ds_list_size(global.lista) == 0 {
 	sprite_index = markSpriteFull;	
 } 
 		
-if (marked && openable && keyboard_check_pressed(ord("E"))) /*&& !oInventory.opened*/ && oPlayer.isAlive {
+if (marked && openable && useKey) /*&& !oInventory.opened*/ && oPlayer.isAlive {
     
 
 	if !InventoryIsEmpty(oInventory) {
