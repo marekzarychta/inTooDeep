@@ -137,6 +137,7 @@
     {"id":{"name":"oWeightBar","path":"objects/oWeightBar/oWeightBar.yy",},},
     {"id":{"name":"oZoomFlag","path":"objects/oZoomFlag/oZoomFlag.yy",},},
     {"id":{"name":"demo","path":"rooms/demo/demo.yy",},},
+    {"id":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
     {"id":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
     {"id":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
     {"id":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
@@ -255,6 +256,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
+    {"roomId":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
     {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
     {"roomId":{"name":"Test1","path":"rooms/Test1/Test1.yy",},},
     {"roomId":{"name":"Test2","path":"rooms/Test2/Test2.yy",},},
