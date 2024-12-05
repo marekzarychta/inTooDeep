@@ -3,6 +3,8 @@ clickable = true;
 
 event_inherited();
 
+textBoxInstance = noone;
+
 closedSprite = sDoorButton;
 markSprite = sDoorButtonMarked;
 openingSprite = sDoorButtonPushed;
