@@ -20,6 +20,7 @@ if (keyboard_check_pressed(ord("N"))) {
 }
 }
 
+
 if (noclip) {
 		var multiplier = 1;
 		if(keyboard_check(vk_shift)) multiplier = 2;
@@ -60,6 +61,11 @@ if isAlive {
 	
 	}
 
+if(useKey){
+	isInteracting = true;
+}else{
+	isInteracting = false;
+}
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
 	if (attackCooldownTimer == 0 && mouse_check_button_pressed(mb_left) && !oInventory.opened && !isLadder) {
 	
@@ -133,8 +139,8 @@ if isAlive {
 if (sprite_index == sPlayerRun) {
 	
     if(floor(image_index) == 1 || floor(image_index) == 7){
-		if(!audio_is_playing(snd_playerland)){
-        audio_play_sound(snd_playerland, 0, false);
+		if(!audio_is_playing(snd_playerstep) && !audio_is_playing(snd_playerland)){
+        audio_play_sound(snd_playerstep, 0, false);
 		}
 	}
 }
@@ -420,17 +426,14 @@ if (sprite_index == sPlayerRun) {
 	
 	if (place_meeting(x, y + yspd, oWall)) {
 		
-		var wall = instance_nearest(x,y,oWall);
-		show_debug_message("player y: "+string(y)+"; floor y: "+string(wall.y));
 	
 	    // Move up to wall precisely
 	    var _pixelCheck = _subPixel * sign(yspd);
 
 	    // Move as close to the wall as possible in 0.5px increments
-	    while !place_meeting(x, y, oWall) {
+	    while !place_meeting(x, y + _pixelCheck, oWall) {
 	        y += _pixelCheck;
 	    }
-		show_debug_message("new y: "+string(y));
 	    // Bonk
 	    if (yspd < 0) {
 	        jumpHoldTimer = 0;
