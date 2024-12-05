@@ -197,6 +197,7 @@ if (sprite_index == sPlayerRun) {
 		
 	} else if (moveDir == 0 && yspd == 0) {
 		sprite_index = sPlayerIdle;
+		image_speed = 1;
 	}
 	
 	
