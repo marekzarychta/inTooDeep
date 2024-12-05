@@ -5,7 +5,7 @@ backpackSprites = [noone, sBackpackSmall, sBackpackMedium, sBackpackMedium];
 backpackSpritesClimb = [noone, sBackpackSmallClimb, sBackpackSmallClimb, sBackpackSmallClimb];
 
 //Attack controller
-attackCooldown = 45; // Attack cooldown of 60 frames -> roughly 1 second
+attackCooldown = 60; // Attack cooldown of 60 frames -> roughly 1 second
 attackCooldownTimer = 0; // Timer that resets the cooldown after attacking
 attackingTimer = 0;
 damage = 10;
@@ -80,7 +80,6 @@ jumpDuration = 1;
 
 //See if player is interacting
 isInteracting = false; 
-interactionTimer = 60;
 
 jumpHoldTimer = 0;
 	//Jump values for successive jumps
