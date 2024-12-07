@@ -165,6 +165,7 @@
     {"id":{"name":"sBag","path":"sprites/sBag/sBag.yy",},},
     {"id":{"name":"sBagMarked","path":"sprites/sBagMarked/sBagMarked.yy",},},
     {"id":{"name":"sBox","path":"sprites/sBox/sBox.yy",},},
+    {"id":{"name":"sBox2","path":"sprites/sBox2/sBox2.yy",},},
     {"id":{"name":"sBreakableWall_Orange","path":"sprites/sBreakableWall_Orange/sBreakableWall_Orange.yy",},},
     {"id":{"name":"sBreakableWall_Red","path":"sprites/sBreakableWall_Red/sBreakableWall_Red.yy",},},
     {"id":{"name":"sButton_hover","path":"sprites/sButton_hover/sButton_hover.yy",},},
@@ -252,9 +253,9 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
+    {"roomId":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
     {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
     {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
-    {"roomId":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

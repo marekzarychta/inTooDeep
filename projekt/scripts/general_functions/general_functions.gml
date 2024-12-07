@@ -35,7 +35,7 @@ function getControls() {
     leftKey = keyboard_check(vk_left)  + gamepad_button_check(0,gp_padl);
     leftKey = clamp(leftKey, 0, 1);
 
-	useKey = keyboard_check(ord("E")) + gamepad_button_check(0,gp_face4);
+	useKey = keyboard_check(ord("C")) + gamepad_button_check(0,gp_face4);
 	useKey = clamp(useKey,0,1);
 
     jumpKeyPressed = keyboard_check_pressed(ord("Z")) + gamepad_button_check_pressed(0,gp_face1);
@@ -158,10 +158,6 @@ function chestHandling(_text) {
 
 
 
-function interact() {
-    //show_debug_message("interaktuje");
-    oPlayer.isInteracting = true;
-}
 
 function toDown(RootObject) {
     var _pixelCheck = 0.9;
