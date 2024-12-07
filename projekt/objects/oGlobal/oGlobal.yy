@@ -11,8 +11,8 @@
   "name":"oGlobal",
   "overriddenProperties":[],
   "parent":{
-    "name":"deposits",
-    "path":"folders/Objects/interactive/deposits.yy",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":true,
