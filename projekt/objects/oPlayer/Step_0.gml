@@ -241,7 +241,6 @@ if (!isDashing) {
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	
-	show_debug_message("xspd: "+string(xspd)+" target: " + string(moveSpd[currentWeightLevel] + 0.1));
 	
 	
 	//Handle breakable walls
@@ -488,8 +487,8 @@ if (!isDashing) {
 	//if !downKey && isDashing {
 	//	dashTimer = 0;	
 	//}
-	if(debug_mode) show_debug_message("xspd: "+string(xspd));
-	if(debug_mode) show_debug_message("xspdTemp: "+string(xspdTemp));
+	//if(debug_mode) show_debug_message("xspd: "+string(xspd));
+	//if(debug_mode) show_debug_message("xspdTemp: "+string(xspdTemp));
 	if dashTimer > 0 {
 		dashTimer--;	
 		isDashing = true;
