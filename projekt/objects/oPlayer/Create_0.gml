@@ -13,7 +13,7 @@ attackCooldown = 60; // Attack cooldown of 60 frames -> roughly 1 second
 attackCooldownTimer = 0; // Timer that resets the cooldown after attacking
 attackingTimer = 0;
 damage = 10;
-
+hitbox = noone;
 
 
 reviveTimer = 0;
@@ -39,6 +39,7 @@ inventoryWeight = 0;
 
 moveSpd = [2, 1.6, 1.2, 1];
 xspd = 0;
+xspdTemp = 0;
 yspd = 0;
 
 face = 1;

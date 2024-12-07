@@ -41,7 +41,10 @@ if isAlive {
 	
 	InventoryCalculateWeight(oInventory);
 	
-	
+	//przywrócenie predkosci po dashu
+	if (!isDashing && dashCooldownTimer == dashCooldown - 1) {
+		xspd = xspdTemp;
+	}
 
 	//Get inputs
 	if !oInventory.opened && isActive 
@@ -92,8 +95,9 @@ if(useKey){
 	var shortestDistance = 9999;
 
 
-	// Modyfing speed and jump multipliers based on weight
+	
 
+	// Modyfing speed and jump multipliers based on weight
 
 	ChangeWeight();
 
@@ -255,7 +259,7 @@ if (!isDashing) {
 	    if (place_meeting(x + sign(xspd), y, wall_obj) && dashTimer > 0) {
 	        var b = instance_place(x + sign(xspd), y, wall_obj);
 	        if (b != noone) {
-	            if (currentWeightLevel >= required_weight && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
+	            if (currentWeightLevel >= required_weight) {
 	                with (b) {
 	                    instance_destroy();
 	                }
@@ -474,7 +478,7 @@ if (!isDashing) {
 	//}
 	
 	if !isLadder && yspd == 0 && onGround && moveDir != 0 && dashKey && dashCooldownTimer <= 0 && !isDashing { //if player is on ground and dont touching ladder start dash
-   
+		xspdTemp = xspd;
 		dashTimer = dashBuffer;
 	}
 	
@@ -484,12 +488,21 @@ if (!isDashing) {
 	//if !downKey && isDashing {
 	//	dashTimer = 0;	
 	//}
-	
+	if(debug_mode) show_debug_message("xspd: "+string(xspd));
+	if(debug_mode) show_debug_message("xspdTemp: "+string(xspdTemp));
 	if dashTimer > 0 {
 		dashTimer--;	
 		isDashing = true;
 		hasDashed = true;
-		xspd = smooth(xspd, (sign(moveDir) * moveSpd[currentWeightLevel] * 1.2), 0.92);
+		xspd = smooth(xspd, (sign(moveDir) * moveSpd[currentWeightLevel] * 1.2), 0.6);
+		
+		if attackingTimer > 0 {
+			attackingTimer = 0;
+			if (instance_exists(hitbox)) {
+				instance_destroy(hitbox);	
+			}
+		}
+		
 	} else if dashTimer == 0 {
 		isDashing = false;
 		dashTimer--;
@@ -570,10 +583,7 @@ if (!isDashing) {
 	
 	
 	
-	if isDashing {
-		sprite_index = sPlayerDash;
-		image_speed = 1;
-	}
+
 	
 	//ladders
 	if yspd<0 && isLadder {
@@ -596,9 +606,14 @@ if (!isDashing) {
 		sprite_index = sPlayerAttack;
 		}
 		if image_index == 2 {
-			attack();	
+			hitbox = attack();	
 		}
 		attackingTimer--;
+	}
+	
+	if isDashing {
+		sprite_index = sPlayerDash;
+		image_speed = 1;
 	}
 	
 } else if isdying {
