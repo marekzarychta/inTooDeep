@@ -237,38 +237,37 @@ if (!isDashing) {
 		//How close we can get to a wall etc.
 	var _subPixel = .5;
 	
-	if (place_meeting(x + xspd, y, oBreakableWallOrange) && dashTimer > 0) {
-	    var b = instance_place(x + xspd, y, oBreakableWallOrange);
-	    if (b != noone) {
-	        if (currentWeightLevel >= 2 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
-	            with (b) {
-	                instance_destroy();
-	            }
-	        } else {
-	            // Check if there is already an instance of oTextbox in the same spot
-	            if (!instance_exists(oTextboxPlayer)) {
-					//show_debug_message("x");
-	                createFollowingTextbox(x-16, y-16, "i need more weight");
-	            }
-	        }
-	    }
-	}
-	if (place_meeting(x + xspd, y, oBreakableWallRed) && dashTimer > 0) {
-	    var b = instance_place(x + xspd, y, oBreakableWallRed);
-	    if (b != noone) {
-	        if (currentWeightLevel >= 3 && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
-	            with (b) {
-	                instance_destroy();
-	            }
-	        } else {
-	            // Check if there is already an instance of oTextbox in the same spot
-	            if (!instance_exists(oTextboxPlayer)) {
-					//show_debug_message("x");
-	                createFollowingTextbox(x-16, y-16, "i need more weight");
+	show_debug_message("xspd: "+string(xspd)+" target: " + string(moveSpd[currentWeightLevel] + 0.1));
+	
+	
+	//Handle breakable walls
+	var breakableWalls = [
+    { wall: oBreakableWallOrange, weight: 2, message: "i need more weight" },
+    { wall: oBreakableWallRed, weight: 3, message: "i need more weight" }
+];
+	
+	for (var i = 0; i < array_length(breakableWalls); i++) {
+	    var wall_info = breakableWalls[i];
+	    var wall_obj = wall_info.wall;
+	    var required_weight = wall_info.weight;
+	    var message = "i need more weight";
+
+	    if (place_meeting(x + sign(xspd), y, wall_obj) && dashTimer > 0) {
+	        var b = instance_place(x + sign(xspd), y, wall_obj);
+	        if (b != noone) {
+	            if (currentWeightLevel >= required_weight && abs(xspd) >= moveSpd[currentWeightLevel] + 0.1) {
+	                with (b) {
+	                    instance_destroy();
+	                }
+	            } else if currentWeightLevel < required_weight {
+	                if (!instance_exists(oTextboxPlayer)) {
+	                    createFollowingTextbox(x - 16, y - 16, message);
+	                }
 	            }
 	        }
 	    }
 	}
+
 
 	//if (place_meeting(x + xspd, y, oCart)) {
 	//	var cart = instance_place(x + xspd, y, oCart);
@@ -280,7 +279,7 @@ if (!isDashing) {
 	if (place_meeting(x + xspd, y, oBox) && isDashing) {
 		var box = instance_place(x + xspd, y, oBox);
 	    if (box != noone) {
-			box.moveDir = moveDir;
+			box.moveDir = sign(moveDir);
 			
 			box.moveTimer = 0;
 			dashTimer = 0;
@@ -490,7 +489,7 @@ if (!isDashing) {
 		dashTimer--;	
 		isDashing = true;
 		hasDashed = true;
-
+		xspd = smooth(xspd, (sign(moveDir) * moveSpd[currentWeightLevel] * 1.2), 0.92);
 	} else if dashTimer == 0 {
 		isDashing = false;
 		dashTimer--;
