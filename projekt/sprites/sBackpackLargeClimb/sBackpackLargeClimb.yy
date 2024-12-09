@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"sBackpackSmallClimb",
+  "%Name":"sBackpackLargeClimb",
   "bboxMode":2,
   "bbox_bottom":31,
   "bbox_left":9,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"89cdd731-f14a-43e4-b828-99eec5d038bc","name":"89cdd731-f14a-43e4-b828-99eec5d038bc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"1f7e0157-5be3-4df4-b6d7-ba800874fcc1","name":"1f7e0157-5be3-4df4-b6d7-ba800874fcc1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"28d42edf-37e2-4f2c-9e4c-a517fcf54d00","blendMode":0,"displayName":"default","isLocked":false,"name":"28d42edf-37e2-4f2c-9e4c-a517fcf54d00","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"08a16284-b31d-462a-a03a-53f77868ad9a","blendMode":0,"displayName":"default","isLocked":false,"name":"08a16284-b31d-462a-a03a-53f77868ad9a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sBackpackSmallClimb",
+  "name":"sBackpackLargeClimb",
   "nineSlice":{
     "$GMNineSliceData":"",
     "bottom":0,
@@ -52,7 +52,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"sBackpackSmallClimb",
+    "%Name":"sBackpackLargeClimb",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -76,7 +76,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sBackpackSmallClimb",
+    "name":"sBackpackLargeClimb",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -88,8 +88,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"89cdd731-f14a-43e4-b828-99eec5d038bc","path":"sprites/sBackpackSmallClimb/sBackpackSmallClimb.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"ac7c357e-47ac-446e-988f-110ace284db2","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1f7e0157-5be3-4df4-b6d7-ba800874fcc1","path":"sprites/sBackpackLargeClimb/sBackpackLargeClimb.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"39945426-a190-4d09-866d-d1ea4f8f363f","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
