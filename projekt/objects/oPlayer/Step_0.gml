@@ -612,7 +612,7 @@ if (!isDashing) {
 		}
 	}
 	
-	if platformDownKey {
+	if downKey {
 		if (instance_exists(currentFloorPlat))
 		&& (currentFloorPlat.object_index == oWallSemiSolid || object_is_ancestor(currentFloorPlat.object_index, oWallSemiSolid)) {
 			

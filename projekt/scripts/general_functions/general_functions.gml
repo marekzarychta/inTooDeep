@@ -51,8 +51,6 @@ function getControls() {
     downKey = keyboard_check(vk_down) + gamepad_button_check(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
-	platformDownKey = keyboard_check(ord("S")) + gamepad_button_check(0,gp_padd);
-	platformDownKey = clamp(platformDownKey, 0, 1);
 
     //downKey = clamp (downKey, 0, 1);
 	    // Obsługa gałki analogowej z deadzone
