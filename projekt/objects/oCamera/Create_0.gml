@@ -2,7 +2,7 @@ boxSizeX = 24;
 boxSizeY = 60;
 midX = 0;
 midY = 0;
-centrVel = 2.5//1.85;
+centrVel = 2.0//1.85;
 if instance_exists(oPlayer) {
 	midX = oPlayer.x;
 	midY = oPlayer.y;

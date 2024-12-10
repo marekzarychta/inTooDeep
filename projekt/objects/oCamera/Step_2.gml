@@ -1,16 +1,22 @@
 if instance_exists(oPlayer) {
 	if (changing) {
-		centrVel = abs(oPlayer.xspd) - 0.01;
+		//centrVel = abs(oPlayer.xspd) - 0.01;
 		if (oPlayer.x < midX - boxSizeX && oPlayer.xspd < 0) || (oPlayer.x > midX + boxSizeX && oPlayer.xspd > 0 ) {
 			midX += oPlayer.xspd;	
 		}
 	
 		var playerFollowing = false;
-		if (oPlayer.y < midY - boxSizeY && oPlayer.yspd < 0) || (oPlayer.y > midY && oPlayer.yspd > 0 ) {
+		if (oPlayer.y < midY - boxSizeY && oPlayer.currentState == states.FLYING) || (oPlayer.y > midY && oPlayer.currentState == states.FALL) {
 			midY += oPlayer.yspd;	
 			playerFollowing = true;
 		}
 	
+		if (oPlayer.currentState == states.LADDERCLIMB || oPlayer.currentState == states.LADDERIDLE) && abs(oPlayer.y - midY) > 1 {
+			slowCameraMoveToPos(oPlayer.x, oPlayer.y, abs(2 * oPlayer.yspd));
+			
+		} else if (oPlayer.currentState == states.LADDERCLIMB || oPlayer.currentState == states.LADDERIDLE) {
+			midY = oPlayer.y;	
+		}
 	
 		//var dy = oPlayer.y - _camHeight / 2 - _camY;
 	
@@ -41,7 +47,7 @@ if instance_exists(oPlayer) {
 		//}
 	
 		if (abs(midY - oPlayer.y) > 1) && !playerFollowing && oPlayer.onGround {
-			yspd = sign(oPlayer.y - midY) * centrVel;
+			yspd = sign(oPlayer.y - midY) * (centrVel > abs(oPlayer.yspd) ? centrVel - 0.01 : abs(oPlayer.yspd) - 0.01);
 		} else {
 			yspd = 0;	
 		}
