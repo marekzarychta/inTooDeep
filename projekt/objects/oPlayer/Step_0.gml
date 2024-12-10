@@ -389,7 +389,7 @@ if (!isDashing) {
 	if jumpKeyBuffered && jumpCount < jumpMax && onGround && !isDashing
 	{
 		
-		if(!audio_is_playing(snd_jump)) audio_play_sound(snd_jump, 0 ,false);
+		audio_play_sound(snd_jump, 0 ,false);
 		//Reset the buffer
 		jumpKeyBuffered = false;
 		jumpKeyBufferTimer = 0;
@@ -444,6 +444,7 @@ if (!isDashing) {
 		}
 
 		// Stop movement to collide
+		setOnGround(true);
 		yspd = 0;
 	}
 	
@@ -469,24 +470,26 @@ if (!isDashing) {
 	}
 	
 	
-	if (place_meeting(x, y + yspd, oWall)) {
+	if(yspd < 0)
+		{
+		if (place_meeting(x, y + yspd, oWall)) {
 		
 	
-	    // Move up to wall precisely
-	    var _subPixel = 0.5 * sign(yspd);
+		    // Move up to wall precisely
+		    var _subPixel = 0.5 * sign(yspd);
 		
-		while (!place_meeting(x, y + _subPixel, oWall)) {
-			y += _subPixel;	
-		}
-	    // Bonk
-	    //if (yspd < 0) {
-	    //    jumpHoldTimer = 0;
-	    //}
-	    // Stop movement to collide
-	    yspd = 0;  // Setting yspd to 0 only when truly colliding
+			while (!place_meeting(x, y + _subPixel, oWall)) {
+				y += _subPixel;	
+			}
+		    // Bonk
+		    //if (yspd < 0) {
+		    //    jumpHoldTimer = 0;
+		    //}
+		    // Stop movement to collide
+		    yspd = 0;  // Setting yspd to 0 only when truly colliding
 
+		}
 	}
-	//}
 	
 	moveplatXspd = 0;
 	if (instance_exists(currentFloorPlat)) {
@@ -573,7 +576,6 @@ if (!isDashing) {
 		y = floor(y);
 		
 		yspd = 0;
-		show_debug_message(yspd);
 
 		setOnGround(true);
 	}
@@ -633,6 +635,7 @@ if (!isDashing) {
 	    if (place_meeting(x, y, oLadder) && (upKey || downKey || (abs(axisY) > 0.5)) && !isDashing) {
 	        isLadder = true;
 	        topLadder = false;
+			setOnGround(false);
 		}
 		if !place_meeting(x, y, oLadder) {
 		isLadder = false;
@@ -711,6 +714,7 @@ if (!isDashing) {
 	    // Stop movement to collide
 		isLadder = false;
 		topLadder = true;
+		setOnGround(true);
 	    yspd = 0;  // Setting yspd to 0 only when truly colliding
 	}
 	
