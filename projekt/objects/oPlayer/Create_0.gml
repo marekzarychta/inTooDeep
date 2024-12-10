@@ -1,5 +1,31 @@
 //hitbox_delay = 0;
 //backpack object
+
+function checkForSemiSolid(_x, _y) {
+	var _rtrn = noone;
+	
+	if yspd >= 0 && place_meeting(_x, _y, oWallSemiSolid) {
+		var _list = ds_list_create();	
+		var _listSize = instance_place_list(_x, _y, oWallSemiSolid, _list, false);
+		
+		
+		
+		for (var i = 0; i < _listSize; i++) {
+			var _listInst = _list[|i];
+			if (forgetFloorPlat != _listInst && floor(bbox_bottom) <= ceil(_listInst.bbox_top - _listInst.yspd)) {
+				_rtrn = _listInst;
+				
+				i = _listSize;
+			}
+		}	
+		ds_list_destroy(_list);
+	}
+	
+	
+	
+	return _rtrn;
+}
+
 if (!layer_exists("Player_below")) {
 	layer_create(0, "Player_below");	
 }
@@ -105,6 +131,9 @@ isActive = true;
 noclip = false;
 
 //Moving platforms
+forgetFloorPlat = noone;
 currentFloorPlat = noone;
+slopeDownFloorPlat = noone; //used to overwirte currentFloorPlat on semisolid from slopedown
 moveplatXspd = 0
+moveplatMaxYspd = 8;
 controlsSetup();

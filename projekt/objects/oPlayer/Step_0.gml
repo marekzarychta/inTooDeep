@@ -17,6 +17,8 @@ function setOnGround(_val = true){
 }
 
 
+
+
 if(debug_mode){
 getControls();
 
@@ -332,7 +334,20 @@ if (!isDashing) {
 		isBlocked = false;	
 	}
 
-	checkingForSlopesGoingDown(id);
+	//checkingForSlopesGoingDown(id);
+
+	slopeDownFloorPlat = noone;
+	if (yspd >= 0 && !place_meeting(x + xspd, y + 1, oWall) && place_meeting(x + xspd, y + abs(xspd) + 1, oWall)) {
+		
+		slopeDownFloorPlat = checkForSemiSolid(x + xspd, y + abs(xspd) + 1);
+		
+		if (!instance_exists(slopeDownFloorPlat)) {
+			while !place_meeting(x + xspd, y + 0.5, oWall) 
+			{ 
+				y += 0.5;
+			}
+		}
+	}
 
 	//Move x
 	x += xspd;
@@ -454,26 +469,41 @@ if (!isDashing) {
 	}
 	
 	
-	//if (place_meeting(x, y + yspd, oWall)) {
+	if (place_meeting(x, y + yspd, oWall)) {
 		
 	
-	//    // Move up to wall precisely
-	//    var _pixelCheck = _subPixel * sign(yspd);
-
-	//    // Move as close to the wall as possible in 0.5px increments
-	//    while !place_meeting(x, y + _pixelCheck, oWall) {
-	//        y += _pixelCheck;
-	//    }
-	//    // Bonk
-	//    if (yspd < 0) {
-	//        jumpHoldTimer = 0;
-	//    }
-	//    // Stop movement to collide
-	//    yspd = 0;  // Setting yspd to 0 only when truly colliding
-
+	    // Move up to wall precisely
+	    var _subPixel = 0.5 * sign(yspd);
 		
+		while (!place_meeting(x, y + _subPixel, oWall)) {
+			y += _subPixel;	
+		}
+	    // Bonk
+	    //if (yspd < 0) {
+	    //    jumpHoldTimer = 0;
+	    //}
+	    // Stop movement to collide
+	    yspd = 0;  // Setting yspd to 0 only when truly colliding
+
+	}
 	//}
 	
+	moveplatXspd = 0;
+	if (instance_exists(currentFloorPlat)) {
+		moveplatXspd = currentFloorPlat.xspd;	
+	}
+	
+	if (place_meeting(x + moveplatXspd, y, oWall)) {
+		var _subPixel = 0.5 * sign(moveplatXspd);
+		
+		while (!place_meeting(x + _subPixel, y, oWall)) {
+			x += _subPixel;	
+		}
+		
+		moveplatXspd = 0;
+	}
+	
+	x += moveplatXspd;
 	//Downwards Y collision
 	
 	//Check for solid and semisolid platforms underneath
@@ -495,8 +525,9 @@ if (!isDashing) {
 		var _listInst = _list[| i];
 		
 		//Avoid magnetism
-		if ( _listInst.yspd <= yspd || instance_exists(currentFloorPlat) )
-		and ( _listInst.yspd > 0 || place_meeting( x, y +1 + _clampYspd, _listInst) )
+		if ((forgetFloorPlat != _listInst && _listInst.yspd <= yspd || instance_exists(currentFloorPlat) )
+		and ( _listInst.yspd > 0 || place_meeting( x, y + 1 + _clampYspd + moveplatMaxYspd, _listInst)))
+		//or (_listInst.object_index == oWallSemiSolid)
 		{
 			//return the walls below the player
 			if _listInst.object_index == oWall
@@ -514,6 +545,9 @@ if (!isDashing) {
 		}
 	}
 
+	if (instance_exists(slopeDownFloorPlat)) {
+		currentFloorPlat = slopeDownFloorPlat;	
+	}
 
 	//Destroy DS list
 	ds_list_destroy(_list);
@@ -539,10 +573,61 @@ if (!isDashing) {
 		y = floor(y);
 		
 		yspd = 0;
-				show_debug_message(yspd);
+		show_debug_message(yspd);
 
 		setOnGround(true);
 	}
+	
+	//smooth snaping to verticly moving platforms
+	if instance_exists(currentFloorPlat) 
+	&& (currentFloorPlat.yspd != 0
+	|| currentFloorPlat.object_index == oWallMoving
+	|| object_is_ancestor(currentFloorPlat.object_index, oWallMoving)
+	|| currentFloorPlat.object_index == oWallSemiSolid
+	|| object_is_ancestor(currentFloorPlat.object_index, oWallSemiSolid)) {
+		
+		if (!place_meeting(x, currentFloorPlat.bbox_top, oWall)
+		&& currentFloorPlat.bbox_top >= bbox_bottom - moveplatMaxYspd) {
+			y = currentFloorPlat.bbox_top;	
+		}
+		
+		if (currentFloorPlat.yspd < 0 && place_meeting(x, y + currentFloorPlat.yspd, oWall)) {
+			//check for semisolid
+			if (currentFloorPlat.object_index == oWallSemiSolid || object_is_ancestor(currentFloorPlat.object_index, oWallSemiSolid)) {
+				//get pushed down
+				var _subPixel = 0.25;
+				while (place_meeting(x, y + currentFloorPlat.yspd, oWall)) {
+					y += _subPixel;	
+				}
+				//if we pushed into wall
+				while (place_meeting(x, y, oWall)) {
+					y -= _subPixel;
+				}
+				y = round(y);
+				
+				//cancel platform
+				setOnGround(false);
+			}
+			
+		}
+	}
+	
+	if platformDownKey {
+		if (instance_exists(currentFloorPlat))
+		&& (currentFloorPlat.object_index == oWallSemiSolid || object_is_ancestor(currentFloorPlat.object_index, oWallSemiSolid)) {
+			
+			//check if we can go down
+			var _check = y + max(1, currentFloorPlat.yspd + 1);
+			if (!place_meeting(x, y + _check, oWall)) {
+				y += 1;	
+				
+				forgetFloorPlat = currentFloorPlat;
+				
+				setOnGround(false);
+			}
+		}
+	}
+	
 	// Checking if the player is on the ladder
 	    // Sterowanie za pomocą klawiatury
 	    if (place_meeting(x, y, oLadder) && (upKey || downKey || (abs(axisY) > 0.5)) && !isDashing) {
@@ -606,6 +691,10 @@ if (!isDashing) {
 	//checking top ladder
 	
 	y += yspd;
+	
+	if (instance_exists(forgetFloorPlat) && !place_meeting(x, y, forgetFloorPlat)) {
+		forgetFloorPlat = noone;
+	}
 	
 	if (!place_meeting(x, y, oLadder) && place_meeting(x, y + 1, oLadder) && !topLadder && !downKey && abs(axisY<=0.5)) {
 	    

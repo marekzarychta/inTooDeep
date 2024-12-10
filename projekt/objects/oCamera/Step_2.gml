@@ -1,50 +1,27 @@
 if instance_exists(oPlayer) {
 	if (changing) {
-		centrVel = abs(oPlayer.xspd) - 0.01;
+		//centrVel = abs(oPlayer.xspd) - 0.01;
 		if (oPlayer.x < midX - boxSizeX && oPlayer.xspd < 0) || (oPlayer.x > midX + boxSizeX && oPlayer.xspd > 0 ) {
 			midX += oPlayer.xspd;	
 		}
 	
-		var playerFollowing = false;
-		if (oPlayer.y < midY - boxSizeY && oPlayer.yspd < 0) || (oPlayer.y > midY && oPlayer.yspd > 0 ) {
-			midY += oPlayer.yspd;	
-			playerFollowing = true;
-		}
-	
-	
-		//var dy = oPlayer.y - _camHeight / 2 - _camY;
-	
-		//if (abs(oPlayer.xspd) > 0) {
-		//	timerNotMovingX = bufferNotMovingX;
-		//	xspd = 0;
-		//} else if (abs(oPlayer.xspd) == 0 && timerNotMovingX > 0) {
-		//	timerNotMovingX--;
-		//	xspd = 0;
-		//} else if (abs(midX - oPlayer.x) > 1) {
-		//	xspd = sign(oPlayer.x - midX) * centrVel;
-		//} else {
-		//	xspd = 0;	
-		//	timerNotMovingX = bufferNotMovingX;
+		//var playerFollowing = false;
+		//if (oPlayer.y < midY - boxSizeY && oPlayer.yspd < 0) || (oPlayer.y > midY && oPlayer.yspd > 0 ) {
+		//	midY += oPlayer.yspd;	
+		//	playerFollowing = true;
+		//}
+		
+		//if (abs(oPlayer.yspd) <= 0.2) {
+		//	playerFollowing = false;	
 		//}
 	
-		//if (abs(oPlayer.yspd) > 0) {
-		//	timerNotMovingY = bufferNotMovingY;
-		//	yspd = 0;
-		//} else if (abs(oPlayer.yspd) == 0 && timerNotMovingY > 0) {
-		//	timerNotMovingY--;
-		//	yspd = 0;
-		//} else if (abs(midY - oPlayer.y) > 1) {
-		//	yspd = sign(oPlayer.y - midY) * centrVel;
+	
+		//if (abs(midY - oPlayer.y) > 1) && !playerFollowing && oPlayer.onGround {
+		//	yspd = sign(oPlayer.y - midY) * (abs(oPlayer.y - midY) - 0.01);
+			
 		//} else {
 		//	yspd = 0;	
-		//	timerNotMovingY = bufferNotMovingY;
 		//}
-	
-		if (abs(midY - oPlayer.y) > 1) && !playerFollowing && oPlayer.onGround {
-			yspd = sign(oPlayer.y - midY) * centrVel;
-		} else {
-			yspd = 0;	
-		}
 
 		//if abs(dy) > 1 { 
 		//	_camY += yspd * sign(dy);
@@ -52,8 +29,9 @@ if instance_exists(oPlayer) {
 
 		midX += xspd;
 	
-		if abs(midY - oPlayer.y) + yspd > 1
-			midY += yspd;
+		//if abs(midY - oPlayer.y) + abs(yspd) > 1
+		//	midY += yspd;
+		midY = oPlayer.y;
 	}
 	_camX = midX - _camWidth / 2;
 	_camY = midY - _camHeight / 2;
