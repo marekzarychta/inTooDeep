@@ -104,4 +104,7 @@ isActive = true;
 //debug noclip
 noclip = false;
 
+//Moving platforms
+currentFloorPlat = noone;
+moveplatXspd = 0
 controlsSetup();

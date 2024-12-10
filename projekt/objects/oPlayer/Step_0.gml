@@ -4,6 +4,18 @@
 //if(hitbox_delay > 0) {
 	//hitbox_delay -= 1;
 //}
+function setOnGround(_val = true){
+	if _val = true
+	{
+		onGround = true;
+	}
+	else
+	{
+		onGround = false;
+		currentFloorPlat = noone;
+	}
+}
+
 
 if(debug_mode){
 getControls();
@@ -187,7 +199,7 @@ if (sprite_index == sPlayerRun) {
 	if moveDir != 0
 	{
 		image_xscale = face;
-		if(yspd==0){
+		if(onGround){
 		//Change movement animation based on weight
 		sprite_index = movementSprites[currentWeightLevel];
 		//Move slower at certain weights
@@ -361,23 +373,25 @@ if (!isDashing) {
 	//Initiate jump - cannot jump on ladders
 	if jumpKeyBuffered && jumpCount < jumpMax && onGround && !isDashing
 	{
+		
+		if(!audio_is_playing(snd_jump)) audio_play_sound(snd_jump, 0 ,false);
 		//Reset the buffer
 		jumpKeyBuffered = false;
 		jumpKeyBufferTimer = 0;
 		
-		audio_play_sound(snd_jump, 0, false);
 		//Add jump to count
 		jumpCount++;
 		jumpStartTimer = jumpDuration;
-		
+		yspd = -10;
 		//Set jump hold timer
 		jumpHoldTimer = jumpHoldFrames[jumpCount-1];
 		
+		setOnGround(false);
 	}
 	
 	//cut off jump
 	if !jumpKey{
-		jumpHoldTimer = 0;	
+		jumpHoldTimer = 0;
 	}
 	//jump based on timer
 	if jumpHoldTimer > 0{
@@ -440,26 +454,95 @@ if (!isDashing) {
 	}
 	
 	
-	if (place_meeting(x, y + yspd, oWall)) {
+	//if (place_meeting(x, y + yspd, oWall)) {
 		
 	
-	    // Move up to wall precisely
-	    var _pixelCheck = _subPixel * sign(yspd);
+	//    // Move up to wall precisely
+	//    var _pixelCheck = _subPixel * sign(yspd);
 
-	    // Move as close to the wall as possible in 0.5px increments
-	    while !place_meeting(x, y + _pixelCheck, oWall) {
-	        y += _pixelCheck;
-	    }
-	    // Bonk
-	    if (yspd < 0) {
-	        jumpHoldTimer = 0;
-	    }
-	    // Stop movement to collide
-	    yspd = 0;  // Setting yspd to 0 only when truly colliding
+	//    // Move as close to the wall as possible in 0.5px increments
+	//    while !place_meeting(x, y + _pixelCheck, oWall) {
+	//        y += _pixelCheck;
+	//    }
+	//    // Bonk
+	//    if (yspd < 0) {
+	//        jumpHoldTimer = 0;
+	//    }
+	//    // Stop movement to collide
+	//    yspd = 0;  // Setting yspd to 0 only when truly colliding
 
 		
+	//}
+	
+	//Downwards Y collision
+	
+	//Check for solid and semisolid platforms underneath
+	var _clampYspd = max( 0, yspd );
+	var _list = ds_list_create(); //list of objects we can collid with
+	var _array = array_create(0);
+	array_push( _array, oWall, oWallSemiSolid );
+	
+	//Check and add objects to list
+	instance_place_list( x, y+1 + _clampYspd + termVel, _array, _list, false );
+	
+	
+	//loop through colliding instances and return one if it's top is below player
+	var _listSize = instance_place_list(x, y+1 + _clampYspd + termVel, _array, _list, false );
+	
+	for (var i = 0; i < _listSize; i++)
+	{
+		//get an instance of wall object from the list
+		var _listInst = _list[| i];
+		
+		//Avoid magnetism
+		if ( _listInst.yspd <= yspd || instance_exists(currentFloorPlat) )
+		and ( _listInst.yspd > 0 || place_meeting( x, y +1 + _clampYspd, _listInst) )
+		{
+			//return the walls below the player
+			if _listInst.object_index == oWall
+			|| object_is_ancestor(_listInst.object_index, oWall)
+			|| floor(bbox_bottom) <= ceil( _listInst.bbox_top - _listInst.yspd )
+			{
+				//Return the "highest" object
+				if !instance_exists(currentFloorPlat)
+				|| _listInst.bbox_top + _listInst.yspd <= currentFloorPlat.bbox_top + currentFloorPlat.yspd
+				|| _listInst.bbox_top + _listInst.yspd <= bbox_bottom
+				{
+					currentFloorPlat = _listInst;
+				}
+			}
+		}
 	}
 
+
+	//Destroy DS list
+	ds_list_destroy(_list);
+	
+	//Check if platform is below us again
+	if instance_exists(currentFloorPlat) and !place_meeting( x, y + termVel, currentFloorPlat)
+	{
+		currentFloorPlat = noone;	
+	}
+
+	//land on ground
+	if instance_exists(currentFloorPlat)
+	{
+		var _subPixel = .5;
+		while !place_meeting(x, y + _subPixel, currentFloorPlat) and !place_meeting (x, y, oWall) { y += _subPixel; }
+		//make sure we don't end up below top
+		if currentFloorPlat.object_index == oWallSemiSolid || object_is_ancestor(currentFloorPlat.object_index, oWallSemiSolid)
+		{
+			while place_meeting( x, y, currentFloorPlat ) { y -= _subPixel; }	
+		}
+		
+		//floor y
+		y = floor(y);
+		
+		yspd = 0;
+				show_debug_message(yspd);
+
+		setOnGround(true);
+	}
 	// Checking if the player is on the ladder
 	    // Sterowanie za pomocą klawiatury
 	    if (place_meeting(x, y, oLadder) && (upKey || downKey || (abs(axisY) > 0.5)) && !isDashing) {
@@ -545,17 +628,16 @@ if (!isDashing) {
 
 	
 	//Check if on ground, reset timers
-	if ((yspd == 0 && (place_meeting(x, y + 1, oWall) || place_meeting(x, y + 1, oDoor))) || (yspd == 0 && topLadder)) {
+	if ((yspd == 0 && (onGround || place_meeting(x, y + 1, oDoor))) || (yspd == 0 && topLadder)) {
 		if (wasMidair && !audio_is_playing(snd_playerland)) {
 	        // Odtwarzamy dźwięk tylko przy pierwszym kontakcie z ziemią
 	        audio_play_sound(snd_playerland, 0, false);
 	    }
-		onGround = true;
 		wasMidair = false;
 	    jumpCount = 0;
 	    jumpHoldTimer = 0;
 	} else {
-	    onGround = false;
+	    setOnGround(false);
 		wasMidair = true;
 	    // Start jump animation
 	    if (jumpStartTimer > 0) {
