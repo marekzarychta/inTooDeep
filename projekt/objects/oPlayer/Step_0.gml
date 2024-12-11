@@ -471,7 +471,7 @@ if (!isDashing) {
 	
 	
 	if(yspd < 0)
-		{
+	{
 		if (place_meeting(x, y + yspd, oWall)) {
 		
 	
