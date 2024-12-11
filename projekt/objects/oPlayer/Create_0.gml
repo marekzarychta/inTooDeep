@@ -40,6 +40,10 @@ attackCooldownTimer = 0; // Timer that resets the cooldown after attacking
 attackingTimer = 0;
 damage = 10;
 hitbox = noone;
+emitter = part_emitter_create(global.particleSystem);
+emitterR = part_emitter_create(global.particleSystem);
+emitterhandL = part_emitter_create(global.particleSystem);
+emitterhandR = part_emitter_create(global.particleSystem);
 
 
 reviveTimer = 0;

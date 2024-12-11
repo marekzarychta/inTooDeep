@@ -152,9 +152,10 @@ if(useKey){
 
 if (sprite_index == sPlayerRun) {
 	
-    if(floor(image_index) == 1 || floor(image_index) == 7){
-		if(!audio_is_playing(snd_playerstep) && !audio_is_playing(snd_playerland)){
-        audio_play_sound(snd_playerstep, 0, false);
+    if(floor(image_index) == 1 || floor(image_index) == 7) {
+		if(!audio_is_playing(snd_playerstep) && !audio_is_playing(snd_playerland)) {
+			audio_play_sound(snd_playerstep, 0, false);
+			part_particles_create(global.particleSystem, x, y, oGlobal.walkParticleType, 20);
 		}
 	}
 }
@@ -397,7 +398,7 @@ if (!isDashing) {
 		//Add jump to count
 		jumpCount++;
 		jumpStartTimer = jumpDuration;
-		yspd = -10;
+		yspd = -10; //? to jest i tak nadpisane
 		//Set jump hold timer
 		jumpHoldTimer = jumpHoldFrames[jumpCount-1];
 		
@@ -745,6 +746,34 @@ if (!isDashing) {
 		        // Fall animation
 		        sprite_index = sPlayerFall;
 				image_speed = 1;
+				
+				if (currentWeightLevel >= 2) {
+					part_type_color1(oGlobal.fallLeftParticleType, c_orange);
+					part_type_color1(oGlobal.fallRightParticleType, c_orange);
+					part_type_color1(oGlobal.fallParticleType, c_orange);
+				} 
+				
+				
+				
+				if (abs(yspd) > 2 && currentWeightLevel >= 2) {
+					
+					part_type_life( oGlobal.fallRightParticleType, 6 * (currentWeightLevel - 1), 14 * (currentWeightLevel - 1));
+					part_type_life( oGlobal.fallLeftParticleType, 6 * (currentWeightLevel - 1), 14 * (currentWeightLevel - 1));
+					
+					part_emitter_region(global.particleSystem, emitterhandL, x - image_xscale * 10, x - image_xscale * 11, y - 9, y - 10, ps_shape_ellipse, ps_distr_linear);
+					part_emitter_region(global.particleSystem, emitterhandR, x + image_xscale * 10, x + image_xscale * 11, y - 10, y - 11, ps_shape_ellipse, ps_distr_linear);
+					part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11, x + image_xscale * 11, y - 9, y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
+					part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11, x - image_xscale * 11, y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
+					
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
+					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
+					
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 50 * (currentWeightLevel - 1));
+				   
+					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 50 * (currentWeightLevel - 1));
+					
+				} 
+				
 		    } else if (!onGround && jumpCount > 0) {
 		        // Jump animation
 		        sprite_index = sPlayerJump;
