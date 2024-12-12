@@ -26,7 +26,45 @@ part_type_speed(walkParticleType, 0.1, 0.2, -0.004, 0);
 //part_type_gravity(walkParticleType, 0.3, 1);
 part_type_alpha3(walkParticleType, 0.3, 0.5, 0.05);
 
+fallOnGroundParticleType = part_type_create();
 
+part_type_sprite(fallOnGroundParticleType, sParticleFallOnGround, 0, 0, 1);
+part_type_life(fallOnGroundParticleType, 30, 30);
+part_type_size(fallOnGroundParticleType, 1, 1.2, 0.001, 0);
+part_type_orientation(fallOnGroundParticleType, 0, 359, 0, 0, 1);
+part_type_color2(fallOnGroundParticleType, c_white, c_gray);
+//part_type_blend(fallOnGroundParticleType, 1);
+
+part_type_direction(fallOnGroundParticleType, 0, 180, 0, 1);
+part_type_speed(fallOnGroundParticleType, 0.3, 0.3, -0.01, 0);
+//part_type_gravity(fallOnGroundParticleType, 0.1, 1);
+part_type_alpha2(fallOnGroundParticleType, 1, 0);
+
+jumpRightParticleType = part_type_create();
+
+part_type_sprite(jumpRightParticleType, sParticleFallOnGround, 0, 0, 1);
+part_type_life(jumpRightParticleType, 35, 45);
+part_type_size(jumpRightParticleType, 1, 1.2, 0.001, 0);
+part_type_orientation(jumpRightParticleType, 0, 359, 0, 0, 1);
+part_type_color2(jumpRightParticleType, c_white, c_gray);
+part_type_blend(jumpRightParticleType, 0);
+
+part_type_direction(jumpRightParticleType, 0, 0, 0, 1);
+part_type_speed(jumpRightParticleType, 0.1, 0.3, -0.001, 0);
+part_type_alpha2(jumpRightParticleType, 1, 0);
+
+jumpLeftParticleType = part_type_create();
+
+part_type_sprite(jumpLeftParticleType, sParticleFallOnGround, 0, 0, 1);
+part_type_life(jumpLeftParticleType, 35, 45);
+part_type_size(jumpLeftParticleType, 1, 1.2, 0.001, 0);
+part_type_orientation(jumpLeftParticleType, 0, 359, 0, 0, 1);
+part_type_color2(jumpLeftParticleType, c_white, c_gray);
+part_type_blend(jumpLeftParticleType, 0);
+
+part_type_direction(jumpLeftParticleType, 180, 180, 0, 1);
+part_type_speed(jumpLeftParticleType, 0.1, 0.3, -0.001, 0);
+part_type_alpha2(jumpLeftParticleType, 1, 0);
 
 
 fallLeftParticleType = part_type_create();

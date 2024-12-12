@@ -401,6 +401,12 @@ if (!isDashing) {
 	{
 		
 		audio_play_sound(snd_jump, 0 ,false);
+		
+		part_emitter_region(global.particleSystem, emitter, bbox_left + 2, bbox_right - 2, bbox_bottom, bbox_bottom, ps_shape_line, ps_distr_gaussian);
+		part_emitter_burst(global.particleSystem, emitter, oGlobal.fallOnGroundParticleType, 150);
+					   
+	
+		
 		//Reset the buffer
 		jumpKeyBuffered = false;
 		jumpKeyBufferTimer = 0;
@@ -746,6 +752,11 @@ if (!isDashing) {
 		if (wasMidair && !audio_is_playing(snd_playerland)) {
 	        // Odtwarzamy dźwięk tylko przy pierwszym kontakcie z ziemią
 	        audio_play_sound(snd_playerland, 0, false);
+			
+			part_emitter_region(global.particleSystem, emitter, bbox_left + 2, bbox_right - 2, bbox_bottom, bbox_bottom, ps_shape_diamond, ps_distr_linear);
+			part_emitter_burst(global.particleSystem, emitter, oGlobal.jumpRightParticleType, 100);
+			part_emitter_burst(global.particleSystem, emitter, oGlobal.jumpLeftParticleType, 100);
+				   
 	    }
 		wasMidair = false;
 	    jumpCount = 0;
@@ -805,12 +816,12 @@ if (!isDashing) {
 					part_emitter_region(global.particleSystem, emitterhandR, x + image_xscale * 10, x + image_xscale * 12,y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
 					part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11, x + image_xscale * 11, y - 9, y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
 					part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11, x - image_xscale * 11, y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
-					
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 50 * (currentWeightLevel - 1));
+				   
 					part_emitter_burst(global.particleSystem, emitterhandL, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
 					part_emitter_burst(global.particleSystem, emitterhandR, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
 					
-					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 50 * (currentWeightLevel - 1));
-				   
+					
 					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 50 * (currentWeightLevel - 1));
 					
 				} 
