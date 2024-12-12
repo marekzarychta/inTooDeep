@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"sParticleFallOnGround",
+  "%Name":"sParticleFallingWhite",
   "bboxMode":0,
   "bbox_bottom":0,
   "bbox_left":0,
@@ -25,7 +25,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"e7bb31a5-d300-47b4-8c8b-19f6d26f00a2","blendMode":0,"displayName":"default","isLocked":false,"name":"e7bb31a5-d300-47b4-8c8b-19f6d26f00a2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sParticleFallOnGround",
+  "name":"sParticleFallingWhite",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -37,7 +37,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"sParticleFallOnGround",
+    "%Name":"sParticleFallingWhite",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -61,7 +61,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sParticleFallOnGround",
+    "name":"sParticleFallingWhite",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -73,19 +73,19 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4d0b33e2-061d-4e3d-bffa-027d709935c5","path":"sprites/sParticleFallOnGround/sParticleFallOnGround.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4d0b33e2-061d-4e3d-bffa-027d709935c5","path":"sprites/sParticleFallingWhite/sParticleFallingWhite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"2f8024a7-3d41-4706-9786-9bf6a43024ad","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"42578fcc-0e24-4554-b31b-1d2796c4a580","path":"sprites/sParticleFallOnGround/sParticleFallOnGround.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"42578fcc-0e24-4554-b31b-1d2796c4a580","path":"sprites/sParticleFallingWhite/sParticleFallingWhite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"de7b7976-3ffe-4fd9-bf44-fd03741f45a7","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"04facb1d-a8e3-4198-9010-56b32011cd60","path":"sprites/sParticleFallOnGround/sParticleFallOnGround.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"04facb1d-a8e3-4198-9010-56b32011cd60","path":"sprites/sParticleFallingWhite/sParticleFallingWhite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"b04df445-4a7f-4b51-878e-0cb52a79f52a","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"27b85fff-917a-4895-88bb-42ca94fbc23b","path":"sprites/sParticleFallOnGround/sParticleFallOnGround.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"27b85fff-917a-4895-88bb-42ca94fbc23b","path":"sprites/sParticleFallingWhite/sParticleFallingWhite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"a0f525c0-cad4-4b91-9658-b1ec4d5c30af","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c3088534-3203-40c0-a41d-92e8c2413eb5","path":"sprites/sParticleFallOnGround/sParticleFallOnGround.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c3088534-3203-40c0-a41d-92e8c2413eb5","path":"sprites/sParticleFallingWhite/sParticleFallingWhite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"8f5e2973-fa82-46df-a205-41f50a7638f2","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

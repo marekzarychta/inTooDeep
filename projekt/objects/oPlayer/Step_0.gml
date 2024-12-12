@@ -150,9 +150,19 @@ if(useKey){
 		face = sign(moveDir);
 	}
 
-if (sprite_index == sPlayerRun) {
+if (sprite_index == sPlayerRun && xspd != 0) {
 	
     if(floor(image_index) == 1 || floor(image_index) == 7) {
+		if(!audio_is_playing(snd_playerstep) && !audio_is_playing(snd_playerland)) {
+			audio_play_sound(snd_playerstep, 0, false);
+			part_particles_create(global.particleSystem, x, y, oGlobal.walkParticleType, 20);
+		}
+	}
+}
+
+if (sprite_index == sPlayerWalk && xspd != 0) {
+	
+    if(floor(image_index) == 2 || floor(image_index) == 6) {
 		if(!audio_is_playing(snd_playerstep) && !audio_is_playing(snd_playerland)) {
 			audio_play_sound(snd_playerstep, 0, false);
 			part_particles_create(global.particleSystem, x, y, oGlobal.walkParticleType, 20);
@@ -666,7 +676,17 @@ if (!isDashing) {
 		isDashing = true;
 		hasDashed = true;
 		xspd = smooth(xspd, (sign(moveDir) * moveSpd[currentWeightLevel] * 1.2), 0.6);
+		part_type_direction(oGlobal.dashParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
+		if (xspd > 0) {
+			
+			part_emitter_region(global.particleSystem, emitter, x - 3 * abs(xspd) , x, bbox_top + 2, bbox_bottom - 2, ps_shape_diamond, ps_distr_gaussian);
+		} else {
+			part_emitter_region(global.particleSystem, emitter, x , x + 3 * abs(xspd), bbox_top + 2, bbox_bottom - 2, ps_shape_diamond, ps_distr_gaussian);
+			
+		}
 		
+		part_emitter_burst(global.particleSystem, emitter, oGlobal.dashParticleType, 50 * currentWeightLevel);
+				   
 		if attackingTimer > 0 {
 			attackingTimer = 0;
 			if (instance_exists(hitbox)) {
@@ -747,26 +767,47 @@ if (!isDashing) {
 		        sprite_index = sPlayerFall;
 				image_speed = 1;
 				
-				if (currentWeightLevel >= 2) {
+				
+				
+				
+				
+				
+				if (can_break_orange) {
+					part_type_sprite(oGlobal.fallLeftParticleType, sParticleFalling, 0, 0, 1);
+					part_type_sprite(oGlobal.fallRightParticleType, sParticleFalling, 0, 0, 1);
+					part_type_sprite(oGlobal.fallParticleType, sParticleFalling, 0, 0, 1);
 					part_type_color1(oGlobal.fallLeftParticleType, c_orange);
 					part_type_color1(oGlobal.fallRightParticleType, c_orange);
 					part_type_color1(oGlobal.fallParticleType, c_orange);
-				} 
+					part_type_alpha2(oGlobal.fallRightParticleType, 1, 0.2);
+					part_type_alpha2(oGlobal.fallLeftParticleType, 1, 0.2);
+					part_type_alpha2(oGlobal.fallParticleType, 1, 0.2);
+				} else {
+					part_type_sprite(oGlobal.fallLeftParticleType, sParticleFallingWhite, 0, 0, 1);
+					part_type_sprite(oGlobal.fallRightParticleType, sParticleFallingWhite, 0, 0, 1);
+					part_type_sprite(oGlobal.fallParticleType, sParticleFallingWhite, 0, 0, 1);
+					part_type_color1(oGlobal.fallLeftParticleType, c_white);
+					part_type_color1(oGlobal.fallRightParticleType, c_white);
+					part_type_color1(oGlobal.fallParticleType, c_white);
+					part_type_alpha1(oGlobal.fallLeftParticleType, 0.2);
+					part_type_alpha1(oGlobal.fallRightParticleType, 0.2);
+					part_type_alpha1(oGlobal.fallParticleType, 0.2);
+				}
 				
 				
 				
-				if (abs(yspd) > 2 && currentWeightLevel >= 2) {
+				if (abs(yspd) > 2) {
 					
-					part_type_life( oGlobal.fallRightParticleType, 6 * (currentWeightLevel - 1), 14 * (currentWeightLevel - 1));
-					part_type_life( oGlobal.fallLeftParticleType, 6 * (currentWeightLevel - 1), 14 * (currentWeightLevel - 1));
+					part_type_life( oGlobal.fallRightParticleType, 6 * (currentWeightLevel - 1), 8 * (currentWeightLevel - 1));
+					part_type_life( oGlobal.fallLeftParticleType, 6 * (currentWeightLevel - 1), 8 * (currentWeightLevel - 1));
 					
-					part_emitter_region(global.particleSystem, emitterhandL, x - image_xscale * 10, x - image_xscale * 11, y - 9, y - 10, ps_shape_ellipse, ps_distr_linear);
-					part_emitter_region(global.particleSystem, emitterhandR, x + image_xscale * 10, x + image_xscale * 11, y - 10, y - 11, ps_shape_ellipse, ps_distr_linear);
+					part_emitter_region(global.particleSystem, emitterhandL, x - image_xscale * 10, x - image_xscale * 12, y - 9,  y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_linear);
+					part_emitter_region(global.particleSystem, emitterhandR, x + image_xscale * 10, x + image_xscale * 12,y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
 					part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11, x + image_xscale * 11, y - 9, y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
 					part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11, x - image_xscale * 11, y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
 					
-					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
-					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
+					part_emitter_burst(global.particleSystem, emitterhandL, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
+					part_emitter_burst(global.particleSystem, emitterhandR, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
 					
 					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 50 * (currentWeightLevel - 1));
 				   
