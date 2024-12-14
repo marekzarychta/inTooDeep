@@ -109,7 +109,7 @@ part_type_sprite(dashParticleType, sParticleFalling, 0, 0, 1);
 part_type_life(dashParticleType, 10, 15);
 part_type_size(dashParticleType, 1, 1, -0.03, 0);
 part_type_orientation(dashParticleType, 0, 0, 0, 0, 1);
-part_type_blend(dashParticleType, 1);
+//part_type_blend(dashParticleType, 1);
 
 part_type_direction(dashParticleType, 180, 180, 0, 1);
 //part_type_speed(dashParticleType, 0.0, 0.005, 0.01, 0);

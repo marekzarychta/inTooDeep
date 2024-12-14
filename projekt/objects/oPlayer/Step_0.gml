@@ -843,17 +843,31 @@ if (!isDashing) {
 					part_type_life( oGlobal.fallRightParticleType, 6 * lifeMultiplier, 8 * lifeMultiplier);
 					part_type_life( oGlobal.fallLeftParticleType, 6 * lifeMultiplier, 8 * lifeMultiplier);
 					
+					var dir = 1;
+					
+					if (xspd < 0) {
+						dir = -1;
+					}
+					
 					part_emitter_region(global.particleSystem, emitterhandL, x - image_xscale * 10, x - image_xscale * 12, y - 9,  y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_linear);
 					part_emitter_region(global.particleSystem, emitterhandR, x + image_xscale * 10, x + image_xscale * 12,y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
-					part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11, x + image_xscale * 11, y - 9, y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
-					part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11, x - image_xscale * 11, y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
-					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 50 * lifeMultiplier);
+					
+					if (xspd > 0) {
+						part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11 - abs(xspd), x - image_xscale * 11, y - 8, y - 8 -  2 * yspd, ps_shape_rectangle, ps_distr_gaussian);
+						part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11 - abs(xspd), x + image_xscale * 11, y - 9, y - 9 - 2 * yspd, ps_shape_rectangle, ps_distr_gaussian);
+					} else {
+						part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11  , x - image_xscale * 11 + abs(xspd), y - 8, y - 8 -  2 * yspd, ps_shape_rectangle, ps_distr_gaussian);
+						part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11 , x + image_xscale * 11 + abs(xspd), y - 9, y - 9 - 2 * yspd, ps_shape_rectangle, ps_distr_gaussian);
+					
+					}
+					
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 350);
 				   
 					part_emitter_burst(global.particleSystem, emitterhandL, oGlobal.fallParticleType, 50 * lifeMultiplier);
 					part_emitter_burst(global.particleSystem, emitterhandR, oGlobal.fallParticleType, 50 * lifeMultiplier);
 					
 					
-					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 50 * lifeMultiplier);
+					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 350);
 					
 				} 
 				
