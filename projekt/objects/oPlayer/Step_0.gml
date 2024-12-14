@@ -815,9 +815,9 @@ if (!isDashing) {
 					part_type_sprite(oGlobal.fallLeftParticleType, sParticleFalling, 0, 0, 1);
 					part_type_sprite(oGlobal.fallRightParticleType, sParticleFalling, 0, 0, 1);
 					part_type_sprite(oGlobal.fallParticleType, sParticleFalling, 0, 0, 1);
-					part_type_color1(oGlobal.fallLeftParticleType, c_orange);
-					part_type_color1(oGlobal.fallRightParticleType, c_orange);
-					part_type_color1(oGlobal.fallParticleType, c_orange);
+					//part_type_color1(oGlobal.fallLeftParticleType, make_color_rgb(189, 116, 39));
+					//part_type_color1(oGlobal.fallRightParticleType, make_color_rgb(189, 116, 39));
+					//part_type_color1(oGlobal.fallParticleType, make_color_rgb(189, 116, 39));
 					part_type_alpha2(oGlobal.fallRightParticleType, 1, 0.2);
 					part_type_alpha2(oGlobal.fallLeftParticleType, 1, 0.2);
 					part_type_alpha2(oGlobal.fallParticleType, 1, 0.2);
