@@ -61,14 +61,17 @@ if isAlive {
 	}
 
 	//Get inputs
-	if !oInventory.opened && isActive 
+	if !oInventoryUI.opened && isActive 
 	{
 		getControls();
 		window_set_cursor(cr_none);
 	}
 	else {
 		rightKey = 0;	
-		leftKey = 0;	
+		leftKey = 0;
+		jumpKey = 0;
+		dashKey = 0;
+		window_set_cursor(cr_default);
 	}
 
 	if (attackCooldownTimer > 0) {

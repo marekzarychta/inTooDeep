@@ -35,8 +35,11 @@ function getControls() {
     leftKey = keyboard_check(vk_left)  + gamepad_button_check(0,gp_padl);
     leftKey = clamp(leftKey, 0, 1);
 
-	useKey = keyboard_check(ord("C")) + gamepad_button_check(0,gp_face4);
+	useKey = keyboard_check_pressed(ord("C")) + gamepad_button_check_pressed(0,gp_face4);
 	useKey = clamp(useKey,0,1);
+	
+	inventoryKeyPressed = keyboard_check_pressed(vk_tab) + gamepad_button_check_pressed(0,gp_shoulderl);
+	inventoryKeyPressed = clamp(inventoryKeyPressed,0,1);
 
     jumpKeyPressed = keyboard_check_pressed(ord("Z")) + gamepad_button_check_pressed(0,gp_face1);
     jumpKeyPressed = clamp(jumpKeyPressed, 0, 1);
@@ -70,6 +73,10 @@ function getControls() {
 	    } else {
 	        axisY = (axisY - sign(axisY) * deadzone) / (1 - deadzone);
 	    }
+if (object_index != oPlayer) {
+    return; // Nie wykonuj reszty skryptu, jeśli obiekt nie jest oPlayer
+}
+
     //Jump key buffering
     if jumpKeyPressed {
         jumpKeyBufferTimer = bufferTime;
