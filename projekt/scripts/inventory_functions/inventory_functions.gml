@@ -86,7 +86,7 @@ function ListAdd(list, itemType) {
 
                     item.grid_x = _x;
                     item.grid_y = _y;
-                    item.item_value = irandom_range(5, 20);
+                    //item.item_value = irandom_range(5, 20);
                     item.in_inventory = true;
                     ds_list_add(list, item);
                     return true;

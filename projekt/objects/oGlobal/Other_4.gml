@@ -1,13 +1,14 @@
 if (!layer_exists("GUI")) {
 	layer_create(-20, "GUI");	
 }
+if (layer_exists("Player")) {
+	if (!layer_exists("Player_below")) {
+		layer_create(layer_get_depth("Player") + 10, "Player_below");	
+	}
 
-if (!layer_exists("Player_below")) {
-	layer_create(0, "Player_below");	
-}
-
-if (!layer_exists("Player_overlay")) {
-	layer_create(0, "Player_overlay");	
+	if (!layer_exists("Player_overlay")) {
+		layer_create(layer_get_depth("Player") - 10, "Player_overlay");	
+	}
 }
 
 if (!layer_exists("Text")) {
@@ -20,6 +21,16 @@ if (!layer_exists("Popups")) {
 
 ds_list_clear(inventory.inventory);
 ds_list_clear(global.lista)
+if (layer_exists("Player"))
+	part_system_depth(global.particleSystem, layer_get_depth("Player_below") + 5);
+
+if (instance_exists(interface)) {
+	instance_destroy(interface);	
+}
+
+if (instance_exists(camera)) {
+	instance_destroy(camera);	
+}
 
 interface = instance_create_layer(x, y, layer, oInterface);
 camera = instance_create_layer(x, y, layer, oCamera);

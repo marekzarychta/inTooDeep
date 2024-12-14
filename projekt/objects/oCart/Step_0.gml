@@ -37,7 +37,7 @@ if marked && openable && ds_list_size(content) == 0 {
 	sprite_index = markSpriteHalfFull;	
 }
 
-if (marked && openable && keyboard_check_pressed(ord("E"))) && oPlayer.isAlive {
+if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 	
 	//odbieram wszystko z wagonika
 	if (ds_list_size(content) == maxSize) || (ds_list_size(oInventory.inventory) == 0) {

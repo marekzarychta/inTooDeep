@@ -1,5 +1,6 @@
 //hitbox_delay = 0;
 //backpack object
+k = 0;
 
 function checkForSemiSolid(_x, _y) {
 	var _rtrn = noone;

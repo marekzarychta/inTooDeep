@@ -1,6 +1,6 @@
 //textVal = "use";
 
-//key_icon = sKeyE;
+//key_icon = sKeyC;
 
 //draw_sprite(key_icon, 0, x, y);
 

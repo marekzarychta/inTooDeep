@@ -1,6 +1,6 @@
 global.lista = ds_list_create();
 gold = 0;
-
+window_set_cursor(cr_none);
 inventory = instance_create_layer(x, y, layer, oInventory);
 inventory.persistent = true;
 interface = noone;
@@ -11,7 +11,7 @@ persistent = true;
 
 global.particleSystem = part_system_create();
 
-part_system_depth(global.particleSystem, 200);
+{
 walkParticleType = part_type_create();
 
 part_type_sprite(walkParticleType, sParticleFallOnGround, 0, 0, 1);
@@ -32,7 +32,7 @@ part_type_sprite(fallOnGroundParticleType, sParticleFallOnGround, 0, 0, 1);
 part_type_life(fallOnGroundParticleType, 30, 30);
 part_type_size(fallOnGroundParticleType, 1, 1.2, 0.001, 0);
 part_type_orientation(fallOnGroundParticleType, 0, 359, 0, 0, 1);
-part_type_color2(fallOnGroundParticleType, c_white, c_gray);
+//part_type_color2(fallOnGroundParticleType, c_white, c_gray);
 //part_type_blend(fallOnGroundParticleType, 1);
 
 part_type_direction(fallOnGroundParticleType, 0, 180, 0, 1);
@@ -46,8 +46,8 @@ part_type_sprite(jumpRightParticleType, sParticleFallOnGround, 0, 0, 1);
 part_type_life(jumpRightParticleType, 35, 45);
 part_type_size(jumpRightParticleType, 1, 1.2, 0.001, 0);
 part_type_orientation(jumpRightParticleType, 0, 359, 0, 0, 1);
-part_type_color2(jumpRightParticleType, c_white, c_gray);
-part_type_blend(jumpRightParticleType, 0);
+//part_type_color2(jumpRightParticleType, c_white, c_gray);
+//part_type_blend(jumpRightParticleType, 1);
 
 part_type_direction(jumpRightParticleType, 0, 0, 0, 1);
 part_type_speed(jumpRightParticleType, 0.1, 0.3, -0.001, 0);
@@ -59,8 +59,8 @@ part_type_sprite(jumpLeftParticleType, sParticleFallOnGround, 0, 0, 1);
 part_type_life(jumpLeftParticleType, 35, 45);
 part_type_size(jumpLeftParticleType, 1, 1.2, 0.001, 0);
 part_type_orientation(jumpLeftParticleType, 0, 359, 0, 0, 1);
-part_type_color2(jumpLeftParticleType, c_white, c_gray);
-part_type_blend(jumpLeftParticleType, 0);
+//part_type_color2(jumpLeftParticleType, c_white, c_gray);
+//part_type_blend(jumpLeftParticleType, 1);
 
 part_type_direction(jumpLeftParticleType, 180, 180, 0, 1);
 part_type_speed(jumpLeftParticleType, 0.1, 0.3, -0.001, 0);
@@ -106,14 +106,25 @@ part_type_alpha2(fallParticleType, 1, 0.2);
 dashParticleType = part_type_create();
 
 part_type_sprite(dashParticleType, sParticleFalling, 0, 0, 1);
-part_type_life(dashParticleType, 15, 20);
-part_type_size(dashParticleType, 1, 1, 0.00, 0);
-part_type_orientation(dashParticleType, 180, 180, 0, 0, 1);
-//part_type_blend(dashParticleType, 1);
+part_type_life(dashParticleType, 10, 15);
+part_type_size(dashParticleType, 1, 1, -0.03, 0);
+part_type_orientation(dashParticleType, 0, 0, 0, 0, 1);
+part_type_blend(dashParticleType, 1);
 
 part_type_direction(dashParticleType, 180, 180, 0, 1);
-part_type_speed(dashParticleType, 0.1, 0.1, 0.1, 0);
-part_type_alpha3(dashParticleType, 0.7, 0.8, 0.02);
+//part_type_speed(dashParticleType, 0.0, 0.005, 0.01, 0);
+part_type_alpha1(dashParticleType, 0.05);
+
+dashWhiteParticleType = part_type_create();
+
+part_type_sprite(dashWhiteParticleType, sParticleFallingWhite, 0, 0, 1);
+part_type_life(dashWhiteParticleType, 10, 15);
+part_type_size(dashWhiteParticleType, 1, 1, -0.03, 0);
+part_type_orientation(dashWhiteParticleType, 0, 0, 0, 0, 1);
+part_type_blend(dashWhiteParticleType, 1);
+part_type_direction(dashWhiteParticleType, 180, 180, 0, 1);
+//part_type_speed(dashWhiteParticleType,  0.0, 0.005, 0.01, 0);
+part_type_alpha1(dashWhiteParticleType, 0.05);
 
 destructionParticleType = part_type_create();
 
@@ -126,3 +137,5 @@ part_type_blend(destructionParticleType, 1);
 part_type_direction(destructionParticleType, 0, 359, 0.01, 1);
 part_type_speed(destructionParticleType, 0.1, 0.1, 0.1, 0);
 part_type_alpha3(destructionParticleType, 0.7, 0.8, 0.02);
+}
+	

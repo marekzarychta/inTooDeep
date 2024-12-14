@@ -64,7 +64,7 @@ if isAlive {
 	if !oInventory.opened && isActive 
 	{
 		getControls();
-		window_set_cursor(cr_none);
+		
 	}
 	else {
 		rightKey = 0;	
@@ -683,16 +683,22 @@ if (!isDashing) {
 		hasDashed = true;
 		xspd = smooth(xspd, (sign(moveDir) * moveSpd[currentWeightLevel] * 1.2), 0.6);
 		part_type_direction(oGlobal.dashParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
-		if (xspd > 0) {
-			
-			part_emitter_region(global.particleSystem, emitter, x - 3 * abs(xspd) , x, bbox_top + 2, bbox_bottom - 2, ps_shape_diamond, ps_distr_gaussian);
-		} else {
-			part_emitter_region(global.particleSystem, emitter, x , x + 3 * abs(xspd), bbox_top + 2, bbox_bottom - 2, ps_shape_diamond, ps_distr_gaussian);
-			
-		}
+		part_type_direction(oGlobal.dashWhiteParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
 		
-		part_emitter_burst(global.particleSystem, emitter, oGlobal.dashParticleType, 50 * currentWeightLevel);
-				   
+		if (xspd > 0) {
+			part_emitter_region(global.particleSystem, emitter, x - 3 - 2 * abs(xspd) , x - 3, bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
+		} else if (xspd < 0) {
+			part_emitter_region(global.particleSystem, emitter, x + 3 , x + 3 + 2 * abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
+		
+		} 
+		if (x != xprevious) {
+			if (currentWeightLevel >= 2) {
+				
+				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashParticleType, 300 * currentWeightLevel);
+			} else {
+				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashWhiteParticleType, 500);
+			}
+		}
 		if attackingTimer > 0 {
 			attackingTimer = 0;
 			if (instance_exists(hitbox)) {
@@ -702,6 +708,7 @@ if (!isDashing) {
 		
 	} else if dashTimer == 0 {
 		isDashing = false;
+		k = 0;
 		dashTimer--;
 		dashCooldownTimer = dashCooldown;	
 		if (hasDashed && !instance_exists(oDashCooldownBar)) { // Pasek tworzy się tylko po dashu
@@ -713,6 +720,27 @@ if (!isDashing) {
 	
 	if dashCooldownTimer > 0 {
 		dashCooldownTimer--;	
+		k++;
+		
+		//wygladzenie
+		
+		if (xspd > 0) {
+			part_emitter_region(global.particleSystem, emitter, x - 3 - 2 * abs(xspd) , x, bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
+		} else if (xspd < 0) {
+			part_emitter_region(global.particleSystem, emitter, x , x + 3 + 2 * abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
+		
+		} 
+		if (x != xprevious && k < 8) {
+			if (currentWeightLevel >= 2) {
+				
+				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashParticleType, 300 * currentWeightLevel - k * 80);
+			} else {
+				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashWhiteParticleType, 400 -  k * 50);
+			}
+		}
+		
+		
+		
 	} else if dashCooldownTimer == 0 {
 		dashCooldownTimer--;
 		if(debug_mode) show_debug_message("dash rdy");	
@@ -808,21 +836,24 @@ if (!isDashing) {
 				
 				
 				if (abs(yspd) > 2) {
-					
-					part_type_life( oGlobal.fallRightParticleType, 6 * (currentWeightLevel - 1), 8 * (currentWeightLevel - 1));
-					part_type_life( oGlobal.fallLeftParticleType, 6 * (currentWeightLevel - 1), 8 * (currentWeightLevel - 1));
+					var lifeMultiplier = 1;
+					if (currentWeightLevel > 2) {
+						lifeMultiplier = currentWeightLevel - 1;	
+					}
+					part_type_life( oGlobal.fallRightParticleType, 6 * lifeMultiplier, 8 * lifeMultiplier);
+					part_type_life( oGlobal.fallLeftParticleType, 6 * lifeMultiplier, 8 * lifeMultiplier);
 					
 					part_emitter_region(global.particleSystem, emitterhandL, x - image_xscale * 10, x - image_xscale * 12, y - 9,  y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_linear);
 					part_emitter_region(global.particleSystem, emitterhandR, x + image_xscale * 10, x + image_xscale * 12,y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
 					part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11, x + image_xscale * 11, y - 9, y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
 					part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11, x - image_xscale * 11, y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_gaussian);
-					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 50 * (currentWeightLevel - 1));
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 50 * lifeMultiplier);
 				   
-					part_emitter_burst(global.particleSystem, emitterhandL, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
-					part_emitter_burst(global.particleSystem, emitterhandR, oGlobal.fallParticleType, 50 * (currentWeightLevel - 1));
+					part_emitter_burst(global.particleSystem, emitterhandL, oGlobal.fallParticleType, 50 * lifeMultiplier);
+					part_emitter_burst(global.particleSystem, emitterhandR, oGlobal.fallParticleType, 50 * lifeMultiplier);
 					
 					
-					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 50 * (currentWeightLevel - 1));
+					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 50 * lifeMultiplier);
 					
 				} 
 				
