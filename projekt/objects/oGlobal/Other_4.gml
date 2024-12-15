@@ -1,6 +1,9 @@
 if (!layer_exists("GUI")) {
 	layer_create(-20, "GUI");	
 }
+
+
+
 if (layer_exists("Player")) {
 	if (!layer_exists("Player_below")) {
 		layer_create(layer_get_depth("Player") + 10, "Player_below");	

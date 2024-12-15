@@ -3,3 +3,5 @@ part_type_color1(oGlobal.destructionParticleType, c_orange);
 part_emitter_burst(global.particleSystem, emitter, oGlobal.destructionParticleType, 50 * image_xscale * image_yscale);
 		
 part_emitter_destroy(global.particleSystem, emitter);
+
+shakeCamera(12, 6, true);

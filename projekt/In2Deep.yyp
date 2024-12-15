@@ -122,6 +122,7 @@
     {"id":{"name":"oPlatform","path":"objects/oPlatform/oPlatform.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"oRock","path":"objects/oRock/oRock.yy",},},
+    {"id":{"name":"oShake","path":"objects/oShake/oShake.yy",},},
     {"id":{"name":"oSlime","path":"objects/oSlime/oSlime.yy",},},
     {"id":{"name":"oSlopeDown","path":"objects/oSlopeDown/oSlopeDown.yy",},},
     {"id":{"name":"oSlopeUp","path":"objects/oSlopeUp/oSlopeUp.yy",},},
@@ -265,11 +266,11 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
+    {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
+    {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
     {"roomId":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
-    {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

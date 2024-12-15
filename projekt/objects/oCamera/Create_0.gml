@@ -12,6 +12,7 @@ xspd = 0;
 yspd = 0;
 
 changing = true;
+shaking = false;
 
 
 bufferNotMovingX = 1;
