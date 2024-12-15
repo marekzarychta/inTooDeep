@@ -838,10 +838,12 @@ if (!isDashing) {
 				if (abs(yspd) > 2) {
 					var lifeMultiplier = 1;
 					if (currentWeightLevel > 2) {
-						lifeMultiplier = currentWeightLevel - 1;	
+						lifeMultiplier = 1.4;	
 					}
 					part_type_life( oGlobal.fallRightParticleType, 6 * lifeMultiplier, 8 * lifeMultiplier);
 					part_type_life( oGlobal.fallLeftParticleType, 6 * lifeMultiplier, 8 * lifeMultiplier);
+					part_type_size( oGlobal.fallParticleType, lifeMultiplier, lifeMultiplier, 0, 0);
+					part_type_direction( oGlobal.fallParticleType, 90 - image_xscale * 90, 90 - image_xscale * 90, 0, 0);
 					
 					var dir = 1;
 					
