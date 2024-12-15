@@ -840,10 +840,12 @@ if (!isDashing) {
 					if (currentWeightLevel > 2) {
 						lifeMultiplier = 1.4;	
 					}
-					part_type_life( oGlobal.fallRightParticleType, 6 * lifeMultiplier, 8 * lifeMultiplier);
-					part_type_life( oGlobal.fallLeftParticleType, 6 * lifeMultiplier, 8 * lifeMultiplier);
+					part_type_life( oGlobal.fallRightParticleType, 7 * lifeMultiplier, 8 * lifeMultiplier);
+					part_type_life( oGlobal.fallLeftParticleType, 7 * lifeMultiplier, 8 * lifeMultiplier);
 					part_type_size( oGlobal.fallParticleType, lifeMultiplier, lifeMultiplier, 0, 0);
 					part_type_direction( oGlobal.fallParticleType, 90 - image_xscale * 90, 90 - image_xscale * 90, 0, 0);
+					part_type_direction( oGlobal.fallLeftParticleType, 90 - image_xscale * 90, 90 - image_xscale * 90, 0, 0);
+					part_type_direction( oGlobal.fallRightParticleType, 90 - image_xscale * 90, 90 - image_xscale * 90, 0, 0);
 					
 					var dir = 1;
 					
@@ -855,21 +857,21 @@ if (!isDashing) {
 					part_emitter_region(global.particleSystem, emitterhandR, x + image_xscale * 10, x + image_xscale * 12,y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
 					
 					if (xspd > 0) {
-						part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11 - abs(xspd), x - image_xscale * 11, y - 8, y - 8 -  2 * yspd, ps_shape_rectangle, ps_distr_gaussian);
-						part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11 - abs(xspd), x + image_xscale * 11, y - 9, y - 9 - 2 * yspd, ps_shape_rectangle, ps_distr_gaussian);
+						part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11 - 1.5 * abs(xspd), x - image_xscale * 11, y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
+						part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11 - 1.5 * abs(xspd), x + image_xscale * 11, y - 9, y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_linear);
 					} else {
-						part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11  , x - image_xscale * 11 + abs(xspd), y - 8, y - 8 -  2 * yspd, ps_shape_rectangle, ps_distr_gaussian);
-						part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11 , x + image_xscale * 11 + abs(xspd), y - 9, y - 9 - 2 * yspd, ps_shape_rectangle, ps_distr_gaussian);
+						part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11  , x - image_xscale * 11 + 1.5 * abs(xspd), y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
+						part_emitter_region(global.particleSystem, emitterR, x + image_xscale * 11 , x + image_xscale * 11 + 1.5 * abs(xspd), y - 9, y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_linear);
 					
 					}
 					
-					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 350);
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 300);
 				   
 					part_emitter_burst(global.particleSystem, emitterhandL, oGlobal.fallParticleType, 50 * lifeMultiplier);
 					part_emitter_burst(global.particleSystem, emitterhandR, oGlobal.fallParticleType, 50 * lifeMultiplier);
 					
 					
-					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 350);
+					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 300);
 					
 				} 
 				
