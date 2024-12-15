@@ -107,7 +107,7 @@ dashParticleType = part_type_create();
 
 part_type_sprite(dashParticleType, sParticleFalling, 0, 0, 1);
 part_type_life(dashParticleType, 10, 15);
-part_type_size(dashParticleType, 1, 1, -0.03, 0);
+part_type_size(dashParticleType, 1.2, 1.2, -0.03, 0);
 part_type_orientation(dashParticleType, 0, 0, 0, 0, 1);
 //part_type_blend(dashParticleType, 1);
 
@@ -119,7 +119,7 @@ dashWhiteParticleType = part_type_create();
 
 part_type_sprite(dashWhiteParticleType, sParticleFallingWhite, 0, 0, 1);
 part_type_life(dashWhiteParticleType, 10, 15);
-part_type_size(dashWhiteParticleType, 1, 1, -0.03, 0);
+part_type_size(dashWhiteParticleType, 1.2, 1.2, -0.03, 0);
 part_type_orientation(dashWhiteParticleType, 0, 0, 0, 0, 1);
 part_type_blend(dashWhiteParticleType, 1);
 part_type_direction(dashWhiteParticleType, 180, 180, 0, 1);

@@ -4,4 +4,8 @@ part_emitter_burst(global.particleSystem, emitter, oGlobal.destructionParticleTy
 		
 part_emitter_destroy(global.particleSystem, emitter);
 
-//shakeCamera(12, 6, true);
+if (oPlayer.y == oPlayer.yprevious) {
+	shakeCamera(15, 2, 0.5);
+} else {
+	shakeCamera(15, 2, 0.5);	
+}

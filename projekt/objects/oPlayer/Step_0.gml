@@ -402,8 +402,18 @@ if (!isDashing) {
 		
 		audio_play_sound(snd_jump, 0 ,false);
 		
+		var multiply = 2;
+		if (currentWeightLevel == 2) {
+			multiply = 3;	
+		}
+		if (currentWeightLevel == 3) {
+			multiply = 4;	
+		}	
+		
+		
 		part_emitter_region(global.particleSystem, emitter, bbox_left + 2, bbox_right - 2, bbox_bottom, bbox_bottom, ps_shape_line, ps_distr_gaussian);
-		part_emitter_burst(global.particleSystem, emitter, oGlobal.fallOnGroundParticleType, 150);
+		part_type_life(oGlobal.fallOnGroundParticleType, 10 * multiply, 10 * multiply);
+		part_emitter_burst(global.particleSystem, emitter, oGlobal.fallOnGroundParticleType, 150 * (multiply - 1));
 					   
 	
 		
@@ -686,17 +696,21 @@ if (!isDashing) {
 		part_type_direction(oGlobal.dashWhiteParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
 		
 		if (xspd > 0) {
-			part_emitter_region(global.particleSystem, emitter, x - 3 - 2 * abs(xspd) , x - 3, bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
+			part_emitter_region(global.particleSystem, emitter, x - 3 - abs(xspd) , x - 3, bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
+			part_emitter_region(global.particleSystem, emitterR, x - 3 - abs(xspd) , x - 3, bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
 		} else if (xspd < 0) {
-			part_emitter_region(global.particleSystem, emitter, x + 3 , x + 3 + 2 * abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
+			part_emitter_region(global.particleSystem, emitter, x + 3 , x + 3 + abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
+			part_emitter_region(global.particleSystem, emitterR, x + 3 , x + 3 + abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
 		
 		} 
 		if (x != xprevious) {
 			if (currentWeightLevel >= 2) {
 				
 				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashParticleType, 300 * currentWeightLevel);
+				//part_emitter_burst(global.particleSystem, emitterR, oGlobal.dashParticleType, 50 * currentWeightLevel);
 			} else {
 				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashWhiteParticleType, 500);
+				//part_emitter_burst(global.particleSystem, emitterR, oGlobal.dashWhiteParticleType, 100);
 			}
 		}
 		if attackingTimer > 0 {
@@ -837,8 +851,8 @@ if (!isDashing) {
 				
 				if (abs(yspd) > 2) {
 					var lifeMultiplier = 1;
-					if (currentWeightLevel > 2) {
-						lifeMultiplier = 1.4;	
+					if (currentWeightLevel >= 2) {
+						lifeMultiplier = 1.4 + currentWeightLevel * 0.1;	
 					}
 					part_type_life( oGlobal.fallRightParticleType, 7 * lifeMultiplier, 8 * lifeMultiplier);
 					part_type_life( oGlobal.fallLeftParticleType, 7 * lifeMultiplier, 8 * lifeMultiplier);
@@ -852,9 +866,14 @@ if (!isDashing) {
 					if (xspd < 0) {
 						dir = -1;
 					}
+					if (image_xscale > 0) {
+						part_emitter_region(global.particleSystem, emitterhandL, x - 10, x - 12, y - 9,  y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_linear);
+						part_emitter_region(global.particleSystem, emitterhandR, x + 10, x + 12,y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
+					} else {
+						part_emitter_region(global.particleSystem, emitterhandL, x - 9, x - 11, y - 9,  y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_linear);
+						part_emitter_region(global.particleSystem, emitterhandR, x + 11, x + 13, y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
 					
-					part_emitter_region(global.particleSystem, emitterhandL, x - image_xscale * 10, x - image_xscale * 12, y - 9,  y - 9 - 2 * yspd, ps_shape_ellipse, ps_distr_linear);
-					part_emitter_region(global.particleSystem, emitterhandR, x + image_xscale * 10, x + image_xscale * 12,y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);
+					}
 					
 					if (xspd > 0) {
 						part_emitter_region(global.particleSystem, emitter, x - image_xscale * 11 - 1.5 * abs(xspd), x - image_xscale * 11, y - 8, y - 8 -  2 * yspd, ps_shape_ellipse, ps_distr_linear);

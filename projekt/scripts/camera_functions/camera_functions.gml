@@ -3,13 +3,16 @@ function instantCameraMoveToPos(_x, _y) {
 	oCamera.midY = _y;
 }
 
-function shakeCamera(_range, _vel, _vertically) {
+function shakeCamera(_time, _magnitude, _fade/*_range, _vel, _vertically*/) {
 	
 	var instance = instance_create_layer(oCamera.midX, oCamera.midY, "Player_overlay", oShake);
-	instance._vertically = _vertically;
-	instance.range = _range;
-	instance.vel = _vel
-	instance.maxCounter = 4;
+	//instance._vertically = _vertically;
+	//instance.range = _range;
+	//instance.vel = _vel
+	//instance.maxCounter = 8;
+	instance.shake_time = _time;
+    instance.shake_magnitude = _magnitude;
+    instance.shake_fade = _fade;
 }
 
 function slowCameraMoveToPos(_x, _y, vel) {
