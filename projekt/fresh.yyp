@@ -140,6 +140,7 @@
     {"id":{"name":"oZoomFlag","path":"objects/oZoomFlag/oZoomFlag.yy",},},
     {"id":{"name":"demo","path":"rooms/demo/demo.yy",},},
     {"id":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
+    {"id":{"name":"demo3","path":"rooms/demo3/demo3.yy",},},
     {"id":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
     {"id":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"id":{"name":"test","path":"rooms/test/test.yy",},},
@@ -260,6 +261,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
+    {"roomId":{"name":"demo3","path":"rooms/demo3/demo3.yy",},},
     {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
     {"roomId":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
     {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
