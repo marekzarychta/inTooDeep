@@ -56,3 +56,8 @@ if(visible && ds_list_size(oInventory.inventory) > 0){
 	    draw_text(info_x + 8 + text_width/2, info_y + 8 + text_height/2, item_info); // 8 to margines wewnętrzny
 	}
 }
+else if (ds_list_size(oInventory.inventory) == 0){
+	draw_set_color(c_black);
+	draw_rectangle(x, y, x + slot_size * max_columns + padding * 2, y + slot_size * 3 + padding * 2, false);
+
+}

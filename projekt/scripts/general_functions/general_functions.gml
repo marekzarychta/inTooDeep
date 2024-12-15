@@ -18,10 +18,13 @@ function controlsSetup() {
     jumpKeyBufferTimer = 0;
 }
 
+global.controlsBlocked = false;
+
+function blockControls(block){
+	global.controlsBlocked = block;
+}
 function getControls() {
-	if(debug_mode && gamepad_is_connected(0)){
-		show_debug_message("gamepad connected");
-	}
+	if (global.controlsBlocked) return; // Sprawdzenie, czy sterowanie jest zablokowane
 	attackKey = keyboard_check(ord("X")) + gamepad_button_check(0,gp_face3);
 	attackKey = clamp(attackKey, 0, 1);
 	
@@ -37,6 +40,9 @@ function getControls() {
 
 	useKey = keyboard_check_pressed(ord("C")) + gamepad_button_check_pressed(0,gp_face4);
 	useKey = clamp(useKey,0,1);
+	
+	closeKey = keyboard_check_pressed(vk_escape) + gamepad_button_check_pressed(0,gp_face2);
+	closeKey = clamp(closeKey,0,1);
 	
 	inventoryKeyPressed = keyboard_check_pressed(vk_tab) + gamepad_button_check_pressed(0,gp_shoulderl);
 	inventoryKeyPressed = clamp(inventoryKeyPressed,0,1);
