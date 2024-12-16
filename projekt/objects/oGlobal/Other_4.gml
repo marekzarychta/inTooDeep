@@ -6,11 +6,11 @@ if (!layer_exists("GUI")) {
 
 if (layer_exists("Player")) {
 	if (!layer_exists("Player_below")) {
-		layer_create(layer_get_depth("Player") + 10, "Player_below");	
+		layer_create(layer_get_depth("Player") + 20, "Player_below");	
 	}
 
 	if (!layer_exists("Player_overlay")) {
-		layer_create(layer_get_depth("Player") - 10, "Player_overlay");	
+		layer_create(layer_get_depth("Player") - 20, "Player_overlay");	
 	}
 }
 
@@ -25,7 +25,7 @@ if (!layer_exists("Popups")) {
 ds_list_clear(inventory.inventory);
 ds_list_clear(global.lista)
 if (layer_exists("Player"))
-	part_system_depth(global.particleSystem, layer_get_depth("Player_below") + 5);
+	part_system_depth(global.particleSystem, layer_get_depth("Player") + 105);
 
 if (instance_exists(interface)) {
 	instance_destroy(interface);	

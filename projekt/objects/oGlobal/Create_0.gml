@@ -12,6 +12,45 @@ persistent = true;
 global.particleSystem = part_system_create();
 
 {
+	
+slimeParticleType = part_type_create();
+
+part_type_sprite(slimeParticleType, sParticleSlime, 0, 0, 1);
+part_type_life(slimeParticleType, 25, 50);
+part_type_size(slimeParticleType, 1.5, 1.6, -0.01, 0);
+part_type_orientation(slimeParticleType, 0, 0, 0, 0, 0);
+part_type_direction(slimeParticleType, 90, 210, 0, 1);
+part_type_speed(slimeParticleType, 0.1, 0.5, -0.004, 0);
+
+slimeRightParticleType = part_type_create();
+
+part_type_sprite(slimeRightParticleType, sParticleSlime, 0, 0, 1);
+part_type_life(slimeRightParticleType, 25, 50);
+part_type_size(slimeRightParticleType, 1.5, 1.6, -0.01, 0);
+part_type_orientation(slimeRightParticleType, 0, 0, 0, 0, 0);
+part_type_direction(slimeRightParticleType, -30, 90, 0, 1);
+part_type_speed(slimeRightParticleType, 0.1, 0.5, -0.004, 0);
+	
+fricParticleType = part_type_create();
+
+part_type_sprite(fricParticleType, sParticleFallOnGround, 0, 0, 1);
+part_type_life(fricParticleType, 10, 15);
+part_type_size(fricParticleType, 1, 1.2, -0.01, 0);
+part_type_orientation(fricParticleType, 90, 90, 0, 0, 0);
+part_type_direction(fricParticleType, 0, 180, 0, 1);
+part_type_speed(fricParticleType, 0.1, 0.2, -0.004, 0);
+	
+cartParticleType = part_type_create();
+
+part_type_sprite(cartParticleType, sParticleCart, 0, 0, 1);
+part_type_life(cartParticleType, 10, 15);
+part_type_size(cartParticleType, 1, 1.2, -0.01, 0);
+part_type_orientation(cartParticleType, 90, 90, 0, 0, 0);
+
+part_type_direction(cartParticleType, 0, 180, 0, 1);
+part_type_speed(cartParticleType, 0.1, 0.2, -0.004, 0);
+	
+	
 walkParticleType = part_type_create();
 
 part_type_sprite(walkParticleType, sParticleFallOnGround, 0, 0, 1);

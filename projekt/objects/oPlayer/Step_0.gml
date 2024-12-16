@@ -695,6 +695,10 @@ if (!isDashing) {
 		part_type_direction(oGlobal.dashParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
 		part_type_direction(oGlobal.dashWhiteParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
 		
+		var alfa = 0.5;
+		if (currentWeightLevel > 2) alfa = 1;
+		part_type_alpha1(oGlobal.dashParticleType, 0.05 * alfa);
+		
 		if (xspd > 0) {
 			part_emitter_region(global.particleSystem, emitter, x - 3 - abs(xspd) , x - 3, bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
 			part_emitter_region(global.particleSystem, emitterR, x - 3 - abs(xspd) , x - 3, bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);

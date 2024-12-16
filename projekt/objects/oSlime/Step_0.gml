@@ -38,7 +38,10 @@ if(sprite_index == sprites[1]){
 		if (place_meeting(x, y+offset, oPlayer)) {
 			if(oPlayer.yspd>0){
 		        // Play bounce sound
-				    audio_play_sound(snd_bounce, 0, false);
+				audio_play_sound(snd_bounce, 0, false);
+				part_emitter_region(global.particleSystem, emiterLeft,x, x, oPlayer.bbox_bottom - 1, oPlayer.bbox_bottom, ps_shape_line, ps_distr_gaussian);
+				part_emitter_burst(global.particleSystem, emiterLeft, oGlobal.slimeParticleType, 80);
+				part_emitter_burst(global.particleSystem, emiterLeft, oGlobal.slimeRightParticleType, 80);
 		        oPlayer.yspd = -2.5 + -2.5*(oPlayer.currentWeightLevel); // Adjust the value as needed for trampoline effect
 			}
 }

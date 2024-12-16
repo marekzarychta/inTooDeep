@@ -18,6 +18,8 @@ markSprite = sCartMark;
 markSpriteFull = sCartMarkFull;
 markSpriteHalfFull = sCartMarkHalfFull;
 
+emiterLeft = part_emitter_create(global.particleSystem);
+emiterRight = part_emitter_create(global.particleSystem);
 
 
 content = ds_list_create();

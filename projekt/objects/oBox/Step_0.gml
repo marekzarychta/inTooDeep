@@ -60,4 +60,7 @@ if ((xspd == 0 || moveTimer == moveBuffer) && blockadeInstance != noone) {
 
 if (moveTimer < moveBuffer) {
 	moveTimer++;	
+	
+	part_emitter_region(global.particleSystem, emiterLeft, x - sign(xspd) * 8, x - sign(xspd) * 8, y, y, ps_shape_line, ps_distr_linear);
+	part_emitter_burst(global.particleSystem, emiterLeft, oGlobal.fricParticleType, 5);
 } 

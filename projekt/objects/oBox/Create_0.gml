@@ -21,3 +21,4 @@ onGround = true;
 grav = 0.163;
 yspd = 0;
 termVel = 4;
+emiterLeft = part_emitter_create(global.particleSystem);

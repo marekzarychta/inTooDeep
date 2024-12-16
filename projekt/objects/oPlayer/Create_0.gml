@@ -87,7 +87,7 @@ topLadder = false;
 //dash
 dashBuffer = 30;
 dashTimer = 0;
-dashCooldown = 120;
+dashCooldown = 30;
 dashCooldownTimer = 0;
 dashHoldTimer = 0;
 dashAddSpd = 0.3;
