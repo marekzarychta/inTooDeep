@@ -922,8 +922,8 @@ if (!isDashing) {
 		image_speed = 1;
 	}
 	if timerEnemyHit > 0 {
-		sprite_index = sPlayerGotHit;
-		image_speed = 1;
+		//sprite_index = sPlayerGotHit;
+		//image_speed = 1;
 	}
 	
 	if attackingTimer > 0 {

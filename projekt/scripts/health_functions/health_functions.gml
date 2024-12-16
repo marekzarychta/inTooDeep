@@ -100,7 +100,7 @@ function HPManage() {
 
     if timerEnemyHit > bufferEnemyHit {
         timerEnemyHit--;
-        oPlayer.sprite_index = sPlayerGotHit;
+        //oPlayer.sprite_index = sPlayerGotHit;
     } else if timerEnemyHit > 0 {
         timerEnemyHit--;
     }
