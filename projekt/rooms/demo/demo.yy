@@ -152,12 +152,13 @@
         {"$GMRInstance":"v1","%Name":"inst_2EE54BD1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2EE54BD1","objectId":{"name":"oTextboxMove","path":"objects/oTextboxMove/oTextboxMove.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":125.0,"y":173.0,},
       ],"layers":[],"name":"Text","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"tileWires","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"tileWires","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":48,"SerialiseWidth":86,"TileCompressedData":[
-          -2182,-2147483648,1,41,-3,28,1,57,-81,-2147483648,1,27,-85,-2147483648,1,27,-78,-2147483648,1,41,-6,
-          28,1,57,-78,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,
+          -574,-2147483648,-3,96,-83,-2147483648,-3,96,-83,-2147483648,-3,96,-1433,-2147483648,1,41,-3,28,1,57,
+          -81,-2147483648,1,27,-85,-2147483648,1,27,-78,-2147483648,1,41,-6,28,1,57,-78,-2147483648,1,27,-85,-2147483648,
           1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,
-          1,27,-18,-2147483648,1,0,-60,-2147483648,-2,0,-4,-2147483648,1,27,-34,-2147483648,2,27,41,-17,28,3,42,
-          0,27,-25,-2147483648,-4,0,1,27,-34,-2147483648,2,56,57,-17,-2147483648,3,56,28,57,-24,-2147483648,6,
-          27,0,0,-2147483648,-2147483648,27,-80,-2147483648,1,56,-4,28,1,57,-490,-2147483648,
+          1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-85,-2147483648,1,27,-18,-2147483648,1,0,-60,-2147483648,
+          -2,0,-4,-2147483648,1,27,-34,-2147483648,2,27,41,-17,28,3,42,0,27,-25,-2147483648,-4,0,1,27,-34,-2147483648,
+          2,56,57,-17,-2147483648,3,56,28,57,-24,-2147483648,6,27,0,0,-2147483648,-2147483648,27,-80,-2147483648,
+          1,56,-4,28,1,57,-490,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"tileTerrain","depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"tileTerrain","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":48,"SerialiseWidth":86,"TileCompressedData":[
           -393,0,1,62,-8,32,1,66,-5,0,1,62,-4,32,1,66,-54,0,1,62,-10,32,1,33,-8,0,2,31,66,-4,0,1,18,-4,0,1,31,
