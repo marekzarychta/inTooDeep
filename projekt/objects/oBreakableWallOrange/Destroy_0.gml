@@ -4,8 +4,5 @@ part_emitter_burst(global.particleSystem, emitter, oGlobal.destructionParticleTy
 audio_play_sound(snd_wall_destroy, 0, false);
 part_emitter_destroy(global.particleSystem, emitter);
 
-if (oPlayer.y == oPlayer.yprevious) {
-	shakeCamera(15, 2, 0.5);
-} else {
-	shakeCamera(15, 2, 0.5);	
-}
+shakeCamera(15, 1.6, 0.4);
+

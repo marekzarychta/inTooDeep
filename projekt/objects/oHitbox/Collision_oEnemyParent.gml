@@ -19,7 +19,11 @@ if place_meeting(x, y , oWall) && place_meeting(x, y , oEnemyParent) {
 
 // oHitbox -> Collision Event with oEnemy
 if (other.health_points != undefined && !other.wasHit && isDamaging) {
-	audio_play_sound(snd_hit,0,false);
+	if (other.isAlive) {
+		audio_play_sound(snd_hit,0,false);
+		part_emitter_region(global.particleSystem, emiter, other.x - 4 + other.image_xscale * 4, other.x + 4 + other.image_xscale * 4, other.bbox_top + 4, other.bbox_bottom - 4, ps_shape_ellipse, ps_distr_invgaussian);
+		part_emitter_burst(global.particleSystem, emiter, oGlobal.hitParticleType, 200);
+	}
     other.health_points -= 5;  // Zadaj obrażenia przeciwnikowi]
 	other.wasHit = true;
     //show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));

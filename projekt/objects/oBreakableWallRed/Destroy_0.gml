@@ -4,4 +4,4 @@ part_emitter_burst(global.particleSystem, emitter, oGlobal.destructionParticleTy
 audio_play_sound(snd_wall_destroy, 0, false);		
 part_emitter_destroy(global.particleSystem, emitter);
 
-shakeCamera(12, 6, true);
+shakeCamera(15, 1.8, 0.6);

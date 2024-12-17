@@ -12,6 +12,25 @@ persistent = true;
 global.particleSystem = part_system_create();
 
 {
+
+hitParticleType = part_type_create();
+
+part_type_sprite(hitParticleType, sParticleFallingWhite, 0, 0, 1);
+part_type_life(hitParticleType, 15, 35);
+part_type_size(hitParticleType, 1.2, 1.2, -0.02, 0);
+part_type_color1(hitParticleType, c_gray);
+part_type_orientation(hitParticleType, 0, 359, 0, 0, 0);
+part_type_direction(hitParticleType, 0, 359, 0, 1);
+part_type_speed(hitParticleType, 0.2, 0.4, -0.004, 0);		
+	
+slimeHitParticleType = part_type_create();
+
+part_type_sprite(slimeHitParticleType, sParticleSlime, 0, 0, 1);
+part_type_life(slimeHitParticleType, 25, 30);
+part_type_size(slimeHitParticleType, 1.2, 1.2, -0.01, 0);
+part_type_orientation(slimeHitParticleType, 0, 359, 0, 0, 0);
+part_type_direction(slimeHitParticleType, 0, 359, 0, 1);
+part_type_speed(slimeHitParticleType, 0.1, 0.4, -0.004, 0);	
 	
 slimeParticleType = part_type_create();
 
