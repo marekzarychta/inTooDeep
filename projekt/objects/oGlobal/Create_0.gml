@@ -186,7 +186,7 @@ part_type_alpha1(dashWhiteParticleType, 0.05);
 
 destructionParticleType = part_type_create();
 
-part_type_sprite(destructionParticleType, sParticleFalling, 0, 0, 1);
+part_type_sprite(destructionParticleType, sParticleDestruction, 0, 0, 1);
 part_type_life(destructionParticleType, 5, 10);
 part_type_size(destructionParticleType, 1, 1, 0.00, 0);
 part_type_orientation(destructionParticleType, 0, 359, 0, 0, 1);
