@@ -454,6 +454,7 @@ if (!isDashing) {
 			health_points = 0;
 		}
 		if (enemy.isAlive) {
+			audio_play_sound(snd_hit, 0, false);
 			enemy.flashAlpha = 0.8;
 			yspd = -2;
 		}
