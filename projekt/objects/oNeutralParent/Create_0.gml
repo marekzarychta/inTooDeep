@@ -1,3 +1,7 @@
+//Flash effect
+flashAlpha = 0;
+flashColor = c_white;
+
 // Knockback variables for getting hit
 knockback_x = 0;
 knockback_y = 0;

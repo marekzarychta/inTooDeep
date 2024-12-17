@@ -17,7 +17,7 @@ function setOnGround(_val = true){
 }
 
 
-
+	
 
 if(debug_mode){
 getControls();
@@ -47,7 +47,7 @@ if (noclip) {
 		y+=yspd;
 }
 else{
-image_alpha = 1; // Normalny wygląd
+	image_alpha = 1; // Normalny wygląd
 }
 if isAlive {
 	
@@ -285,7 +285,7 @@ if (!isDashing) {
 	        if (b != noone) {
 	            if (currentWeightLevel >= required_weight) {
 	                with (b) {
-	                    instance_destroy();
+						instance_destroy();
 	                }
 	            } else if currentWeightLevel < required_weight {
 	                if (!instance_exists(oTextboxPlayer)) {
@@ -393,6 +393,8 @@ if (!isDashing) {
 	    }
 	
 	
+
+	
 	//If speed would exceed terminal velocity, cap it
 	if yspd > termVel {yspd = termVel; };
 	
@@ -452,6 +454,7 @@ if (!isDashing) {
 			health_points = 0;
 		}
 		if (enemy.isAlive) {
+			enemy.flashAlpha = 0.8;
 			yspd = -2;
 		}
 	}
@@ -675,6 +678,7 @@ if (!isDashing) {
 	//}
 	
 	if !isLadder && yspd == 0 && onGround && moveDir != 0 && dashKey && dashCooldownTimer <= 0 && !isDashing { //if player is on ground and dont touching ladder start dash
+		audio_play_sound(snd_dash,0,false);
 		xspdTemp = xspd;
 		dashTimer = dashBuffer;
 	}

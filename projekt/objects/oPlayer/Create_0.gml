@@ -1,3 +1,7 @@
+//flashing effects
+flashAlpha = 0;
+flashColor = c_red;
+
 //hitbox_delay = 0;
 //backpack object
 k = 0;

@@ -7,5 +7,6 @@ if(!audio_is_playing(snd_slime_hit)) {
 	part_emitter_burst(global.particleSystem, emiterLeft, oGlobal.slimeParticleType, 80);
 	part_emitter_burst(global.particleSystem, emiterLeft, oGlobal.slimeRightParticleType, 80);
 }
+flashAlpha = 0.8;
 stunned = true;
 stun_duration = room_speed * 5; // Stun for 5 seconds
