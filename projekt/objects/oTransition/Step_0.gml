@@ -3,7 +3,7 @@ if (fade_out) {
     if (alpha >= 1) {
         alpha = 1;
         // Po zakończeniu przejścia załaduj kolejny poziom
-        if (room_get_name(room) != "demo2") room_goto_next(); // lub room_goto(room_name)
+        if (room_get_name(room) != "demo3") room_goto_next(); // lub room_goto(room_name)
 		else {
 			instance_destroy(oGlobal);
 			room_goto(0);
