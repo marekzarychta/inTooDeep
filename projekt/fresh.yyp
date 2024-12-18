@@ -100,6 +100,7 @@
     {"id":{"name":"oButtonTemplate","path":"objects/oButtonTemplate/oButtonTemplate.yy",},},
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},},
     {"id":{"name":"oCart","path":"objects/oCart/oCart.yy",},},
+    {"id":{"name":"oCheckpoint","path":"objects/oCheckpoint/oCheckpoint.yy",},},
     {"id":{"name":"oChest","path":"objects/oChest/oChest.yy",},},
     {"id":{"name":"oCoin","path":"objects/oCoin/oCoin.yy",},},
     {"id":{"name":"oDashCooldownBar","path":"objects/oDashCooldownBar/oDashCooldownBar.yy",},},

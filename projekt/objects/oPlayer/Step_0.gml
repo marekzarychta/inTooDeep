@@ -962,15 +962,22 @@ if (!isDashing) {
 	image_index = image_number - 1;
 }
 
-if reviveTimer == 0 && !isAlive {
-	reviveTimer = reviveBuffer;	
-}
+	if reviveTimer == 0 && !isAlive {
+		reviveTimer = reviveBuffer;	
+		if (instance_exists(transition)) {
+			instance_destroy(transition);	
+		}
+		transition = instance_create_layer(x, y, layer, oTransition);
+		transition.nextRoom = false;
+		transition.fade_out = true;
+	
+	}
 
-if reviveTimer > 0 && !isAlive {
-	reviveTimer--;
-	if reviveTimer == 0 {
-		event_perform(ev_keypress, vk_enter);	
-	}	
-}
+	if reviveTimer > 0 && !isAlive {
+		reviveTimer--;
+		if reviveTimer == 0 {
+			event_perform(ev_keypress, vk_enter);	
+		}	
+	}
 }
 

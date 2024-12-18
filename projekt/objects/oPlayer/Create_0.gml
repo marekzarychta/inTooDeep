@@ -6,6 +6,9 @@ flashColor = c_red;
 //backpack object
 k = 0;
 
+lastCheckpoint = noone;
+transition = noone;
+
 function checkForSemiSolid(_x, _y) {
 	var _rtrn = noone;
 	
@@ -52,7 +55,7 @@ emitterhandR = part_emitter_create(global.particleSystem);
 
 
 reviveTimer = 0;
-reviveBuffer = 200;
+reviveBuffer = 100;
 
 //Health
 SetHP();

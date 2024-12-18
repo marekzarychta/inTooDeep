@@ -24,8 +24,8 @@ if (!layer_exists("Popups")) {
 
 ds_list_clear(inventory.inventory);
 ds_list_clear(global.lista)
-if (layer_exists("Player"))
-	part_system_depth(global.particleSystem, layer_get_depth("Player") + 105);
+if (layer_exists("Player_below"))
+	part_system_depth(global.particleSystem, layer_get_depth("Player_below") + 105);
 
 if (instance_exists(interface)) {
 	instance_destroy(interface);	
