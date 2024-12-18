@@ -36,10 +36,11 @@ if instance_exists(oPlayer) {
 	_camX = midX - _camWidth / 2;
 	_camY = midY - _camHeight / 2;
 	
-	if (!shaking) {
-		_camX = clamp(_camX, leftEdge, rightEdgeX);
-		_camY = clamp(_camY, leftEdge, rightEdgeY);
-	}
+	
+	_camX = clamp(_camX, leftEdge, rightEdgeX);
+	_camY = clamp(_camY, leftEdge, rightEdgeY);
+		
+
 	
 	camera_set_view_pos(view_camera[0], _camX, _camY);	
 }

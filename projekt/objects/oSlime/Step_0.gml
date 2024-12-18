@@ -24,7 +24,7 @@ var bottom_offsets = [
     -7, // Klatka 7
     2, // Klatka 8
     3,  // Klatka 9
-    -2  // Klatka 10
+    2  // Klatka 10
 ];
 
 // Ustawienie przesunięcia dolnej krawędzi
@@ -39,7 +39,15 @@ if(sprite_index == sprites[1]){
 			if(oPlayer.yspd>0){
 		        // Play bounce sound
 				audio_play_sound(snd_bounce, 0, false);
-				part_emitter_region(global.particleSystem, emiterLeft,x - 4, x + 4, bbox_top, bbox_bottom - 16, ps_shape_ellipse, ps_distr_invgaussian);
+				if (!stunned) {
+					if (floor(image_index) != 9) {
+						part_emitter_region(global.particleSystem, emiterLeft,x - 4, x + 4, bbox_top + bottom_offsets[floor(image_index) + 1] - 1, bbox_top + bottom_offsets[floor(image_index) + 1] - 1, ps_shape_rectangle, ps_distr_invgaussian);
+					} else {
+						part_emitter_region(global.particleSystem, emiterLeft,x - 4, x + 4, bbox_top + bottom_offsets[0] - 1, bbox_top + bottom_offsets[0] - 1, ps_shape_rectangle, ps_distr_invgaussian);
+					} 
+				} else {
+					part_emitter_region(global.particleSystem, emiterLeft,x - 4, x + 4, bbox_top - 1, bbox_top - 1, ps_shape_rectangle, ps_distr_invgaussian);
+				}
 				part_emitter_burst(global.particleSystem, emiterLeft, oGlobal.slimeParticleType, 80);
 				part_emitter_burst(global.particleSystem, emiterLeft, oGlobal.slimeRightParticleType, 80);
 		        oPlayer.yspd = -2.5 + -2.5*(oPlayer.currentWeightLevel); // Adjust the value as needed for trampoline effect
