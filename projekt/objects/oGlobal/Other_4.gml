@@ -43,3 +43,5 @@ var transition = instance_create_layer(x, y, oGlobal.layer, oTransition);
 	if(layer_exists("Collision")){
 		layer_set_visible("Collision",false);
 	}
+
+instance_create_layer(x,y,layer,oParallax);

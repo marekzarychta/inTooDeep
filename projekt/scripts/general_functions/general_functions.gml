@@ -11,6 +11,10 @@ function toGold() {
 	}
 }
 
+function grunt(){
+	audio_play_sound(snd_grunt,0,false);
+}
+
 function controlsSetup() {
     bufferTime = 5;
 
