@@ -2,7 +2,7 @@ if (!wasPlayed) {
 	show_debug_message(string(oCamera.changing));
 	//sprawdzanie kolizji z graczem, aby aktywowac pokazanie
 	if ((place_meeting(x, y, oPlayer) || condition) && goToPlaceTimer == 0 && backToPlayerTimer == 0) {
-		oPlayer.isActive = false;
+		blockControls(true);
 		oCamera.changing = false; 
 		
 		//stworzenie instancji cutscenki
@@ -43,7 +43,7 @@ if (!wasPlayed) {
 		if (backToPlayerTimer == 0) {
 			wasPlayed = true;
 			oCamera.changing = true;
-			oPlayer.isActive = true;
+			blockControls(false);
 			oCamera.midX = oPlayer.x;
 			oCamera.midY = oPlayer.y;
 			instance_destroy();

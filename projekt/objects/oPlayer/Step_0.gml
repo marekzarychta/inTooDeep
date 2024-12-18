@@ -71,7 +71,7 @@ if oInventoryUI.opened { blockControls(true);
 		show_debug_message("receiving inputs");
 	}
 	
-	if isActive getControls();
+	getControls();
 	
 	
 	if (attackCooldownTimer > 0) {
