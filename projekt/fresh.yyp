@@ -82,7 +82,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.11.0.179",
   },
   "name":"fresh",
   "resources":[
@@ -306,6 +306,7 @@
     {"id":{"name":"TileSet5","path":"tilesets/TileSet5/TileSet5.yy",},},
     {"id":{"name":"TileSet6","path":"tilesets/TileSet6/TileSet6.yy",},},
     {"id":{"name":"TileSet7","path":"tilesets/TileSet7/TileSet7.yy",},},
+    {"id":{"name":"TileSet8","path":"tilesets/TileSet8/TileSet8.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

@@ -3,7 +3,7 @@
   "%Name":"sTileset5",
   "bboxMode":0,
   "bbox_bottom":79,
-  "bbox_left":1,
+  "bbox_left":3,
   "bbox_right":175,
   "bbox_top":0,
   "collisionKind":1,
