@@ -147,16 +147,19 @@ function load(state) {
         instance_destroy();
     }
 	with (oChest) {
-        instance_destroy();
+		if (!object_is_ancestor(id.object_index, oChest))
+			instance_destroy();
     }
 	with (oItemTemplate) {
         instance_destroy();
     }
 	with (oBox) {
-		instance_destroy();	
+		if (!object_is_ancestor(id.object_index, oBox))
+			instance_destroy();
 	}
 	with (oCart) {
-		instance_destroy();	
+		if (!object_is_ancestor(id.object_index, oCart))
+			instance_destroy();
 	}
 	with (oDoor) {
 		instance_destroy();	
