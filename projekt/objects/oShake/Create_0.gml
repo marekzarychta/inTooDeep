@@ -1,8 +1,8 @@
 if (oCamera.shaking) {
 	oCamera.changing = true;	
-	
+	var my_id = id;
     with (oShake) {
-        if (id != self.id) { // Sprawdzamy, czy to nie jest ta sama instancja
+        if (id != my_id) {
             instance_destroy();
         }
     }
