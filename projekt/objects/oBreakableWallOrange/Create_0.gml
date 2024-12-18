@@ -10,3 +10,5 @@ value = 0;
 name = "";
 
 inv_sprite = sSpriteTemplete;
+
+emitter = part_emitter_create(global.particleSystem);
