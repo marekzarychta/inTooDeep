@@ -12,3 +12,12 @@ cutSceneInstance = noone;
 
 velGo = 0;
 velBack = 0;
+
+if (oCamera.shaking) {
+	oCamera.changing = true;	
+	oCamera.shaking = false;
+	
+    with (oShake) {
+        instance_destroy();
+    }
+}

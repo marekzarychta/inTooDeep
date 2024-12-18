@@ -1,15 +1,14 @@
-//startX = oCamera.midX;
-//startY = oCamera.midY;
+if (oCamera.shaking) {
+	oCamera.changing = true;	
+	
+    with (oShake) {
+        if (id != self.id) { // Sprawdzamy, czy to nie jest ta sama instancja
+            instance_destroy();
+        }
+    }
+}
 
-//oCamera.changing = false;
 oCamera.shaking = true;
-
-//_vertically = true;
-//vel = 1;
-//range = 6;
-//counter = 0;
-//maxCounter = 4;
-
 
 
 shake_time = 0;
