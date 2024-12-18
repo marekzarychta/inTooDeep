@@ -5,6 +5,7 @@ grid_y = 0;
 
 choosen = false;
 
+name = "test";
 weight = 0;
 item_value = 0;
 name = "";
