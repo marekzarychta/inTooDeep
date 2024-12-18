@@ -8,19 +8,16 @@
     "TileSerialiseData":[],
   },
   "name":"TileSet8",
-  "out_columns":20,
+  "out_columns":0,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
-    "name":"Tile Sets",
-    "path":"folders/Tile Sets.yy",
+    "name":"breakable",
+    "path":"folders/Objects/terrain/breakable.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
-  "spriteId":{
-    "name":"sTileset6",
-    "path":"sprites/sTileset6/sTileset6.yy",
-  },
+  "spriteId":null,
   "spriteNoExport":false,
   "textureGroupId":{
     "name":"Default",
@@ -34,5 +31,5 @@
   "tileWidth":16,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":400,
+  "tile_count":0,
 }
