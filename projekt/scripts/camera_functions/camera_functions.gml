@@ -1,6 +1,7 @@
 function instantCameraMoveToPos(_x, _y) {
 	oCamera.midX = _x;
 	oCamera.midY = _y;
+
 }
 
 function shakeCamera(_time, _magnitude, _fade/*_range, _vel, _vertically*/) {

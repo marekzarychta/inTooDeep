@@ -4,5 +4,5 @@ part_emitter_burst(global.particleSystem, emitter, oGlobal.destructionParticleTy
 
 part_emitter_destroy(global.particleSystem, emitter);
 
-shakeCamera(18, 2, 0.5);
+
 

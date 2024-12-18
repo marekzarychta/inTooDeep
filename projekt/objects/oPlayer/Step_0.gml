@@ -289,6 +289,7 @@ if (!isDashing) {
 	            if (currentWeightLevel >= required_weight) {
 	                with (b) {
 						audio_play_sound(snd_wall_destroy, 0, false);
+						shakeCamera(18, 2.5, 0.5);
 						instance_destroy();
 	                }
 	            } else if currentWeightLevel < required_weight {
@@ -491,6 +492,7 @@ if (!isDashing) {
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
 					audio_play_sound(snd_wall_destroy, 0, false);
+					shakeCamera(18, 2.5, 0.5);
 	                instance_destroy();
 	            }
 	        }
@@ -500,6 +502,7 @@ if (!isDashing) {
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
 					audio_play_sound(snd_wall_destroy, 0, false);
+					shakeCamera(18, 2.5, 0.5);
 	                instance_destroy();
 	            }
 	        }
@@ -989,3 +992,5 @@ if (!isDashing) {
 
 }
 
+		show_debug_message(string(oCamera.midX));
+		show_debug_message(string(oCamera.midY));
