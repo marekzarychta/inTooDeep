@@ -288,8 +288,7 @@ if (!isDashing) {
 	        if (b != noone) {
 	            if (currentWeightLevel >= required_weight) {
 	                with (b) {
-						audio_play_sound(snd_wall_destroy, 0, false);
-						shakeCamera(18, 2.5, 0.5);
+						emittingDestruction(b.object_index == oBreakableWallOrange ? 75 : 100, b.id);
 						instance_destroy();
 	                }
 	            } else if currentWeightLevel < required_weight {
@@ -491,8 +490,7 @@ if (!isDashing) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
-					audio_play_sound(snd_wall_destroy, 0, false);
-					shakeCamera(18, 2.5, 0.5);
+					emittingDestruction(75, id);
 	                instance_destroy();
 	            }
 	        }
@@ -501,8 +499,7 @@ if (!isDashing) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
-					audio_play_sound(snd_wall_destroy, 0, false);
-					shakeCamera(18, 2.5, 0.5);
+					emittingDestruction(100, id);
 	                instance_destroy();
 	            }
 	        }
@@ -902,12 +899,9 @@ if (!isDashing) {
 					
 					}
 					
-					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 300);
-				   
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 300);			   
 					part_emitter_burst(global.particleSystem, emitterhandL, oGlobal.fallParticleType, 50 * lifeMultiplier);
 					part_emitter_burst(global.particleSystem, emitterhandR, oGlobal.fallParticleType, 50 * lifeMultiplier);
-					
-					
 					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 300);
 					
 				} 

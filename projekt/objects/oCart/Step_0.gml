@@ -97,6 +97,7 @@ if (onTracks) {
 	        if (mass >= weightChangeValue[1] && abs(xspd) > 1) {
 	            with (b) {
 	                instance_destroy();
+					emittingDestruction(75, b.id)
 	            }
 	        } else {
 				moveDir *= -1;
@@ -117,6 +118,7 @@ if (onTracks) {
 	        if (mass >= weightChangeValue[2] && abs(xspd) > 1) {
 	            with (b) {
 	                instance_destroy();
+					emittingDestruction(100, b.id)
 	            }
 	        } else {
 				moveDir *= -1;

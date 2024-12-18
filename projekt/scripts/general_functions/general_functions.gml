@@ -1,3 +1,15 @@
+function emittingDestruction(_howMany, _id) {
+	part_emitter_region(global.particleSystem, emitter, _id.bbox_left , _id.bbox_right, _id.bbox_top, _id.bbox_bottom, ps_shape_rectangle, ps_distr_invgaussian);
+	//part_type_color1(oGlobal.destructionParticleType, c_red);
+	part_emitter_burst(global.particleSystem, emitter, oGlobal.destructionParticleType, _howMany * _id.image_xscale * _id.image_yscale);
+		
+	part_emitter_destroy(global.particleSystem, emitter);
+	audio_play_sound(snd_wall_destroy, 0, false);
+	shakeCamera(18, 2.5, 0.5);
+
+
+}
+
 function save() {
 	var state = ds_list_create();
 	
