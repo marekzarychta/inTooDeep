@@ -60,17 +60,20 @@ if isAlive {
 		xspd = xspdTemp;
 	}
 
-	//Get inputs
-	if !oInventory.opened && isActive 
-	{
-		getControls();
-		
-	}
-	else {
-		rightKey = 0;	
-		leftKey = 0;	
-	}
 
+if oInventoryUI.opened { blockControls(true);
+	xspd = smooth(xspd, 0, 0.92);	// Zatrzymaj ruch w bok
+	// Wyzerowanie poprzednich inputów
+	rightKey = 0; leftKey = 0; upKey = 0; downKey = 0; axisX = 0; axisY = 0;
+	}
+	else{
+		blockControls(false);
+		show_debug_message("receiving inputs");
+	}
+	
+	if isActive getControls();
+	
+	
 	if (attackCooldownTimer > 0) {
 		attackCooldownTimer--;
 	

@@ -119,6 +119,7 @@
     {"id":{"name":"oInvButtonDrop","path":"objects/oInvButtonDrop/oInvButtonDrop.yy",},},
     {"id":{"name":"oInvButtonMove","path":"objects/oInvButtonMove/oInvButtonMove.yy",},},
     {"id":{"name":"oInventory","path":"objects/oInventory/oInventory.yy",},},
+    {"id":{"name":"oInventoryUI","path":"objects/oInventoryUI/oInventoryUI.yy",},},
     {"id":{"name":"oItemTemplate","path":"objects/oItemTemplate/oItemTemplate.yy",},},
     {"id":{"name":"oLadder","path":"objects/oLadder/oLadder.yy",},},
     {"id":{"name":"oLogicalWall","path":"objects/oLogicalWall/oLogicalWall.yy",},},
