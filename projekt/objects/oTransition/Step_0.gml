@@ -10,6 +10,7 @@ if (fade_out) {
 				if (debug_mode) show_debug_message("tak");
 				room_goto(0);
 			}
+			toGold();
 		}
         fade_out = false;
     }

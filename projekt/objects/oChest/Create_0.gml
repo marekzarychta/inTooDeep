@@ -8,3 +8,4 @@ closedSprite = sChest;
 openedSprite = sChestOpen;
 markSprite = sChestMarked;
 
+textBoxInstance = noone;

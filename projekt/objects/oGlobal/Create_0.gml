@@ -8,6 +8,7 @@ interface = noone;
 camera = noone;
 persistent = true;
 
+importantObjects = [oInventory, oChest, oItemTemplate, oBox, oCart, oBreakableWallOrange, oBreakableWallRed, oDoor, oDoorButton]; 
 
 global.particleSystem = part_system_create();
 

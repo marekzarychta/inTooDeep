@@ -68,7 +68,7 @@ if oInventoryUI.opened { blockControls(true);
 	}
 	else{
 		blockControls(false);
-		show_debug_message("receiving inputs");
+		//show_debug_message("receiving inputs");
 	}
 	
 	getControls();
@@ -288,6 +288,7 @@ if (!isDashing) {
 	        if (b != noone) {
 	            if (currentWeightLevel >= required_weight) {
 	                with (b) {
+						audio_play_sound(snd_wall_destroy, 0, false);
 						instance_destroy();
 	                }
 	            } else if currentWeightLevel < required_weight {
@@ -489,6 +490,7 @@ if (!isDashing) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
+					audio_play_sound(snd_wall_destroy, 0, false);
 	                instance_destroy();
 	            }
 	        }
@@ -497,6 +499,7 @@ if (!isDashing) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
+					audio_play_sound(snd_wall_destroy, 0, false);
 	                instance_destroy();
 	            }
 	        }
@@ -978,9 +981,11 @@ if (!isDashing) {
 
 	if reviveTimer > 0 && !isAlive {
 		reviveTimer--;
-		if reviveTimer == 0 {
+		if reviveTimer == 0  {
 			event_perform(ev_keypress, vk_enter);	
 		}	
+
 	}
+
 }
 

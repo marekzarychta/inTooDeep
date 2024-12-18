@@ -1,3 +1,257 @@
+function save() {
+	var state = ds_list_create();
+	
+	
+	var obj_data = ds_map_create();
+	ds_map_add(obj_data, "count", ds_list_size(oGlobal.inventory.inventory));
+	ds_list_add(state, obj_data);	
+	
+	
+	
+	obj_data = ds_map_create();
+	ds_map_add(obj_data, "count", ds_list_size(global.lista));
+	ds_list_add(state, obj_data);	
+	
+	
+	with (oEnemyParent) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "layer", layer);
+		ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+        ds_map_add(obj_data, "health_points", health_points); 
+        ds_map_add(obj_data, "isAlive", isAlive);
+
+        ds_list_add(state, obj_data);
+		show_debug_message("enemy");
+	}
+	
+	with (oChest) {
+		if (!object_is_ancestor(id.object_index, oChest)) {
+			obj_data = ds_map_create();
+        
+	        ds_map_add(obj_data, "object_index", object_index);
+	        ds_map_add(obj_data, "x", x);
+	        ds_map_add(obj_data, "y", y)
+	        ds_map_add(obj_data, "layer", layer);
+	        ds_map_add(obj_data, "imagex", image_xscale);
+	        ds_map_add(obj_data, "imagey", image_yscale);
+	        ds_map_add(obj_data, "contents", contents); 
+	        ds_map_add(obj_data, "opened", opened);
+
+	        ds_list_add(state, obj_data);	
+			show_debug_message("chest");
+		}
+	}
+	
+	with (oBox) {
+		if (!object_is_ancestor(id.object_index, oBox)) {
+			obj_data = ds_map_create();
+        
+	        ds_map_add(obj_data, "object_index", object_index);
+	        ds_map_add(obj_data, "x", x);
+	        ds_map_add(obj_data, "y", y)
+	        ds_map_add(obj_data, "layer", layer);
+	        ds_map_add(obj_data, "imagex", image_xscale);
+	        ds_map_add(obj_data, "imagey", image_yscale);
+
+	        ds_list_add(state, obj_data);	
+			show_debug_message("box");
+		}
+	}
+	
+	with (oCart) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y - 1); // troche wyzej, zeby na pewno jezdzil na torach
+        ds_map_add(obj_data, "layer", layer);
+        ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+		ds_map_add(obj_data, "count", ds_list_size(content)); 
+
+        ds_list_add(state, obj_data);	
+		show_debug_message("cart");
+	}
+	
+	with (oItemTemplate) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "layer", layer);
+        ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+        ds_map_add(obj_data, "item_value", item_value); 
+        ds_map_add(obj_data, "in_inventory", in_inventory);
+
+        ds_list_add(state, obj_data);	
+		show_debug_message("coins");
+	}
+	
+	with (oDoorButton) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "layer", layer);
+        ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+        ds_map_add(obj_data, "doorX", target.x); 
+        ds_map_add(obj_data, "doorY", target.y);
+		ds_map_add(obj_data, "opened", target.opened);
+		ds_map_add(obj_data, "clicked", clicked);
+		ds_map_add(obj_data, "clickable", clickable);
+		ds_map_add(obj_data, "cutscene", cutScene);
+
+        ds_list_add(state, obj_data);
+		show_debug_message("doors && buttons");
+	}
+	
+	with (oBreakableWallOrange) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "layer", layer);
+        ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+		ds_list_add(state, obj_data);
+	}
+	
+	with (oBreakableWallRed) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "layer", layer);
+        ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+		ds_list_add(state, obj_data);
+	}
+	
+	return state;
+}
+
+function load(state) {
+	//czyszczenie mapki z obiektów, które zostaną ponownie stworzone z nowymi zmiennymi 
+    with (oEnemyParent) {
+        instance_destroy();
+    }
+	with (oChest) {
+        instance_destroy();
+    }
+	with (oItemTemplate) {
+        instance_destroy();
+    }
+	with (oBox) {
+		instance_destroy();	
+	}
+	with (oCart) {
+		instance_destroy();	
+	}
+	with (oDoor) {
+		instance_destroy();	
+	}	
+	with (oDoorButton) {
+		instance_destroy();	
+	}
+	with (oBreakableWallRed) {
+		instance_destroy();	
+	}
+
+	with (oBreakableWallOrange) {
+		instance_destroy();	
+	}
+
+	ds_list_clear(oGlobal.inventory.inventory);
+	ds_list_clear(global.lista);
+	
+	var inv =  ds_map_find_value(ds_list_find_value(state, 0), "count");
+	var glob =  ds_map_find_value(ds_list_find_value(state, 1), "count");
+	var carts = ds_list_create();
+	var counter = 0;
+
+	//index 2, bo pierwsze 2 są zajęte przez listy trzymania itemków
+    for (var i = 2; i < ds_list_size(state); i++) {
+        var obj_data = ds_list_find_value(state, i);
+        
+        // Stwórz nową instancję obiektu na właściwej warstwie
+        var new_instance = instance_create_layer(
+            ds_map_find_value(obj_data, "x"),
+            ds_map_find_value(obj_data, "y"),
+            ds_map_find_value(obj_data, "layer"),
+            ds_map_find_value(obj_data, "object_index")
+        );
+		
+		new_instance.image_xscale = ds_map_find_value(obj_data, "imagex");
+		new_instance.image_yscale = ds_map_find_value(obj_data, "imagey");
+
+		if (object_is_ancestor(new_instance.object_index, oEnemyParent)) {
+			new_instance.health_points = ds_map_find_value(obj_data, "health_points");
+			new_instance.isAlive = ds_map_find_value(obj_data, "isAlive");
+		}
+		if (new_instance.object_index == oChest) {
+			new_instance.contents = ds_map_find_value(obj_data, "contents");	
+			new_instance.opened = ds_map_find_value(obj_data, "opened");	
+		}
+		if (object_is_ancestor(new_instance.object_index, oItemTemplate)) {
+			new_instance.item_value = ds_map_find_value(obj_data, "item_value");
+			new_instance.in_inventory = ds_map_find_value(obj_data, "in_inventory");
+			if (new_instance.in_inventory) {
+				if (inv != 0) {
+					ds_list_add(oGlobal.inventory.inventory, new_instance);
+					inv--;
+				} else if (glob != 0) {
+					ds_list_add(global.lista, new_instance);
+					glob--;
+				} else if (ds_list_size(carts) > counter ) {
+					
+					var needCart = ds_list_find_value(carts, counter);
+					while (ds_list_find_value(needCart, 1) == 0 && counter < ds_list_size(carts)) {
+						counter++;
+						needCart = ds_list_find_value(carts, counter);
+					}
+					
+					if (ds_list_find_value(needCart, 1) != 0) {
+						ds_list_add(ds_list_find_value(needCart, 0).content, new_instance);
+						ds_list_replace(needCart, 1, ds_list_find_value(needCart, 1) - 1);
+					}
+				}
+			}
+		}
+		if (new_instance.object_index == oCart) {
+			var c = ds_map_find_value(obj_data, "count");
+			var cart = ds_list_create();
+			ds_list_add(cart, new_instance.id);
+			ds_list_add(cart, c);
+			ds_list_add(carts, cart);
+			
+		}
+		if (new_instance.object_index == oDoorButton) {
+			
+			new_instance.target.x = ds_map_find_value(obj_data, "doorX"); 
+	        new_instance.target.y = ds_map_find_value(obj_data, "doorY");
+			new_instance.doorX = new_instance.target.x;
+			new_instance.doorY = new_instance.target.y;
+			new_instance.cutScene = ds_map_find_value(obj_data, "cutscene");
+			new_instance.target.opened =ds_map_find_value(obj_data, "opened");
+			new_instance.clicked = ds_map_find_value(obj_data, "clicked");
+			new_instance.clickable = ds_map_find_value(obj_data, "clickable");
+
+			
+		}
+    }
+}
+
 function toGold() {
 	var size = ds_list_size(oInventory.inventory);
 	for (var i = 0; i < size; i++) {

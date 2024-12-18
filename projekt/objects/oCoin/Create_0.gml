@@ -32,7 +32,7 @@ grid_y = 6;
 choosen = false;
 
 weight = 2;
-item_value = irandom_range(5, 20);
+item_value = 12;
 name = "TestCoin";
 
 inv_sprite = sItem;
