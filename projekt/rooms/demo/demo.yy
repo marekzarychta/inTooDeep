@@ -137,6 +137,7 @@
     {"name":"inst_71ED32C4","path":"rooms/demo/demo.yy",},
     {"name":"inst_70517801","path":"rooms/demo/demo.yy",},
     {"name":"inst_16DF682F","path":"rooms/demo/demo.yy",},
+    {"name":"inst_5A4470EB","path":"rooms/demo/demo.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -239,6 +240,7 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oDoorButton","path":"objects/oDoorButton/oDoorButton.yy",},"propertyId":{"name":"doorY","path":"objects/oDoorButton/oDoorButton.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"400",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":328.0,"y":656.0,},
         {"$GMRInstance":"v1","%Name":"inst_2DAF30CF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2DAF30CF","objectId":{"name":"oLadder","path":"objects/oLadder/oLadder.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":3.0,"x":336.0,"y":528.0,},
+        {"$GMRInstance":"v1","%Name":"inst_5A4470EB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5A4470EB","objectId":{"name":"oCheckpoint","path":"objects/oCheckpoint/oCheckpoint.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":104.0,"y":240.0,},
       ],"layers":[],"name":"Interactive","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Collision","depth":1200,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_6A5B9654","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6A5B9654","objectId":{"name":"oWall","path":"objects/oWall/oWall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":10.0,"scaleY":1.0,"x":32.0,"y":256.0,},
