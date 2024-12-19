@@ -21,7 +21,7 @@ function slowCameraMoveToPos(_x, _y, vel) {
 	var dx = _x - oCamera.midX;
 	var dy = _y - oCamera.midY;
 	
-	show_debug_message(string(vel) + " " + string(dy))
+	//show_debug_message(string(vel) + " " + string(dy))
 	
 	var len = sqrt(dx * dx + dy * dy);
 	

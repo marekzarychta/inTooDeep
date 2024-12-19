@@ -1,12 +1,21 @@
 openable = false;
 marked = false;
+prevMarked = false;
+animating = false;
+markedChange = false;
 
+_i = -1;
 //Sprites
 
 closedSprite = sDepositEmpty;
 markSprite = sDepositEmptyMarked;
 fullSprite = sDepositFull;
 markSpriteFull = sDepositFullMarked;
+
+rangeSprite = sDepositMoveEmpty;
+rangeSpriteFull = sDepositMoveFull;
+
+outRangeSprite = sDepositTunnel;
 
 bagWeight = 0;
 
@@ -27,5 +36,7 @@ dragging_index = -1;
 
 current_slot = 0;
 but1Dep = noone;
+
+
 
 

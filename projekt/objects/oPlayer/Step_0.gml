@@ -179,7 +179,7 @@ if (sprite_index == sPlayerWalk && xspd != 0) {
 	    
 		//Checking if chest is in range
 		
-	    if (abs(other.x - x) <= horizontalRange  && abs(other.y - y) <= 2) {
+	    if (abs(other.x - x) <= horizontalRange  && abs(other.y - y) <= horizontalRange) {
 	        // Adding chest to array
 	        array_push(cratesInRange, id);
 	    }
@@ -991,5 +991,5 @@ if (!isDashing) {
 
 }
 
-		show_debug_message(string(oCamera.midX));
-		show_debug_message(string(oCamera.midY));
+		//show_debug_message(string(oCamera.midX));
+		//show_debug_message(string(oCamera.midY));
