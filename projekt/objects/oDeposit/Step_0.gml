@@ -64,7 +64,7 @@ if (!markedChange) {
 
 //w zasiegu - animacja
 if ds_list_size(global.lista) > 0 && (sprite_index == outRangeSprite && marked || markedChange && sprite_index == rangeSpriteFull && image_speed < 0) {
-
+	audio_play_sound(snd_deposit_arrive,0,false);
 	sprite_index = rangeSpriteFull;	
 	if (markedChange && sprite_index == rangeSpriteFull && _i != -1) {
 		image_index	= _i;
@@ -73,17 +73,19 @@ if ds_list_size(global.lista) > 0 && (sprite_index == outRangeSprite && marked |
 	animating = true;
 	
 } else if ds_list_size(global.lista) > 0 && (sprite_index == fullSprite && !marked || markedChange && sprite_index == rangeSpriteFull  && image_speed > 0) {
-
 	sprite_index = rangeSpriteFull;	
 	image_index = image_number - 1;
 	if (markedChange && sprite_index == rangeSpriteFull  && _i != -1) {
+
 		image_index	= _i;
 	}
+		audio_stop_sound(snd_deposit_arrive);
+		audio_play_sound(snd_deposit_leave,0,false);
 	image_speed = -abs(image_speed);
 	animating = true;
 	
 } else if ds_list_size(global.lista) == 0 && (sprite_index == outRangeSprite && marked || markedChange && sprite_index == rangeSprite && image_speed < 0) {
-
+	audio_play_sound(snd_deposit_arrive,0,false);
 	sprite_index = rangeSprite;	
 	if (markedChange && sprite_index == rangeSprite  && _i != -1) {
 		image_index	= _i;
@@ -92,12 +94,13 @@ if ds_list_size(global.lista) > 0 && (sprite_index == outRangeSprite && marked |
 	animating = true;
 } else if ds_list_size(global.lista) == 0 && (sprite_index == closedSprite && !marked || markedChange && sprite_index == rangeSprite && image_speed > 0) {
 
-
 	sprite_index = rangeSprite;	
 	image_index = image_number - 1;
 	if (markedChange && sprite_index == rangeSprite  && _i != -1) {
 		image_index	= _i;
 	}
+		audio_stop_sound(snd_deposit_arrive);
+		audio_play_sound(snd_deposit_leave,0,false);
 	image_speed = -abs(image_speed);
 	animating = true;
 }

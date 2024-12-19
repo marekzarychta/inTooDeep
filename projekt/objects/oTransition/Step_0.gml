@@ -13,7 +13,6 @@ if (fade_out) {
 				
 				room_goto(przejscie);
 			}
-			
 		}
         fade_out = false;
     }
