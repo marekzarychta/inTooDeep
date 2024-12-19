@@ -90,7 +90,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.11.0.179",
   },
   "name":"fresh",
   "resources":[
@@ -298,6 +298,7 @@
     {"id":{"name":"sKeyZ","path":"sprites/sKeyZ/sKeyZ.yy",},},
     {"id":{"name":"sLadder","path":"sprites/sLadder/sLadder.yy",},},
     {"id":{"name":"sLava","path":"sprites/sLava/sLava.yy",},},
+    {"id":{"name":"sLavaColors","path":"sprites/sLavaColors/sLavaColors.yy",},},
     {"id":{"name":"sLB","path":"sprites/sLB/sLB.yy",},},
     {"id":{"name":"sLogicalWall","path":"sprites/sLogicalWall/sLogicalWall.yy",},},
     {"id":{"name":"sLogo","path":"sprites/sLogo/sLogo.yy",},},
@@ -361,6 +362,7 @@
     {"id":{"name":"sWeightPoint","path":"sprites/sWeightPoint/sWeightPoint.yy",},},
     {"id":{"name":"sWeightPoint1","path":"sprites/sWeightPoint1/sWeightPoint1.yy",},},
     {"id":{"name":"sWeightPoint2","path":"sprites/sWeightPoint2/sWeightPoint2.yy",},},
+    {"id":{"name":"LavaColors","path":"tilesets/LavaColors/LavaColors.yy",},},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},},
     {"id":{"name":"TileSet10","path":"tilesets/TileSet10/TileSet10.yy",},},
     {"id":{"name":"TileSet12","path":"tilesets/TileSet12/TileSet12.yy",},},
