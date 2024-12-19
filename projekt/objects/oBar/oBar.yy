@@ -13,8 +13,8 @@
     "path":"folders/Objects/interactive.yy",
   },
   "parentObjectId":{
-    "name":"oCoin",
-    "path":"objects/oCoin/oCoin.yy",
+    "name":"oItemTemplate",
+    "path":"objects/oItemTemplate/oItemTemplate.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

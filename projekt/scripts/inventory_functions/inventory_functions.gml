@@ -546,7 +546,7 @@ function MarkItemDep(rootObject) {
 }
 
 function debugAdd() {
-    var newItem = instance_create_layer(0, 0, oPlayer.layer, oCoin);
+    var newItem = instance_create_layer(0, 0, oPlayer.layer, oBar);
     if newItem.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
         InventoryAdd(id, newItem);
     } else {

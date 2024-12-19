@@ -18,13 +18,13 @@ if (shake_time <= 0)
 	{ 
 		shaking = false;
 		if (!edge) {
-			slowCameraMoveToPos(oPlayer.x, oPlayer.y, 1);
+			slowCameraMoveToPos(oPlayer.x, oPlayer.y, 2);
 		} else {
 			instantCameraMoveToPos(oPlayer.x, oPlayer.y);	
 		}
 	    oCamera.changing = true;
 		oCamera.shaking = false;
-		if (abs(oPlayer.x - oCamera.midX) < 2 && abs(oPlayer.y - oCamera.midY) < 2) {
+		if (abs(oPlayer.x - oCamera.midX) < oCamera.boxSizeX - 1 && abs(oPlayer.y - oCamera.midY) < 2) {
 			instance_destroy();
 		}
 	} 
