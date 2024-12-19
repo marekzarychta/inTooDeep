@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"parallax",
-    "path":"folders/Sprites/parallax.yy",
+    "name":"blue",
+    "path":"folders/Sprites/parallax/blue.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
