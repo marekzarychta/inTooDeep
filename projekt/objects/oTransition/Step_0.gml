@@ -4,12 +4,14 @@ if (fade_out) {
         alpha = 1;
         // Po zakończeniu przejścia załaduj kolejny poziom
 		if (nextRoom) {
-			toGold();
-		    if (room_get_name(room) != "demo3") room_goto_next(); // lub room_goto(room_name)
-			else {
-				instance_destroy(oGlobal);
-				//if (debug_mode) show_debug_message("tak");
-				room_goto(0);
+		    if (room == Menu || room == initRoom) {
+				if (instance_exists(oGlobal)) {
+					oGlobal.roomCounter++;	
+				}
+				room_goto_next();
+			} else {
+				
+				room_goto(przejscie);
 			}
 			
 		}
