@@ -11,7 +11,6 @@ if (fade_out) {
 				//if (debug_mode) show_debug_message("tak");
 				room_goto(0);
 			}
-			
 		}
         fade_out = false;
     }
