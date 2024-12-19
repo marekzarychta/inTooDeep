@@ -24,8 +24,9 @@ if (shake_time <= 0)
 		}
 	    oCamera.changing = true;
 		oCamera.shaking = false;
-		if (abs(oPlayer.x - oCamera.midX) < 1 && abs(oPlayer.y - oCamera.midY) < 1)
+		if (abs(oPlayer.x - oCamera.midX) < 2 && abs(oPlayer.y - oCamera.midY) < 2) {
 			instance_destroy();
+		}
 	} 
 } 
 

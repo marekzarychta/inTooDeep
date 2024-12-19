@@ -68,6 +68,8 @@ if oInventoryUI.opened { blockControls(true);
 	}
 	else{
 		blockControls(false);
+		//show_debug_message("receiving inputs");
+
 	}
 	
 	getControls();
@@ -288,6 +290,7 @@ if (!isDashing) {
 	        if (b != noone) {
 	            if (currentWeightLevel >= required_weight) {
 	                with (b) {
+						emittingDestruction(b.object_index == oBreakableWallOrange ? 75 : 100, b.id);
 						instance_destroy();
 	                }
 	            } else if currentWeightLevel < required_weight {
@@ -491,6 +494,7 @@ if (!isDashing) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
+					emittingDestruction(75, id);
 	                instance_destroy();
 	            }
 	        }
@@ -499,6 +503,7 @@ if (!isDashing) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
+					emittingDestruction(100, id);
 	                instance_destroy();
 	            }
 	        }
@@ -898,12 +903,9 @@ if (!isDashing) {
 					
 					}
 					
-					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 300);
-				   
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.fallLeftParticleType, 300);			   
 					part_emitter_burst(global.particleSystem, emitterhandL, oGlobal.fallParticleType, 50 * lifeMultiplier);
 					part_emitter_burst(global.particleSystem, emitterhandR, oGlobal.fallParticleType, 50 * lifeMultiplier);
-					
-					
 					part_emitter_burst(global.particleSystem, emitterR, oGlobal.fallRightParticleType, 300);
 					
 				} 
@@ -981,9 +983,13 @@ if (!isDashing) {
 
 	if reviveTimer > 0 && !isAlive {
 		reviveTimer--;
-		if reviveTimer == 0 {
+		if reviveTimer == 0  {
 			event_perform(ev_keypress, vk_enter);	
 		}	
+
 	}
+
 }
 
+		show_debug_message(string(oCamera.midX));
+		show_debug_message(string(oCamera.midY));

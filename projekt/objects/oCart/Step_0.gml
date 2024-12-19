@@ -99,6 +99,7 @@ if (onTracks) {
 	        if (mass >= weightChangeValue[1] && abs(xspd) > 1) {
 	            with (b) {
 	                instance_destroy();
+					emittingDestruction(75, b.id)
 	            }
 	        } else {
 				moveDir *= -1;
@@ -119,6 +120,7 @@ if (onTracks) {
 	        if (mass >= weightChangeValue[2] && abs(xspd) > 1) {
 	            with (b) {
 	                instance_destroy();
+					emittingDestruction(100, b.id)
 	            }
 	        } else {
 				moveDir *= -1;
@@ -194,7 +196,8 @@ if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
 	onGround = false;
 }
 
-if(debug_mode) show_debug_message("moveTimer: "+string(moveTimer));
+if(debug_mode){} //show_debug_message("moveTimer: "+string(moveTimer))
+
 if ((xspd == 0 || moveTimer == moveBuffer) && blockadeInstance != noone) {
 	instance_destroy(blockadeInstance);	
 	moveDir = 0;

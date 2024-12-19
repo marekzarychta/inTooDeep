@@ -54,6 +54,7 @@ emitterhandL = part_emitter_create(global.particleSystem);
 emitterhandR = part_emitter_create(global.particleSystem);
 
 
+
 reviveTimer = 0;
 reviveBuffer = 100;
 
@@ -127,7 +128,7 @@ isInteracting = false;
 jumpHoldTimer = 0;
 	//Jump values for successive jumps
 	jumpHoldFrames[0] = 8;
-	jspd[0] = [-3.20, -3, -2.82, -2.5];
+	jspd[0] = [-3.20, -3, -2.80, -2.5];
 	//jumpHoldFrames[1] = 5;
 	//jspd[1] = [-2.70, -2.4, -2.05, -1.75];
 

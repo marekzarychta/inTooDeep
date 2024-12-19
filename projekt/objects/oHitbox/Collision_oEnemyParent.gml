@@ -1,5 +1,5 @@
 /// @description Collision with Enemies
-other.flashAlpha = 0.8;
+
 
 
 if place_meeting(x, y , oWall) && place_meeting(x, y , oEnemyParent) {
@@ -26,6 +26,7 @@ if (other.health_points != undefined && !other.wasHit && isDamaging) {
 	}
     other.health_points -= 5;  // Zadaj obrażenia przeciwnikowi]
 	other.wasHit = true;
+	other.flashAlpha = 0.8;
     //show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));
 	
 	

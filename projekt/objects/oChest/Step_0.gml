@@ -13,5 +13,6 @@ if !opened {
 	}	
 } else {
 	sprite_index = openedSprite;	
-	instance_destroy(textBoxInstance);
+	if (instance_exists(textBoxInstance))
+		instance_destroy(textBoxInstance);
 }
