@@ -18,3 +18,16 @@ function createFollowingTextbox(x, y, text) {
     return textbox;
 }
 
+function createMiniTextbox(x,y, value, sgn){
+	var textbox = instance_create_layer(x, y - 32, layer_get_id("Text"), oMiniTextbox);
+    textbox.textVal = sgn;
+	if(value=="health"){
+		textbox.icon = sHeartMini;
+	}else if (value=="weight"){
+		textbox.icon = sWeightMini;
+	}
+    textbox.followTimer = 40; // Set a timer for 2 seconds (assuming 60 FPS)
+    textbox.followPlayer = true; // Enable following behavior
+    
+    return textbox;
+}

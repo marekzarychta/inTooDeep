@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"depositSprites",
-    "path":"folders/Sprites/depositSprites.yy",
+    "name":"cart",
+    "path":"folders/Sprites/depositSprites/cart.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

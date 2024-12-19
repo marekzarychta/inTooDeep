@@ -68,7 +68,6 @@ if oInventoryUI.opened { blockControls(true);
 	}
 	else{
 		blockControls(false);
-		show_debug_message("receiving inputs");
 	}
 	
 	getControls();
@@ -107,6 +106,7 @@ if(useKey){
 	}
 
 	var cratesInRange = []; 
+	var depositsInRange = [];
 	var horizontalRange = 48;
 	var nearestCrate = noone; 
 	var shortestDistance = 9999;
@@ -273,15 +273,15 @@ if (!isDashing) {
 	
 	//Handle breakable walls
 	var breakableWalls = [
-    { wall: oBreakableWallOrange, weight: 2, message: "i need more weight" },
-    { wall: oBreakableWallRed, weight: 3, message: "i need more weight" }
+    { wall: oBreakableWallOrange, weight: 2, message: "i need more weight..." },
+    { wall: oBreakableWallRed, weight: 3, message: "i need more weight..." }
 ];
 	
 	for (var i = 0; i < array_length(breakableWalls); i++) {
 	    var wall_info = breakableWalls[i];
 	    var wall_obj = wall_info.wall;
 	    var required_weight = wall_info.weight;
-	    var message = "i need more weight";
+	    var message = "i need more weight...";
 
 	    if (place_meeting(x + sign(xspd), y, wall_obj) && dashTimer > 0) {
 	        var b = instance_place(x + sign(xspd), y, wall_obj);
@@ -292,6 +292,7 @@ if (!isDashing) {
 	                }
 	            } else if currentWeightLevel < required_weight {
 	                if (!instance_exists(oTextboxPlayer)) {
+						grunt();
 	                    createFollowingTextbox(x - 16, y - 16, message);
 	                }
 	            }
@@ -329,7 +330,8 @@ if (!isDashing) {
 		}
 	
 		if (!instance_exists(oTextboxPlayer)) {
-	        createFollowingTextbox(x - 16, y - 16, "this opens somewhere else");
+			grunt();
+	        createFollowingTextbox(x - 16, y - 16, "this opens somewhere else...");
 	    }
 		//Stop movement to collide
 		xspd = 0;	
@@ -955,6 +957,7 @@ if (!isDashing) {
 	instance_destroy(backpack);
 	if(sprite_index !=sPlayerDying){
 	sprite_index = sPlayerDying;
+	image_index = 0;
 	image_speed = 1;
 	if image_index >= image_number - 1 {
 		isdying = false;	

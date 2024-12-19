@@ -1,6 +1,6 @@
 draw_set_font(Fnt_textbox_player);
 x = obj_player.x;
-y = obj_player.y-32;
+y = obj_player.y-34;
 // Set text color
 draw_set_color(c_white);
 

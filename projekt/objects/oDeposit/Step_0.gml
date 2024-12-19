@@ -1,5 +1,6 @@
 //treating interactive things like chests
 var text;
+
 if !InventoryIsEmpty(oInventory) {
 	text = "   deposit";
 } else {
@@ -26,9 +27,10 @@ if marked && openable && ds_list_size(global.lista) == 0 {
 		
 if (marked && openable && oPlayer.isInteracting) /*&& !oInventory.opened*/ && oPlayer.isAlive {
     
-
-	if !InventoryIsEmpty(oInventory) {
 	
+	if !InventoryIsEmpty(oInventory) {
+			audio_play_sound(snd_pickup, 0, false);
+
 		for (var i = ds_list_size(oInventory.inventory) - 1; i >= 0 ; i--) {	
 			var item = ds_list_find_value(oInventory.inventory, i);	
 			if item != noone {
@@ -37,8 +39,10 @@ if (marked && openable && oPlayer.isInteracting) /*&& !oInventory.opened*/ && oP
 				ds_list_delete(oInventory.inventory, i);
 			}
 		}
+		createMiniTextbox(oPlayer.x,oPlayer.y, "weight", "-");
 	} else {
 	if(ds_list_size(items) != 0){
+		audio_play_sound(snd_pickup, 0, false);
 		for (var i = ds_list_size(items) - 1; i >= 0 ; i--) {	
 			var item = ds_list_find_value(items, i);	
 			if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
@@ -50,7 +54,10 @@ if (marked && openable && oPlayer.isInteracting) /*&& !oInventory.opened*/ && oP
 				break;	
 			}
 		}
+		createMiniTextbox(oPlayer.x,oPlayer.y, "weight", "+");
+
 	}else{
+		grunt();
 		textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to deposit");
 		
 	}

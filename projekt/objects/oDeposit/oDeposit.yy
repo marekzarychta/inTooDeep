@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sDeposit",
-    "path":"sprites/sDeposit/sDeposit.yy",
+    "name":"sDepositEmpty",
+    "path":"sprites/sDepositEmpty/sDepositEmpty.yy",
   },
   "spriteMaskId":null,
   "visible":true,

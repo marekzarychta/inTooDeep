@@ -8,7 +8,7 @@ if !opened {
 		audio_play_sound(snd_chest,0,false);
 		//var itemsCount = 1//irandom_range(2, 4);
 		//for (var i = 0; i < itemsCount; i++) {
-		instance_create_layer(x, y - 8, layer_get_id("Player_below"), contents);
+		instance_create_layer(x, y - 32, layer_get_id("Player_below"), contents);
 		//}
 	}	
 } else {

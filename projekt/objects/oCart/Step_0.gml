@@ -39,6 +39,8 @@ if marked && openable && ds_list_size(content) == 0 {
 
 if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 	
+		audio_play_sound(snd_pickup, 0, false);
+		
 	//odbieram wszystko z wagonika
 	if (ds_list_size(content) == maxSize) || (ds_list_size(oInventory.inventory) == 0) {
 		for (var i = ds_list_size(content) - 1; i >= 0; i--) {	

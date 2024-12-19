@@ -16,14 +16,19 @@ if place_meeting(x, y , oWall) && place_meeting(x, y , oEnemyParent) {
 
 
 // oHitbox -> Collision Event with oEnemy
-if (other.current_health != undefined && other.timerEnemyHit == 0 && isDamaging) {
+if (other.current_health != undefined && other.timerEnemyHit == 0 && isDamaging && other.isAlive) {
+    createMiniTextbox(other.x, other.y, "health", "-");
     LoseHP(other);
-	other.flashAlpha = 0.8;
-	
+
+    // Funkcja losująca dźwięk
+    var sound_to_play = choose(snd_player_damaged, snd_player_damaged_2);
+    audio_play_sound(sound_to_play, 0, false);
+
+    other.flashAlpha = 0.8;
     other.timerEnemyHit = other.bufferEnemyHit;
-	other.image_index = 0;
-	
+    other.image_index = 0;
 }
+
 
 //instance_destroy();
 

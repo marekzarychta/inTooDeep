@@ -3,8 +3,8 @@ marked = false;
 
 //Sprites
 
-closedSprite = sDeposit;
-markSprite = sDepositMarked;
+closedSprite = sDepositEmpty;
+markSprite = sDepositEmptyMarked;
 fullSprite = sDepositFull;
 markSpriteFull = sDepositFullMarked;
 

@@ -78,6 +78,7 @@ if !in_inventory {
 		//show_debug_message("Zebrano: " + string(id));
 		InventoryAdd(oInventory, id);
 		audio_play_sound(snd_pickup,0,false);
+		createMiniTextbox(oPlayer.x,oPlayer.y, "weight", "+");
 		if(debug_mode) show_debug_message("Updated weight: " + string(oPlayer.inventoryWeight));
 		//instance_destroy(id);
 	}

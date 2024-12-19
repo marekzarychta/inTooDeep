@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"sDepositMarked",
+  "%Name":"sDepositEmptyMarked",
   "bboxMode":0,
   "bbox_bottom":31,
   "bbox_left":1,
@@ -21,19 +21,19 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"64b16053-9cf4-44ae-887d-10b670aeadb9","blendMode":0,"displayName":"default","isLocked":false,"name":"64b16053-9cf4-44ae-887d-10b670aeadb9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sDepositMarked",
+  "name":"sDepositEmptyMarked",
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"depositSprites",
-    "path":"folders/Sprites/depositSprites.yy",
+    "name":"cart",
+    "path":"folders/Sprites/depositSprites/cart.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"sDepositMarked",
+    "%Name":"sDepositEmptyMarked",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sDepositMarked",
+    "name":"sDepositEmptyMarked",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,7 +69,7 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"bf7db3b2-b877-4180-8956-8a5e596ed0cc","path":"sprites/sDepositMarked/sDepositMarked.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"bf7db3b2-b877-4180-8956-8a5e596ed0cc","path":"sprites/sDepositEmptyMarked/sDepositEmptyMarked.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"8af37e81-c243-4541-9a6a-ce226949a5c7","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
