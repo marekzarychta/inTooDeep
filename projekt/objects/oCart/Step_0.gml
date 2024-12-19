@@ -22,11 +22,23 @@ if InventoryIsEmpty(oInventory) && ds_list_size(content) == 0 {
 chestHandling(text);
 		
 if ds_list_size(content) == maxSize {
+	if(xspd == 0){
 	sprite_index = fullSprite;
+	}else{
+		sprite_index = sCartFullMove;
+	}
 } else if ds_list_size(content) == 0 {
-	sprite_index = closedSprite;	
+	if(xspd ==0){
+	sprite_index = closedSprite;
+	}else{
+		sprite_index = sCartMove;
+	}
 } else if ds_list_size(content) < maxSize && ds_list_size(content) > 0 {
+	if(xspd == 0){
 	sprite_index = halfFullSprite;
+	}else{
+		sprite_index = sCartHalfFullMove;
+	}
 }
 
 if marked && openable && ds_list_size(content) == 0 {
@@ -83,7 +95,7 @@ if (onTracks) {
 			dist = 80;
 		}
 
-		blockadeInstance = instance_create_layer(x + moveDir * (dist + 16/*sHitbox.sprite_width / 2*/), y, layer, oBlockade);
+		blockadeInstance = instance_create_layer(x + moveDir * (dist + 13/*sHitbox.sprite_width / 2*/), y, layer, oBlockade);
 		blockadeInstance.parentObj = id;
 
 		f = velStart * velStart / (2 * dist);
@@ -98,8 +110,8 @@ if (onTracks) {
 	    if (b != noone) {
 	        if (mass >= weightChangeValue[1] && abs(xspd) > 1) {
 	            with (b) {
-	                instance_destroy();
 					emittingDestruction(75, b.id)
+	                instance_destroy();
 	            }
 	        } else {
 				moveDir *= -1;
@@ -119,8 +131,8 @@ if (onTracks) {
 	    if (b != noone) {
 	        if (mass >= weightChangeValue[2] && abs(xspd) > 1) {
 	            with (b) {
-	                instance_destroy();
 					emittingDestruction(100, b.id)
+	                instance_destroy();
 	            }
 	        } else {
 				moveDir *= -1;
@@ -161,7 +173,7 @@ if (onTracks) {
 		if( onGround && xspd != 0 && !audio_is_playing(snd_cart)){
 			audio_play_sound(snd_cart,0,false);
 		}
-			if((place_meeting(x + xspd, y, oRock) or place_meeting(x + xspd, y, blockadeInstance) or moveTimer == moveBuffer or (!onGround)) && audio_is_playing(snd_cart)){
+			if((place_meeting(x + xspd, y, oRock) or place_meeting(x + xspd, y, oPlayer) or place_meeting(x + xspd, y, blockadeInstance) or moveTimer == moveBuffer or (!onGround)) && audio_is_playing(snd_cart)){
 				audio_stop_sound(snd_cart);
 			}
 
