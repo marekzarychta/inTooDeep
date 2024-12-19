@@ -63,9 +63,11 @@ if (moveTimer < moveBuffer) {
 	if(onGround && xspd != 0 && !audio_is_playing(snd_box_slide)){
 		audio_play_sound(snd_box_slide,0,false);
 	}
-	if((!onGround or place_meeting(x+xspd,y,blockadeInstance) or place_meeting(x+xspd, y, oWall)) && audio_is_playing(snd_box_slide)){
-		audio_stop_sound(snd_box_slide);
-	}
+
 	part_emitter_region(global.particleSystem, emiterLeft, x - sign(xspd) * 8, x - sign(xspd) * 8, y, y, ps_shape_line, ps_distr_linear);
 	part_emitter_burst(global.particleSystem, emiterLeft, oGlobal.fricParticleType, 5);
 } 
+
+	if((!onGround or place_meeting(x+xspd,y,blockadeInstance) or place_meeting(x+xspd, y, oWall)) or place_meeting(x + xspd, y, oRock) && audio_is_playing(snd_box_slide)){
+		audio_stop_sound(snd_box_slide);
+	}

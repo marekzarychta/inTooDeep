@@ -1,11 +1,11 @@
 {
   "$GMSprite":"",
   "%Name":"sCartFullMove",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":19,
   "bbox_left":1,
   "bbox_right":24,
-  "bbox_top":2,
+  "bbox_top":5,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
