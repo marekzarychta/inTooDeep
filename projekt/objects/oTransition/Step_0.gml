@@ -8,7 +8,7 @@ if (fade_out) {
 		    if (room_get_name(room) != "demo3") room_goto_next(); // lub room_goto(room_name)
 			else {
 				instance_destroy(oGlobal);
-				if (debug_mode) show_debug_message("tak");
+				//if (debug_mode) show_debug_message("tak");
 				room_goto(0);
 			}
 			
