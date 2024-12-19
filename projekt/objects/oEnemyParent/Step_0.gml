@@ -136,6 +136,7 @@ if isAlive {
 		sprite_index = sprites[2];
 		
 		if image_index == 2 {
+			audio_play_sound(snd_skeleton_attack,0,false);
 			attackEnemy(id);	
 			//show_debug_message(string(image_index));
 		}

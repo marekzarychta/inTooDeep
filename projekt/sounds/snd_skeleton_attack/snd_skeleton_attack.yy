@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_wall_destroy",
+  "%Name":"snd_skeleton_attack",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":1.152,
-  "name":"snd_wall_destroy",
+  "duration":0.626939,
+  "name":"snd_skeleton_attack",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_wall_destroy.mp3",
+  "soundFile":"snd_skeleton_attack.mp3",
   "type":0,
-  "volume":0.26,
+  "volume":0.1,
 }

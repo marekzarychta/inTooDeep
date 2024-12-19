@@ -155,7 +155,14 @@ if (onTracks) {
 	x += xspd;
 
 	if (moveTimer < moveBuffer) {
-		moveTimer++;	
+		moveTimer++;
+		if( onGround && xspd != 0 && !audio_is_playing(snd_cart)){
+			audio_play_sound(snd_cart,0,false);
+		}
+			if((place_meeting(x + xspd, y, oRock) or place_meeting(x + xspd, y, blockadeInstance) or moveTimer == moveBuffer or (!onGround)) && audio_is_playing(snd_cart)){
+				audio_stop_sound(snd_cart);
+			}
+
 		part_emitter_region(global.particleSystem, emiterLeft, x - 8, x - 6, y, y, ps_shape_line, ps_distr_linear);
 		part_emitter_region(global.particleSystem, emiterRight, x + 5, x + 7, y, y, ps_shape_line, ps_distr_linear);
 		part_emitter_burst(global.particleSystem, emiterLeft, oGlobal.cartParticleType, 5);

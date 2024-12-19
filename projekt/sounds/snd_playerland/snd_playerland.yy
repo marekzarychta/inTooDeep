@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"snd_playerland.mp3",
   "type":0,
-  "volume":0.24,
+  "volume":0.28,
 }
