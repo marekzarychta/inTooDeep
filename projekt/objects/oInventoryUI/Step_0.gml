@@ -19,9 +19,9 @@
     var downKey = keyboard_check_pressed(vk_down) + gamepad_button_check_pressed(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 
-if (!opened and inventoryKey) {
+if (debug_mode and !opened and inventoryKey) {
     opened = !opened;
-}else if opened and (inventoryKey or closeKey){
+}else if debug_mode and opened and (inventoryKey or closeKey){
 	opened = !opened;
 }
 // Animacja wysuwania/chowania
