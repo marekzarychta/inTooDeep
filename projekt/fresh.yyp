@@ -184,6 +184,8 @@
     {"id":{"name":"snd_cart","path":"sounds/snd_cart/snd_cart.yy",},},
     {"id":{"name":"snd_chest","path":"sounds/snd_chest/snd_chest.yy",},},
     {"id":{"name":"snd_dash","path":"sounds/snd_dash/snd_dash.yy",},},
+    {"id":{"name":"snd_deposit_arrive","path":"sounds/snd_deposit_arrive/snd_deposit_arrive.yy",},},
+    {"id":{"name":"snd_deposit_leave","path":"sounds/snd_deposit_leave/snd_deposit_leave.yy",},},
     {"id":{"name":"snd_grunt","path":"sounds/snd_grunt/snd_grunt.yy",},},
     {"id":{"name":"snd_hit","path":"sounds/snd_hit/snd_hit.yy",},},
     {"id":{"name":"snd_jump","path":"sounds/snd_jump/snd_jump.yy",},},
