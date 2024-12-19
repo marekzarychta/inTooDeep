@@ -37,8 +37,7 @@ if (keyboard_check_pressed(vk_escape)) {
 			buffer_delete(pauseSurfBuffer);
 		}
 		pauseSurfBuffer = buffer_create(resW * resH * 4, buffer_fixed, 1);
-		buffer_get_surface(pauseSurfBuffer, pauseSurf, 0);
-	
+		buffer_get_surface(pauseSurfBuffer, pauseSurf, 0);	
 	} else { // If paused, unpause
 	
 		pause = false;

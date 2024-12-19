@@ -1,4 +1,4 @@
-if !isAlive || debug_mode {
+if !isAlive || debug_mode || (instance_exists(oPause) && oPause.checkpoint) {
 	
 	if (instance_exists(lastCheckpoint)) {
 	
@@ -25,9 +25,14 @@ if !isAlive || debug_mode {
 			transition.nextRoom = false;	
 			transition.fade_in = true;
 		}
+		
+		if (instance_exists(oPause)) {
+			oPause.checkpoint = false;
+			
+		}
 	
 		load(lastCheckpoint.state);		
 	} else {
-		room_goto(room);	
+		room_restart();	
 	}
 }

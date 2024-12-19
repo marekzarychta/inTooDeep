@@ -5,6 +5,9 @@ if (instance_exists(interface)) {
 if (instance_exists(camera)) {
 	instance_destroy(camera);	
 }
+if (instance_exists(pause)) {
+	instance_destroy(pause);	
+}
 
 if (room != przejscie) {
 
@@ -43,6 +46,7 @@ if (room != przejscie) {
 
 	interface = instance_create_layer(x, y, layer, oInterface);
 	camera = instance_create_layer(x, y, layer, oCamera);
+	pause = instance_create_layer(x, y, layer, oPause);
 
 	var transition = instance_create_layer(x, y, oGlobal.layer, oTransition);
 	//camera.persistent = true;

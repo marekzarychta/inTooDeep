@@ -4,6 +4,7 @@ window_set_cursor(cr_none);
 inventory = instance_create_layer(x, y, layer, oInventory);
 inventory.persistent = true;
 interface = noone;
+pause = noone;
 
 camera = noone;
 persistent = true;
