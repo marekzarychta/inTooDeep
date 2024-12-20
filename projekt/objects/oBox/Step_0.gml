@@ -18,7 +18,7 @@ if (place_meeting(x + xspd, y, oWall) || place_meeting(x + xspd, y, oRock) || pl
 	moveTimer = moveBuffer;
 }
 
-if (blockadeInstance != noone && place_meeting(x + xspd, y, blockadeInstance)) {
+if (instance_exists(blockadeInstance) && place_meeting(x + xspd, y, blockadeInstance)) {
     var _pixelCheck = _subPixel * sign(xspd);
     while !place_meeting(x + _pixelCheck, y, blockadeInstance) {
         x += _pixelCheck;
@@ -52,7 +52,7 @@ if (yspd == 0 && place_meeting(x, y + 1, oWall)) {
     onGround = false;
 }
 
-if ((xspd == 0 || moveTimer == moveBuffer) && blockadeInstance != noone) {
+if ((xspd == 0 || moveTimer == moveBuffer) && instance_exists(blockadeInstance)) {
 	instance_destroy(blockadeInstance);	
 	moveDir = 0;
 	moveTimer = moveBuffer;
