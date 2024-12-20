@@ -7,5 +7,6 @@ if (!firstColision) {
 	}
 	if (time == 0) {
 		image_index = 2;
-	}	
+	}
+	textTimer --;
 }

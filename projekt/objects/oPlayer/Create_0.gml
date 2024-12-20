@@ -39,8 +39,8 @@ if (!layer_exists("Player_below")) {
 }
 
 backpack = instance_create_layer(x,y,"Player_below",oBackpack);
-backpackSprites = [noone, sBackpackSmall, sBackpackMedium, sBackpackLarge];
-backpackSpritesClimb = [noone, sBackpackSmallClimb, sBackpackMediumClimb, sBackpackLargeClimb];
+backpackSprites = [sBackpackEmpty, sBackpackSmall, sBackpackMedium, sBackpackLarge, sBackpackFull];
+backpackSpritesClimb = [sBackpackEmptyClimb, sBackpackSmallClimb, sBackpackMediumClimb, sBackpackLargeClimb, sBackpackFullClimb];
 
 //Attack controller
 attackCooldown = 60; // Attack cooldown of 60 frames -> roughly 1 second
