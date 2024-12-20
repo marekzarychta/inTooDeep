@@ -36,6 +36,9 @@ function save() {
         ds_map_add(obj_data, "imagey", image_yscale);
         ds_map_add(obj_data, "health_points", health_points); 
         ds_map_add(obj_data, "isAlive", isAlive);
+        ds_map_add(obj_data, "range", range);
+        ds_map_add(obj_data, "startx", initial_x);
+        ds_map_add(obj_data, "starty", initial_y);
 
         ds_list_add(state, obj_data);
 		show_debug_message("enemy");
@@ -213,6 +216,9 @@ function load(state) {
 		if (object_is_ancestor(new_instance.object_index, oEnemyParent)) {
 			new_instance.health_points = ds_map_find_value(obj_data, "health_points");
 			new_instance.isAlive = ds_map_find_value(obj_data, "isAlive");
+			new_instance.range = ds_map_find_value(obj_data, "range");
+			new_instance.initial_x = ds_map_find_value(obj_data, "startx");
+			new_instance.initial_y = ds_map_find_value(obj_data, "starty");
 		}
 		if (new_instance.object_index == oChest) {
 			new_instance.contents = ds_map_find_value(obj_data, "contents");	

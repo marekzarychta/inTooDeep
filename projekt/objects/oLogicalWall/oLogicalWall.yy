@@ -37,5 +37,5 @@
     "path":"sprites/sLogicalWall/sLogicalWall.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

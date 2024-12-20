@@ -1,6 +1,6 @@
 {
   "$GMProject":"",
-  "%Name":"fresh",
+  "%Name":"InTooDeep",
   "AudioGroups":[
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
@@ -90,15 +90,16 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.8.1.171",
   },
-  "name":"fresh",
+  "name":"InTooDeep",
   "resources":[
     {"id":{"name":"Fnt_small","path":"fonts/Fnt_small/Fnt_small.yy",},},
     {"id":{"name":"Fnt_super_small","path":"fonts/Fnt_super_small/Fnt_super_small.yy",},},
     {"id":{"name":"Fnt_textbox_player","path":"fonts/Fnt_textbox_player/Fnt_textbox_player.yy",},},
     {"id":{"name":"Fnt_UI_big","path":"fonts/Fnt_UI_big/Fnt_UI_big.yy",},},
     {"id":{"name":"Fnt_UI","path":"fonts/Fnt_UI/Fnt_UI.yy",},},
+    {"id":{"name":"oActivateSpawner","path":"objects/oActivateSpawner/oActivateSpawner.yy",},},
     {"id":{"name":"oBackpack","path":"objects/oBackpack/oBackpack.yy",},},
     {"id":{"name":"oBag","path":"objects/oBag/oBag.yy",},},
     {"id":{"name":"oBar","path":"objects/oBar/oBar.yy",},},
@@ -150,6 +151,7 @@
     {"id":{"name":"oSlime","path":"objects/oSlime/oSlime.yy",},},
     {"id":{"name":"oSlopeDown","path":"objects/oSlopeDown/oSlopeDown.yy",},},
     {"id":{"name":"oSlopeUp","path":"objects/oSlopeUp/oSlopeUp.yy",},},
+    {"id":{"name":"oSpawner","path":"objects/oSpawner/oSpawner.yy",},},
     {"id":{"name":"oTextbox","path":"objects/oTextbox/oTextbox.yy",},},
     {"id":{"name":"oTextboxCombat","path":"objects/oTextboxCombat/oTextboxCombat.yy",},},
     {"id":{"name":"oTextboxDeposit","path":"objects/oTextboxDeposit/oTextboxDeposit.yy",},},

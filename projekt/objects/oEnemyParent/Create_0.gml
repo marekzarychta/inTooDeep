@@ -16,13 +16,13 @@ dying = false;
 attacking = false;
 attackTimer = 0;
 attackBuffer = 30;
-nearest_logical_wall = instance_nearest(x, y, oLogicalWall);
+//nearest_logical_wall = instance_nearest(x, y, oLogicalWall);
 
-if(nearest_logical_wall != noone){
-	distance_to_logical_wall_x = abs(x - nearest_logical_wall.x);
-}else{
-	distance_to_logical_wall_x = -1;
-}
+//if(nearest_logical_wall != noone){
+//	distance_to_logical_wall_x = abs(x - nearest_logical_wall.x);
+//}else{
+//	distance_to_logical_wall_x = -1;
+//}
 
 
 ignores_logical_walls = false;
