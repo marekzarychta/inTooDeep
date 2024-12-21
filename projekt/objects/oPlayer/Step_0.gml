@@ -275,7 +275,7 @@ if (!isDashing) {
 	
 	//Handle breakable walls
 	var breakableWalls = [
-    { wall: oBreakableWallOrange, weight: 2, message: "i need more weight..." },
+    { wall: oBreakableWall, weight: 2, message: "i need more weight..." },
     { wall: oBreakableWallRed, weight: 3, message: "i need more weight..." }
 ];
 	
@@ -290,7 +290,7 @@ if (!isDashing) {
 	        if (b != noone) {
 	            if (currentWeightLevel >= required_weight) {
 	                with (b) {
-						emittingDestruction(b.object_index == oBreakableWallOrange ? 75 : 100, b.id);
+						emittingDestruction(b.object_index == oBreakableWall ? 75 : 100, b.id);
 						instance_destroy();
 	                }
 	            } else if currentWeightLevel < required_weight {
@@ -490,8 +490,8 @@ if (!isDashing) {
 	
 	// Check wall collision
 	if (place_meeting(x, y + yspd, oWall)) {
-	    if (can_break_orange && place_meeting(x, y + yspd, oBreakableWallOrange) && yspd > 0) {
-	        var breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
+	    if (can_break_orange && place_meeting(x, y + yspd, oBreakableWall) && yspd > 0) {
+	        var breakableWall = instance_place(x, y + yspd, oBreakableWall);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
 					emittingDestruction(75, id);

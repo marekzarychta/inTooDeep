@@ -12,7 +12,7 @@ persistent = true;
 roomList = [Menu, demo, demo2, demo3];
 roomCounter = 1;
 
-importantObjects = [oInventory, oChest, oItemTemplate, oBox, oCart, oBreakableWallOrange, oBreakableWallRed, oDoor, oDoorButton]; 
+importantObjects = [oInventory, oChest, oItemTemplate, oBox, oCart, oBreakableWall, oBreakableWallRed, oDoor, oDoorButton]; 
 
 global.particleSystem = part_system_create();
 

@@ -129,7 +129,7 @@ function save() {
 		show_debug_message("doors && buttons");
 	}
 	
-	with (oBreakableWallOrange) {
+	with (oBreakableWall) {
 		obj_data = ds_map_create();
         
         ds_map_add(obj_data, "object_index", object_index);
@@ -186,7 +186,7 @@ function load(state) {
 		instance_destroy();	
 	}
 
-	with (oBreakableWallOrange) {
+	with (oBreakableWall) {
 		instance_destroy();	
 	}
 

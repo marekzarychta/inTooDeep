@@ -105,8 +105,8 @@ if (onTracks) {
 
 	xspd = moveDir * (velStart - f * moveTimer);
 
-	if (place_meeting(x + xspd, y, oBreakableWallOrange)) {
-		var b = instance_place(x + xspd, y, oBreakableWallOrange);
+	if (place_meeting(x + xspd, y, oBreakableWall)) {
+		var b = instance_place(x + xspd, y, oBreakableWall);
 	    if (b != noone) {
 	        if (mass >= weightChangeValue[1] && abs(xspd) > 1) {
 	            with (b) {
