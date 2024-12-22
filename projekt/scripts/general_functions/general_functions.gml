@@ -43,6 +43,18 @@ function save() {
         ds_list_add(state, obj_data);
 		show_debug_message("enemy");
 	}
+	with (oVase) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "layer", layer);
+		ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);	
+		        ds_map_add(obj_data, "wasHit", wasHit); 
+		ds_list_add(state, obj_data);
+	}
 	
 	with (oChest) {
 		if (!object_is_ancestor(id.object_index, oChest)) {
@@ -189,6 +201,9 @@ function load(state) {
 	with (oBreakableWallOrange) {
 		instance_destroy();	
 	}
+	with (oVase) {
+		instance_destroy();	
+	}
 
 	ds_list_clear(oGlobal.inventory.inventory);
 	ds_list_clear(global.lista);
@@ -212,6 +227,10 @@ function load(state) {
 		
 		new_instance.image_xscale = ds_map_find_value(obj_data, "imagex");
 		new_instance.image_yscale = ds_map_find_value(obj_data, "imagey");
+		
+		if (new_instance.object_index == oVase) {
+			new_instance.wasHit = ds_map_find_value(obj_data, "wasHit");	
+		}
 
 		if (object_is_ancestor(new_instance.object_index, oEnemyParent)) {
 			new_instance.health_points = ds_map_find_value(obj_data, "health_points");
