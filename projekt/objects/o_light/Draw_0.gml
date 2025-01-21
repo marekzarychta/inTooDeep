@@ -1,3 +1,10 @@
-var alph = image_alpha + sin(current_time / 1000) * 0.2;
+// Aktywuj shader
+shader_set(my_shader);
+shader_set_uniform_f(shader_get_uniform(my_shader,"sigma"), 0.3);
+shader_set_uniform_f(shader_get_uniform(my_shader,"radius"), 2.0);
 
-draw_sprite_ext(sprite_index, image_index, x,y, 1, 1, 0, image_blend, alph);
+// Narysuj sprite'a
+draw_self();
+
+// Dezaktywuj shader
+shader_reset();
