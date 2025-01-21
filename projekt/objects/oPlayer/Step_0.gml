@@ -61,16 +61,19 @@ if isAlive {
 	}
 
 
-if oInventoryUI.opened { blockControls(true);
+if oInventoryUI.opened || !isActive { 
+	blockControls(true);
 	xspd = smooth(xspd, 0, 0.92);	// Zatrzymaj ruch w bok
 	// Wyzerowanie poprzednich inputów
 	rightKey = 0; leftKey = 0; upKey = 0; downKey = 0; axisX = 0; axisY = 0;
-	}
-	else{
-		blockControls(false);
-		//show_debug_message("receiving inputs");
+}
+else{
+	blockControls(false);
+	//show_debug_message("receiving inputs");
 
-	}
+}
+
+
 	
 	getControls();
 	

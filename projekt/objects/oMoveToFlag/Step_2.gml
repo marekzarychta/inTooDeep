@@ -2,7 +2,9 @@ if (!wasPlayed) {
 	show_debug_message(string(oCamera.changing));
 	//sprawdzanie kolizji z graczem, aby aktywowac pokazanie
 	if ((place_meeting(x, y, oPlayer) || condition) && goToPlaceTimer == 0 && backToPlayerTimer == 0) {
-		blockControls(true);
+		oPlayer.isActive = false;
+		
+		
 		oCamera.changing = false; 
 		
 		//stworzenie instancji cutscenki
@@ -27,7 +29,7 @@ if (!wasPlayed) {
 			} else if (oPlayer.x > room_width - oCamera._camWidth / 2) {
 				middleScreen = room_width - oCamera._camWidth / 2;
 			}
-			
+			oPlayer.isActive = true;
 			velBack = getVel(middleScreen, oPlayer.y, backToPlayerBuffer, 0);
 			cutSceneInstance.fade_out = true;
 		}
