@@ -11,6 +11,10 @@ void main()
     
     // Zastosowanie funkcji wygładzającej z kontrolą rozmiaru centralnego obszaru
     float factor = exp(-dist * dist / (2.0 * sigma * sigma)) * (dist < radius ? 1.0 : 0.0);
+	
+	float alpha = (dist < (radius / 2.0) ? 1.0 : 0.05 * (2.0 * dist / radius));
+	alpha = (dist > (3.0 * radius / 4.0) ? 0.05 : alpha);
+	vec4 res = vec4(v_vColour * texture2D(gm_BaseTexture, v_vTexcoord) * factor);
     //może factor zamykamy do 0.75
-    gl_FragColor = v_vColour * texture2D(gm_BaseTexture, v_vTexcoord) * factor;
+    gl_FragColor = vec4(res.rgb, res.a * alpha);
 }

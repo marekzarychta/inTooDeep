@@ -1,7 +1,7 @@
 /// @description Create a light source
 // You can write your code in this editor
 
-offset = 4;
+offset = 7;
 
 light = instance_create_layer(x+sprite_width/2,y-sprite_height/2 - offset,"Light", oLight);
 

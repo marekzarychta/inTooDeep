@@ -108,6 +108,8 @@
     {"id":{"name":"Object61","path":"objects/Object61/Object61.yy",},},
     {"id":{"name":"oBlockade","path":"objects/oBlockade/oBlockade.yy",},},
     {"id":{"name":"oBox","path":"objects/oBox/oBox.yy",},},
+    {"id":{"name":"oBrazierHigh","path":"objects/oBrazierHigh/oBrazierHigh.yy",},},
+    {"id":{"name":"oBrazierLow","path":"objects/oBrazierLow/oBrazierLow.yy",},},
     {"id":{"name":"oBreakableWallOrange","path":"objects/oBreakableWallOrange/oBreakableWallOrange.yy",},},
     {"id":{"name":"oBreakableWallRed","path":"objects/oBreakableWallRed/oBreakableWallRed.yy",},},
     {"id":{"name":"oButtonTemplate","path":"objects/oButtonTemplate/oButtonTemplate.yy",},},
