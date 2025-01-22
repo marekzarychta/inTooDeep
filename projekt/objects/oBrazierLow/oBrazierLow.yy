@@ -12,7 +12,10 @@
     "name":"lighting",
     "path":"folders/Objects/terrain/lighting.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"oTorch",
+    "path":"objects/oTorch/oTorch.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
