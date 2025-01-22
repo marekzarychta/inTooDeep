@@ -3,3 +3,4 @@ timeSplit = 1500 / pi;
 image_blend = color;
 my_shader = shLight;
 start_sigma = sigma;
+
