@@ -115,7 +115,7 @@ if isAlive {
 		attackTimer = 0;
 	}
 	
-	if (wasHit) {
+	if (wasHit && !(knockback_duration > 0)) {
 		xspd = 0;
 		attackTimer++;
 	}
