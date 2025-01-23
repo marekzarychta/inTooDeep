@@ -695,6 +695,9 @@ if (!isDashing) {
 		audio_play_sound(snd_dash,0,false);
 		xspdTemp = xspd;
 		dashTimer = dashBuffer;
+		 with(oEnemyParent) {
+	        wasHit = false;
+	    }
 	}
 	
 	

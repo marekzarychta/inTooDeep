@@ -18,6 +18,7 @@ function attackEnemy(_id) {
     var offset_x = (-face == 1) ? valoffset : -valoffset // Ustaw odpowiednią pozycję względem kierunku
     var hitbox = instance_create_layer(x + offset_x, y - 16, oPlayer.layer, oHitboxEnemy);
     hitbox.image_xscale = 1.4;
-    hitbox.life = 30;
-    hitbox.idEnemy = _id
+    hitbox.life = 22;
+    hitbox.idEnemy = _id;
+	hitbox.face = face;
 }

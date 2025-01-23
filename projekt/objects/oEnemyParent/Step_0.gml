@@ -46,6 +46,11 @@ if isAlive {
 		following = false;	
 	}
 	
+	if (death && knockback_duration <= 0) {
+		health_points -= 2;
+	}
+	
+	
 	//Get xspd
 	if onGround
 		xspd = moveDir * moveSpd;
@@ -56,6 +61,7 @@ if isAlive {
 	    // Odrzut
 	    xspd = knockback_x;
 	    yspd = knockback_y;
+		y -= 1;
 
 	    // Zmniejszaj czas trwania odrzutu
 	    knockback_duration--;
@@ -76,7 +82,7 @@ if isAlive {
 	//X Collision
 	//How close we can get to a wall etc.
 	
-	if attacking {
+	if (attacking && !(knockback_duration > 0)) {
 		xspd = 0;	
 	}
 	
@@ -249,6 +255,8 @@ if (following) {
 		//Stop movement to collide
 		yspd = 0;
 	}
+	
+	
 	
 	if yspd >=0 && place_meeting(x,y+1, oWall){
 		onGround = true;

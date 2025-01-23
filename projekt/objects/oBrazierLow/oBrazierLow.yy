@@ -7,7 +7,10 @@
   ],
   "managed":true,
   "name":"oBrazierLow",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"propertyId":{"name":"scale_x","path":"objects/oTorch/oTorch.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1.2",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"propertyId":{"name":"scale_y","path":"objects/oTorch/oTorch.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1.15",},
+  ],
   "parent":{
     "name":"lighting",
     "path":"folders/Objects/terrain/lighting.yy",

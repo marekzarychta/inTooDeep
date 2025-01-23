@@ -1,7 +1,7 @@
 var _sigma = start_sigma - 0.01 * (sin(current_time / timeSplit) * sin(current_time / timeSplit));
 //var _dist = radius + 15 * (sin(current_time / 100) * sin(current_time / 100));
-image_xscale = 1 + x_scaleDiff * (sin(current_time / timeSplit) * sin(current_time / timeSplit));
-image_yscale = 1 + y_scaleDiff * (sin(current_time / timeSplit) * sin(current_time / timeSplit));
+image_xscale = scale_x + x_scaleDiff * (sin(current_time / timeSplit) * sin(current_time / timeSplit));
+image_yscale = scale_y + y_scaleDiff * (sin(current_time / timeSplit) * sin(current_time / timeSplit));
 
 // Aktywuj shader
 shader_set(my_shader);

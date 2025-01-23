@@ -33,6 +33,8 @@
     {"$GMObjectProperty":"v1","%Name":"radius","filters":[],"listItems":[],"multiselect":false,"name":"radius","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"x_scaleDiff","filters":[],"listItems":[],"multiselect":false,"name":"x_scaleDiff","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.3","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"y_scaleDiff","filters":[],"listItems":[],"multiselect":false,"name":"y_scaleDiff","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.2","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"scale_x","filters":[],"listItems":[],"multiselect":false,"name":"scale_x","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"scale_y","filters":[],"listItems":[],"multiselect":false,"name":"scale_y","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
