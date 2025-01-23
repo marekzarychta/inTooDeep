@@ -50,7 +50,7 @@ if (other.health_points != undefined && !other.wasHit && isDashing) {
 
 	var directionKnockbackY = -1;//point_direction(other.x, other.y, x, y);
 	other.knockback_x = other.knockback_power * directionKnockbackX; //lengthdir_x(other.knockback_power, -directionKnockback);
-    //other.knockback_y = other.knockback_power * directionKnockbackY;//lengthdir_y(other.knockback_power, -directionKnockback);
+    other.knockback_y = directionKnockbackY;//lengthdir_y(other.knockback_power, -directionKnockback);
     other.knockback_duration = 10; // Czas trwania knockbacku
 	
 }

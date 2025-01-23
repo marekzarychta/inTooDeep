@@ -61,7 +61,7 @@ if isAlive {
 	    // Odrzut
 	    xspd = knockback_x;
 	    yspd = knockback_y;
-		y -= 1;
+		
 
 	    // Zmniejszaj czas trwania odrzutu
 	    knockback_duration--;
