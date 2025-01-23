@@ -15,11 +15,13 @@ if isAlive {
 	var dx = playerX - x;
 	var dy = playerY - y;
 	
-	if IsInRangeAttack() && !attacking {
+	if IsInRangeAttack() && !attacking && !wasHit {
 		image_index = 0;
 		attacking = true;
 		face = -moveDir;
 	} 
+	
+
 	
 	//if place_meeting(x, y, oPlayer) {
 	//	//show_debug_message("Kolizja");	
@@ -46,9 +48,7 @@ if isAlive {
 		following = false;	
 	}
 	
-	if (death && knockback_duration <= 0) {
-		health_points -= 2;
-	}
+
 	
 	
 	//Get xspd
@@ -108,6 +108,16 @@ if isAlive {
 			//Stop movement to collide
 			xspd = 0;	
 		}
+	}
+	
+	if (wasHit && attackTimer == attackBuffer) {
+		wasHit = false;
+		attackTimer = 0;
+	}
+	
+	if (wasHit) {
+		xspd = 0;
+		attackTimer++;
 	}
 	
 	//Check wall collision

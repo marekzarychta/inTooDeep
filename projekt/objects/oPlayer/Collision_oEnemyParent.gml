@@ -25,10 +25,17 @@ if (other.health_points != undefined && !other.wasHit && isDashing) {
 		part_emitter_burst(global.particleSystem, emitter, oGlobal.hitParticleType, 100);
 	}
 	if (currentWeightLevel >= 1) {
-		other.health_points -= 9;  // Zadaj obrażenia przeciwnikowi]
+		other.health_points -= 10;  // Zadaj obrażenia przeciwnikowi]
 		other.death = true;
 		other.flashAlpha = 0.8;
 	} 
+	
+	if (other.attacking) {
+		other.attacking = false;
+		
+		other.sprite_index = other.sprites[1];
+		other.image_index = 0;
+	}
 	
 	other.wasHit = true;
     //show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));
