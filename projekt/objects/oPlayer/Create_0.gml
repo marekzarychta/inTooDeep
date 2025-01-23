@@ -105,6 +105,7 @@ hasDashed = false;
 // True if equipment load is met as well as a falling velocity
 can_break_orange = false;
 can_break_red = false;
+
 //Jumping
 grav = .163;
 	//Falling speed
@@ -131,6 +132,17 @@ jumpHoldTimer = 0;
 	jspd[0] = [-3.20, -3, -2.80, -2.5];
 	//jumpHoldFrames[1] = 5;
 	//jspd[1] = [-2.70, -2.4, -2.05, -1.75];
+
+// Coyote Time (has 2 factors
+//					hang time - how many frames till gravity affects the player,
+//					so it looks like the ground is still under the player, though invisible)
+//					jump time - how many frames after leaving the ground, the player can jump
+
+coyoteHangFrames = 2; // how many frames for the hang time coyote jump factor
+coyoteHangTimer = 0; // buffer
+
+coyoteJumpFrames = 5; // how many frames for the jump time factor
+coyoteJumpTimer = 0; // buffer
 
 top = false;
 
