@@ -9,6 +9,7 @@ stayTime = 60;
 condition = false;
 
 cutSceneInstance = noone;
+doorInstance = noone;
 
 velGo = 0;
 velBack = 0;

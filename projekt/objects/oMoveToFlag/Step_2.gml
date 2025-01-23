@@ -17,6 +17,13 @@ if (!wasPlayed) {
 		//show_debug_message(string(wspX) + " " + string(wspY));
 	}
 	
+	if (goToPlaceTimer <= stayTime / 2) {
+		if (instance_exists(doorInstance)) {
+			
+			doorInstance.opened = true;
+		}
+	}
+	
 	//przejscie do danego miejsca
 	var middleScreen = oPlayer.x;
 	if (goToPlaceTimer > 0) {
@@ -29,7 +36,7 @@ if (!wasPlayed) {
 			} else if (oPlayer.x > room_width - oCamera._camWidth / 2) {
 				middleScreen = room_width - oCamera._camWidth / 2;
 			}
-			oPlayer.isActive = true;
+			
 			velBack = getVel(middleScreen, oPlayer.y, backToPlayerBuffer, 0);
 			cutSceneInstance.fade_out = true;
 		}
@@ -44,6 +51,7 @@ if (!wasPlayed) {
 		slowCameraMoveToPos(middleScreen, oPlayer.y, velBack);
 		if (backToPlayerTimer == 0) {
 			wasPlayed = true;
+			oPlayer.isActive = true;
 			oCamera.changing = true;
 			blockControls(false);
 			oCamera.midX = oPlayer.x;
