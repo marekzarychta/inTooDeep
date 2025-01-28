@@ -8,6 +8,9 @@ hover = false;
 
 o_name = "Exit";
 
+
+aspect = 1920/480;
+
 w = 64;
 h = 24;
 

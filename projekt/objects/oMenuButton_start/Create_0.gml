@@ -11,6 +11,8 @@ o_name = "Start";
 w = 64;
 h = 24;
 
+aspect = 1920/480;
+
 action = function() {
 	var transition = instance_create_layer(0, 0, layer, oTransition);
 	transition.fade_out = true;
