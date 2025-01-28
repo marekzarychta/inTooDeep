@@ -1,4 +1,15 @@
 global.lista = ds_list_create();
+
+global.task_list = ds_list_create();
+
+var task0 = instance_create_layer(x, y, layer, oTask);
+task0.numer = 0;
+task0.desc = "Zniszcz 10 wazonow";
+task0.words = "Bardzo lubie patrzeć\n na zniszczone wazony";
+ds_list_add(global.task_list, task0);
+
+activeTask = noone;
+
 gold = 0;
 window_set_cursor(cr_none);
 inventory = instance_create_layer(x, y, layer, oInventory);

@@ -61,7 +61,7 @@ if isAlive {
 	}
 
 
-if oInventoryUI.opened || !isActive { 
+if oInventoryUI.opened || !isActive || oTaskNPC.gui { 
 	blockControls(true);
 	xspd = smooth(xspd, 0, 0.92);	// Zatrzymaj ruch w bok
 	// Wyzerowanie poprzednich inputów
