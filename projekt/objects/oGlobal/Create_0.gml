@@ -8,6 +8,7 @@ pause = noone;
 
 camera = noone;
 persistent = true;
+SetHP();
 
 roomList = [Menu, demo, demo2, demo3];
 roomCounter = 1;

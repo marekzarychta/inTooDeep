@@ -7,7 +7,7 @@ if !isAlive || debug_mode || (instance_exists(oPause) && oPause.checkpoint) {
 		}
 	
 		isAlive = true;
-		current_health = max_health;
+		current_health = lastCheckpoint._health;
 	
 		x = lastCheckpoint.x;
 		y = lastCheckpoint.y;

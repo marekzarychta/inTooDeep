@@ -62,6 +62,9 @@ reviveBuffer = 100;
 SetHP();
 isAlive = true;
 
+if (instance_exists(lastCheckpoint) || room != "demo") {
+	current_health = oGlobal.current_health;
+}
 //Movement
 	//Movement direction
 moveDir = 0;
