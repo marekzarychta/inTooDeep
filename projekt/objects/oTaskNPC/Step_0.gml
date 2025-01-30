@@ -74,7 +74,7 @@ if (!gui) {
 	
 		gui = true;
 		//messTimer = messBuffer
-		blockControls(true);
+		
 				
 			
 		
@@ -87,7 +87,8 @@ if (!gui) {
 	
 	
 } else {
-	
+	oPlayer.isActive = false;
+	blockControls(true);
 	var closeKey = keyboard_check_pressed(vk_escape) + gamepad_button_check_pressed(0,gp_face2);
 	closeKey = clamp(closeKey,0,1);
 	
@@ -112,6 +113,7 @@ if (!gui) {
 		if (!isTaskAcitve && !done) {
 			if (talk > 1) {
 				gui = false;
+				oPlayer.isActive = true;
 				talk = 0;
 				if (!done) {
 				
@@ -128,6 +130,7 @@ if (!gui) {
 			}
 		} else {
 			gui = false;
+			oPlayer.isActive = true;
 			talk = 0;
 		}
 		
@@ -135,6 +138,7 @@ if (!gui) {
 	
 	if (closeKey) {
 		gui = false;
+		oPlayer.isActive = true;
 	}
 }
 
@@ -150,7 +154,8 @@ if (gui) {
 		instance_destroy(textBoxInstance); // Usuwamy go
 		textBoxInstance = noone; // Resetujemy wskaźnik
 	}
-}
+	oPlayer.isActive = false;
+} 
 
 //if (messTimer < messBuffer) {
 //	var task = ds_list_find_value(global.task_list, task_obj.numer);

@@ -27,7 +27,7 @@ if (gui) {
 		
 		
 		if (isTaskAcitve) {
-			mess = task_obj.desc + " \nYou have to do " + string(task._value - task.counter) + " more.";
+			mess = task_obj.desc + "\nYou have to do\n" + string(task._value - task.counter) + " more.";
 		} else {
 			mess = task_obj.words;
 		}
@@ -35,7 +35,7 @@ if (gui) {
 			mess = task_obj.desc;
 		}
 	} else {
-		mess = "Thank you for your help.";
+		mess = "Thank you for\nyour help.";
 	} 
 	
 	var padding = 4;
