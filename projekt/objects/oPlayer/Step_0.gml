@@ -462,7 +462,14 @@ if (!isDashing) {
 		var enemy = instance_place(x, y + yspd, oEnemyParent);
 		//show_debug_message("tak")
 		with (enemy) {
+			if (instance_exists(oGlobal) && health_points > 0) {
+				var task = ds_list_find_value(global.task_list, 2);
+				//if (oGlobal.activeTask != noone && instance_exists(oGlobal.activeTask) && oGlobal.activeTask.numer == 0 && 
+				task.counter++;
+			}
+			
 			health_points = 0;
+			
 		}
 		if (enemy.isAlive) {
 			audio_play_sound(snd_hit, 0, false);

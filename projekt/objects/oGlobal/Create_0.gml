@@ -21,6 +21,15 @@ task1.words = "Nie znoszę hałasu szkieletów";
 task1.counter = 0;
 ds_list_add(global.task_list, task1);
 
+var task2 = instance_create_layer(x, y, layer, oTask);
+task2.persistent = true;
+task2.numer = 2;
+task2._value = 5;
+task2.desc = "Spadnij na "+string(task2._value)+" szkieletow";
+task2.words = "Uwielbiam patrzec na miazge!";
+task2.counter = 0;
+ds_list_add(global.task_list, task2);
+
 activeTask = noone;
 
 gold = 0;

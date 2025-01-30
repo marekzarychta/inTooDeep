@@ -64,6 +64,8 @@ if (!gui) {
 				finished = true;
 				messTimer = 0;
 				oGlobal.gold += 20;
+				isTaskAcitve = false;
+				oGlobal.activeTask = noone;
 			} else {
 				messTimer = 0;
 			}
@@ -114,7 +116,7 @@ if (!gui) {
 	}
 }
 
-if (isTaskAcitve) {
+if (isTaskAcitve && debug_mode) {
 	var task = ds_list_find_value(global.task_list, task_obj.numer);
 	
 	show_debug_message("Aktualny stan taska: " + string(task.counter) + " i jego numer " + string(task.numer));
