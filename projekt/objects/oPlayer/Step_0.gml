@@ -164,6 +164,7 @@ if (sprite_index == sPlayerRun && xspd != 0) {
 		if(!audio_is_playing(snd_playerstep) && !audio_is_playing(snd_playerland)) {
 			audio_play_sound(snd_playerstep, 0, false);
 			part_particles_create(global.particleSystem, x, y, oGlobal.walkParticleType, 20);
+			//shakeCamera(2, 2, 0.25);
 		}
 	}
 }
