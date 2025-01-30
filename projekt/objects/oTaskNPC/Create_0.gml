@@ -9,6 +9,8 @@ task_obj = ds_list_find_value(global.task_list, taskNumer);
 
 gui = false;
 
+iterator = 0;
+
 choice = true;
 
 isTaskAcitve = false;
