@@ -41,8 +41,20 @@ if (room != przejscie) {
 	ds_list_clear(global.lista)
 	
 	
+	for (var i = 0; i < ds_list_size(global.task_list); i++) {
+		var task = ds_list_find_value(global.task_list, i);
+		task.counter = task.prevCounter;
+		
+	}
+	gold = prevGold;
 	
-	
+	for (var i = 0; i < ds_list_size(global.task_list); i++) {
+		var task = ds_list_find_value(global.task_list, i);
+		task.prevCounter = task.counter;
+		
+	}
+
+	prevGold = gold;
 	
 	if (layer_exists("Player_below"))
 		part_system_depth(global.particleSystem, layer_get_depth("Player_below") + 105);

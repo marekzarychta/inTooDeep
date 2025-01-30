@@ -11,6 +11,8 @@ gui = false;
 
 iterator = 0;
 
+talk = 0;
+
 choice = true;
 
 isTaskAcitve = false;

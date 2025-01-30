@@ -12,6 +12,10 @@ if (!gui) {
 
 	var dis = oPlayer.x - x;
 
+	if (!marked) {
+		talk = 0;
+	}
+
 
 	if (place_meeting(x, y, oPlayer)) {
 	    openable = true; 
@@ -39,6 +43,11 @@ if (!gui) {
 	}
 	
 	
+	
+	if (done) {
+		talk = 1;
+	}
+	
 	if (openable && marked && messTimer >= messBuffer && !finished) {
 		if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
 		    textBoxInstance = createTextbox(x, y - 20, text); // Tworzymy textbox
@@ -56,21 +65,29 @@ if (!gui) {
 		
 	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !finished {
     
-		
+		talk++;
+		talk %= 2;
+	
+		if (talk == 1) {
+			messTimer = 0;
+		} else if (talk == 0) {
 	
 	
-		if (!isTaskAcitve) {
-			gui = true;
-			blockControls(true);
-		} else {
-			if (done) {
-				finished = true;
-				messTimer = 0;
-				oGlobal.gold += 20;
-				isTaskAcitve = false;
-				oGlobal.activeTask = noone;
+			if (!isTaskAcitve) {
+				gui = true;
+				messTimer = messBuffer
+				blockControls(true);
+				
 			} else {
-				messTimer = 0;
+				if (done) {
+					finished = true;
+					messTimer = 0;
+					oGlobal.gold += 20;
+					isTaskAcitve = false;
+					oGlobal.activeTask = noone;
+				} else {
+					messTimer = 0;
+				}
 			}
 		}
 	
@@ -129,15 +146,22 @@ if (isTaskAcitve && debug_mode) {
 if (messTimer < messBuffer) {
 	var task = ds_list_find_value(global.task_list, task_obj.numer);
 		
-	var mess ="";
+	var mess = "";
+	
 	if (!finished) {
-		mess = task_obj.desc + "You have to do " + string(task._value - task.counter) + " more.";
+		mess = task_obj.desc + " \nYou have to do " + string(task._value - task.counter) + " more.";
+		if (!isTaskAcitve) {
+			mess = task_obj.words;
+		}
 	} else {
 		mess = "Thank you for your help.";
-	}
+	} 
+	
+	
+		
 	if (messTextBox == noone || !instance_exists(messTextBox)) { // Tylko jeśli textbox nie istnieje
 		
-	    messTextBox = instance_create_layer(x, y - 50, layer_get_id("GUI"), oTextboxMessage); // Tworzymy textbox
+	    messTextBox = instance_create_layer(x, y - 64, layer_get_id("GUI"), oTextboxMessage); // Tworzymy textbox
 	} else if instance_exists(messTextBox) {
 	    messTextBox.textVal = mess;
 	}
@@ -147,6 +171,7 @@ if (messTimer < messBuffer) {
 	if (messTextBox != noone && instance_exists(messTextBox)) { // Jeśli istnieje textbox
 	    instance_destroy(messTextBox); // Usuwamy go
 	    messTextBox = noone; // Resetujemy wskaźnik
+
 	}
 }
 
