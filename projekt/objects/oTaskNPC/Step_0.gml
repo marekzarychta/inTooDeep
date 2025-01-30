@@ -28,6 +28,8 @@ if (!gui) {
 		}
 	}
 	
+	
+	
 	if (instance_exists(oGlobal.activeTask)) {
 		if (task_obj.numer == oGlobal.activeTask.numer) {
 			isTaskAcitve = true;

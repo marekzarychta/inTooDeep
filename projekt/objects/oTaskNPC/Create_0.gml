@@ -17,3 +17,4 @@ done = false;
 messTimer = 80;
 messBuffer = 80;
 messTextBox = noone;
+interactionTextBox = noone;

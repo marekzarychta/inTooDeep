@@ -282,6 +282,7 @@
     {"id":{"name":"sDoorOpened","path":"sprites/sDoorOpened/sDoorOpened.yy",},},
     {"id":{"name":"sDPad","path":"sprites/sDPad/sDPad.yy",},},
     {"id":{"name":"sEndFlag","path":"sprites/sEndFlag/sEndFlag.yy",},},
+    {"id":{"name":"sExclamationMarkMini","path":"sprites/sExclamationMarkMini/sExclamationMarkMini.yy",},},
     {"id":{"name":"sExtras1","path":"sprites/sExtras1/sExtras1.yy",},},
     {"id":{"name":"sExtras2","path":"sprites/sExtras2/sExtras2.yy",},},
     {"id":{"name":"sFlag","path":"sprites/sFlag/sFlag.yy",},},
