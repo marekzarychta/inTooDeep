@@ -39,6 +39,11 @@ if (room != przejscie) {
 
 	ds_list_clear(inventory.inventory);
 	ds_list_clear(global.lista)
+	
+	
+	
+	
+	
 	if (layer_exists("Player_below"))
 		part_system_depth(global.particleSystem, layer_get_depth("Player_below") + 105);
 

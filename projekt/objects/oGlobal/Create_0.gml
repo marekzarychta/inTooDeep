@@ -3,10 +3,23 @@ global.lista = ds_list_create();
 global.task_list = ds_list_create();
 
 var task0 = instance_create_layer(x, y, layer, oTask);
+task0.persistent = true;
 task0.numer = 0;
-task0.desc = "Zniszcz 10 wazonow";
+task0._value = 6;
+task0.desc = "Zniszcz "+string(task0._value)+" wazonow";
 task0.words = "Bardzo lubie patrzeć\n na zniszczone wazony";
+task0.counter = 0;
 ds_list_add(global.task_list, task0);
+
+
+var task1 = instance_create_layer(x, y, layer, oTask);
+task1.persistent = true;
+task1.numer = 1;
+task1._value = 3;
+task1.desc = "Zabij "+string(task1._value)+" szkielety";
+task1.words = "Nie znoszę hałasu szkieletów";
+task1.counter = 0;
+ds_list_add(global.task_list, task1);
 
 activeTask = noone;
 

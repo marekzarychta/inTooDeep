@@ -213,6 +213,8 @@ if (following) {
 	
 	if image_index >= image_number - 1 {
 		dying = false;	
+		var task = ds_list_find_value(global.task_list, 1);
+		task.counter++;
 	}
 } else {
 	sprite_index = sprites[4];	

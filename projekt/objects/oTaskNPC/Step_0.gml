@@ -19,9 +19,25 @@ if (!gui) {
 	} else {
 	    openable = false;
 	}
-	show_debug_message(string(marked));
+	if (instance_exists(oGlobal.activeTask) && instance_exists(task_obj)) {
+		if (task_obj.numer == oGlobal.activeTask.numer) {
+			var task = ds_list_find_value(global.task_list, task_obj.numer);
+			if (task.counter >= task._value) {
+				done = true;
+			}
+		}
+	}
+	
+	if (instance_exists(oGlobal.activeTask)) {
+		if (task_obj.numer == oGlobal.activeTask.numer) {
+			isTaskAcitve = true;
+		} else {
+			isTaskAcitve = false;
+		}
+	}
+	
 
-	if (openable && marked) {
+	if (openable && marked && messTimer >= messBuffer) {
 	    if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
 	        textBoxInstance = createTextbox(x, y - 20, text); // Tworzymy textbox
 	    } else if instance_exists(textBoxInstance) {
@@ -35,14 +51,31 @@ if (!gui) {
 	    }
 	}
 		
-	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
+	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !finished {
     
-		//if (instance_exist(task_obj)) {
+		
+	
+	
+		if (!isTaskAcitve) {
 			gui = true;
 			blockControls(true);
-		//}
+		} else {
+			if (done) {
+				finished = true;
+				messTimer = 0;
+				oGlobal.gold += 20;
+			} else {
+				messTimer = 0;
+			}
+		}
 	
 	}
+	
+	
+		
+	
+	
+	
 } else {
 	
 	var closeKey = keyboard_check_pressed(vk_escape) + gamepad_button_check_pressed(0,gp_face2);
@@ -65,10 +98,51 @@ if (!gui) {
 	
 	if (acceptKey) {
 		gui = false;
-		
+		if (choice) {
+			oGlobal.activeTask = instance_create_layer(task_obj.x, task_obj.y, task_obj.layer, oTask);
+			oGlobal.activeTask.desc = task_obj.desc;
+			oGlobal.activeTask._value = task_obj._value;
+			oGlobal.activeTask.words = task_obj.words;
+			oGlobal.activeTask.numer = task_obj.numer;
+			
+			isTaskAcitve = true;
+		}
 	}
 	
 	if (closeKey) {
 		gui = false;
 	}
 }
+
+if (isTaskAcitve) {
+	var task = ds_list_find_value(global.task_list, task_obj.numer);
+	
+	show_debug_message("Aktualny stan taska: " + string(task.counter) + " i jego numer " + string(task.numer));
+}
+
+
+if (messTimer < messBuffer) {
+	var task = ds_list_find_value(global.task_list, task_obj.numer);
+		
+	var mess ="";
+	if (!finished) {
+		mess = task_obj.desc + "Brakuje Ci jeszcze " + string(task._value - task.counter);
+	} else {
+		mess = "Dziekuje za pomoc";
+	}
+	if (messTextBox == noone || !instance_exists(messTextBox)) { // Tylko jeśli textbox nie istnieje
+		
+	    messTextBox = instance_create_layer(x, y - 50, layer_get_id("GUI"), oTextboxMessage); // Tworzymy textbox
+	} else if instance_exists(messTextBox) {
+	    messTextBox.textVal = mess;
+	}
+
+	 
+} else {
+	if (messTextBox != noone && instance_exists(messTextBox)) { // Jeśli istnieje textbox
+	    instance_destroy(messTextBox); // Usuwamy go
+	    messTextBox = noone; // Resetujemy wskaźnik
+	}
+}
+
+messTimer++;
