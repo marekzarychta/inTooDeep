@@ -34,6 +34,7 @@ if (activeTask != noone && instance_exists(activeTask)) {
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_text(width - box_w / 2 - margin, margin + box_h / 2, text);
-	draw_set_halign(fa_left);
+	//draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
+	draw_set_color(c_white);
 }

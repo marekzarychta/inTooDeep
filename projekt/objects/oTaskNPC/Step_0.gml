@@ -44,9 +44,9 @@ if (!gui) {
 	
 	
 	
-	if (done) {
-		talk = 1;
-	}
+	//if (done) {
+	//	talk = 1;
+	//}
 	
 	if (openable && marked && messTimer >= messBuffer && !finished) {
 		if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
@@ -65,32 +65,20 @@ if (!gui) {
 		
 	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !finished {
     
-		talk++;
-		talk %= 2;
+		if (done) {
+			finished = true;
+			oGlobal.gold += 20;
+			isTaskAcitve = false;
+			oGlobal.activeTask = noone;
+		} 
 	
-		if (talk == 1) {
-			messTimer = 0;
-		} else if (talk == 0) {
-	
-	
-			if (!isTaskAcitve) {
-				gui = true;
-				messTimer = messBuffer
-				blockControls(true);
+		gui = true;
+		//messTimer = messBuffer
+		blockControls(true);
 				
-			} else {
-				if (done) {
-					finished = true;
-					messTimer = 0;
-					oGlobal.gold += 20;
-					isTaskAcitve = false;
-					oGlobal.activeTask = noone;
-				} else {
-					messTimer = 0;
-				}
-			}
-		}
-	
+			
+		
+			
 	}
 	
 	
@@ -113,22 +101,36 @@ if (!gui) {
 	downKey = clamp(downKey, 0, 1);
 	
 	
-	
-	if (upKey || downKey) {
-		choice = !choice;
+	if (talk == 1) {
+		if (upKey || downKey) {
+			choice = !choice;
+		}
 	}
 	
 	if (acceptKey) {
-		gui = false;
-		if (choice) {
-			oGlobal.activeTask = instance_create_layer(task_obj.x, task_obj.y, task_obj.layer, oTask);
-			oGlobal.activeTask.desc = task_obj.desc;
-			oGlobal.activeTask._value = task_obj._value;
-			oGlobal.activeTask.words = task_obj.words;
-			oGlobal.activeTask.numer = task_obj.numer;
+		talk++;
+		if (!isTaskAcitve && !done) {
+			if (talk > 1) {
+				gui = false;
+				talk = 0;
+				if (!done) {
+				
+					if (choice) {
+						oGlobal.activeTask = instance_create_layer(task_obj.x, task_obj.y, task_obj.layer, oTask);
+						oGlobal.activeTask.desc = task_obj.desc;
+						oGlobal.activeTask._value = task_obj._value;
+						oGlobal.activeTask.words = task_obj.words;
+						oGlobal.activeTask.numer = task_obj.numer;
 			
-			isTaskAcitve = true;
+						isTaskAcitve = true;
+					}
+				} 
+			}
+		} else {
+			gui = false;
+			talk = 0;
 		}
+		
 	}
 	
 	if (closeKey) {
@@ -143,36 +145,43 @@ if (isTaskAcitve && debug_mode) {
 }
 
 
-if (messTimer < messBuffer) {
-	var task = ds_list_find_value(global.task_list, task_obj.numer);
-		
-	var mess = "";
-	
-	if (!finished) {
-		mess = task_obj.desc + " \nYou have to do " + string(task._value - task.counter) + " more.";
-		if (!isTaskAcitve) {
-			mess = task_obj.words;
-		}
-	} else {
-		mess = "Thank you for your help.";
-	} 
-	
-	
-		
-	if (messTextBox == noone || !instance_exists(messTextBox)) { // Tylko jeśli textbox nie istnieje
-		
-	    messTextBox = instance_create_layer(x, y - 64, layer_get_id("GUI"), oTextboxMessage); // Tworzymy textbox
-	} else if instance_exists(messTextBox) {
-	    messTextBox.textVal = mess;
-	}
-
-	 
-} else {
-	if (messTextBox != noone && instance_exists(messTextBox)) { // Jeśli istnieje textbox
-	    instance_destroy(messTextBox); // Usuwamy go
-	    messTextBox = noone; // Resetujemy wskaźnik
-
+if (gui) {
+	if (textBoxInstance != noone && instance_exists(textBoxInstance)) { // Jeśli istnieje textbox
+		instance_destroy(textBoxInstance); // Usuwamy go
+		textBoxInstance = noone; // Resetujemy wskaźnik
 	}
 }
 
-messTimer++;
+//if (messTimer < messBuffer) {
+//	var task = ds_list_find_value(global.task_list, task_obj.numer);
+		
+//	var mess = "";
+	
+//	if (!finished) {
+//		mess = task_obj.desc + " \nYou have to do " + string(task._value - task.counter) + " more.";
+//		if (!isTaskAcitve) {
+//			mess = task_obj.words;
+//		}
+//	} else {
+//		mess = "Thank you for your help.";
+//	} 
+	
+	
+		
+//	if (messTextBox == noone || !instance_exists(messTextBox)) { // Tylko jeśli textbox nie istnieje
+		
+//	    messTextBox = instance_create_layer(x, y - 64, layer_get_id("GUI"), oTextboxMessage); // Tworzymy textbox
+//	} else if instance_exists(messTextBox) {
+//	    messTextBox.textVal = mess;
+//	}
+
+	 
+//} else {
+//	if (messTextBox != noone && instance_exists(messTextBox)) { // Jeśli istnieje textbox
+//	    instance_destroy(messTextBox); // Usuwamy go
+//	    messTextBox = noone; // Resetujemy wskaźnik
+
+//	}
+//}
+
+//messTimer++;
