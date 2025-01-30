@@ -36,20 +36,21 @@ if (!gui) {
 		}
 	}
 	
-
-	if (openable && marked && messTimer >= messBuffer) {
-	    if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-	        textBoxInstance = createTextbox(x, y - 20, text); // Tworzymy textbox
-	    } else if instance_exists(textBoxInstance) {
-	        textBoxInstance.textVal = text;
-	    }
+	
+	if (openable && marked && messTimer >= messBuffer && !finished) {
+		if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
+		    textBoxInstance = createTextbox(x, y - 20, text); // Tworzymy textbox
+		} else if instance_exists(textBoxInstance) {
+		    textBoxInstance.textVal = text;
+		}
 
 	} else {
-	    if (textBoxInstance != noone && instance_exists(textBoxInstance)) { // Jeśli istnieje textbox
-	        instance_destroy(textBoxInstance); // Usuwamy go
-	        textBoxInstance = noone; // Resetujemy wskaźnik
-	    }
+		if (textBoxInstance != noone && instance_exists(textBoxInstance)) { // Jeśli istnieje textbox
+		    instance_destroy(textBoxInstance); // Usuwamy go
+		    textBoxInstance = noone; // Resetujemy wskaźnik
+		}
 	}
+	
 		
 	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !finished {
     
@@ -128,9 +129,9 @@ if (messTimer < messBuffer) {
 		
 	var mess ="";
 	if (!finished) {
-		mess = task_obj.desc + "Brakuje Ci jeszcze " + string(task._value - task.counter);
+		mess = task_obj.desc + "You have to do " + string(task._value - task.counter) + " more.";
 	} else {
-		mess = "Dziekuje za pomoc";
+		mess = "Thank you for your help.";
 	}
 	if (messTextBox == noone || !instance_exists(messTextBox)) { // Tylko jeśli textbox nie istnieje
 		

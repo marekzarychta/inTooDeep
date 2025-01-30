@@ -6,8 +6,8 @@ var task0 = instance_create_layer(x, y, layer, oTask);
 task0.persistent = true;
 task0.numer = 0;
 task0._value = 6;
-task0.desc = "Zniszcz "+string(task0._value)+" wazonow";
-task0.words = "Bardzo lubie patrzeć\n na zniszczone wazony";
+task0.desc = "Destroy "+string(task0._value)+" vases";
+task0.words = "I realy like to watch destruction of the vases!";
 task0.counter = 0;
 ds_list_add(global.task_list, task0);
 
@@ -16,8 +16,8 @@ var task1 = instance_create_layer(x, y, layer, oTask);
 task1.persistent = true;
 task1.numer = 1;
 task1._value = 3;
-task1.desc = "Zabij "+string(task1._value)+" szkielety";
-task1.words = "Nie znoszę hałasu szkieletów";
+task1.desc = "Kill "+string(task1._value)+" skeletons";
+task1.words = "I hate skeletons noises!";
 task1.counter = 0;
 ds_list_add(global.task_list, task1);
 
@@ -25,8 +25,8 @@ var task2 = instance_create_layer(x, y, layer, oTask);
 task2.persistent = true;
 task2.numer = 2;
 task2._value = 5;
-task2.desc = "Spadnij na "+string(task2._value)+" szkieletow";
-task2.words = "Uwielbiam patrzec na miazge!";
+task2.desc = "Fall on "+string(task2._value)+" skeletons";
+task2.words = "I love look at separated bones!";
 task2.counter = 0;
 ds_list_add(global.task_list, task2);
 
