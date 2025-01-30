@@ -8,8 +8,11 @@
   "managed":true,
   "name":"oBrazierHigh",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"propertyId":{"name":"scale_x","path":"objects/oTorch/oTorch.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1.2",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"propertyId":{"name":"scale_y","path":"objects/oTorch/oTorch.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1.15",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"propertyId":{"name":"scale_x","path":"objects/oTorch/oTorch.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1.2",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"propertyId":{"name":"sigma","path":"objects/oTorch/oTorch.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.05",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"propertyId":{"name":"x_scaleDiff","path":"objects/oTorch/oTorch.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.2",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"propertyId":{"name":"y_scaleDiff","path":"objects/oTorch/oTorch.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.1",},
   ],
   "parent":{
     "name":"lighting",
