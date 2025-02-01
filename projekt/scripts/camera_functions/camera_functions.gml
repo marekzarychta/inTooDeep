@@ -43,11 +43,12 @@ function slowCameraMoveToPos(_x, _y, vel) {
 	
 }
 
-function activateCutScene(_x, _y) {
+function activateCutScene(_x, _y, _door) {
 	var obj = instance_create_layer(x, y, layer, oMoveToFlag);
 	obj.wspX = _x;
 	obj.wspY = _y;
 	obj.condition = true;
+	obj.doorInstance = _door;
 }
 
 

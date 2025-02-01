@@ -18,6 +18,18 @@ importantObjects = [oInventory, oChest, oItemTemplate, oBox, oCart, oBreakableWa
 global.particleSystem = part_system_create();
 
 {
+	
+torchParticleType = part_type_create();
+
+part_type_sprite(torchParticleType, sParticleTorch, 0, 0, 1);
+part_type_life(torchParticleType, 50, 55);
+part_type_size(torchParticleType, 0.5, 0.75, -0.01, 0);
+part_type_orientation(torchParticleType, 0, 0, 0, 1, 0);
+
+part_type_direction(torchParticleType, 45, 135, 0, 1);
+part_type_speed(torchParticleType, 0.4, 0.6, -0.004, 0);
+//part_type_gravity(torchParticleType, 0.02, 270);
+
 
 hitParticleType = part_type_create();
 

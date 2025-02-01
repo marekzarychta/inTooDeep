@@ -1,6 +1,7 @@
-life-=1;
 
-if life % 20 == 0 {
+
+life-=1;
+if life % 16 == 0 {
 	addy += 16;	
 }
 
