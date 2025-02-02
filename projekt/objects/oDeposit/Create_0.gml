@@ -9,7 +9,7 @@ _i = -1;
 
 closedSprite = sDepositEmpty;
 markSprite = sDepositEmptyMarked;
-fullSprite = sDepositFull;
+fullSprite = sDepositFullStone;
 markSpriteFull = sDepositFullMarked;
 
 rangeSprite = sDepositMoveEmpty;

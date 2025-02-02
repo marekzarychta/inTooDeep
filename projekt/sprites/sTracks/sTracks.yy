@@ -19,7 +19,7 @@
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"ad257754-47cf-4b93-808a-fc47610517e8","blendMode":0,"displayName":"default","isLocked":false,"name":"ad257754-47cf-4b93-808a-fc47610517e8","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"c5cca87d-7e76-446d-b2ad-645223cdc51c","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"c5cca87d-7e76-446d-b2ad-645223cdc51c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"sTracks",
   "nineSlice":{
