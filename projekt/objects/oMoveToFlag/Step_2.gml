@@ -2,7 +2,9 @@ if (!wasPlayed) {
 	show_debug_message(string(oCamera.changing));
 	//sprawdzanie kolizji z graczem, aby aktywowac pokazanie
 	if ((place_meeting(x, y, oPlayer) || condition) && goToPlaceTimer == 0 && backToPlayerTimer == 0) {
-		blockControls(true);
+		oPlayer.isActive = false;
+		
+		
 		oCamera.changing = false; 
 		
 		//stworzenie instancji cutscenki
@@ -13,6 +15,13 @@ if (!wasPlayed) {
 		oCamera.midY = oCamera._camY + oCamera._camHeight / 2;
 		velGo = getVel(wspX, wspY, goToPlaceBuffer, stayTime);
 		//show_debug_message(string(wspX) + " " + string(wspY));
+	}
+	
+	if (goToPlaceTimer <= stayTime / 2) {
+		if (instance_exists(doorInstance)) {
+			
+			doorInstance.opened = true;
+		}
 	}
 	
 	//przejscie do danego miejsca
@@ -42,6 +51,7 @@ if (!wasPlayed) {
 		slowCameraMoveToPos(middleScreen, oPlayer.y, velBack);
 		if (backToPlayerTimer == 0) {
 			wasPlayed = true;
+			oPlayer.isActive = true;
 			oCamera.changing = true;
 			blockControls(false);
 			oCamera.midX = oPlayer.x;

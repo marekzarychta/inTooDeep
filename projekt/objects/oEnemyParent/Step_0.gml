@@ -15,11 +15,13 @@ if isAlive {
 	var dx = playerX - x;
 	var dy = playerY - y;
 	
-	if IsInRangeAttack() && !attacking {
+	if IsInRangeAttack() && !attacking && !wasHit {
 		image_index = 0;
 		attacking = true;
 		face = -moveDir;
 	} 
+	
+
 	
 	//if place_meeting(x, y, oPlayer) {
 	//	//show_debug_message("Kolizja");	
@@ -46,6 +48,9 @@ if isAlive {
 		following = false;	
 	}
 	
+
+	
+	
 	//Get xspd
 	if onGround
 		xspd = moveDir * moveSpd;
@@ -56,6 +61,7 @@ if isAlive {
 	    // Odrzut
 	    xspd = knockback_x;
 	    yspd = knockback_y;
+		
 
 	    // Zmniejszaj czas trwania odrzutu
 	    knockback_duration--;
@@ -76,7 +82,7 @@ if isAlive {
 	//X Collision
 	//How close we can get to a wall etc.
 	
-	if attacking {
+	if (attacking && !(knockback_duration > 0)) {
 		xspd = 0;	
 	}
 	
@@ -102,6 +108,16 @@ if isAlive {
 			//Stop movement to collide
 			xspd = 0;	
 		}
+	}
+	
+	if (wasHit && attackTimer == attackBuffer) {
+		wasHit = false;
+		attackTimer = 0;
+	}
+	
+	if (wasHit && !(knockback_duration > 0)) {
+		xspd = 0;
+		attackTimer++;
 	}
 	
 	//Check wall collision
@@ -249,6 +265,8 @@ if (following) {
 		//Stop movement to collide
 		yspd = 0;
 	}
+	
+	
 	
 	if yspd >=0 && place_meeting(x,y+1, oWall){
 		onGround = true;

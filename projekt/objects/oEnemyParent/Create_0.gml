@@ -3,10 +3,11 @@ flashAlpha = 0;
 flashColor = c_white;
 
 // Knockback variables for getting hit
+death = false;
 knockback_x = 0;
 knockback_y = 0;
-knockback_duration = 0; // Ile klatek trwa odrzut
-knockback_power = 5; // Sila odrzutu
+knockback_duration = 4; // Ile klatek trwa odrzut
+knockback_power = 3; // Sila odrzutu
 
 // Health and combat related variables
 health_points = 0;

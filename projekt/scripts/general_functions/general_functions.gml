@@ -324,6 +324,7 @@ function blockControls(block){
 function getControls() {
 	if (global.controlsBlocked) return; // Sprawdzenie, czy sterowanie jest zablokowane
 	attackKey = keyboard_check(ord("X")) + gamepad_button_check(0,gp_face3);
+	//attackKey = 0;
 	attackKey = clamp(attackKey, 0, 1);
 	
 	dashKey = keyboard_check(vk_shift) + gamepad_button_check(0,gp_face2);

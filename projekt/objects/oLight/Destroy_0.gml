@@ -1,0 +1,1 @@
+if (debug_mode) show_debug_message("Zgaszono swiatlo numer: "+string(id)+"\n");

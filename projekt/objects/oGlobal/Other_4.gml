@@ -27,6 +27,9 @@ if (room != przejscie) {
 		if (!layer_exists("Player_overlay")) {
 			layer_create(layer_get_depth("Player") - 20, "Player_overlay");	
 		}
+		if (!layer_exists("Light")) {
+			layer_create(layer_get_depth("Player") - 40, "Light");	
+		}
 	}
 
 	if (!layer_exists("Text")) {
@@ -36,6 +39,7 @@ if (room != przejscie) {
 	if (!layer_exists("Popups")) {
 		layer_create(-50, "Popups");	
 	}
+	
 
 	ds_list_clear(inventory.inventory);
 	ds_list_clear(global.lista)
