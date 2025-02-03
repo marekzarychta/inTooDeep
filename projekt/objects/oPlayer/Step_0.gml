@@ -22,16 +22,16 @@ function setOnGround(_val = true){
 if(debug_mode){
 getControls();
 
-if (keyboard_check_pressed(ord("N"))) {
-    noclip = !noclip; // Przełącz tryb noclip
-    if (noclip) {
-		isAlive = false;
-        show_debug_message("Noclip: ON");
-    } else {
-		isAlive = true;
-        show_debug_message("Noclip: OFF");
-    }
-}
+	if (keyboard_check_pressed(ord("N"))) {
+	    noclip = !noclip; // Przełącz tryb noclip
+	    if (noclip) {
+			isAlive = false;
+	        show_debug_message("Noclip: ON");
+	    } else {
+			isAlive = true;
+	        show_debug_message("Noclip: OFF");
+	    }
+	}
 }
 
 
@@ -83,11 +83,11 @@ else{
 	
 	}
 
-if(useKey){
-	isInteracting = true;
-}else{
-	isInteracting = false;
-}
+	if(useKey){
+		isInteracting = true;
+	}else{
+		isInteracting = false;
+	}
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
 	if (attackCooldownTimer == 0 && attackKey && !oInventory.opened && !isLadder) {
 	
@@ -377,6 +377,12 @@ if (!isDashing) {
 	
 //Y Movement
 	//Gravity
+	
+	if (jumpKey && isLadder) {
+		isLadder = !isLadder;
+		onGround = true;
+	}
+	
 	
 	if isLadder {
 		grav = 0; 	
