@@ -508,8 +508,7 @@ if (!isDashing) {
 	                instance_destroy();
 	            }
 	        }
-	    } 
-		if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
+	    } else if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
@@ -517,7 +516,14 @@ if (!isDashing) {
 	                instance_destroy();
 	            }
 	        }
-	    } 
+	    } else if ((place_meeting(x, y + yspd, oBreakableWallRed) || place_meeting(x, y + yspd, oBreakableWallOrange)) && yspd > 2) {
+			var breakableWall = instance_place(x, y + yspd, oWall);
+			part_emitter_region(global.particleSystem, emitter, (breakableWall.bbox_left > x - 24 ? breakableWall.bbox_left : x - 24),(breakableWall.bbox_right < x + 24 ? breakableWall.bbox_right : x + 24), breakableWall.bbox_bottom - 4, breakableWall.bbox_bottom - 1, ps_shape_rectangle, ps_distr_gaussian);
+			
+			part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingParticleType, random(40) + 20);
+		
+			shakeCamera(8, 2.0, 0.4);
+		}
 	}
 	
 	

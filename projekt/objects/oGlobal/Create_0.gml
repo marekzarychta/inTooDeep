@@ -213,5 +213,19 @@ part_type_blend(destructionParticleType, 1);
 part_type_direction(destructionParticleType, 0, 359, 0.01, 1);
 part_type_speed(destructionParticleType, 0.1, 0.1, 0.1, 0);
 part_type_alpha3(destructionParticleType, 0.7, 0.8, 0.02);
+
+crumblingParticleType = part_type_create();
+
+part_type_sprite(crumblingParticleType, sParticleDestruction, 0, 0, 1);
+part_type_life(crumblingParticleType, 15, 20);
+part_type_size(crumblingParticleType, 1, 1, -0.02, 0);
+part_type_orientation(crumblingParticleType, 0, 359, 0, 0, 1);
+part_type_blend(crumblingParticleType, 1);
+
+part_type_direction(crumblingParticleType, 240, 300, 0.0, 1);
+part_type_speed(crumblingParticleType, 0.1, 0.1, 0.0, 0);
+part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
+part_type_gravity(crumblingParticleType, 0.08, 270);
+
 }
 	
