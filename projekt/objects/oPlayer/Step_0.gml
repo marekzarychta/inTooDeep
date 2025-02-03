@@ -83,9 +83,9 @@ else{
 	
 	}
 
-	if(useKey){
+	if(useKey || useKey2){
 		isInteracting = true;
-	}else{
+	} else{
 		isInteracting = false;
 	}
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button

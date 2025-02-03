@@ -18,6 +18,8 @@
     {"name":"inst_2AEDD132","path":"rooms/test/test.yy",},
     {"name":"inst_331F9C40","path":"rooms/test/test.yy",},
     {"name":"inst_A441007","path":"rooms/test/test.yy",},
+    {"name":"inst_711BD0D2","path":"rooms/test/test.yy",},
+    {"name":"inst_3854378D","path":"rooms/test/test.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -39,6 +41,8 @@
         {"$GMRInstance":"v1","%Name":"inst_2AEDD132","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2AEDD132","objectId":{"name":"oBrazierLow","path":"objects/oBrazierLow/oBrazierLow.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":344.0,"y":336.0,},
         {"$GMRInstance":"v1","%Name":"inst_331F9C40","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_331F9C40","objectId":{"name":"oBrazierHigh","path":"objects/oBrazierHigh/oBrazierHigh.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":392.0,"y":336.0,},
         {"$GMRInstance":"v1","%Name":"inst_A441007","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_A441007","objectId":{"name":"oBrazierLow","path":"objects/oBrazierLow/oBrazierLow.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":176.0,"y":336.0,},
+        {"$GMRInstance":"v1","%Name":"inst_711BD0D2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_711BD0D2","objectId":{"name":"oDeposit","path":"objects/oDeposit/oDeposit.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":552.0,"y":336.0,},
+        {"$GMRInstance":"v1","%Name":"inst_3854378D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3854378D","objectId":{"name":"oDeposit","path":"objects/oDeposit/oDeposit.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":656.0,"y":336.0,},
       ],"layers":[],"name":"Instances_2","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4279834905,"depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":true,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
