@@ -229,7 +229,7 @@ part_type_gravity(crumblingParticleType, 0.08, 270);
 
 crumblingLeftParticleType = part_type_create();
 
-part_type_sprite(crumblingLeftParticleType, sParticleCrumbling, 0, 0, 1);
+part_type_sprite(crumblingLeftParticleType, sParticleCrumblingGrey, 0, 0, 1);
 part_type_life(crumblingLeftParticleType, 18, 22);
 part_type_size(crumblingLeftParticleType, 1, 1, -0.01, 0);
 part_type_orientation(crumblingLeftParticleType, 0, 359, 0, 0, 1);
@@ -242,7 +242,7 @@ part_type_gravity(crumblingLeftParticleType, 0.02, 270);
 
 crumblingRightParticleType = part_type_create();
 
-part_type_sprite(crumblingRightParticleType, sParticleCrumbling, 0, 0, 1);
+part_type_sprite(crumblingRightParticleType, sParticleCrumblingGrey, 0, 0, 1);
 part_type_life(crumblingRightParticleType, 18, 22);
 part_type_size(crumblingRightParticleType, 1, 1, -0.01, 0);
 part_type_orientation(crumblingRightParticleType, 0, 359, 0, 0, 1);

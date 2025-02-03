@@ -335,6 +335,7 @@
     {"id":{"name":"sNameBox","path":"sprites/sNameBox/sNameBox.yy",},},
     {"id":{"name":"sParticleCart","path":"sprites/sParticleCart/sParticleCart.yy",},},
     {"id":{"name":"sParticleCrumbling","path":"sprites/sParticleCrumbling/sParticleCrumbling.yy",},},
+    {"id":{"name":"sParticleCrumblingGrey","path":"sprites/sParticleCrumblingGrey/sParticleCrumblingGrey.yy",},},
     {"id":{"name":"sParticleDestruction","path":"sprites/sParticleDestruction/sParticleDestruction.yy",},},
     {"id":{"name":"sParticleFalling","path":"sprites/sParticleFalling/sParticleFalling.yy",},},
     {"id":{"name":"sParticleFallingWhite","path":"sprites/sParticleFallingWhite/sParticleFallingWhite.yy",},},
