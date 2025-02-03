@@ -789,7 +789,7 @@ if (!isDashing) {
 		
 		//wygladzenie
 		
-		if (xspd > 0) {
+		/*if (xspd > 0) {
 			part_emitter_region(global.particleSystem, emitter, x - 3 - 2 * abs(xspd) , x, bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
 		} else if (xspd < 0) {
 			part_emitter_region(global.particleSystem, emitter, x , x + 3 + 2 * abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
@@ -802,7 +802,7 @@ if (!isDashing) {
 			} else {
 				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashWhiteParticleType, 400 -  k * 50);
 			}
-		}
+		}*/
 		
 		
 		
