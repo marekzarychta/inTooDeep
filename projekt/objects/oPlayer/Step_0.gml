@@ -303,15 +303,18 @@ if (!isDashing) {
 					
 	                    createFollowingTextbox(x - 16, y - 16, message);
 	                }
-					part_emitter_region(global.particleSystem, emitter, b.bbox_left, b.bbox_left + 1, b.bbox_top, b.bbox_top + (b.bbox_bottom - b.bbox_top) / 2, ps_shape_rectangle, ps_distr_linear);
-			
-					part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingLeftParticleType, random(30) + 20);
-		
-					part_emitter_region(global.particleSystem, emitter, b.bbox_right, b.bbox_right - 1, b.bbox_top, b.bbox_top + (b.bbox_bottom - b.bbox_top) / 2, ps_shape_rectangle, ps_distr_linear);
 					
-					part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingRightParticleType, random(30) + 20);
-		
+					if (xspd < 0) {
+						part_emitter_region(global.particleSystem, emitter, b.bbox_left - 1, b.bbox_left, b.bbox_top /*+ (b.bbox_bottom - b.bbox_top)*/, b.bbox_bottom, ps_shape_rectangle, ps_distr_linear);
+			
+						part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingLeftParticleType, random(40) + 24 * b.image_yscale);
+					} else {
+						part_emitter_region(global.particleSystem, emitter, b.bbox_right, b.bbox_right + 1, b.bbox_top /*+ (b.bbox_bottom - b.bbox_top)*/, b.bbox_bottom, ps_shape_rectangle, ps_distr_linear);
+					
+						part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingRightParticleType, random(40) + 24 * b.image_yscale);
+					}
 					shakeCamera(8, 2.0, 0.4);
+					dashTimer = 0;
 	            }
 	        }
 	    }
@@ -736,10 +739,10 @@ if (!isDashing) {
 		isDashing = true;
 		hasDashed = true;
 		xspd = smooth(xspd, (sign(moveDir) * moveSpd[currentWeightLevel] * 1.2), 0.6);
-		part_type_direction(oGlobal.dashParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
-		part_type_direction(oGlobal.dashWhiteParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
+		//part_type_direction(oGlobal.dashParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
+		//part_type_direction(oGlobal.dashWhiteParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
 		
-		var alfa = 0.5;
+		/*var alfa = 0.5;
 		if (currentWeightLevel > 2) alfa = 1;
 		part_type_alpha1(oGlobal.dashParticleType, 0.05 * alfa);
 		
@@ -750,7 +753,7 @@ if (!isDashing) {
 			part_emitter_region(global.particleSystem, emitter, x + 3 , x + 3 + abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
 			part_emitter_region(global.particleSystem, emitterR, x + 3 , x + 3 + abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
 		
-		} 
+		}
 		if (x != xprevious) {
 			if (currentWeightLevel >= 2) {
 				
@@ -760,7 +763,7 @@ if (!isDashing) {
 				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashWhiteParticleType, 500);
 				//part_emitter_burst(global.particleSystem, emitterR, oGlobal.dashWhiteParticleType, 100);
 			}
-		}
+		}*/
 		if attackingTimer > 0 {
 			attackingTimer = 0;
 			if (instance_exists(hitbox)) {

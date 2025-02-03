@@ -130,8 +130,8 @@ isInteracting = false;
 
 jumpHoldTimer = 0;
 	//Jump values for successive jumps
-	jumpHoldFrames[0] = 16;
-	jspd[0] = [-2.42, -3, -2.80, -2.5];
+	jumpHoldFrames[0] = 8;
+	jspd[0] = [-3.2, -3, -2.80, -2.5];
 	//jumpHoldFrames[1] = 5;
 	//jspd[1] = [-2.70, -2.4, -2.05, -1.75];
 
