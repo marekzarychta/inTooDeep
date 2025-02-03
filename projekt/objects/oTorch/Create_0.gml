@@ -22,3 +22,7 @@ light.scale_y = scale_y;
 light.x_scaleDiff = x_scaleDiff;
 light.y_scaleDiff = y_scaleDiff;
 light.sigma = sigma;
+
+function playSound() {
+	audio_play_sound(snd_torch_snuff, 0, false);
+}
