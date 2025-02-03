@@ -300,8 +300,18 @@ if (!isDashing) {
 	            } else if currentWeightLevel < required_weight {
 	                if (!instance_exists(oTextboxPlayer)) {
 						grunt();
+					
 	                    createFollowingTextbox(x - 16, y - 16, message);
 	                }
+					part_emitter_region(global.particleSystem, emitter, b.bbox_left, b.bbox_left + 1, b.bbox_top, b.bbox_top + (b.bbox_bottom - b.bbox_top) / 2, ps_shape_rectangle, ps_distr_linear);
+			
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingLeftParticleType, random(30) + 20);
+		
+					part_emitter_region(global.particleSystem, emitter, b.bbox_right, b.bbox_right - 1, b.bbox_top, b.bbox_top + (b.bbox_bottom - b.bbox_top) / 2, ps_shape_rectangle, ps_distr_linear);
+					
+					part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingRightParticleType, random(30) + 20);
+		
+					shakeCamera(8, 2.0, 0.4);
 	            }
 	        }
 	    }
@@ -516,7 +526,7 @@ if (!isDashing) {
 	                instance_destroy();
 	            }
 	        }
-	    } else if ((place_meeting(x, y + yspd, oBreakableWallRed) || place_meeting(x, y + yspd, oBreakableWallOrange))) {
+	    } else if ((place_meeting(x, y + yspd, oBreakableWallRed) || place_meeting(x, y + yspd, oBreakableWallOrange)) && yspd > 0) {
 			var breakableWall = instance_place(x, y + yspd, oWall);
 			part_emitter_region(global.particleSystem, emitter, (breakableWall.bbox_left > x - 24 ? breakableWall.bbox_left : x - 24),(breakableWall.bbox_right < x + 24 ? breakableWall.bbox_right : x + 24), breakableWall.bbox_bottom - 4, breakableWall.bbox_bottom - 1, ps_shape_rectangle, ps_distr_gaussian);
 			
