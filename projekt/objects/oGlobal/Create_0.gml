@@ -28,6 +28,19 @@ part_type_orientation(torchParticleType, 0, 0, 0, 1, 0);
 
 part_type_direction(torchParticleType, 45, 135, 0, 1);
 part_type_speed(torchParticleType, 0.4, 0.6, -0.004, 0);
+
+smokeParticleType = part_type_create();
+
+part_type_sprite(smokeParticleType, sParticleSmoke, 0, 0, 1);
+part_type_life(smokeParticleType, 30, 45);
+part_type_size(smokeParticleType, 0.25, 0.35, 0.001, 0);
+part_type_orientation(smokeParticleType, 0, 0, 0, 1, 0);
+part_type_blend(smokeParticleType, 0);
+part_type_direction(smokeParticleType, 90, 90, 0, 1);
+part_type_alpha1(smokeParticleType, 0.5);
+part_type_speed(smokeParticleType, 0.3, 0.4, -0.004, 0);
+
+
 //part_type_gravity(torchParticleType, 0.02, 270);
 
 
@@ -237,7 +250,7 @@ part_type_blend(crumblingLeftParticleType, 0);
 
 part_type_direction(crumblingLeftParticleType, 170, 190, 0.0, 1);
 part_type_speed(crumblingLeftParticleType, 0.08, 0.08, 0.0, 0);
-//part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
+part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
 part_type_gravity(crumblingLeftParticleType, 0.02, 270);
 
 crumblingRightParticleType = part_type_create();
@@ -250,7 +263,7 @@ part_type_blend(crumblingRightParticleType, 0);
 
 part_type_direction(crumblingRightParticleType, -10, 10, 0.0, 1);
 part_type_speed(crumblingRightParticleType, 0.08, 0.08, 0.0, 0);
-//part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
+part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
 part_type_gravity(crumblingRightParticleType, 0.02, 270);
 
 }

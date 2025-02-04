@@ -341,6 +341,7 @@
     {"id":{"name":"sParticleFallingWhite","path":"sprites/sParticleFallingWhite/sParticleFallingWhite.yy",},},
     {"id":{"name":"sParticleFallOnGround","path":"sprites/sParticleFallOnGround/sParticleFallOnGround.yy",},},
     {"id":{"name":"sParticleSlime","path":"sprites/sParticleSlime/sParticleSlime.yy",},},
+    {"id":{"name":"sParticleSmoke","path":"sprites/sParticleSmoke/sParticleSmoke.yy",},},
     {"id":{"name":"sParticleTorch","path":"sprites/sParticleTorch/sParticleTorch.yy",},},
     {"id":{"name":"sPlatform","path":"sprites/sPlatform/sPlatform.yy",},},
     {"id":{"name":"sPlayerAttack","path":"sprites/sPlayerAttack/sPlayerAttack.yy",},},

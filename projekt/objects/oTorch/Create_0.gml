@@ -11,6 +11,8 @@ prevIndex = 0;
 
 part_emitter_region(global.particleSystem, emitter,bbox_left + 2, bbox_right - 2, y - offset - sprite_height / 2, y - offset - sprite_height / 2, ps_shape_ellipse, ps_distr_linear);
 					
+smokeTimer = 0;
+smokeBuffer = 50;
 					
 notLitSprite = sTorchEmpty;	
 

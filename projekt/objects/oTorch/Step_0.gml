@@ -19,8 +19,11 @@ if (isLit) {
 	}
 } else {
 	sprite_index = notLitSprite;
+	
 	if (instance_exists(light)) {
 		if (light.scale_x > 0 || light.scale_y > 0) {
+			
+
 			light.scale_x -= 0.1;
 			light.scale_y -= 0.1;
 			light.sigma -= 0.01;
@@ -31,6 +34,16 @@ if (isLit) {
 			if (light.sigma < 0.01) light.sigma = 0.01;
 		} else {
 			instance_destroy(light.id);
+			smokeTimer = smokeBuffer;
 		}
 	}
 }
+
+if (smokeTimer > 0) {
+	part_emitter_region(global.particleSystem, emitter,x + (bbox_right - bbox_left - 1) / 2, x + (bbox_right - bbox_left) / 2, y + 2 - offset - sprite_height / 2, y + 2 - offset - sprite_height / 2, ps_shape_ellipse, ps_distr_linear);
+	
+	
+	part_emitter_burst(global.particleSystem, emitter, oGlobal.smokeParticleType, ((smokeTimer > 20) ? smokeTimer - 19 : 2));	
+	smokeTimer--;
+}
+part_type_direction(oGlobal.smokeParticleType, 90, 90, 4 * sin(current_time), 1);
