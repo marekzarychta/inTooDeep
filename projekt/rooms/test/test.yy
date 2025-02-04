@@ -23,7 +23,7 @@
     {"name":"inst_7EE2BE00","path":"rooms/test/test.yy",},
     {"name":"inst_21FB604A","path":"rooms/test/test.yy",},
     {"name":"inst_68101719","path":"rooms/test/test.yy",},
-    {"name":"inst_47FD4A7E","path":"rooms/test/test.yy",},
+    {"name":"inst_3102FBC2","path":"rooms/test/test.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -47,9 +47,7 @@
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":504.0,"y":336.0,},
         {"$GMRInstance":"v1","%Name":"inst_21FB604A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_21FB604A","objectId":{"name":"oCheckpoint","path":"objects/oCheckpoint/oCheckpoint.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":304.0,},
         {"$GMRInstance":"v1","%Name":"inst_68101719","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_68101719","objectId":{"name":"oCheckpoint","path":"objects/oCheckpoint/oCheckpoint.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":216.0,"y":304.0,},
-        {"$GMRInstance":"v1","%Name":"inst_47FD4A7E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_47FD4A7E","objectId":{"name":"oTaskNPC","path":"objects/oTaskNPC/oTaskNPC.yy",},"properties":[
-            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTaskNPC","path":"objects/oTaskNPC/oTaskNPC.yy",},"propertyId":{"name":"taskNumer","path":"objects/oTaskNPC/oTaskNPC.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
-          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":768.0,"y":336.0,},
+        {"$GMRInstance":"v1","%Name":"inst_3102FBC2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3102FBC2","objectId":{"name":"oTaskNPC","path":"objects/oTaskNPC/oTaskNPC.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":768.0,"y":336.0,},
       ],"layers":[],"name":"Player","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances_2","depth":200,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_1DFAB496","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1DFAB496","objectId":{"name":"oWall","path":"objects/oWall/oWall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":86.0,"scaleY":1.0,"x":0.0,"y":352.0,},

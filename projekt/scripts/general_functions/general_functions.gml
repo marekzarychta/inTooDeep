@@ -17,8 +17,9 @@ function save() {
 		task.prevCounter = task.counter;
 		
 	}
-	
-	oGlobal.prevGold = oGlobal.gold;
+
+	global.gold = oGlobal.gold;
+
 	oGlobal.prevActiveTask = oGlobal.activeTask;
 	
 	var state = ds_list_create();
@@ -204,7 +205,8 @@ function load(state) {
 		task.counter = task.prevCounter;
 		
 	}
-	oGlobal.gold = oGlobal.prevGold;
+	
+	oGlobal.gold = global.gold;
 	oGlobal.activeTask = oGlobal.prevActiveTask;
 	
 	//czyszczenie mapki z obiektów, które zostaną ponownie stworzone z nowymi zmiennymi 
@@ -351,6 +353,7 @@ function toGold() {
 		var item = ds_list_find_value(global.lista, i);
 		oGlobal.gold += item.item_value;
 	}
+	global.gold = oGlobal.gold;
 }
 
 function grunt(){

@@ -1,6 +1,7 @@
 global.lista = ds_list_create();
 
 global.task_list = ds_list_create();
+global.gold = 0;
 
 var task0 = instance_create_layer(x, y, layer, oTask);
 task0.persistent = true;
@@ -38,6 +39,9 @@ prevActiveTask = noone;
 
 gold = 0;
 prevGold = 0;
+
+state = ds_list_create();
+
 window_set_cursor(cr_none);
 inventory = instance_create_layer(x, y, layer, oInventory);
 inventory.persistent = true;
