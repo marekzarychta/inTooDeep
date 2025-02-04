@@ -1,5 +1,47 @@
 global.lista = ds_list_create();
+
+global.task_list = ds_list_create();
+global.gold = 0;
+
+var task0 = instance_create_layer(x, y, layer, oTask);
+task0.persistent = true;
+task0.numer = 0;
+task0._value = 5;
+task0.desc = "Destroy "+string(task0._value)+" vases";
+task0.words = "I really like \nto watch destruction\nof the vases!";
+task0.counter = 0;
+task0.prevCounter = 0;
+ds_list_add(global.task_list, task0);
+
+
+var task1 = instance_create_layer(x, y, layer, oTask);
+task1.persistent = true;
+task1.numer = 1;
+task1._value = 3;
+task1.desc = "Kill "+string(task1._value)+" skeletons";
+task1.words = "I hate skeletons\nnoises!";
+task1.counter = 0;
+task1.prevCounter = 0;
+ds_list_add(global.task_list, task1);
+
+var task2 = instance_create_layer(x, y, layer, oTask);
+task2.persistent = true;
+task2.numer = 2;
+task2._value = 5;
+task2.desc = "Fall on "+string(task2._value)+" skeletons";
+task2.words = "I love look at\nseparated bones!"; //18
+task2.counter = 0;
+task2.prevCounter = 0;
+ds_list_add(global.task_list, task2);
+
+activeTask = noone;
+prevActiveTask = noone;
+
 gold = 0;
+prevGold = 0;
+
+state = ds_list_create();
+
 window_set_cursor(cr_none);
 inventory = instance_create_layer(x, y, layer, oInventory);
 inventory.persistent = true;

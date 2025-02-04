@@ -61,7 +61,7 @@ if isAlive {
 	}
 
 
-if oInventoryUI.opened || !isActive { 
+if oInventoryUI.opened || !isActive || (instance_exists(oTaskNPC) && oTaskNPC.gui) { 
 	blockControls(true);
 	xspd = smooth(xspd, 0, 0.92);	// Zatrzymaj ruch w bok
 	// Wyzerowanie poprzednich inputów
@@ -463,12 +463,19 @@ if (!isDashing) {
 		var enemy = instance_place(x, y + yspd, oEnemyParent);
 		//show_debug_message("tak")
 		with (enemy) {
+			if (instance_exists(oGlobal) && health_points > 0) {
+				var task = ds_list_find_value(global.task_list, 2);
+				//if (oGlobal.activeTask != noone && instance_exists(oGlobal.activeTask) && oGlobal.activeTask.numer == 0 && 
+				task.counter++;
+			}
+			
 			health_points = 0;
+			
 		}
 		if (enemy.isAlive) {
 			audio_play_sound(snd_hit, 0, false);
 			enemy.flashAlpha = 0.8;
-			yspd = -2;
+			yspd *= 0.2;
 		}
 	}
 	obj = instance_place(x, y + yspd, oDoor);

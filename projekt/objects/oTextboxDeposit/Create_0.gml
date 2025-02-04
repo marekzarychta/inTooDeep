@@ -1,0 +1,1 @@
+textVal = "items can be\ndeposited and retrieved";

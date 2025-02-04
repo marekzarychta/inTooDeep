@@ -11,6 +11,17 @@ function emittingDestruction(_howMany, _id) {
 }
 
 function save() {
+	
+	for (var i = 0; i < ds_list_size(global.task_list); i++) {
+		var task = ds_list_find_value(global.task_list, i);
+		task.prevCounter = task.counter;
+		
+	}
+
+	global.gold = oGlobal.gold;
+
+	oGlobal.prevActiveTask = oGlobal.activeTask;
+	
 	var state = ds_list_create();
 	
 	
@@ -43,6 +54,25 @@ function save() {
         ds_list_add(state, obj_data);
 		show_debug_message("enemy");
 	}
+	
+	with (oTaskNPC) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "layer", layer);
+		ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+        ds_map_add(obj_data, "done", done); 
+        ds_map_add(obj_data, "finished", finished);
+        ds_map_add(obj_data, "numer", taskNumer);
+
+        ds_list_add(state, obj_data);
+		show_debug_message("enemy");
+	}
+	
+	
 	with (oVase) {
 		obj_data = ds_map_create();
         
@@ -169,8 +199,21 @@ function save() {
 }
 
 function load(state) {
+	
+	for (var i = 0; i < ds_list_size(global.task_list); i++) {
+		var task = ds_list_find_value(global.task_list, i);
+		task.counter = task.prevCounter;
+		
+	}
+	
+	oGlobal.gold = global.gold;
+	oGlobal.activeTask = oGlobal.prevActiveTask;
+	
 	//czyszczenie mapki z obiektów, które zostaną ponownie stworzone z nowymi zmiennymi 
     with (oEnemyParent) {
+        instance_destroy();
+    }
+	with (oTaskNPC) {
         instance_destroy();
     }
 	with (oChest) {
@@ -239,6 +282,13 @@ function load(state) {
 			new_instance.initial_x = ds_map_find_value(obj_data, "startx");
 			new_instance.initial_y = ds_map_find_value(obj_data, "starty");
 		}
+		if (new_instance.object_index == oTaskNPC) {
+			new_instance.taskNumer = ds_map_find_value(obj_data, "numer");
+			new_instance.done = ds_map_find_value(obj_data, "done");
+			new_instance.finished = ds_map_find_value(obj_data, "finished");
+			new_instance.task_obj = ds_list_find_value(global.task_list, new_instance.taskNumer);
+		}
+		
 		if (new_instance.object_index == oChest) {
 			new_instance.contents = ds_map_find_value(obj_data, "contents");	
 			new_instance.opened = ds_map_find_value(obj_data, "opened");	
@@ -303,6 +353,7 @@ function toGold() {
 		var item = ds_list_find_value(global.lista, i);
 		oGlobal.gold += item.item_value;
 	}
+	global.gold = oGlobal.gold;
 }
 
 function grunt(){
