@@ -1,15 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"oTorchLow",
-  "eventList":[],
+  "%Name":"oTorchStandHigh",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"oTorchLow",
+  "name":"oTorchStandHigh",
   "overriddenProperties":[],
   "parent":{
     "name":"lighting",
     "path":"folders/Objects/terrain/lighting.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"oTorch",
+    "path":"objects/oTorch/oTorch.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -27,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"sTorchStandHigh",
+    "path":"sprites/sTorchStandHigh/sTorchStandHigh.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
