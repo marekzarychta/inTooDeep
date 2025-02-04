@@ -7,15 +7,24 @@ markedChange = false;
 _i = -1;
 //Sprites
 
-closedSprite = sDepositEmpty;
-markSprite = sDepositEmptyMarked;
-fullSprite = sDepositFullStone;
-markSpriteFull = sDepositFullMarked;
+sprites = [
+		[sDepositEmpty, sDepositEmptyMarked, sDepositFull, sDepositFullMarked, sDepositMoveEmpty, sDepositMoveFull, sDepositTunnel],
+		[sDepositEmptyStone, sDepositEmptyStoneMarked, sDepositFullStone, sDepositFullStoneMarked, sDepositStoneMoveEmpty, sDepositStoneMoveFull, sDepositTunnelStone],
+		[sDepositEmptyRed, sDepositEmptyRedMarked, sDepositFullRed, sDepositFullRedMarked, sDepositRedMoveEmpty, sDepositRedMoveFull, sDepositTunnelRed],
+		];
+		
+if (room == demo2) scenerio = 1;
+if (room == demo3) scenerio = 2;
 
-rangeSprite = sDepositMoveEmpty;
-rangeSpriteFull = sDepositMoveFull;
+closedSprite = sprites[scenerio][0];
+markSprite = sprites[scenerio][1];
+fullSprite = sprites[scenerio][2];
+markSpriteFull = sprites[scenerio][3];
 
-outRangeSprite = sDepositTunnel;
+rangeSprite = sprites[scenerio][4];
+rangeSpriteFull = sprites[scenerio][5];
+
+outRangeSprite = sprites[scenerio][6];
 
 
 textBoxInstance = noone;
