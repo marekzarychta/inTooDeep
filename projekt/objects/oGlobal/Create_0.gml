@@ -33,12 +33,12 @@ smokeParticleType = part_type_create();
 
 part_type_sprite(smokeParticleType, sParticleSmoke, 0, 0, 1);
 part_type_life(smokeParticleType, 50, 55);
-part_type_size(smokeParticleType, 0.25, 0.35, 0.001, 0);
+part_type_size(smokeParticleType, 0.35, 0.45, 0.001, 0);
 part_type_orientation(smokeParticleType, 0, 0, 0, 1, 0);
 part_type_blend(smokeParticleType, 0);
 part_type_direction(smokeParticleType, 90, 90, 0, 1);
 part_type_alpha3(smokeParticleType, 0.2, 0.05, 0.01);
-part_type_speed(smokeParticleType, 0.3, 0.4, -0.004, 0);
+part_type_speed(smokeParticleType, 0.3, 0.4, -0.001, 0);
 
 
 //part_type_gravity(torchParticleType, 0.02, 270);

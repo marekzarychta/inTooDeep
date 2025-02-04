@@ -40,7 +40,7 @@ if (isLit) {
 }
 
 if (smokeTimer > 0) {
-	part_emitter_region(global.particleSystem, emitter,x + (bbox_right - bbox_left - 1) / 2, x + (bbox_right - bbox_left) / 2, y + 2 - offset - sprite_height / 2, y + 2 - offset - sprite_height / 2, ps_shape_ellipse, ps_distr_linear);
+	part_emitter_region(global.particleSystem, emitter,x + (bbox_right - bbox_left - 2) / 2, x + (bbox_right - bbox_left + 2) / 2, y + 2 - offset - sprite_height / 2, y + 2 - offset - sprite_height / 2, ps_shape_ellipse, ps_distr_linear);
 	
 	
 	part_emitter_burst(global.particleSystem, emitter, oGlobal.smokeParticleType, ((smokeTimer > 40) ? smokeTimer - 39 : 2));	
