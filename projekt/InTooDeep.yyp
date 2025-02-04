@@ -360,6 +360,7 @@
     {"id":{"name":"sSkeletonAttack","path":"sprites/sSkeletonAttack/sSkeletonAttack.yy",},},
     {"id":{"name":"sSkeletonDead","path":"sprites/sSkeletonDead/sSkeletonDead.yy",},},
     {"id":{"name":"sSkeletonDeath","path":"sprites/sSkeletonDeath/sSkeletonDeath.yy",},},
+    {"id":{"name":"sSkeletonDeath2","path":"sprites/sSkeletonDeath2/sSkeletonDeath2.yy",},},
     {"id":{"name":"sSkeletonIdle","path":"sprites/sSkeletonIdle/sSkeletonIdle.yy",},},
     {"id":{"name":"sSkeletonWalk","path":"sprites/sSkeletonWalk/sSkeletonWalk.yy",},},
     {"id":{"name":"sSlimeIdle","path":"sprites/sSlimeIdle/sSlimeIdle.yy",},},
