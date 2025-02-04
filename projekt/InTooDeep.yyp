@@ -91,7 +91,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"InTooDeep",
   "resources":[
@@ -357,6 +357,7 @@
     {"id":{"name":"sPlayerStartJump","path":"sprites/sPlayerStartJump/sPlayerStartJump.yy",},},
     {"id":{"name":"sPlayerWalk","path":"sprites/sPlayerWalk/sPlayerWalk.yy",},},
     {"id":{"name":"sRect","path":"sprites/sRect/sRect.yy",},},
+    {"id":{"name":"sSelectedBox","path":"sprites/sSelectedBox/sSelectedBox.yy",},},
     {"id":{"name":"sSkeletonAttack","path":"sprites/sSkeletonAttack/sSkeletonAttack.yy",},},
     {"id":{"name":"sSkeletonDead","path":"sprites/sSkeletonDead/sSkeletonDead.yy",},},
     {"id":{"name":"sSkeletonDeath","path":"sprites/sSkeletonDeath/sSkeletonDeath.yy",},},
