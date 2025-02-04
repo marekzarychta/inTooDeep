@@ -40,7 +40,7 @@ if (gui) {
 	
 	var padding = 4;
 	var box_w = 300;
-	var box_h = 120;
+	var box_h = 140;
 	
 	var offset = 120;
 
@@ -54,7 +54,8 @@ if (gui) {
 	
 	// Rysowanie tła
 	draw_set_color(c_white);
-	draw_rectangle(text_x , text_y, text_x + box_w, text_y + box_h, false);
+	//draw_rectangle(text_x , text_y, text_x + box_w, text_y + box_h, false);
+	draw_sprite_stretched(sDialogueBox, 0, text_x , text_y, box_w, box_h);
 
 	// Rysowanie tekstu
 	draw_set_color(c_black);
@@ -67,12 +68,14 @@ if (gui) {
 	
 		var no_y = gui_y - sprite_height - offset - 24;
 	
-		draw_text(text_x + 40, no_y - 24 - 2 * padding, "yes");
-		draw_text(text_x + 40, no_y, "no");
+		draw_text(text_x + 40, no_y - 24 - 4 * padding, "accept");
+		draw_text(text_x + 40, no_y, "decline");
 	
 	
-		draw_line_width(text_x + padding, (choice ? no_y - 36 - 2 * padding : no_y - 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
-		draw_line_width(text_x + padding, (choice ? no_y - 12 - 2 * padding : no_y + 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
+		//draw_line_width(text_x + padding, (choice ? no_y - 36 - 2 * padding : no_y - 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
+		//draw_line_width(text_x + padding, (choice ? no_y - 12 - 2 * padding : no_y + 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
+
+		draw_sprite_stretched(sSelectedBox, 0, text_x + 2 * padding, (choice ? no_y - 36 - 5 * padding : no_y - padding - 12), box_w - 4 * padding, 24 + 3 * padding);
 
 	}
 	draw_set_halign(fa_center);

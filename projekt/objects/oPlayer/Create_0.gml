@@ -9,6 +9,8 @@ k = 0;
 lastCheckpoint = noone;
 transition = noone;
 
+healContent = ds_list_create();
+
 function checkForSemiSolid(_x, _y) {
 	var _rtrn = noone;
 	
