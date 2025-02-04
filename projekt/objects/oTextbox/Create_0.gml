@@ -1,5 +1,6 @@
 //textVal = "use";
 key_icon = noone;
+normal = true;
 
 //draw_sprite(key_icon, 0, x, y);
 

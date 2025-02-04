@@ -1,7 +1,7 @@
 /// @description Create a light source
 // You can write your code in this editor
 
-offset = 4;
+offset = 2;
 isLit = true;
 
 emitter = part_emitter_create(global.particleSystem);

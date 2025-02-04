@@ -17,6 +17,10 @@ rangeSpriteFull = sDepositMoveFull;
 
 outRangeSprite = sDepositTunnel;
 
+
+textBoxInstance = noone;
+textBoxInstance2 = noone;
+
 bagWeight = 0;
 
 items = global.lista;
