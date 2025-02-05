@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sSkeletonIdle",
-    "path":"sprites/sSkeletonIdle/sSkeletonIdle.yy",
+    "name":"sNPCShopIdle",
+    "path":"sprites/sNPCShopIdle/sNPCShopIdle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

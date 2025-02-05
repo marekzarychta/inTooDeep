@@ -9,4 +9,4 @@ if (instance_exists(oPlayer)) {
 }
 
 
-prevGold = gold;
+

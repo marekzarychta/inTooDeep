@@ -1,3 +1,37 @@
+if (prevMarked != marked) {
+	prevMarked = marked;
+	markedChange = true;
+}
+
+if (marked && sprite_index == sprites[0]) {
+	sprite_index = sprites[1];
+	animating = true;
+} else if (!marked && sprite_index == sprites[4]) {
+	sprite_index = sprites[3];
+	animating = true;
+}
+	
+	
+
+if (animating) {
+	//if (marked) {
+	//	image_speed = abs(image_speed);	
+	//} else {
+	//	image_speed = -abs(image_speed);	
+	//}
+		
+		
+	if (floor(image_index) >= image_number - 1) {
+		animating = false;
+		if (sprite_index == sprites[1]) {
+			sprite_index = sprites[4];
+		} else if (sprite_index == sprites[3]) {
+			sprite_index = sprites[0];
+		}
+	}
+}
+markedChange = false;
+
 if (!gui) {
 	var text = "talk";
 	if (!variable_instance_exists(id, "textBoxInstance")) {
@@ -9,6 +43,10 @@ if (!gui) {
 	} else {
 	    marked = false;
 	}
+	
+	
+
+	
 
 	var dis = oPlayer.x - x;
 
@@ -26,10 +64,18 @@ if (!gui) {
 	
 	
 
+
+	
+	
+	
+	
+	
+	
+
 	
 	if (openable && marked) {
 		if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-		    textBoxInstance = createTextbox(x, y - 20, text); // Tworzymy textbox
+		    textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
 		} else if instance_exists(textBoxInstance) {
 		    textBoxInstance.textVal = text;
 		}
@@ -60,17 +106,17 @@ if (!gui) {
 	var closeKey = keyboard_check_pressed(vk_escape) + gamepad_button_check_pressed(0,gp_face2);
 	closeKey = clamp(closeKey,0,1);
 	
-	var upKey = keyboard_check_pressed(vk_up) + gamepad_button_check_pressed(0,gp_padu);
+	var upKey = keyboard_check_pressed(vk_up) + keyboard_check_pressed(ord("W")) + gamepad_button_check_pressed(0,gp_padu);
     upKey = clamp(upKey, 0, 1);
 
-    var downKey = keyboard_check_pressed(vk_down) + gamepad_button_check_pressed(0,gp_padd);
+    var downKey = keyboard_check_pressed(vk_down) + keyboard_check_pressed(ord("S")) + gamepad_button_check_pressed(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
-	var acceptKey = keyboard_check_pressed(ord("C")) + keyboard_check_pressed(vk_enter) + gamepad_button_check_pressed(0,gp_face1);
+	var acceptKey = keyboard_check_pressed(ord("E")) + keyboard_check_pressed(vk_enter) + gamepad_button_check_pressed(0,gp_face1);
 	downKey = clamp(downKey, 0, 1);
 	
 	
-	if (talk == 1) {
+	if (talk == max_talk) {
 		if (upKey) {
 			choice--;
 			
@@ -81,29 +127,44 @@ if (!gui) {
 			
 		}
 		
-		choice %= ds_list_size(shopContent);
-	}
-	
-	if (acceptKey) {
-		if (talk == 1) {
-			var item = ds_list_find_value(shopContent, choice);
 		
-			if (oGlobal.gold >= item._value) {
-				oGlobal.gold -= item._value;
-				var newItem = instance_create_layer(x, y, layer, item.object_index);
-				newItem._value = item._value;
-				newItem.name = item.name;
-				newItem.healValue = item.healValue;
-				ds_list_add(oPlayer.healContent, newItem);
+	}
+	choice %= (ds_list_size(shopContent) + 1);
+	if (acceptKey) {
+		if (talk == max_talk) {
+			if (choice != ds_list_size(shopContent)) {
+				var item = ds_list_find_value(shopContent, choice);
+		
+		
+				if (oGlobal.gold >= item._value) {
+					if (oPlayer.current_health < oPlayer.max_health) {
+						oGlobal.gold -= item._value;
+						
+						oPlayer.current_health += item.healValue;
+						oPlayer.flashColor = c_green;
+						oPlayer.flashAlpha = 0.8;
+						
+					} else {
+						createFollowingTextbox(oPlayer.x, oPlayer.y, "i'm already fine");
+						grunt();
+					}
+					
+				} else {
+					createFollowingTextbox(oPlayer.x, oPlayer.y, "it's too expensive");
+					grunt();
+				}
+			} else {
+				closeKey = 1;
 			}
 		}
-		if (talk < 1) talk++;
+		if (talk < max_talk) talk++;
 	}
 	
 	if (closeKey) {
 		gui = false;
 		oGlobal.gui = false;
 		oPlayer.isActive = true;
+		talk = 0;
 	}
 }
 
@@ -123,7 +184,7 @@ if (gui) {
 		
 //	var mess = "";
 	
-//	if (!finished) {
+//	if (!_finished) {
 //		mess = task_obj.desc + " \nYou have to do " + string(task._value - task.counter) + " more.";
 //		if (!isTaskAcitve) {
 //			mess = task_obj.words;

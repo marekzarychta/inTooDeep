@@ -4,3 +4,7 @@ instance_destroy(inventory);
 instance_destroy(interface);
 instance_destroy(camera);
 instance_destroy(pause);
+instance_destroy(task0);
+instance_destroy(task1);
+instance_destroy(task2);
+instance_destroy(task3);

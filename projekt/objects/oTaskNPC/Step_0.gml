@@ -1,7 +1,11 @@
 var task = ds_list_find_value(global.task_list, taskNumer);
 
+task_obj = ds_list_find_value(global.task_list, taskNumer);
+max_talk = array_length(task_obj.words) - 1;
+max_end_talk = array_length(task_obj.endWords) - 1;
+
 if (task.compleated) {
-	finished = true;
+	_finished = true;
 }
 
 if (!gui) {
@@ -54,9 +58,9 @@ if (!gui) {
 	//	talk = 1;
 	//}
 	
-	if (openable && marked && messTimer >= messBuffer && !finished) {
+	if (openable && marked && messTimer >= messBuffer && !_finished) {
 		if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-		    textBoxInstance = createTextbox(x, y - 20, text); // Tworzymy textbox
+		    textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
 		} else if instance_exists(textBoxInstance) {
 		    textBoxInstance.textVal = text;
 		}
@@ -69,11 +73,11 @@ if (!gui) {
 	}
 
 		
-	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !finished {
+	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !_finished {
     
 		if (done) {
-			finished = true;
-			oGlobal.gold += 20;
+			
+			
 			isTaskAcitve = false;
 			
 			task.compleated = true;
@@ -107,11 +111,11 @@ if (!gui) {
     var downKey = keyboard_check_pressed(vk_down) + gamepad_button_check_pressed(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
-	var acceptKey = keyboard_check_pressed(ord("C")) + gamepad_button_check_pressed(0,gp_face1);
+	var acceptKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0,gp_face1);
 	downKey = clamp(downKey, 0, 1);
 	
 	
-	if (talk == 1) {
+	if (talk == max_talk + 1) {
 		if (upKey || downKey) {
 			choice = !choice;
 		}
@@ -120,7 +124,7 @@ if (!gui) {
 	if (acceptKey) {
 		talk++;
 		if (!isTaskAcitve && !done) {
-			if (talk > 1) {
+			if (talk > max_talk + 1) {
 				gui = false;
 				oGlobal.gui = false;
 				oPlayer.isActive = true;
@@ -139,10 +143,24 @@ if (!gui) {
 				} 
 			}
 		} else {
-			gui = false;
-			oGlobal.gui = false;
-			oPlayer.isActive = true;
-			talk = 0;
+			if (isTaskAcitve) {
+				gui = false;
+				oGlobal.gui = false;
+				oPlayer.isActive = true;
+				talk = 0;
+			}
+			
+			if (done) {
+				if (talk > max_end_talk) {
+					_finished = true;
+					oGlobal.gold += 20;
+					gui = false;
+					oGlobal.gui = false;
+					oPlayer.isActive = true;
+					talk = 0;
+				}
+			}
+			
 		}
 		
 	}
@@ -174,7 +192,7 @@ if (gui) {
 		
 //	var mess = "";
 	
-//	if (!finished) {
+//	if (!_finished) {
 //		mess = task_obj.desc + " \nYou have to do " + string(task._value - task.counter) + " more.";
 //		if (!isTaskAcitve) {
 //			mess = task_obj.words;

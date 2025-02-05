@@ -65,7 +65,7 @@ function save() {
 		ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
         ds_map_add(obj_data, "done", done); 
-        ds_map_add(obj_data, "finished", finished);
+        ds_map_add(obj_data, "_finished", _finished);
         ds_map_add(obj_data, "numer", taskNumer);
 
         ds_list_add(state, obj_data);
@@ -140,7 +140,7 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
         ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
@@ -156,7 +156,7 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
         ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
@@ -176,7 +176,7 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
         ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
@@ -188,10 +188,30 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
         ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
+		ds_list_add(state, obj_data);
+	}
+	
+	with (oTorch) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y);
+        ds_map_add(obj_data, "layer", layer);
+        ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+        ds_map_add(obj_data, "isLit", isLit);
+        ds_map_add(obj_data, "scale_x", scale_x);
+        ds_map_add(obj_data, "scale_y", scale_y);
+        ds_map_add(obj_data, "x_scaleDiff", x_scaleDiff);
+        ds_map_add(obj_data, "y_scaleDiff", y_scaleDiff);
+        ds_map_add(obj_data, "sigma", sigma);
+        ds_map_add(obj_data, "counts", counts);
+		
 		ds_list_add(state, obj_data);
 	}
 	
@@ -203,6 +223,11 @@ function load(state) {
 	for (var i = 0; i < ds_list_size(global.task_list); i++) {
 		var task = ds_list_find_value(global.task_list, i);
 		task.counter = task.prevCounter;
+		if (task.counter >= task._value) {
+			task.compleated = true;
+		} else {
+			task.compleated = false;
+		}
 		
 	}
 	
@@ -216,6 +241,9 @@ function load(state) {
 	with (oTaskNPC) {
         instance_destroy();
     }
+	with (oTorch) {
+		instance_destroy();
+	}
 	with (oChest) {
 		if (!object_is_ancestor(id.object_index, oChest))
 			instance_destroy();
@@ -285,7 +313,7 @@ function load(state) {
 		if (new_instance.object_index == oTaskNPC) {
 			new_instance.taskNumer = ds_map_find_value(obj_data, "numer");
 			new_instance.done = ds_map_find_value(obj_data, "done");
-			new_instance.finished = ds_map_find_value(obj_data, "finished");
+			new_instance._finished = ds_map_find_value(obj_data, "_finished");
 			new_instance.task_obj = ds_list_find_value(global.task_list, new_instance.taskNumer);
 		}
 		
@@ -339,6 +367,27 @@ function load(state) {
 
 			
 		}
+		
+		if (new_instance.object_index == oTorch || object_is_ancestor(new_instance.object_index, oTorch)) {
+			new_instance.isLit = ds_map_find_value(obj_data, "isLit");
+			if (!new_instance.isLit) {
+				instance_destroy(new_instance.light);
+			} else {
+				new_instance.scale_x = ds_map_find_value(obj_data, "scale_x");
+				new_instance.scale_y = ds_map_find_value(obj_data, "scale_y");
+				new_instance.x_scaleDiff = ds_map_find_value(obj_data, "x_scaleDiff");
+				new_instance.y_scaleDiff = ds_map_find_value(obj_data, "y_scaleDiff");
+				new_instance.sigma = ds_map_find_value(obj_data, "sigma");
+				new_instance.counts = ds_map_find_value(obj_data, "counts");
+				new_instance.light.scale_x = new_instance.scale_x;
+				new_instance.light.scale_y = new_instance.scale_y;
+				new_instance.light.x_scaleDiff =new_instance.x_scaleDiff;
+				new_instance.light.y_scaleDiff = new_instance.y_scaleDiff;
+				new_instance.light.sigma = new_instance.sigma;
+				
+			}
+		}
+
     }
 }
 
@@ -381,11 +430,11 @@ function getControls() {
 	dashKey = keyboard_check(vk_shift) + gamepad_button_check(0,gp_face2);
 	dashKey = clamp(dashKey, 0, 1);
     //direction
-    rightKey = keyboard_check(vk_right) + gamepad_button_check(0,gp_padr);
+    rightKey = keyboard_check(ord("D")) + keyboard_check(vk_right) + gamepad_button_check(0,gp_padr);
     rightKey = clamp(rightKey, 0, 1);
 
 
-    leftKey = keyboard_check(vk_left)  + gamepad_button_check(0,gp_padl);
+    leftKey = keyboard_check(ord("A")) + keyboard_check(vk_left) + gamepad_button_check(0,gp_padl);
     leftKey = clamp(leftKey, 0, 1);
 
 	useKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0, gp_shoulderlb);
@@ -400,17 +449,17 @@ function getControls() {
 	inventoryKeyPressed = keyboard_check_pressed(vk_tab) + gamepad_button_check_pressed(0,gp_shoulderl);
 	inventoryKeyPressed = clamp(inventoryKeyPressed,0,1);
 
-    jumpKeyPressed = keyboard_check_pressed(ord("Z")) + gamepad_button_check_pressed(0,gp_face1);
+    jumpKeyPressed = keyboard_check_pressed(vk_space) + gamepad_button_check_pressed(0,gp_face1);
     jumpKeyPressed = clamp(jumpKeyPressed, 0, 1);
-    jumpKey = keyboard_check(ord("Z")) + gamepad_button_check(0,gp_face1);
+    jumpKey = keyboard_check(vk_space) + gamepad_button_check(0,gp_face1);
     jumpKey = clamp(jumpKey, 0, 1);
 	
-	upKeyPressed = keyboard_check_pressed(vk_up) + gamepad_button_check_pressed(0,gp_padu);
+	upKeyPressed = keyboard_check_pressed(vk_up) + keyboard_check_pressed(ord("W")) + gamepad_button_check_pressed(0,gp_padu);
     upKeyPressed = clamp(upKeyPressed, 0, 1);
-    upKey = keyboard_check(vk_up) + gamepad_button_check(0,gp_padu);
+    upKey = keyboard_check(vk_up) + keyboard_check(ord("W")) + gamepad_button_check(0,gp_padu);
     upKey = clamp(upKey, 0, 1);
 
-    downKey = keyboard_check(vk_down) + gamepad_button_check(0,gp_padd);
+    downKey = keyboard_check(vk_down) + keyboard_check(ord("S")) + gamepad_button_check(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
 

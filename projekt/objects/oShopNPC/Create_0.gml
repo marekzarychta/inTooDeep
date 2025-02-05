@@ -1,14 +1,29 @@
-dialogues = ["Do you want to\nbuy some stuff?", "What do you want?"];
+dialogues = [["Welcome, welcome\ntraveller to our...\nI mean my little\nshop hehehehehe", 
+"I have something\nhere that may\nsuit your needs,\nit'll put you right\nback on your feet!", 
+"First time huh?\nI guess you can get\na special discount for\nthat hehehehehe",
+"What do you want?"
+],
+["Hello there fellow\ntraveller! Already\nback here? You\ncan't take care of\nyourself? hehehe",
+"No freebies this\ntime though...",
+"What do you want?"
+]];
 
 openable = false;
 marked = false;
-
+prevMarked = false;
+back = false;
+animating = false;
+markedChange = false;
 
 gui = false;
 
 iterator = 0;
 
+room_num = 0;
+if (room != "demo") room_num = 1;
+
 talk = 0;
+max_talk = array_length(dialogues[room_num]) - 1;
 
 choice = 0;
 
@@ -17,8 +32,10 @@ shopContent = ds_list_create();
 var item1 = instance_create_layer(x, y, layer, oHeal);
 ds_list_add(shopContent, item1);
 
-//var item2 = instance_create_layer(x, y, layer, oHeal);
-//item2.name = "Big Bear";
-//item2.healValue = 2;
-//item2._value = 35;
-//ds_list_add(shopContent, item2);
+sprites = [sNPCShopIdle, sNPCShopApproach, sNPCShopMove, sNPCShopLeave, sNPCShopNearby];
+
+var item2 = instance_create_layer(x, y, layer, oHeal);
+item2.name = "Big Beer";
+item2.healValue = 2;
+item2._value = 35;
+ds_list_add(shopContent, item2);

@@ -23,67 +23,85 @@ if (gui) {
 		
 	var mess = "";
 	
-	if (!finished) {
+	if (!_finished) {
 		
 		
 		if (isTaskAcitve) {
 			mess = task_obj.desc + "\nYou have to do\n" + string(task._value - task.counter) + " more.";
 		} else {
-			mess = task_obj.words;
+			if (talk <= max_talk) {
+				mess = task_obj.words[talk];
+			}
 		}
-		if (talk == 1) {
+		if (talk == max_talk + 1) {
 			mess = task_obj.desc;
 		}
 	} else {
-		mess = "Thank you for\nyour help.";
+		//mess = "Thank you for\nyour help.";
+		mess = task_obj.endWords[talk];
 	} 
 	
 	var padding = 4;
-	var box_w = 300;
-	var box_h = 160;
+	var box_w = 380;
+	var box_h = 250;
 	
-	var offset = 140;
+	var offset = 210;
 
 	// Obliczenie pozycji GUI nad obiektem
 	var text_x = gui_x - box_w / 2;
 	var text_y = gui_y - sprite_height - box_h - offset; // Nad obiektem
 
 	//show_debug_message("x: "+string(text_x) + " y: "+string(text_y));
-	draw_set_font(Fnt_UI); 
+	draw_set_font(Fnt_dialogues); 
 	draw_set_halign(fa_center);
 	
 	// Rysowanie tła
 	draw_set_color(c_white);
 	//draw_rectangle(text_x , text_y, text_x + box_w, text_y + box_h, false);
 	draw_sprite_stretched(sDialogueBox, 0, text_x , text_y, box_w, box_h);
-
+	draw_set_halign(fa_left);
 	// Rysowanie tekstu
 	draw_set_color(c_black);
-	draw_text(text_x + box_w / 2, text_y + padding, mess);
+	draw_text(text_x + 2 + padding, text_y + padding, mess);
 	
-	if (talk == 0) {
-		draw_sprite_stretched(sKeyC, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
+	draw_text(text_x - 2 + padding, text_y + padding, mess);
+	draw_text(text_x + padding, text_y + 2 + padding, mess);
+	draw_text(text_x + padding, text_y - 2+ padding, mess);
+	draw_set_color(c_white);
+	draw_text(text_x + padding, text_y + padding, mess);
+	
+	if (talk <= max_talk) {
+		draw_sprite_stretched(sKeyE, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
 		draw_sprite_stretched(sArrow, 0, text_x + box_w - 38, text_y + box_h - 48, 32, 32);
 	}
 	
-	
-	if (talk == 1) {
-		draw_set_halign(fa_left);
-		draw_set_valign(fa_middle);
-		// yes/no cordinates
-	
-	
-		var no_y = gui_y - sprite_height - offset - 24;
-	
-		draw_text(text_x + 40, no_y - 24 - 4 * padding, "accept");
-		draw_text(text_x + 40, no_y, "decline");
+	if (!_finished) {
+		if (talk == max_talk + 1) {
+			draw_set_halign(fa_left);
+			draw_set_valign(fa_middle);
+			// yes/no cordinates
 	
 	
-		//draw_line_width(text_x + padding, (choice ? no_y - 36 - 2 * padding : no_y - 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
-		//draw_line_width(text_x + padding, (choice ? no_y - 12 - 2 * padding : no_y + 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
+			var no_y = gui_y - sprite_height - offset - 24;
+			draw_set_color(c_black);
+			draw_text(text_x + 42, no_y - 24 - 4 * padding, "accept");
+			draw_text(text_x + 38, no_y - 24 - 4 * padding, "accept");
+			draw_text(text_x + 40, no_y - 26 - 4 * padding, "accept");
+			draw_text(text_x + 40, no_y - 22 - 4 * padding, "accept");
+			draw_text(text_x + 42, no_y, "decline");
+			draw_text(text_x + 38, no_y, "decline");
+			draw_text(text_x + 40, no_y - 2, "decline");
+			draw_text(text_x + 40, no_y + 2, "decline");
+			draw_set_color(c_white);
+			draw_text(text_x + 40, no_y - 24 - 4 * padding, "accept");
+			draw_text(text_x + 40, no_y, "decline");
+			//draw_line_width(text_x + padding, (choice ? no_y - 36 - 2 * padding : no_y - 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
+			//draw_line_width(text_x + padding, (choice ? no_y - 12 - 2 * padding : no_y + 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
 
-		draw_sprite_stretched(sSelectedBox, 0, text_x + 2 * padding, (choice ? no_y - 36 - 5 * padding : no_y - padding - 12), box_w - 4 * padding, 24 + 3 * padding);
+			draw_sprite_stretched(sSelectedBox, 0, text_x + 2 * padding, (choice ? no_y - 36 - 5 * padding : no_y - padding - 12), box_w - 4 * padding, 24 + 3 * padding);
+			
 
+		}
 	}
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);

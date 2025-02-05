@@ -4,6 +4,7 @@
 offset = 2;
 isLit = true;
 
+
 emitter = part_emitter_create(global.particleSystem);
 buffer = 70;
 timer = 0;

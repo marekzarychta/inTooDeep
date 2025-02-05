@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sSkeletonIdle",
-    "path":"sprites/sSkeletonIdle/sSkeletonIdle.yy",
+    "name":"sGhostIdle",
+    "path":"sprites/sGhostIdle/sGhostIdle.yy",
   },
   "spriteMaskId":null,
   "visible":true,
