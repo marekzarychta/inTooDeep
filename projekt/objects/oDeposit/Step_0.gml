@@ -1,15 +1,15 @@
 //treating interactive things like chests
-var text;
+var text, text2;
 
-if !InventoryIsEmpty(oInventory) {
+//if !InventoryIsEmpty(oInventory) {
 	text = "   deposit";
-} else {
-	text = "   retrieve";
-}
+//} else {
+	text2 = "   retrieve";
+//}
 
-if InventoryIsEmpty(oInventory) && ds_list_size(global.lista) == 0 {
-	text = "   deposit";	
-}
+//if InventoryIsEmpty(oInventory) && ds_list_size(global.lista) == 0 {
+	//text = "   deposit";	
+//}
 
 if (!variable_instance_exists(id, "textBoxInstance")) {
     textBoxInstance = noone;
@@ -123,7 +123,7 @@ markedChange = false;
 
 if (openable && marked && !animating) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance = createTextbox(x, y - 20, text); // Tworzymy textbox
+        textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
     }
@@ -134,44 +134,76 @@ if (openable && marked && !animating) {
         textBoxInstance = noone; // Resetujemy wskaźnik
     }
 }
+
+if (openable && marked && !animating) {
+    if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
+        textBoxInstance2 = createTextbox(x, y - 20, text2); // Tworzymy textbox
+		textBoxInstance2.normal = false;
+    } else if instance_exists(textBoxInstance2) {
+        textBoxInstance2.textVal = text2;
+		textBoxInstance2.normal = false;
+    }
+
+} else {
+    if (textBoxInstance2 != noone && instance_exists(textBoxInstance2)) { // Jeśli istnieje textbox
+        instance_destroy(textBoxInstance2); // Usuwamy go
+        textBoxInstance2 = noone; // Resetujemy wskaźnik
+		
+    }
+}
 		
 if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.opened*/ && oPlayer.isAlive {
     
 	
-	if !InventoryIsEmpty(oInventory) {
-			audio_play_sound(snd_pickup, 0, false);
+	
+		if (oPlayer.useKey) {
+			if !InventoryIsEmpty(oInventory) {
+				audio_play_sound(snd_pickup, 0, false);
 
-		for (var i = ds_list_size(oInventory.inventory) - 1; i >= 0 ; i--) {	
-			var item = ds_list_find_value(oInventory.inventory, i);	
-			if item != noone {
-				//ListAdd(items, item);	
-				ds_list_add(items, item);
-				ds_list_delete(oInventory.inventory, i);
-			}
-		}
-		createMiniTextbox(oPlayer.x,oPlayer.y, "weight", "-");
-	} else {
-	if(ds_list_size(items) != 0){
-		audio_play_sound(snd_pickup, 0, false);
-		for (var i = ds_list_size(items) - 1; i >= 0 ; i--) {	
-			var item = ds_list_find_value(items, i);	
-			if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
-				//ListAdd(items, item);	
-				ds_list_add(oInventory.inventory, item);
-				ds_list_delete(items, i);
-				InventoryCalculateWeight(oInventory);
-			} else {
-				break;	
-			}
-		}
-		createMiniTextbox(oPlayer.x,oPlayer.y, "weight", "+");
-
-	}else{
-		grunt();
-		textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to deposit");
+				//for (var i = ds_list_size(oInventory.inventory) - 1; i >= 0 ; i--) {	
+				var i = ds_list_size(oInventory.inventory) - 1
+				var item = ds_list_find_value(oInventory.inventory, i);	
+				if item != noone {
+					//ListAdd(items, item);	
+					ds_list_add(items, item);
+					ds_list_delete(oInventory.inventory, i);
+					createMiniTextbox(oPlayer.x,oPlayer.y, "weight", "-");
+				}
+				//}
+				
+			} else{
+				grunt();
+				textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to deposit");
 		
-	}
-	}
+			}
+		}
+	//} else {
+		if (oPlayer.useKey2) {
+			if(ds_list_size(items) != 0) {
+			
+				audio_play_sound(snd_pickup, 0, false);
+				//for (var i = ds_list_size(items) - 1; i >= 0 ; i--) {	
+				var i = ds_list_size(items) - 1;
+					var item = ds_list_find_value(items, i);	
+					if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
+						//ListAdd(items, item);	
+						ds_list_add(oInventory.inventory, item);
+						ds_list_delete(items, i);
+						InventoryCalculateWeight(oInventory);
+						createMiniTextbox(oPlayer.x,oPlayer.y, "weight", "+");
+					} /*else {
+						break;	
+					}
+				}*/
+				
+
+			} else{
+				grunt();
+				textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to retrive");
+		
+			}
+		}
+	//}
 
 	
 	
