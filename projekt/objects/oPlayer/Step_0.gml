@@ -8,30 +8,32 @@ function setOnGround(_val = true){
 	if _val = true
 	{
 		onGround = true;
+		coyoteHangTimer = coyoteHangFrames;
 	}
 	else
 	{
 		onGround = false;
 		currentFloorPlat = noone;
+		coyoteHangTimer = 0;
 	}
+	
 }
 
 
-	
 
 if(debug_mode){
 getControls();
 
-if (keyboard_check_pressed(ord("N"))) {
-    noclip = !noclip; // Przełącz tryb noclip
-    if (noclip) {
-		isAlive = false;
-        show_debug_message("Noclip: ON");
-    } else {
-		isAlive = true;
-        show_debug_message("Noclip: OFF");
-    }
-}
+	if (keyboard_check_pressed(ord("N"))) {
+	    noclip = !noclip; // Przełącz tryb noclip
+	    if (noclip) {
+			isAlive = false;
+	        show_debug_message("Noclip: ON");
+	    } else {
+			isAlive = true;
+	        show_debug_message("Noclip: OFF");
+	    }
+	}
 }
 
 
@@ -83,11 +85,11 @@ else{
 	
 	}
 
-if(useKey){
-	isInteracting = true;
-}else{
-	isInteracting = false;
-}
+	if(useKey || useKey2){
+		isInteracting = true;
+	} else{
+		isInteracting = false;
+	}
 	// We perform an attack in the cooldown ends, we are on the ground and we press left mouse button
 	if (attackCooldownTimer == 0 && attackKey && !oInventory.opened && !isLadder) {
 	
@@ -214,6 +216,17 @@ if (sprite_index == sPlayerWalk && xspd != 0) {
 	//setting id nearest chest
 	chestId = nearestCrate;
 	
+	if (debug_mode) show_debug_message("heals: "+string(ds_list_size(healContent)));
+	
+	if (oPlayer.isInteracting && nearestCrate == noone && oPlayer.current_health < oPlayer.max_health && ds_list_size(healContent) > 0) {
+		var item = ds_list_find_value(healContent, ds_list_size(healContent) - 1);
+		oPlayer.current_health += item.healValue;
+		flashColor = c_green;
+		flashAlpha = 0.8;
+		ds_list_delete(healContent, ds_list_size(healContent) - 1);
+		instance_destroy(item);
+	}
+	
 	//Flip horizontally according to movement direction
 	
 	
@@ -300,8 +313,21 @@ if (!isDashing) {
 	            } else if currentWeightLevel < required_weight {
 	                if (!instance_exists(oTextboxPlayer)) {
 						grunt();
+					
 	                    createFollowingTextbox(x - 16, y - 16, message);
 	                }
+					
+					if (xspd < 0) {
+						part_emitter_region(global.particleSystem, emitter, b.bbox_left - 1, b.bbox_left, b.bbox_top /*+ (b.bbox_bottom - b.bbox_top)*/, b.bbox_bottom, ps_shape_rectangle, ps_distr_linear);
+			
+						part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingLeftParticleType, random(40) + 24 * b.image_yscale);
+					} else {
+						part_emitter_region(global.particleSystem, emitter, b.bbox_right, b.bbox_right + 1, b.bbox_top /*+ (b.bbox_bottom - b.bbox_top)*/, b.bbox_bottom, ps_shape_rectangle, ps_distr_linear);
+					
+						part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingRightParticleType, random(40) + 24 * b.image_yscale);
+					}
+					shakeCamera(8, 2.0, 0.4);
+					dashTimer = 0;
 	            }
 	        }
 	    }
@@ -378,6 +404,12 @@ if (!isDashing) {
 //Y Movement
 	//Gravity
 	
+	if (jumpKey && isLadder) {
+		isLadder = !isLadder;
+		onGround = true;
+	}
+	
+	
 	if isLadder {
 		grav = 0; 	
 	} else {
@@ -389,7 +421,14 @@ if (!isDashing) {
 		grav = .163;	
 	}
 	
-	yspd += grav;
+	// Coyote
+	if(coyoteHangTimer > 0) {
+		// Counting down the timer after we leave the ground
+		coyoteHangTimer--;
+	} else {	
+		yspd += grav;
+		setOnGround(false);
+	}
 	
 	// Ladders
 	    // Sterowanie za pomocą klawiatury
@@ -411,7 +450,7 @@ if (!isDashing) {
 	if yspd > termVel {yspd = termVel; };
 	
 	//Initiate jump - cannot jump on ladders
-	if jumpKeyBuffered && jumpCount < jumpMax && onGround && !isDashing
+	if jumpKeyBuffered && jumpCount < jumpMax && (onGround || coyoteJumpTimer > 0) && !isDashing
 	{
 		
 		audio_play_sound(snd_jump, 0 ,false);
@@ -443,6 +482,8 @@ if (!isDashing) {
 		jumpHoldTimer = jumpHoldFrames[jumpCount-1];
 		
 		setOnGround(false);
+		
+		coyoteJumpTimer = 0;
 	}
 	
 	//cut off jump
@@ -509,8 +550,7 @@ if (!isDashing) {
 	                instance_destroy();
 	            }
 	        }
-	    } 
-		if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
+	    } else if (can_break_red && place_meeting(x, y + yspd, oBreakableWallRed) && yspd > 0) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
@@ -518,7 +558,14 @@ if (!isDashing) {
 	                instance_destroy();
 	            }
 	        }
-	    } 
+	    } else if ((place_meeting(x, y + yspd, oBreakableWallRed) || place_meeting(x, y + yspd, oBreakableWallOrange)) && yspd > 0) {
+			var breakableWall = instance_place(x, y + yspd, oWall);
+			part_emitter_region(global.particleSystem, emitter, (breakableWall.bbox_left > x - 24 ? breakableWall.bbox_left : x - 24),(breakableWall.bbox_right < x + 24 ? breakableWall.bbox_right : x + 24), breakableWall.bbox_bottom - 4, breakableWall.bbox_bottom - 1, ps_shape_rectangle, ps_distr_gaussian);
+			
+			part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingParticleType, random(60) + 20);
+		
+			shakeCamera(8, 2.0, 0.4);
+		}
 	}
 	
 	
@@ -721,10 +768,10 @@ if (!isDashing) {
 		isDashing = true;
 		hasDashed = true;
 		xspd = smooth(xspd, (sign(moveDir) * moveSpd[currentWeightLevel] * 1.2), 0.6);
-		part_type_direction(oGlobal.dashParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
-		part_type_direction(oGlobal.dashWhiteParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
+		//part_type_direction(oGlobal.dashParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
+		//part_type_direction(oGlobal.dashWhiteParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
 		
-		var alfa = 0.5;
+		/*var alfa = 0.5;
 		if (currentWeightLevel > 2) alfa = 1;
 		part_type_alpha1(oGlobal.dashParticleType, 0.05 * alfa);
 		
@@ -735,7 +782,7 @@ if (!isDashing) {
 			part_emitter_region(global.particleSystem, emitter, x + 3 , x + 3 + abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
 			part_emitter_region(global.particleSystem, emitterR, x + 3 , x + 3 + abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
 		
-		} 
+		}
 		if (x != xprevious) {
 			if (currentWeightLevel >= 2) {
 				
@@ -745,7 +792,7 @@ if (!isDashing) {
 				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashWhiteParticleType, 500);
 				//part_emitter_burst(global.particleSystem, emitterR, oGlobal.dashWhiteParticleType, 100);
 			}
-		}
+		}*/
 		if attackingTimer > 0 {
 			attackingTimer = 0;
 			if (instance_exists(hitbox)) {
@@ -771,7 +818,7 @@ if (!isDashing) {
 		
 		//wygladzenie
 		
-		if (xspd > 0) {
+		/*if (xspd > 0) {
 			part_emitter_region(global.particleSystem, emitter, x - 3 - 2 * abs(xspd) , x, bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
 		} else if (xspd < 0) {
 			part_emitter_region(global.particleSystem, emitter, x , x + 3 + 2 * abs(xspd), bbox_top + 3, bbox_bottom - 3, ps_shape_rectangle, ps_distr_linear);
@@ -784,7 +831,7 @@ if (!isDashing) {
 			} else {
 				part_emitter_burst(global.particleSystem, emitter, oGlobal.dashWhiteParticleType, 400 -  k * 50);
 			}
-		}
+		}*/
 		
 		
 		
@@ -796,6 +843,9 @@ if (!isDashing) {
 	//checking top ladder
 	
 	y += yspd;
+	
+	show_debug_message("hang: " + string(coyoteHangTimer));
+    show_debug_message("jump: " + string(coyoteJumpTimer));
 	
 	if (instance_exists(forgetFloorPlat) && !place_meeting(x, y, forgetFloorPlat)) {
 		forgetFloorPlat = noone;
@@ -835,10 +885,13 @@ if (!isDashing) {
 	    }
 		wasMidair = false;
 	    jumpCount = 0;
+		coyoteJumpTimer = coyoteJumpFrames;
 	    jumpHoldTimer = 0;
+	
 	} else {
 	    setOnGround(false);
 		wasMidair = true;
+		coyoteJumpTimer--;
 	    // Start jump animation
 	    if (jumpStartTimer > 0) {
 	        jumpStartTimer--;
@@ -1003,7 +1056,10 @@ if (!isDashing) {
 
 	}
 
+
 }
+
+
 
 		//show_debug_message(string(oCamera.midX));
 		//show_debug_message(string(oCamera.midY));

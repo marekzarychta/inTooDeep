@@ -16,6 +16,7 @@ if(isActivating) {
 			light.color = make_color_rgb(122,187,226);
 			isLit = true;
 		}
+		
 		image_index = 1;
 		if (time > 0) {
 			time--;			

@@ -17,7 +17,8 @@ if (activeTask != noone && instance_exists(activeTask)) {
 	
 	var color = make_color_rgb(100, 100, 100);
 	draw_set_color(color);
-	draw_rectangle(width - box_w - margin, margin, width - margin, box_h + margin, false);
+	//draw_rectangle(width - box_w - margin, margin, width - margin, box_h + margin, false);
+	draw_sprite_stretched(sDialogueBox, 0, width - box_w - margin, margin, width, box_h);
 	
 	var val = task._value - task.counter;
 	var text = "";

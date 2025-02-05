@@ -1,5 +1,7 @@
 if (!firstColision) {
 	firstColision = true;
+				audio_play_sound(snd_checkpoint, 0, false);
+
 	oPlayer.lastCheckpoint = id;
 	state = save();
 	//image_index = 1;

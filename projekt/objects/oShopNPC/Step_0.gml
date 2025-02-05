@@ -1,9 +1,3 @@
-var task = ds_list_find_value(global.task_list, taskNumer);
-
-if (task.compleated) {
-	finished = true;
-}
-
 if (!gui) {
 	var text = "talk";
 	if (!variable_instance_exists(id, "textBoxInstance")) {
@@ -29,32 +23,11 @@ if (!gui) {
 	} else {
 	    openable = false;
 	}
-	if (instance_exists(oGlobal.activeTask) && instance_exists(task_obj)) {
-		if (task_obj.numer == oGlobal.activeTask.numer) {
-			var task = ds_list_find_value(global.task_list, task_obj.numer);
-			if (task.counter >= task._value) {
-				done = true;
-			}
-		}
-	}
 	
 	
+
 	
-	if (instance_exists(oGlobal.activeTask)) {
-		if (task_obj.numer == oGlobal.activeTask.numer) {
-			isTaskAcitve = true;
-		} else {
-			isTaskAcitve = false;
-		}
-	}
-	
-	
-	
-	//if (done) {
-	//	talk = 1;
-	//}
-	
-	if (openable && marked && messTimer >= messBuffer && !finished) {
+	if (openable && marked) {
 		if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
 		    textBoxInstance = createTextbox(x, y - 20, text); // Tworzymy textbox
 		} else if instance_exists(textBoxInstance) {
@@ -69,25 +42,11 @@ if (!gui) {
 	}
 
 		
-	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !finished {
+	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
     
-		if (done) {
-			finished = true;
-			oGlobal.gold += 20;
-			isTaskAcitve = false;
-			
-			task.compleated = true;
-			oGlobal.activeTask = noone;
-			
-		} 
-	
 		gui = true;
-		//messTimer = messBuffer
+		oGlobal.gui = true;
 		
-				
-			
-		
-			
 	}
 	
 	
@@ -107,55 +66,48 @@ if (!gui) {
     var downKey = keyboard_check_pressed(vk_down) + gamepad_button_check_pressed(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
-	var acceptKey = keyboard_check_pressed(ord("C")) + gamepad_button_check_pressed(0,gp_face1);
+	var acceptKey = keyboard_check_pressed(ord("C")) + keyboard_check_pressed(vk_enter) + gamepad_button_check_pressed(0,gp_face1);
 	downKey = clamp(downKey, 0, 1);
 	
 	
 	if (talk == 1) {
-		if (upKey || downKey) {
-			choice = !choice;
+		if (upKey) {
+			choice--;
+			
 		}
+		
+		if (downKey) {
+			choice++;
+			
+		}
+		
+		choice %= ds_list_size(shopContent);
 	}
 	
 	if (acceptKey) {
-		talk++;
-		if (!isTaskAcitve && !done) {
-			if (talk > 1) {
-				gui = false;
-				oPlayer.isActive = true;
-				talk = 0;
-				if (!done) {
-				
-					if (choice) {
-						oGlobal.activeTask = instance_create_layer(task_obj.x, task_obj.y, task_obj.layer, oTask);
-						oGlobal.activeTask.desc = task_obj.desc;
-						oGlobal.activeTask._value = task_obj._value;
-						oGlobal.activeTask.words = task_obj.words;
-						oGlobal.activeTask.numer = task_obj.numer;
-			
-						isTaskAcitve = true;
-					}
-				} 
-			}
-		} else {
-			gui = false;
-			oPlayer.isActive = true;
-			talk = 0;
-		}
+		if (talk == 1) {
+			var item = ds_list_find_value(shopContent, choice);
 		
+			if (oGlobal.gold >= item._value) {
+				oGlobal.gold -= item._value;
+				var newItem = instance_create_layer(x, y, layer, item.object_index);
+				newItem._value = item._value;
+				newItem.name = item.name;
+				newItem.healValue = item.healValue;
+				ds_list_add(oPlayer.healContent, newItem);
+			}
+		}
+		if (talk < 1) talk++;
 	}
 	
 	if (closeKey) {
 		gui = false;
+		oGlobal.gui = false;
 		oPlayer.isActive = true;
 	}
 }
 
-if (isTaskAcitve && debug_mode) {
-	var task = ds_list_find_value(global.task_list, task_obj.numer);
-	
-	show_debug_message("Aktualny stan taska: " + string(task.counter) + " i jego numer " + string(task.numer));
-}
+
 
 
 if (gui) {

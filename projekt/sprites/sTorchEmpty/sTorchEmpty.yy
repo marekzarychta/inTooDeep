@@ -1,7 +1,7 @@
 {
   "$GMSprite":"",
   "%Name":"sTorchEmpty",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":21,
   "bbox_left":2,
   "bbox_right":9,

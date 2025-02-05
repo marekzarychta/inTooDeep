@@ -1,7 +1,7 @@
 /// @description Create a light source
 // You can write your code in this editor
 
-offset = 4;
+offset = 2;
 isLit = true;
 
 emitter = part_emitter_create(global.particleSystem);
@@ -11,6 +11,8 @@ prevIndex = 0;
 
 part_emitter_region(global.particleSystem, emitter,bbox_left + 2, bbox_right - 2, y - offset - sprite_height / 2, y - offset - sprite_height / 2, ps_shape_ellipse, ps_distr_linear);
 					
+smokeTimer = 0;
+smokeBuffer = 50;
 					
 notLitSprite = sTorchEmpty;	
 
@@ -22,3 +24,7 @@ light.scale_y = scale_y;
 light.x_scaleDiff = x_scaleDiff;
 light.y_scaleDiff = y_scaleDiff;
 light.sigma = sigma;
+
+function playSound() {
+	audio_play_sound(snd_torch_snuff, 0, false);
+}

@@ -3,8 +3,10 @@ global.lista = ds_list_create();
 global.task_list = ds_list_create();
 global.gold = 0;
 
+gui = false;
+
 var task0 = instance_create_layer(x, y, layer, oTask);
-task0.persistent = true;
+
 task0.numer = 0;
 task0._value = 5;
 task0.desc = "Destroy "+string(task0._value)+" vases";
@@ -15,7 +17,7 @@ ds_list_add(global.task_list, task0);
 
 
 var task1 = instance_create_layer(x, y, layer, oTask);
-task1.persistent = true;
+
 task1.numer = 1;
 task1._value = 3;
 task1.desc = "Kill "+string(task1._value)+" skeletons";
@@ -25,7 +27,7 @@ task1.prevCounter = 0;
 ds_list_add(global.task_list, task1);
 
 var task2 = instance_create_layer(x, y, layer, oTask);
-task2.persistent = true;
+
 task2.numer = 2;
 task2._value = 5;
 task2.desc = "Fall on "+string(task2._value)+" skeletons";
@@ -70,6 +72,19 @@ part_type_orientation(torchParticleType, 0, 0, 0, 1, 0);
 
 part_type_direction(torchParticleType, 45, 135, 0, 1);
 part_type_speed(torchParticleType, 0.4, 0.6, -0.004, 0);
+
+smokeParticleType = part_type_create();
+
+part_type_sprite(smokeParticleType, sParticleSmoke, 0, 0, 1);
+part_type_life(smokeParticleType, 50, 55);
+part_type_size(smokeParticleType, 0.35, 0.45, 0.001, 0);
+part_type_orientation(smokeParticleType, 0, 0, 0, 1, 0);
+part_type_blend(smokeParticleType, 0);
+part_type_direction(smokeParticleType, 90, 90, 0, 1);
+part_type_alpha3(smokeParticleType, 0.2, 0.05, 0.01);
+part_type_speed(smokeParticleType, 0.3, 0.4, -0.001, 0);
+
+
 //part_type_gravity(torchParticleType, 0.02, 270);
 
 
@@ -255,5 +270,45 @@ part_type_blend(destructionParticleType, 1);
 part_type_direction(destructionParticleType, 0, 359, 0.01, 1);
 part_type_speed(destructionParticleType, 0.1, 0.1, 0.1, 0);
 part_type_alpha3(destructionParticleType, 0.7, 0.8, 0.02);
+
+crumblingParticleType = part_type_create();
+
+part_type_sprite(crumblingParticleType, sParticleCrumbling, 0, 0, 1);
+part_type_life(crumblingParticleType, 15, 20);
+part_type_size(crumblingParticleType, 1, 1, -0.02, 0);
+part_type_orientation(crumblingParticleType, 0, 359, 0, 0, 1);
+part_type_blend(crumblingParticleType, 0);
+
+part_type_direction(crumblingParticleType, 240, 300, 0.0, 1);
+part_type_speed(crumblingParticleType, 0.1, 0.1, 0.0, 0);
+//part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
+part_type_gravity(crumblingParticleType, 0.08, 270);
+
+crumblingLeftParticleType = part_type_create();
+
+part_type_sprite(crumblingLeftParticleType, sParticleCrumblingGrey, 0, 0, 1);
+part_type_life(crumblingLeftParticleType, 18, 22);
+part_type_size(crumblingLeftParticleType, 1, 1, -0.01, 0);
+part_type_orientation(crumblingLeftParticleType, 0, 359, 0, 0, 1);
+part_type_blend(crumblingLeftParticleType, 0);
+
+part_type_direction(crumblingLeftParticleType, 170, 190, 0.0, 1);
+part_type_speed(crumblingLeftParticleType, 0.08, 0.08, 0.0, 0);
+part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
+part_type_gravity(crumblingLeftParticleType, 0.02, 270);
+
+crumblingRightParticleType = part_type_create();
+
+part_type_sprite(crumblingRightParticleType, sParticleCrumblingGrey, 0, 0, 1);
+part_type_life(crumblingRightParticleType, 18, 22);
+part_type_size(crumblingRightParticleType, 1, 1, -0.01, 0);
+part_type_orientation(crumblingRightParticleType, 0, 359, 0, 0, 1);
+part_type_blend(crumblingRightParticleType, 0);
+
+part_type_direction(crumblingRightParticleType, -10, 10, 0.0, 1);
+part_type_speed(crumblingRightParticleType, 0.08, 0.08, 0.0, 0);
+part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
+part_type_gravity(crumblingRightParticleType, 0.02, 270);
+
 }
 	

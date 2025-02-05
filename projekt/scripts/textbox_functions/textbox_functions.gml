@@ -27,6 +27,8 @@ function createMiniTextbox(x,y, value, sgn){
 		textbox.icon = sWeightMini;
 	} else if (value=="mark") {
 		textbox.icon = sExclamationMarkMini;
+	} else if (value == "gold") {
+		textbox.icon = sItem;
 	}
     textbox.followTimer = 40; // Set a timer for 2 seconds (assuming 60 FPS)
     textbox.followPlayer = true; // Enable following behavior
