@@ -3,14 +3,17 @@ dialogues = [["Welcome, welcome\ntraveller to our...\nI mean my little\nshop heh
 "First time huh?\nI guess you can get\na special discount for\nthat hehehehehe",
 "What do you want?"
 ],
-["Hello there fellow\ntraveller! Already back\nhere? You can't take\ncare of yourself?\nhehehehehe",
+["Hello there fellow\ntraveller! Already\nback here? You can't\ntake care of\nyourself? hehehe",
 "No freebies this\ntime though...",
 "What do you want?"
 ]];
 
 openable = false;
 marked = false;
-
+prevMarked = false;
+back = false;
+animating = false;
+markedChange = false;
 
 gui = false;
 
@@ -28,6 +31,8 @@ shopContent = ds_list_create();
 
 var item1 = instance_create_layer(x, y, layer, oHeal);
 ds_list_add(shopContent, item1);
+
+sprites = [sNPCShopIdle, sNPCShopApproach, sNPCShopMove, sNPCShopLeave, sNPCShopNearby];
 
 //var item2 = instance_create_layer(x, y, layer, oHeal);
 //item2.name = "Big Bear";

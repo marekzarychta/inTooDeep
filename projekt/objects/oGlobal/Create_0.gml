@@ -5,36 +5,50 @@ global.gold = 0;
 
 gui = false;
 
-var task0 = instance_create_layer(x, y, layer, oTask);
-
+task0 = instance_create_layer(x, y, layer, oTask);
+task0.persistent = true;
 task0.numer = 0;
 task0._value = 5;
 task0.desc = "Destroy "+string(task0._value)+" vases";
-task0.words = "I really like \nto watch destruction\nof the vases!";
+task0.words = ["A dwarf!\nYou have a moment?", "I want to prove\nI'm the strongest jar\naround here.", "If you help me fight\nthe other... pretenders,\nI'll make sure you\nget a reward!"];
+task0.endWords = ["At last! Behold, dwarf.\nYou are speaking to the\nstrongest jar of these caves.", "What? A reward? Ah... yes,\nTHAT reward. You've earned\nit, I suppose."];
 task0.counter = 0;
 task0.prevCounter = 0;
 ds_list_add(global.task_list, task0);
 
 
-var task1 = instance_create_layer(x, y, layer, oTask);
-
+task1 = instance_create_layer(x, y, layer, oTask);
+task1.persistent = true;
 task1.numer = 1;
 task1._value = 3;
 task1.desc = "Kill "+string(task1._value)+" skeletons";
-task1.words = "I hate skeletons\nnoises!";
+task1.words = ["GRRRR...","GRR??","*seems like it just\nwants some bones to\nplay with*","*if only there was a\ngood source of them\naround...*"];
+task1.endWords = ["*You see the dog\nwag its tail joyfully*", "*One of his heads\nslightly nods towards\na little sack of coins\nlaying at its feet*"];
 task1.counter = 0;
 task1.prevCounter = 0;
 ds_list_add(global.task_list, task1);
 
-var task2 = instance_create_layer(x, y, layer, oTask);
-
+task2 = instance_create_layer(x, y, layer, oTask);
+task2.persistent = true;
 task2.numer = 2;
 task2._value = 5;
 task2.desc = "Fall on "+string(task2._value)+" skeletons";
-task2.words = "I love look at\nseparated bones!"; //18
+task2.words = ["GRRRR...","GRR??","*seems like it just\nwants some bones to\nplay with*","*if only there was a\ngood source of them\naround...*"]; //18
+task2.endWords = ["*You see the dog\nwag its tail joyfully*", "*He slightly nods towards\na little sack of coins\nlaying at its feet*"];
 task2.counter = 0;
 task2.prevCounter = 0;
 ds_list_add(global.task_list, task2);
+
+task3 = instance_create_layer(x, y, layer, oTask);
+task3.persistent = true;
+task3.numer = 3;
+task3._value = 5;
+task3.desc = "Extinguish\nthe torches\nin the library";
+task3.words = ["Those filthy\nskeletons lit this\nplace up with\ntorches!", "How is an old ghost\nlike me supposed to\nget some sleep?"]; //18
+task3.counter = 0;
+task3.endWords = ["Many thanks! You\nare free to take\nwhat gold I had with\nme when I died.", "Don't think I'll\nneed it."];
+task3.prevCounter = 0;
+ds_list_add(global.task_list, task3);
 
 activeTask = noone;
 prevActiveTask = noone;

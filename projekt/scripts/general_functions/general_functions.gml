@@ -407,10 +407,10 @@ function getControls() {
 	
 	upKeyPressed = keyboard_check_pressed(vk_up) + keyboard_check_pressed(ord("W")) + gamepad_button_check_pressed(0,gp_padu);
     upKeyPressed = clamp(upKeyPressed, 0, 1);
-    upKey = keyboard_check(vk_up) + keyboard_check_pressed(ord("W")) + gamepad_button_check(0,gp_padu);
+    upKey = keyboard_check(vk_up) + keyboard_check(ord("W")) + gamepad_button_check(0,gp_padu);
     upKey = clamp(upKey, 0, 1);
 
-    downKey = keyboard_check(vk_down) + keyboard_check_pressed(ord("S")) + gamepad_button_check(0,gp_padd);
+    downKey = keyboard_check(vk_down) + keyboard_check(ord("S")) + gamepad_button_check(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
 

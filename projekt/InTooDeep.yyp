@@ -100,12 +100,12 @@
   },
   "name":"InTooDeep",
   "resources":[
+    {"id":{"name":"Fnt_dialogues","path":"fonts/Fnt_dialogues/Fnt_dialogues.yy",},},
     {"id":{"name":"Fnt_small","path":"fonts/Fnt_small/Fnt_small.yy",},},
     {"id":{"name":"Fnt_super_small","path":"fonts/Fnt_super_small/Fnt_super_small.yy",},},
     {"id":{"name":"Fnt_textbox_player","path":"fonts/Fnt_textbox_player/Fnt_textbox_player.yy",},},
     {"id":{"name":"Fnt_UI_big","path":"fonts/Fnt_UI_big/Fnt_UI_big.yy",},},
     {"id":{"name":"Fnt_UI","path":"fonts/Fnt_UI/Fnt_UI.yy",},},
-    {"id":{"name":"Font6","path":"fonts/Font6/Font6.yy",},},
     {"id":{"name":"oActivateSpawner","path":"objects/oActivateSpawner/oActivateSpawner.yy",},},
     {"id":{"name":"oBackpack","path":"objects/oBackpack/oBackpack.yy",},},
     {"id":{"name":"oBag","path":"objects/oBag/oBag.yy",},},
@@ -448,8 +448,8 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
-    {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
     {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
+    {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
     {"roomId":{"name":"demo3","path":"rooms/demo3/demo3.yy",},},
     {"roomId":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
     {"roomId":{"name":"test","path":"rooms/test/test.yy",},},

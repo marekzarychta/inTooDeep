@@ -72,8 +72,8 @@ if (!gui) {
 	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !finished {
     
 		if (done) {
-			finished = true;
-			oGlobal.gold += 20;
+			
+			
 			isTaskAcitve = false;
 			
 			task.compleated = true;
@@ -107,11 +107,11 @@ if (!gui) {
     var downKey = keyboard_check_pressed(vk_down) + gamepad_button_check_pressed(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
-	var acceptKey = keyboard_check_pressed(ord("C")) + gamepad_button_check_pressed(0,gp_face1);
+	var acceptKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0,gp_face1);
 	downKey = clamp(downKey, 0, 1);
 	
 	
-	if (talk == 1) {
+	if (talk == max_talk + 1) {
 		if (upKey || downKey) {
 			choice = !choice;
 		}
@@ -120,7 +120,7 @@ if (!gui) {
 	if (acceptKey) {
 		talk++;
 		if (!isTaskAcitve && !done) {
-			if (talk > 1) {
+			if (talk > max_talk + 1) {
 				gui = false;
 				oGlobal.gui = false;
 				oPlayer.isActive = true;
@@ -139,10 +139,24 @@ if (!gui) {
 				} 
 			}
 		} else {
-			gui = false;
-			oGlobal.gui = false;
-			oPlayer.isActive = true;
-			talk = 0;
+			if (isTaskAcitve) {
+				gui = false;
+				oGlobal.gui = false;
+				oPlayer.isActive = true;
+				talk = 0;
+			}
+			
+			if (done) {
+				if (talk > max_end_talk) {
+					finished = true;
+					oGlobal.gold += 20;
+					gui = false;
+					oGlobal.gui = false;
+					oPlayer.isActive = true;
+					talk = 0;
+				}
+			}
+			
 		}
 		
 	}

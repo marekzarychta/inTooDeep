@@ -1,3 +1,37 @@
+if (prevMarked != marked) {
+	prevMarked = marked;
+	markedChange = true;
+}
+
+if (marked && sprite_index == sprites[0]) {
+	sprite_index = sprites[1];
+	animating = true;
+} else if (!marked && sprite_index == sprites[4]) {
+	sprite_index = sprites[3];
+	animating = true;
+}
+	
+	
+
+if (animating) {
+	//if (marked) {
+	//	image_speed = abs(image_speed);	
+	//} else {
+	//	image_speed = -abs(image_speed);	
+	//}
+		
+		
+	if (floor(image_index) >= image_number - 1) {
+		animating = false;
+		if (sprite_index == sprites[1]) {
+			sprite_index = sprites[4];
+		} else if (sprite_index == sprites[3]) {
+			sprite_index = sprites[0];
+		}
+	}
+}
+markedChange = false;
+
 if (!gui) {
 	var text = "talk";
 	if (!variable_instance_exists(id, "textBoxInstance")) {
@@ -9,6 +43,10 @@ if (!gui) {
 	} else {
 	    marked = false;
 	}
+	
+	
+
+	
 
 	var dis = oPlayer.x - x;
 
@@ -23,6 +61,14 @@ if (!gui) {
 	} else {
 	    openable = false;
 	}
+	
+	
+
+
+	
+	
+	
+	
 	
 	
 
@@ -81,20 +127,24 @@ if (!gui) {
 			
 		}
 		
-		choice %= ds_list_size(shopContent);
+		choice %= ds_list_size(shopContent) + 1;
 	}
 	
 	if (acceptKey) {
 		if (talk == max_talk) {
-			var item = ds_list_find_value(shopContent, choice);
+			if (choice != ds_list_size(shopContent)) {
+				var item = ds_list_find_value(shopContent, choice);
 		
-			if (oGlobal.gold >= item._value) {
-				oGlobal.gold -= item._value;
-				var newItem = instance_create_layer(x, y, layer, item.object_index);
-				newItem._value = item._value;
-				newItem.name = item.name;
-				newItem.healValue = item.healValue;
-				ds_list_add(oPlayer.healContent, newItem);
+				if (oGlobal.gold >= item._value) {
+					oGlobal.gold -= item._value;
+					var newItem = instance_create_layer(x, y, layer, item.object_index);
+					newItem._value = item._value;
+					newItem.name = item.name;
+					newItem.healValue = item.healValue;
+					ds_list_add(oPlayer.healContent, newItem);
+				}
+			} else {
+				closeKey = 1;
 			}
 		}
 		if (talk < max_talk) talk++;
