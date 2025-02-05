@@ -1,4 +1,12 @@
-dialogues = ["Do you want to\nbuy some stuff?", "What do you want?"];
+dialogues = [["Welcome, welcome\ntraveller to our...\nI mean my little\nshop hehehehehe", 
+"I have something\nhere that may\nsuit your needs,\nit'll put you right\nback on your feet!", 
+"First time huh?\nI guess you can get\na special discount for\nthat hehehehehe",
+"What do you want?"
+],
+["Hello there fellow\ntraveller! Already back\nhere? You can't take\ncare of yourself?\nhehehehehe",
+"No freebies this\ntime though...",
+"What do you want?"
+]];
 
 openable = false;
 marked = false;
@@ -8,7 +16,11 @@ gui = false;
 
 iterator = 0;
 
+room_num = 0;
+if (room != "demo") room_num = 1;
+
 talk = 0;
+max_talk = array_length(dialogues[room_num]) - 1;
 
 choice = 0;
 

@@ -381,11 +381,11 @@ function getControls() {
 	dashKey = keyboard_check(vk_shift) + gamepad_button_check(0,gp_face2);
 	dashKey = clamp(dashKey, 0, 1);
     //direction
-    rightKey = keyboard_check(vk_right) + gamepad_button_check(0,gp_padr);
+    rightKey = keyboard_check(ord("D")) + keyboard_check(vk_right) + gamepad_button_check(0,gp_padr);
     rightKey = clamp(rightKey, 0, 1);
 
 
-    leftKey = keyboard_check(vk_left)  + gamepad_button_check(0,gp_padl);
+    leftKey = keyboard_check(ord("A")) + keyboard_check(vk_left) + gamepad_button_check(0,gp_padl);
     leftKey = clamp(leftKey, 0, 1);
 
 	useKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0, gp_shoulderlb);
@@ -400,17 +400,17 @@ function getControls() {
 	inventoryKeyPressed = keyboard_check_pressed(vk_tab) + gamepad_button_check_pressed(0,gp_shoulderl);
 	inventoryKeyPressed = clamp(inventoryKeyPressed,0,1);
 
-    jumpKeyPressed = keyboard_check_pressed(ord("Z")) + gamepad_button_check_pressed(0,gp_face1);
+    jumpKeyPressed = keyboard_check_pressed(vk_space) + gamepad_button_check_pressed(0,gp_face1);
     jumpKeyPressed = clamp(jumpKeyPressed, 0, 1);
-    jumpKey = keyboard_check(ord("Z")) + gamepad_button_check(0,gp_face1);
+    jumpKey = keyboard_check(vk_space) + gamepad_button_check(0,gp_face1);
     jumpKey = clamp(jumpKey, 0, 1);
 	
-	upKeyPressed = keyboard_check_pressed(vk_up) + gamepad_button_check_pressed(0,gp_padu);
+	upKeyPressed = keyboard_check_pressed(vk_up) + keyboard_check_pressed(ord("W")) + gamepad_button_check_pressed(0,gp_padu);
     upKeyPressed = clamp(upKeyPressed, 0, 1);
-    upKey = keyboard_check(vk_up) + gamepad_button_check(0,gp_padu);
+    upKey = keyboard_check(vk_up) + keyboard_check_pressed(ord("W")) + gamepad_button_check(0,gp_padu);
     upKey = clamp(upKey, 0, 1);
 
-    downKey = keyboard_check(vk_down) + gamepad_button_check(0,gp_padd);
+    downKey = keyboard_check(vk_down) + keyboard_check_pressed(ord("S")) + gamepad_button_check(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
 

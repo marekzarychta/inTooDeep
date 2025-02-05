@@ -62,7 +62,7 @@ if (gui) {
 	draw_text(text_x + box_w / 2, text_y + padding, mess);
 	
 	if (talk == 0) {
-		draw_sprite_stretched(sKeyC, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
+		draw_sprite_stretched(sKeyE, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
 		draw_sprite_stretched(sArrow, 0, text_x + box_w - 38, text_y + box_h - 48, 32, 32);
 	}
 	

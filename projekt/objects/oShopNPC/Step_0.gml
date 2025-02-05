@@ -60,17 +60,17 @@ if (!gui) {
 	var closeKey = keyboard_check_pressed(vk_escape) + gamepad_button_check_pressed(0,gp_face2);
 	closeKey = clamp(closeKey,0,1);
 	
-	var upKey = keyboard_check_pressed(vk_up) + gamepad_button_check_pressed(0,gp_padu);
+	var upKey = keyboard_check_pressed(ord("W")) + gamepad_button_check_pressed(0,gp_padu);
     upKey = clamp(upKey, 0, 1);
 
-    var downKey = keyboard_check_pressed(vk_down) + gamepad_button_check_pressed(0,gp_padd);
+    var downKey = keyboard_check_pressed(ord("S")) + gamepad_button_check_pressed(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
-	var acceptKey = keyboard_check_pressed(ord("C")) + keyboard_check_pressed(vk_enter) + gamepad_button_check_pressed(0,gp_face1);
+	var acceptKey = keyboard_check_pressed(ord("E")) + keyboard_check_pressed(vk_enter) + gamepad_button_check_pressed(0,gp_face1);
 	downKey = clamp(downKey, 0, 1);
 	
 	
-	if (talk == 1) {
+	if (talk == max_talk) {
 		if (upKey) {
 			choice--;
 			
@@ -85,7 +85,7 @@ if (!gui) {
 	}
 	
 	if (acceptKey) {
-		if (talk == 1) {
+		if (talk == max_talk) {
 			var item = ds_list_find_value(shopContent, choice);
 		
 			if (oGlobal.gold >= item._value) {
@@ -97,13 +97,14 @@ if (!gui) {
 				ds_list_add(oPlayer.healContent, newItem);
 			}
 		}
-		if (talk < 1) talk++;
+		if (talk < max_talk) talk++;
 	}
 	
 	if (closeKey) {
 		gui = false;
 		oGlobal.gui = false;
 		oPlayer.isActive = true;
+		talk = 0;
 	}
 }
 
