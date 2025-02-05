@@ -8,6 +8,14 @@ if (task.compleated) {
 	_finished = true;
 }
 
+if (sprite_index == sJarSleep && marked) {
+	sprite_index = sJarAwake;
+}
+
+if (sprite_index == sJarAwake && image_index >= image_number - 1) {
+	sprite_index = sJarIdle;
+}
+
 if (!gui) {
 	var text = "talk";
 	if (!variable_instance_exists(id, "textBoxInstance")) {

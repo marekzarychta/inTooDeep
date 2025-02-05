@@ -68,7 +68,6 @@
     {"name":"inst_5E7EAEDC","path":"rooms/demo2/demo2.yy",},
     {"name":"inst_B8F3397","path":"rooms/demo2/demo2.yy",},
     {"name":"inst_17E67F0B","path":"rooms/demo2/demo2.yy",},
-
     {"name":"inst_192F6825","path":"rooms/demo2/demo2.yy",},
     {"name":"inst_15A7B3D0","path":"rooms/demo2/demo2.yy",},
     {"name":"inst_3FA9136D","path":"rooms/demo2/demo2.yy",},
@@ -723,7 +722,6 @@
         {"$GMRBackgroundLayer":"","%Name":"Backgrounds_2","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":3800,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Backgrounds_2","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"Cave4","path":"sprites/Cave4/Cave4.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":100,},
         {"$GMRBackgroundLayer":"","%Name":"Backgrounds_1","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":3900,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Backgrounds_1","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"Cave5","path":"sprites/Cave5/Cave5.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":100,},
       ],"name":"All","properties":[],"resourceType":"GMRLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-
   ],
   "name":"demo2",
   "parent":{
