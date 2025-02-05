@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_ambient",
+  "%Name":"snd_checkpoint",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":110.15836,
-  "name":"snd_ambient",
+  "duration":1.436735,
+  "name":"snd_checkpoint",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_ambient.mp3",
+  "soundFile":"snd_checkpoint.mp3",
   "type":0,
-  "volume":0.15,
+  "volume":0.2,
 }

@@ -207,6 +207,7 @@
     {"id":{"name":"snd_box_slide","path":"sounds/snd_box_slide/snd_box_slide.yy",},},
     {"id":{"name":"snd_button","path":"sounds/snd_button/snd_button.yy",},},
     {"id":{"name":"snd_cart","path":"sounds/snd_cart/snd_cart.yy",},},
+    {"id":{"name":"snd_checkpoint","path":"sounds/snd_checkpoint/snd_checkpoint.yy",},},
     {"id":{"name":"snd_chest","path":"sounds/snd_chest/snd_chest.yy",},},
     {"id":{"name":"snd_dash","path":"sounds/snd_dash/snd_dash.yy",},},
     {"id":{"name":"snd_deposit_arrive","path":"sounds/snd_deposit_arrive/snd_deposit_arrive.yy",},},
