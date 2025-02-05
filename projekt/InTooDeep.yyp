@@ -282,6 +282,8 @@
     {"id":{"name":"sCartMarkFull","path":"sprites/sCartMarkFull/sCartMarkFull.yy",},},
     {"id":{"name":"sCartMarkHalfFull","path":"sprites/sCartMarkHalfFull/sCartMarkHalfFull.yy",},},
     {"id":{"name":"sCartMove","path":"sprites/sCartMove/sCartMove.yy",},},
+    {"id":{"name":"sCheckboxEmpty","path":"sprites/sCheckboxEmpty/sCheckboxEmpty.yy",},},
+    {"id":{"name":"sCheckboxFull","path":"sprites/sCheckboxFull/sCheckboxFull.yy",},},
     {"id":{"name":"sCheckpoint","path":"sprites/sCheckpoint/sCheckpoint.yy",},},
     {"id":{"name":"sCheckpointActivate","path":"sprites/sCheckpointActivate/sCheckpointActivate.yy",},},
     {"id":{"name":"sCheckpointNotification","path":"sprites/sCheckpointNotification/sCheckpointNotification.yy",},},
