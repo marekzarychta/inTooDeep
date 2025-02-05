@@ -16,7 +16,7 @@ if(pause) {
 
 // We hit escape to pause the game
 
-if ((keyboard_check_pressed(vk_escape) or pauseKey) && oPlayer.isActive) {
+if ((pauseKey)) {
 
 	// If not paused, pause
 	if(!pause) {
@@ -25,7 +25,7 @@ if ((keyboard_check_pressed(vk_escape) or pauseKey) && oPlayer.isActive) {
 		
 		// Deactivate anything besides this instance
 		instance_deactivate_all(true);
-		
+		instance_activate_object(oGlobal);
 		// Capture the game moment when pause was hit
 		pauseSurf = surface_create(resW, resH);
 		surface_set_target(pauseSurf);

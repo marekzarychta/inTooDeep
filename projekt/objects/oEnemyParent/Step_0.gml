@@ -229,6 +229,11 @@ if (following) {
 	
 	if image_index >= image_number - 1 {
 		dying = false;	
+		
+		var coin = instance_create_layer(x, y - 5,  layer_get_id("Player_below"), oCoin);
+		coin.image_xscale = 0.4;
+		coin.image_yscale = 0.4;
+		
 		var task = ds_list_find_value(global.task_list, 1);
 		task.counter++;
 	}

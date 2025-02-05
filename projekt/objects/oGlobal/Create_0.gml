@@ -3,6 +3,8 @@ global.lista = ds_list_create();
 global.task_list = ds_list_create();
 global.gold = 0;
 
+gui = false;
+
 var task0 = instance_create_layer(x, y, layer, oTask);
 task0.persistent = true;
 task0.numer = 0;

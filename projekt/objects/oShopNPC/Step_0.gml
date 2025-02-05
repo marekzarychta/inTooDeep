@@ -45,6 +45,7 @@ if (!gui) {
 	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
     
 		gui = true;
+		oGlobal.gui = true;
 		
 	}
 	
@@ -101,6 +102,7 @@ if (!gui) {
 	
 	if (closeKey) {
 		gui = false;
+		oGlobal.gui = false;
 		oPlayer.isActive = true;
 	}
 }

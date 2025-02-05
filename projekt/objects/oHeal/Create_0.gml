@@ -1,5 +1,5 @@
 _value = 20;
 
-name = "Bear";
+name = "Beer";
 
 healValue = 1;
