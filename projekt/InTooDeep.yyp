@@ -440,14 +440,14 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
-    {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
     {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
     {"roomId":{"name":"demo3","path":"rooms/demo3/demo3.yy",},},
     {"roomId":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
     {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
     {"roomId":{"name":"przejscie","path":"rooms/przejscie/przejscie.yy",},},
-    {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
+    {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

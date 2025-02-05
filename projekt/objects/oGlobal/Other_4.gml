@@ -49,7 +49,7 @@ if (room != przejscie) {
 	gold = global.gold;
 	
 	var task0 = instance_create_layer(x, y, layer, oTask);
-	task0.persistent = true;
+
 	task0.numer = 0;
 	task0._value = 5;
 	task0.desc = "Destroy "+string(task0._value)+" vases";
@@ -60,7 +60,7 @@ if (room != przejscie) {
 
 
 	var task1 = instance_create_layer(x, y, layer, oTask);
-	task1.persistent = true;
+
 	task1.numer = 1;
 	task1._value = 3;
 	task1.desc = "Kill "+string(task1._value)+" skeletons";
@@ -70,7 +70,7 @@ if (room != przejscie) {
 	ds_list_add(global.task_list, task1);
 
 	var task2 = instance_create_layer(x, y, layer, oTask);
-	task2.persistent = true;
+
 	task2.numer = 2;
 	task2._value = 5;
 	task2.desc = "Fall on "+string(task2._value)+" skeletons";
