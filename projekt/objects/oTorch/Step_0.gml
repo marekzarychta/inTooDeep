@@ -1,4 +1,4 @@
-if (isLit) {
+ if (isLit) {
 	if (timer >= buffer) {
 		timer = 0;
 		buffer = random(10) + 20;

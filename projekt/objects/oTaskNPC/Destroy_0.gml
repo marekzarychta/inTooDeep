@@ -12,3 +12,7 @@ if (interactionTextBox != noone && instance_exists(interactionTextBox)) { // Je≈
 	instance_destroy(interactionTextBox); // Usuwamy go
 	interactionTextBox = noone; // Resetujemy wska≈∫nik
 }
+
+if (instance_exists(light)){
+	instance_destroy(light);	
+}

@@ -140,7 +140,7 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
         ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
@@ -156,7 +156,7 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
         ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
@@ -176,7 +176,7 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
         ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
@@ -188,10 +188,30 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
         ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
+		ds_list_add(state, obj_data);
+	}
+	
+	with (oTorch) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+        ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y);
+        ds_map_add(obj_data, "layer", layer);
+        ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+        ds_map_add(obj_data, "isLit", isLit);
+        ds_map_add(obj_data, "scale_x", scale_x);
+        ds_map_add(obj_data, "scale_y", scale_y);
+        ds_map_add(obj_data, "x_scaleDiff", x_scaleDiff);
+        ds_map_add(obj_data, "y_scaleDiff", y_scaleDiff);
+        ds_map_add(obj_data, "sigma", sigma);
+        ds_map_add(obj_data, "counts", counts);
+		
 		ds_list_add(state, obj_data);
 	}
 	
@@ -216,6 +236,9 @@ function load(state) {
 	with (oTaskNPC) {
         instance_destroy();
     }
+	with (oTorch) {
+		instance_destroy();
+	}
 	with (oChest) {
 		if (!object_is_ancestor(id.object_index, oChest))
 			instance_destroy();
@@ -339,6 +362,27 @@ function load(state) {
 
 			
 		}
+		
+		if (new_instance.object_index == oTorch || object_is_ancestor(new_instance.object_index, oTorch)) {
+			new_instance.isLit = ds_map_find_value(obj_data, "isLit");
+			if (!new_instance.isLit) {
+				instance_destroy(new_instance.light);
+			} else {
+				new_instance.scale_x = ds_map_find_value(obj_data, "scale_x");
+				new_instance.scale_y = ds_map_find_value(obj_data, "scale_y");
+				new_instance.x_scaleDiff = ds_map_find_value(obj_data, "x_scaleDiff");
+				new_instance.y_scaleDiff = ds_map_find_value(obj_data, "y_scaleDiff");
+				new_instance.sigma = ds_map_find_value(obj_data, "sigma");
+				new_instance.counts = ds_map_find_value(obj_data, "counts");
+				new_instance.light.scale_x = new_instance.scale_x;
+				new_instance.light.scale_y = new_instance.scale_y;
+				new_instance.light.x_scaleDiff =new_instance.x_scaleDiff;
+				new_instance.light.y_scaleDiff = new_instance.y_scaleDiff;
+				new_instance.light.sigma = new_instance.sigma;
+				
+			}
+		}
+
     }
 }
 
