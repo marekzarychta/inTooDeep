@@ -37,3 +37,6 @@ if (sprite_index == sGhostIdle) {
 	light.x_scaleDiff = 0;
 	light.x_scaleDiff = 0;
 }
+
+if (room_get_name(room) == "demo2") sprite_index = sJarSleep;
+if (room_get_name(room) == "demo3") sprite_index = sCerberIdle;
