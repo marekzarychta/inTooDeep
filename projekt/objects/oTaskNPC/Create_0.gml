@@ -19,7 +19,7 @@ talk = 0;
 choice = true;
 
 isTaskAcitve = false;
-finished = false;
+_finished = false;
 done = false;
 messTimer = 80;
 messBuffer = 80;
@@ -34,6 +34,6 @@ if (sprite_index == sGhostIdle) {
 	light.image_alpha = 0.2;
 	light.scale_x = 0.44;
 	light.scale_y = 0.44;
-	light.x_scaleDiff = 0.15;
-	light.x_scaleDiff = 0.15;
+	light.x_scaleDiff = 0;
+	light.x_scaleDiff = 0;
 }

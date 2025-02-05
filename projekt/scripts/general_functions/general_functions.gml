@@ -65,7 +65,7 @@ function save() {
 		ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
         ds_map_add(obj_data, "done", done); 
-        ds_map_add(obj_data, "finished", finished);
+        ds_map_add(obj_data, "_finished", _finished);
         ds_map_add(obj_data, "numer", taskNumer);
 
         ds_list_add(state, obj_data);
@@ -223,6 +223,11 @@ function load(state) {
 	for (var i = 0; i < ds_list_size(global.task_list); i++) {
 		var task = ds_list_find_value(global.task_list, i);
 		task.counter = task.prevCounter;
+		if (task.counter >= task._value) {
+			task.compleated = true;
+		} else {
+			task.compleated = false;
+		}
 		
 	}
 	
@@ -308,7 +313,7 @@ function load(state) {
 		if (new_instance.object_index == oTaskNPC) {
 			new_instance.taskNumer = ds_map_find_value(obj_data, "numer");
 			new_instance.done = ds_map_find_value(obj_data, "done");
-			new_instance.finished = ds_map_find_value(obj_data, "finished");
+			new_instance._finished = ds_map_find_value(obj_data, "_finished");
 			new_instance.task_obj = ds_list_find_value(global.task_list, new_instance.taskNumer);
 		}
 		

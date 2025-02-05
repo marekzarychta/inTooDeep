@@ -3,7 +3,7 @@ dialogues = [["Welcome, welcome\ntraveller to our...\nI mean my little\nshop heh
 "First time huh?\nI guess you can get\na special discount for\nthat hehehehehe",
 "What do you want?"
 ],
-["Hello there fellow\ntraveller! Already\nback here? You can't\ntake care of\nyourself? hehehe",
+["Hello there fellow\ntraveller! Already\nback here? You\ncan't take care of\nyourself? hehehe",
 "No freebies this\ntime though...",
 "What do you want?"
 ]];
@@ -34,8 +34,8 @@ ds_list_add(shopContent, item1);
 
 sprites = [sNPCShopIdle, sNPCShopApproach, sNPCShopMove, sNPCShopLeave, sNPCShopNearby];
 
-//var item2 = instance_create_layer(x, y, layer, oHeal);
-//item2.name = "Big Bear";
-//item2.healValue = 2;
-//item2._value = 35;
-//ds_list_add(shopContent, item2);
+var item2 = instance_create_layer(x, y, layer, oHeal);
+item2.name = "Big Beer";
+item2.healValue = 2;
+item2._value = 35;
+ds_list_add(shopContent, item2);

@@ -1,7 +1,11 @@
 var task = ds_list_find_value(global.task_list, taskNumer);
 
+task_obj = ds_list_find_value(global.task_list, taskNumer);
+max_talk = array_length(task_obj.words) - 1;
+max_end_talk = array_length(task_obj.endWords) - 1;
+
 if (task.compleated) {
-	finished = true;
+	_finished = true;
 }
 
 if (!gui) {
@@ -54,9 +58,9 @@ if (!gui) {
 	//	talk = 1;
 	//}
 	
-	if (openable && marked && messTimer >= messBuffer && !finished) {
+	if (openable && marked && messTimer >= messBuffer && !_finished) {
 		if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-		    textBoxInstance = createTextbox(x, y - 20, text); // Tworzymy textbox
+		    textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
 		} else if instance_exists(textBoxInstance) {
 		    textBoxInstance.textVal = text;
 		}
@@ -69,7 +73,7 @@ if (!gui) {
 	}
 
 		
-	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !finished {
+	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive && !_finished {
     
 		if (done) {
 			
@@ -148,7 +152,7 @@ if (!gui) {
 			
 			if (done) {
 				if (talk > max_end_talk) {
-					finished = true;
+					_finished = true;
 					oGlobal.gold += 20;
 					gui = false;
 					oGlobal.gui = false;
@@ -188,7 +192,7 @@ if (gui) {
 		
 //	var mess = "";
 	
-//	if (!finished) {
+//	if (!_finished) {
 //		mess = task_obj.desc + " \nYou have to do " + string(task._value - task.counter) + " more.";
 //		if (!isTaskAcitve) {
 //			mess = task_obj.words;

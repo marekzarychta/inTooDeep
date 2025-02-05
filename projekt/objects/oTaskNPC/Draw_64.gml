@@ -23,7 +23,7 @@ if (gui) {
 		
 	var mess = "";
 	
-	if (!finished) {
+	if (!_finished) {
 		
 		
 		if (isTaskAcitve) {
@@ -59,23 +59,23 @@ if (gui) {
 	draw_set_color(c_white);
 	//draw_rectangle(text_x , text_y, text_x + box_w, text_y + box_h, false);
 	draw_sprite_stretched(sDialogueBox, 0, text_x , text_y, box_w, box_h);
-
+	draw_set_halign(fa_left);
 	// Rysowanie tekstu
 	draw_set_color(c_black);
-	draw_text(text_x + 2 + box_w / 2, text_y + padding, mess);
+	draw_text(text_x + 2 + padding, text_y + padding, mess);
 	
-	draw_text(text_x - 2 + box_w / 2, text_y + padding, mess);
-	draw_text(text_x + box_w / 2, text_y + 2 + padding, mess);
-	draw_text(text_x + box_w / 2, text_y - 2+ padding, mess);
+	draw_text(text_x - 2 + padding, text_y + padding, mess);
+	draw_text(text_x + padding, text_y + 2 + padding, mess);
+	draw_text(text_x + padding, text_y - 2+ padding, mess);
 	draw_set_color(c_white);
-	draw_text(text_x + box_w / 2, text_y + padding, mess);
+	draw_text(text_x + padding, text_y + padding, mess);
 	
 	if (talk <= max_talk) {
 		draw_sprite_stretched(sKeyE, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
 		draw_sprite_stretched(sArrow, 0, text_x + box_w - 38, text_y + box_h - 48, 32, 32);
 	}
 	
-	if (!finished) {
+	if (!_finished) {
 		if (talk == max_talk + 1) {
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_middle);

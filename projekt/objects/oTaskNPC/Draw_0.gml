@@ -1,6 +1,6 @@
 draw_self();
 
-if (done && !finished) {
+if (done && !_finished) {
 	
 	iterator++;
 	
