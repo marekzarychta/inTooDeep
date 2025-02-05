@@ -225,7 +225,12 @@ if (following) {
 	//Move
 	x += xspd;
 } else if dying {
-	sprite_index = sprites[3];
+	if(death_flag == 1) {
+		sprite_index = sprites[3];
+	} else if(death_flag == 2) {
+		sprite_index = sprites[5];
+		show_debug_message("AAAHAHAHAHAHAHHAA");
+	}
 	
 	if image_index >= image_number - 1 {
 		dying = false;	

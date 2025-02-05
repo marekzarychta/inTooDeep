@@ -24,11 +24,6 @@ if (other.health_points != undefined && !other.wasHit && isDashing) {
 		part_emitter_region(global.particleSystem, emitter, other.x - 4 + other.image_xscale * 4, other.x + 4 + other.image_xscale * 4, other.bbox_top + 4, other.bbox_bottom - 4, ps_shape_ellipse, ps_distr_invgaussian);
 		part_emitter_burst(global.particleSystem, emitter, oGlobal.hitParticleType, 100);
 	}
-	if (currentWeightLevel >= 1) {
-		other.health_points -= 10;  // Zadaj obrażenia przeciwnikowi]
-		other.death = true;
-		other.flashAlpha = 0.8;
-	} 
 	
 	if (other.attacking) {
 		other.attacking = false;
@@ -36,6 +31,13 @@ if (other.health_points != undefined && !other.wasHit && isDashing) {
 		other.sprite_index = other.sprites[1];
 		other.image_index = 0;
 	}
+	
+	if (currentWeightLevel >= 1) {
+		other.health_points -= 10;  // Zadaj obrażenia przeciwnikowi]
+		other.death_flag = 2;
+		other.death = true;
+		other.flashAlpha = 0.8;
+	} 
 	
 	other.wasHit = true;
     //show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));

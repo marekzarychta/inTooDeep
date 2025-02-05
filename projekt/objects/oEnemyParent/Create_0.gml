@@ -64,3 +64,6 @@ jumpHoldFrames = 4;
 jspd = -3.25;
 onGround = true;
 isSlope = false;
+
+death_flag = 1;
+sprites = [];
