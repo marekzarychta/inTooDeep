@@ -32,8 +32,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"npcSprites",
-    "path":"folders/Sprites/entitySprites/npcSprites.yy",
+    "name":"ShopNPC",
+    "path":"folders/Sprites/entitySprites/npcSprites/ShopNPC.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
