@@ -1,6 +1,10 @@
 // Draw the sprite icon, stretched to 16x16
 if (!gamepad_is_connected(0)){
-key_icon = sKeyC;
+	if (normal) {
+		key_icon = sKeyE;
+	} else {
+		key_icon = sKeyR; //dla retrive useKey2
+	}
 }
 else{
 	key_icon = sButtonY;

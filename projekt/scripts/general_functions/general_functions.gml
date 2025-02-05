@@ -388,8 +388,11 @@ function getControls() {
     leftKey = keyboard_check(vk_left)  + gamepad_button_check(0,gp_padl);
     leftKey = clamp(leftKey, 0, 1);
 
-	useKey = keyboard_check_pressed(ord("C")) + gamepad_button_check_pressed(0,gp_face4);
+	useKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0, gp_shoulderlb);
 	useKey = clamp(useKey,0,1);
+	
+	useKey2 = keyboard_check_pressed(ord("R")) + gamepad_button_check_pressed(0, gp_shoulderrb); 
+	useKey2 = clamp(useKey2,0,1);
 	
 	closeKey = keyboard_check_pressed(vk_escape) + gamepad_button_check_pressed(0,gp_face2);
 	closeKey = clamp(closeKey,0,1);
