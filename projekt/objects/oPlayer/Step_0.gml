@@ -8,16 +8,18 @@ function setOnGround(_val = true){
 	if _val = true
 	{
 		onGround = true;
+		coyoteHangTimer = coyoteHangFrames;
 	}
 	else
 	{
 		onGround = false;
 		currentFloorPlat = noone;
+		coyoteHangTimer = 0;
 	}
+	
 }
 
 
-	
 
 if(debug_mode){
 getControls();
@@ -419,7 +421,14 @@ if (!isDashing) {
 		grav = .163;	
 	}
 	
-	yspd += grav;
+	// Coyote
+	if(coyoteHangTimer > 0) {
+		// Counting down the timer after we leave the ground
+		coyoteHangTimer--;
+	} else {	
+		yspd += grav;
+		setOnGround(false);
+	}
 	
 	// Ladders
 	    // Sterowanie za pomocą klawiatury
@@ -441,7 +450,7 @@ if (!isDashing) {
 	if yspd > termVel {yspd = termVel; };
 	
 	//Initiate jump - cannot jump on ladders
-	if jumpKeyBuffered && jumpCount < jumpMax && onGround && !isDashing
+	if jumpKeyBuffered && jumpCount < jumpMax && (onGround || coyoteJumpTimer > 0) && !isDashing
 	{
 		
 		audio_play_sound(snd_jump, 0 ,false);
@@ -473,6 +482,8 @@ if (!isDashing) {
 		jumpHoldTimer = jumpHoldFrames[jumpCount-1];
 		
 		setOnGround(false);
+		
+		coyoteJumpTimer = 0;
 	}
 	
 	//cut off jump
@@ -833,6 +844,9 @@ if (!isDashing) {
 	
 	y += yspd;
 	
+	show_debug_message("hang: " + string(coyoteHangTimer));
+    show_debug_message("jump: " + string(coyoteJumpTimer));
+	
 	if (instance_exists(forgetFloorPlat) && !place_meeting(x, y, forgetFloorPlat)) {
 		forgetFloorPlat = noone;
 	}
@@ -871,10 +885,13 @@ if (!isDashing) {
 	    }
 		wasMidair = false;
 	    jumpCount = 0;
+		coyoteJumpTimer = coyoteJumpFrames;
 	    jumpHoldTimer = 0;
+	
 	} else {
 	    setOnGround(false);
 		wasMidair = true;
+		coyoteJumpTimer--;
 	    // Start jump animation
 	    if (jumpStartTimer > 0) {
 	        jumpStartTimer--;
@@ -1039,7 +1056,10 @@ if (!isDashing) {
 
 	}
 
+
 }
+
+
 
 		//show_debug_message(string(oCamera.midX));
 		//show_debug_message(string(oCamera.midY));
