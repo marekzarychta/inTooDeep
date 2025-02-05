@@ -1,4 +1,4 @@
-if !isAlive || debug_mode || (instance_exists(oPause) && oPause.checkpoint) {
+if (!isAlive || debug_mode || (instance_exists(oPause) && oPause.checkpoint) && !oGlobal.gui)  {
 	
 	if (instance_exists(lastCheckpoint)) {
 	

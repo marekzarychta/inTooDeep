@@ -214,6 +214,17 @@ if (sprite_index == sPlayerWalk && xspd != 0) {
 	//setting id nearest chest
 	chestId = nearestCrate;
 	
+	if (debug_mode) show_debug_message("heals: "+string(ds_list_size(healContent)));
+	
+	if (oPlayer.isInteracting && nearestCrate == noone && oPlayer.current_health < oPlayer.max_health && ds_list_size(healContent) > 0) {
+		var item = ds_list_find_value(healContent, ds_list_size(healContent) - 1);
+		oPlayer.current_health += item.healValue;
+		flashColor = c_green;
+		flashAlpha = 0.8;
+		ds_list_delete(healContent, ds_list_size(healContent) - 1);
+		instance_destroy(item);
+	}
+	
 	//Flip horizontally according to movement direction
 	
 	

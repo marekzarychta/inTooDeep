@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"Object61",
-  "eventList":[],
+  "%Name":"oHeal",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"Object61",
+  "name":"oHeal",
   "overriddenProperties":[],
   "parent":{
-    "name":"terrainSprites",
-    "path":"folders/Sprites/terrainSprites.yy",
+    "name":"interactive",
+    "path":"folders/Objects/interactive.yy",
   },
   "parentObjectId":null,
   "persistent":false,

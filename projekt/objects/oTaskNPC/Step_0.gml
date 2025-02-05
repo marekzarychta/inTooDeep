@@ -80,7 +80,7 @@ if (!gui) {
 			oGlobal.activeTask = noone;
 			
 		} 
-	
+		oGlobal.gui = true;
 		gui = true;
 		//messTimer = messBuffer
 		
@@ -122,6 +122,7 @@ if (!gui) {
 		if (!isTaskAcitve && !done) {
 			if (talk > 1) {
 				gui = false;
+				oGlobal.gui = false;
 				oPlayer.isActive = true;
 				talk = 0;
 				if (!done) {
@@ -139,6 +140,7 @@ if (!gui) {
 			}
 		} else {
 			gui = false;
+			oGlobal.gui = false;
 			oPlayer.isActive = true;
 			talk = 0;
 		}
@@ -147,6 +149,7 @@ if (!gui) {
 	
 	if (closeKey) {
 		gui = false;
+		oGlobal.gui = false;
 		oPlayer.isActive = true;
 	}
 }
