@@ -1,4 +1,4 @@
-s// in world
+// in world
 
 world_sprite = sItem;
 
