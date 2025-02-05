@@ -119,7 +119,9 @@ if (!gui) {
 	if (talk == max_talk) {
 		if (upKey) {
 			choice--;
-			
+			if (choice < 0) {
+				choice += ds_list_size(shopContent) + 1;
+			}
 		}
 		
 		if (downKey) {
