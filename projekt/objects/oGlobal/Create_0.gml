@@ -8,7 +8,7 @@ gui = false;
 task0 = instance_create_layer(x, y, layer, oTask);
 task0.persistent = true;
 task0.numer = 0;
-task0._value = 5;
+task0._value = 10;
 task0.desc = "Destroy "+string(task0._value)+" vases";
 task0.words = ["A dwarf!\nYou have a moment?", "I want to prove\nI'm the strongest jar\naround here.", "If you help me fight\nthe other... pretenders,\nI'll make sure you\nget a reward!"];
 task0.endWords = ["At last! Behold, dwarf.\nYou are speaking to the\nstrongest jar of these caves.", "What? A reward? Ah... yes,\nTHAT reward. You've earned\nit, I suppose."];
@@ -20,7 +20,7 @@ ds_list_add(global.task_list, task0);
 task1 = instance_create_layer(x, y, layer, oTask);
 task1.persistent = true;
 task1.numer = 1;
-task1._value = 3;
+task1._value = 5;
 task1.desc = "Kill "+string(task1._value)+" skeletons";
 task1.words = ["GRRRR...","GRR??","*seems like it just\nwants some bones to\nplay with*","*if only there was a\ngood source of them\naround...*"];
 task1.endWords = ["*You see the dog\nwag its tail joyfully*", "*One of his heads\nslightly nods towards\na little sack of coins\nlaying at its feet*"];
@@ -111,6 +111,8 @@ part_type_color1(hitParticleType, c_gray);
 part_type_orientation(hitParticleType, 0, 359, 0, 0, 0);
 part_type_direction(hitParticleType, 0, 359, 0, 1);
 part_type_speed(hitParticleType, 0.2, 0.4, -0.004, 0);		
+
+////////////////////////////
 	
 slimeHitParticleType = part_type_create();
 
@@ -138,6 +140,37 @@ part_type_size(slimeRightParticleType, 1.2, 1.2, -0.01, 0);
 part_type_orientation(slimeRightParticleType, 0, 0, 0, 0, 0);
 part_type_direction(slimeRightParticleType, -30, 10, 0, 1);
 part_type_speed(slimeRightParticleType, 0.1, 0.5, -0.004, 0);
+	
+////////////////////////
+	
+slimeLavaHitParticleType = part_type_create();
+
+part_type_sprite(slimeLavaHitParticleType, sParticleSlimeLava, 0, 0, 1);
+part_type_life(slimeLavaHitParticleType, 25, 30);
+part_type_size(slimeLavaHitParticleType, 1.2, 1.2, -0.01, 0);
+part_type_orientation(slimeLavaHitParticleType, 0, 359, 0, 0, 0);
+part_type_direction(slimeLavaHitParticleType, 0, 359, 0, 1);
+part_type_speed(slimeLavaHitParticleType, 0.1, 0.4, -0.004, 0);	
+	
+slimeLavaParticleType = part_type_create();
+
+part_type_sprite(slimeLavaParticleType, sParticleSlimeLava, 0, 0, 1);
+part_type_life(slimeLavaParticleType, 25, 40);
+part_type_size(slimeLavaParticleType, 1.2, 1.2, -0.01, 0);
+part_type_orientation(slimeLavaParticleType, 0, 0, 0, 0, 0);
+part_type_direction(slimeLavaParticleType, 170, 210, 0, 1);
+part_type_speed(slimeLavaParticleType, 0.1, 0.5, -0.004, 0);
+
+slimeLavaRightParticleType = part_type_create();
+
+part_type_sprite(slimeLavaRightParticleType, sParticleSlimeLava, 0, 0, 1);
+part_type_life(slimeLavaRightParticleType, 25, 40);
+part_type_size(slimeLavaRightParticleType, 1.2, 1.2, -0.01, 0);
+part_type_orientation(slimeLavaRightParticleType, 0, 0, 0, 0, 0);
+part_type_direction(slimeLavaRightParticleType, -30, 10, 0, 1);
+part_type_speed(slimeLavaRightParticleType, 0.1, 0.5, -0.004, 0);
+	
+/////////////////////////////
 	
 fricParticleType = part_type_create();
 

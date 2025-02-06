@@ -104,7 +104,7 @@ if !in_inventory {
 		collectable = true;	
 	}
 
-	if place_meeting(x, y, oPlayer) && collectable && weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
+	if place_meeting(x, y, oPlayer) && collectable {
 	
 		oGlobal.gold += item_value;
 		audio_play_sound(snd_pickup,0,false);

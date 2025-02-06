@@ -15,15 +15,19 @@ gold = global.gold;
 	
 task0.counter = 0;
 task0.compleated = false;
+task0.prevCompleated = false;
 task0.prevCounter = 0;
 task1.counter = 0;
+task1.prevCompleated = false;
 task1.compleated = false;
 task1.prevCounter = 0;
 task2.counter = 0;
 task2.compleated = false;
+task2.prevCompleated = false;
 task2.prevCounter = 0;
 task3.counter = 0;
 task3.compleated = false;
+task3.prevCompleated = false;
 task3.prevCounter = 0;
 
 

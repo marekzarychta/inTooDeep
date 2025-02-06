@@ -51,27 +51,74 @@ if marked && openable && ds_list_size(content) == 0 {
 
 if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 	
-		audio_play_sound(snd_pickup, 0, false);
+		//audio_play_sound(snd_pickup, 0, false);
 		
 	//odbieram wszystko z wagonika
-	if (ds_list_size(content) == maxSize) || (ds_list_size(oInventory.inventory) == 0) {
-		for (var i = ds_list_size(content) - 1; i >= 0; i--) {	
-			var item = ds_list_find_value(content, i);	
-			if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
-				ds_list_add(oInventory.inventory, item);
-				ds_list_delete(content, i);
-				InventoryCalculateWeight(oInventory);
+	//if (ds_list_size(content) == maxSize) || (ds_list_size(oInventory.inventory) == 0) {
+	//	for (var i = ds_list_size(content) - 1; i >= 0; i--) {	
+	//		var item = ds_list_find_value(content, i);	
+	//		if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
+	//			ds_list_add(oInventory.inventory, item);
+	//			ds_list_delete(content, i);
+	//			InventoryCalculateWeight(oInventory);
+	//		} else {
+	//			break;	
+	//		}
+	//	}
+	//} else { //przekazuję po kolei do wypełnienia
+	//	var item = ds_list_find_value(oInventory.inventory, ds_list_size(oInventory.inventory) - 1);	
+	//	if item != noone && item != undefined {
+	//		ds_list_add(content, item);
+	//		ds_list_delete(oInventory.inventory, ds_list_size(oInventory.inventory) - 1);
+	//	}
+	//}
+	
+	
+	if (oPlayer.useKey) {
+		if !InventoryIsEmpty(oInventory) {
+			if ds_list_size(content) < maxSize {
+				audio_play_sound(snd_pickup, 0, false);
+
+				var item = ds_list_find_value(oInventory.inventory, ds_list_size(oInventory.inventory) - 1);	
+				if item != noone && item != undefined {
+					ds_list_add(content, item);
+					ds_list_delete(oInventory.inventory, ds_list_size(oInventory.inventory) - 1);
+					createMiniTextbox(oPlayer.x,oPlayer.y, "weight", "-");
+				}
+			
 			} else {
-				break;	
+				grunt();
+				textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"it's full");
 			}
-		}
-	} else { //przekazuję po kolei do wypełnienia
-		var item = ds_list_find_value(oInventory.inventory, ds_list_size(oInventory.inventory) - 1);	
-		if item != noone && item != undefined {
-			ds_list_add(content, item);
-			ds_list_delete(oInventory.inventory, ds_list_size(oInventory.inventory) - 1);
+				
+				
+		} else{
+			grunt();
+			textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to deposit");
+		
 		}
 	}
+	
+	if (oPlayer.useKey2) {
+		if(ds_list_size(content) > 0) {
+			
+			var item = ds_list_find_value(content, ds_list_size(content) - 1);	
+			if item != noone && item.weight + oPlayer.inventoryWeight <= oPlayer.maxInventoryWeight {
+				ds_list_add(oInventory.inventory, item);
+				ds_list_delete(content, ds_list_size(content) - 1);
+				InventoryCalculateWeight(oInventory);
+				createMiniTextbox(oPlayer.x,oPlayer.y, "weight", "+");
+				audio_play_sound(snd_pickup, 0, false);
+			} 
+
+		} else {
+			grunt();
+			textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to retrive");
+		
+		}
+	}
+	
+	
 	mass = weightChangeValue[weightLvl];
 	for (var i = ds_list_size(content) - 1; i >= 0; i--) {
 		mass += ds_list_find_value(content, i).weight;

@@ -6,4 +6,5 @@ sprite_index = sCheckpoint;
 time = 5;
 textTimer = 60;
 _health = 0;
-
+sprite_frame = 0;
+sprite_speed = 0.3;
