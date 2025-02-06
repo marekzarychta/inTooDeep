@@ -93,7 +93,12 @@ if (!gui) {
 			
 		} 
 		oGlobal.gui = true;
+		if(sprite_index == sGhostIdle){
 		audio_play_sound(snd_ghost,0,false);
+		}
+		else if(sprite_index == sCerberIdle){
+			audio_play_sound(snd_cerber,0,false);
+		}
 		gui = true;
 		//messTimer = messBuffer
 		

@@ -89,7 +89,8 @@ if (!gui) {
 
 		
 	if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
-    
+    			audio_play_sound(snd_shopkeeper,0,false);
+
 		gui = true;
 		oGlobal.gui = true;
 		
