@@ -8,18 +8,61 @@ if (place_meeting(x, y + 1, oTracks)) {
 
 var _subPixel = 0.5;
 
-var text;
-if !InventoryIsEmpty(oInventory) && ds_list_size(content) != maxSize {
+var text, text2;
+
+//if !InventoryIsEmpty(oInventory) {
 	text = "   deposit";
+//} else {
+	text2 = "   retrieve";
+
+
+
+if (oPlayer.chestId == id && oPlayer.isAlive) {
+    marked = true;
 } else {
-	text = "   retrieve";
+    marked = false;
 }
 
-if InventoryIsEmpty(oInventory) && ds_list_size(content) == 0 {
-	text = "   deposit";	
+var dis = oPlayer.x - x;
+
+
+if (place_meeting(x, y, oPlayer) || (oCart == object_index)) {
+    openable = true; 
+
+} else {
+    openable = false;
 }
 
-chestHandling(text);
+if (openable && marked) {
+    if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
+        textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
+    } else if instance_exists(textBoxInstance) {
+        textBoxInstance.textVal = text;
+    }
+
+} else {
+    if (textBoxInstance != noone && instance_exists(textBoxInstance)) { // Jeśli istnieje textbox
+        instance_destroy(textBoxInstance); // Usuwamy go
+        textBoxInstance = noone; // Resetujemy wskaźnik
+    }
+}
+
+if (openable && marked) {
+    if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
+        textBoxInstance2 = createTextbox(x, y - 20, text2); // Tworzymy textbox
+		textBoxInstance2.normal = false;
+    } else if instance_exists(textBoxInstance2) {
+        textBoxInstance2.textVal = text2;
+		textBoxInstance2.normal = false;
+    }
+
+} else {
+    if (textBoxInstance2 != noone && instance_exists(textBoxInstance2)) { // Jeśli istnieje textbox
+        instance_destroy(textBoxInstance2); // Usuwamy go
+        textBoxInstance2 = noone; // Resetujemy wskaźnik
+		
+    }
+}
 		
 if ds_list_size(content) == maxSize {
 	if(xspd == 0){
