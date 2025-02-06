@@ -8,7 +8,7 @@ if(gamepad_is_connected(0)){
 	draw_sprite_stretched(ram_key, 0, x-16, y, 32, 16);  // Centered at (x, y)
 }
 // Draw the sprite icon, stretched to 16x16
-textVal = "to ram through walls\nwhile moving";
+textVal = "to ram through walls\nand enemies\nwhile moving";
 
 // Set text color
 
