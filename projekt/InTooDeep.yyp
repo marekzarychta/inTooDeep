@@ -152,6 +152,7 @@
     {"id":{"name":"oLamp","path":"objects/oLamp/oLamp.yy",},},
     {"id":{"name":"oLight","path":"objects/oLight/oLight.yy",},},
     {"id":{"name":"oLogicalWall","path":"objects/oLogicalWall/oLogicalWall.yy",},},
+    {"id":{"name":"oMenu","path":"objects/oMenu/oMenu.yy",},},
     {"id":{"name":"oMenuButton_exit","path":"objects/oMenuButton_exit/oMenuButton_exit.yy",},},
     {"id":{"name":"oMenuButton_start","path":"objects/oMenuButton_start/oMenuButton_start.yy",},},
     {"id":{"name":"oMiniTextbox","path":"objects/oMiniTextbox/oMiniTextbox.yy",},},
