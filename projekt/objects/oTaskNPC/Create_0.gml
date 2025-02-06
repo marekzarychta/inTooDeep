@@ -28,6 +28,9 @@ interactionTextBox = noone;
 
 sprite_index = sGhostIdle;
 
+if (room_get_name(room) == "demo2") sprite_index = sJarSleep;
+if (room_get_name(room) == "demo3") sprite_index = sCerberIdle;
+
 if (sprite_index == sGhostIdle) {
 	light = instance_create_layer(x + 2 * image_xscale, y - sprite_height / 2, "Light", oLight);
 	light.color = make_color_rgb(178,224,226);
@@ -38,5 +41,3 @@ if (sprite_index == sGhostIdle) {
 	light.x_scaleDiff = 0;
 }
 
-if (room_get_name(room) == "demo2") sprite_index = sJarSleep;
-if (room_get_name(room) == "demo3") sprite_index = sCerberIdle;
