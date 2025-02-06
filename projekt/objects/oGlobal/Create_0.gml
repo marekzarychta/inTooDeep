@@ -111,6 +111,8 @@ part_type_color1(hitParticleType, c_gray);
 part_type_orientation(hitParticleType, 0, 359, 0, 0, 0);
 part_type_direction(hitParticleType, 0, 359, 0, 1);
 part_type_speed(hitParticleType, 0.2, 0.4, -0.004, 0);		
+
+////////////////////////////
 	
 slimeHitParticleType = part_type_create();
 
@@ -138,6 +140,37 @@ part_type_size(slimeRightParticleType, 1.2, 1.2, -0.01, 0);
 part_type_orientation(slimeRightParticleType, 0, 0, 0, 0, 0);
 part_type_direction(slimeRightParticleType, -30, 10, 0, 1);
 part_type_speed(slimeRightParticleType, 0.1, 0.5, -0.004, 0);
+	
+////////////////////////
+	
+slimeLavaHitParticleType = part_type_create();
+
+part_type_sprite(slimeLavaHitParticleType, sParticleSlimeLava, 0, 0, 1);
+part_type_life(slimeLavaHitParticleType, 25, 30);
+part_type_size(slimeLavaHitParticleType, 1.2, 1.2, -0.01, 0);
+part_type_orientation(slimeLavaHitParticleType, 0, 359, 0, 0, 0);
+part_type_direction(slimeLavaHitParticleType, 0, 359, 0, 1);
+part_type_speed(slimeLavaHitParticleType, 0.1, 0.4, -0.004, 0);	
+	
+slimeLavaParticleType = part_type_create();
+
+part_type_sprite(slimeLavaParticleType, sParticleSlimeLava, 0, 0, 1);
+part_type_life(slimeLavaParticleType, 25, 40);
+part_type_size(slimeLavaParticleType, 1.2, 1.2, -0.01, 0);
+part_type_orientation(slimeLavaParticleType, 0, 0, 0, 0, 0);
+part_type_direction(slimeLavaParticleType, 170, 210, 0, 1);
+part_type_speed(slimeLavaParticleType, 0.1, 0.5, -0.004, 0);
+
+slimeLavaRightParticleType = part_type_create();
+
+part_type_sprite(slimeLavaRightParticleType, sParticleSlimeLava, 0, 0, 1);
+part_type_life(slimeLavaRightParticleType, 25, 40);
+part_type_size(slimeLavaRightParticleType, 1.2, 1.2, -0.01, 0);
+part_type_orientation(slimeLavaRightParticleType, 0, 0, 0, 0, 0);
+part_type_direction(slimeLavaRightParticleType, -30, 10, 0, 1);
+part_type_speed(slimeLavaRightParticleType, 0.1, 0.5, -0.004, 0);
+	
+/////////////////////////////
 	
 fricParticleType = part_type_create();
 
