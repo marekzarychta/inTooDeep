@@ -17,6 +17,6 @@ light.x_scaleDiff = x_scaleDiff;
 light.y_scaleDiff = y_scaleDiff;
 light.sigma = sigma;
 
-notLitSprite = sBrazierHighEmpty;
+notLitSprite = sTorchStandLowEmpty;
 part_emitter_region(global.particleSystem, emitter,bbox_left + 2, bbox_right - 2, y - offset - sprite_height / 2, y - offset - sprite_height / 2, ps_shape_ellipse, ps_distr_linear);
 					
