@@ -1,4 +1,4 @@
-
+diff = false;
 sprite = sButton;
 sprite_hover = sButton_hover;
 
