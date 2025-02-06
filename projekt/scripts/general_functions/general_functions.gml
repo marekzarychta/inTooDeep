@@ -15,6 +15,7 @@ function save() {
 	for (var i = 0; i < ds_list_size(global.task_list); i++) {
 		var task = ds_list_find_value(global.task_list, i);
 		task.prevCounter = task.counter;
+		task.prevCompleated = task.compleated;
 		
 	}
 
@@ -223,11 +224,9 @@ function load(state) {
 	for (var i = 0; i < ds_list_size(global.task_list); i++) {
 		var task = ds_list_find_value(global.task_list, i);
 		task.counter = task.prevCounter;
-		if (task.counter >= task._value) {
-			task.compleated = true;
-		} else {
-			task.compleated = false;
-		}
+		
+		task.compleated = task.prevCompleated;
+		
 		
 	}
 	

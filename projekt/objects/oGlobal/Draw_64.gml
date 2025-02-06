@@ -1,8 +1,22 @@
-draw_set_font(Fnt_UI);
+draw_set_font(Fnt_dialogues);
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 if (room != przejscie) {
-	draw_text(20, 300, string("Score: ") + string(gold));
+	var height_ = 200;
+	draw_set_valign(fa_middle);
+	//draw_sprite_stretched(sDialogueBox, 0, 20, height_, 200, 100);
+	draw_sprite_stretched(sSakiewka, 0, 20, height_ + 10, 64, 64);
+	draw_set_color(c_black);
+	draw_text(102, height_ + 50, string(gold)+"g");
+	draw_text(98, height_ + 50, string(gold)+"g");
+	draw_text(100, height_ + 52, string(gold)+"g");
+	draw_text(100, height_ + 48, string(gold)+"g");
+	draw_set_color(c_white);
+	draw_text(100, height_ + 50, string(gold)+"g");
+	
+	
+	
+	draw_set_valign(fa_top);
 }
 draw_set_halign(fa_center);
 

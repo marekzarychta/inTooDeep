@@ -396,6 +396,7 @@
     {"id":{"name":"sPlayerWalk","path":"sprites/sPlayerWalk/sPlayerWalk.yy",},},
     {"id":{"name":"sPlus","path":"sprites/sPlus/sPlus.yy",},},
     {"id":{"name":"sRect","path":"sprites/sRect/sRect.yy",},},
+    {"id":{"name":"sSakiewka","path":"sprites/sSakiewka/sSakiewka.yy",},},
     {"id":{"name":"sScroll","path":"sprites/sScroll/sScroll.yy",},},
     {"id":{"name":"sSelectedBox","path":"sprites/sSelectedBox/sSelectedBox.yy",},},
     {"id":{"name":"sSkeletonAttack","path":"sprites/sSkeletonAttack/sSkeletonAttack.yy",},},
