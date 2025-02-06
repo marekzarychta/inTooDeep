@@ -19,7 +19,10 @@ if (!wasPlayed) {
 	
 	if (goToPlaceTimer <= stayTime / 2) {
 		if (instance_exists(doorInstance)) {
-			
+			if(!hasPlayed){
+							audio_play_sound(snd_door,0,false);
+			hasPlayed = true;
+			}
 			doorInstance.opened = true;
 		}
 	}
