@@ -12,7 +12,7 @@ if (time <= 0) {
 	}
 }
 
-if (time % 5 == 0) {
+if (time % 3 == 0) {
 	
 	index++;
 	
@@ -33,7 +33,7 @@ if (_count || adding) {
 
 iter += 0.2;
 
-if (_count && timer2 % 5 == 0 && val < 15) {
+if (_count && timer2 % 4 == 0 && val < 15) {
 	val++;
 	if (val == 15) {
 		
