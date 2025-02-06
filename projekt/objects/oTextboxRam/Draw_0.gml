@@ -1,4 +1,5 @@
 draw_set_color(c_white);
+draw_set_font(Fnt_super_small);
 if(gamepad_is_connected(0)){
 	ram_key = sButtonB;
 	draw_sprite_stretched(ram_key, 0, x-8, y, 16, 16);  // Centered at (x, y)

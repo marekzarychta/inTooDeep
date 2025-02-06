@@ -35,3 +35,6 @@ onTracks = true;
 
 openable = false;
 marked = false;
+
+textBoxInstance = noone;
+textBoxInstance2 = noone;
