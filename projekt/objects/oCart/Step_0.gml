@@ -121,7 +121,7 @@ if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 	//}
 	
 	
-	if (oPlayer.useKey) {
+	if (oPlayer.depositKey) {
 		if !InventoryIsEmpty(oInventory) {
 			if ds_list_size(content) < maxSize {
 				audio_play_sound(snd_pickup, 0, false);
