@@ -436,17 +436,20 @@ function getControls() {
     leftKey = keyboard_check(ord("A")) + keyboard_check(vk_left) + gamepad_button_check(0,gp_padl);
     leftKey = clamp(leftKey, 0, 1);
 
-	useKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0, gp_shoulderlb);
+	useKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0, gp_face4);
 	useKey = clamp(useKey,0,1);
 	
-	useKey2 = keyboard_check_pressed(ord("R")) + gamepad_button_check_pressed(0, gp_shoulderrb); 
+	depositKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0,gp_shoulderl);
+	depositKey = clamp(depositKey,0,1);
+	
+	useKey2 = keyboard_check_pressed(ord("R")) + gamepad_button_check_pressed(0, gp_shoulderr); 
 	useKey2 = clamp(useKey2,0,1);
 	
 	closeKey = keyboard_check_pressed(vk_escape) + gamepad_button_check_pressed(0,gp_face2);
 	closeKey = clamp(closeKey,0,1);
 	
-	inventoryKeyPressed = keyboard_check_pressed(vk_tab) + gamepad_button_check_pressed(0,gp_shoulderl);
-	inventoryKeyPressed = clamp(inventoryKeyPressed,0,1);
+	//inventoryKeyPressed = keyboard_check_pressed(vk_tab) + gamepad_button_check_pressed(0,gp_shoulderl);
+	//inventoryKeyPressed = clamp(inventoryKeyPressed,0,1);
 
     jumpKeyPressed = keyboard_check_pressed(vk_space) + gamepad_button_check_pressed(0,gp_face1);
     jumpKeyPressed = clamp(jumpKeyPressed, 0, 1);
