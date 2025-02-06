@@ -45,7 +45,7 @@ if (gui) {
 	var box_w = 380;
 	var box_h = 250;
 	
-	var offset = 210;
+	 
 
 	// Obliczenie pozycji GUI nad obiektem
 	var text_x = gui_x - box_w / 2;

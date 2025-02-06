@@ -41,3 +41,7 @@ if (sprite_index == sGhostIdle) {
 	light.x_scaleDiff = 0;
 }
 
+
+offset = 160;
+if (room_get_name(room) == "demo2") offset = 150;
+if (room_get_name(room) == "demo3") offset = 120;
