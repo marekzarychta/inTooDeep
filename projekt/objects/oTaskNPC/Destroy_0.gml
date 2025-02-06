@@ -13,6 +13,8 @@ if (interactionTextBox != noone && instance_exists(interactionTextBox)) { // Je≈
 	interactionTextBox = noone; // Resetujemy wska≈∫nik
 }
 
-if (instance_exists(light)){
-	instance_destroy(light);	
+if (variable_instance_exists(id, "light")) {
+	if (instance_exists(light)){
+		instance_destroy(light);	
+	}
 }

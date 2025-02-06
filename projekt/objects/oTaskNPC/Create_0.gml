@@ -28,6 +28,8 @@ interactionTextBox = noone;
 
 sprite_index = sGhostIdle;
 
+
+
 if (room_get_name(room) == "demo2") sprite_index = sJarSleep;
 if (room_get_name(room) == "demo3") sprite_index = sCerberIdle;
 
