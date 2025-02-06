@@ -11,30 +11,50 @@ if (activeTask != noone && instance_exists(activeTask)) {
 	
 	var width = display_get_gui_width();
 	
-	var box_w = 450;
+	var box_w = 250;
 	var box_h = 150;
 	var margin = 20;
 	
 	var color = make_color_rgb(100, 100, 100);
 	draw_set_color(color);
 	//draw_rectangle(width - box_w - margin, margin, width - margin, box_h + margin, false);
-	draw_sprite_stretched(sDialogueBox, 0, width - box_w - margin, margin, width, box_h);
+	//draw_sprite_stretched(sDialogueBox, 0, width - box_w - margin, margin, width, box_h);
 	
 	var val = task._value - task.counter;
 	var text = "";
 	
+	
+	//color = make_color_rgb(240, 50, 50);
+	
+	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	
 	if (val > 0) {
-		color = make_color_rgb(240, 50, 50);
-		draw_set_color(color);
-		text = task.desc + "\nYou have to get " +string(val) + " more";
+		text = task.desc + ": "+string(task.counter) + "/" + string(task._value);
+		draw_set_color(c_black);
+		draw_text(width - 26 -margin - box_w, margin, text);
+		draw_text(width - 22 -margin - box_w, margin, text);
+		draw_text(width - 24 -margin - box_w, margin + 2, text);
+		draw_text(width - 24 -margin - box_w, margin - 2, text);
+		
+		draw_set_color(c_white);
+		draw_text(width - 24 -margin - box_w, margin, text);
+		draw_sprite_stretched(sCheckboxEmpty, 0, width - 24 - margin, margin, 24, 24);
 	} else {
-		color = make_color_rgb(50, 240, 50);
-		draw_set_color(color);
-		text = "You have done this task!";
+		text = task.desc + ": "+string(task._value) + "/" + string(task._value);
+		draw_set_color(c_black);
+		draw_text(width - 26 -margin - box_w, margin, text);
+		draw_text(width - 22 -margin - box_w, margin, text);
+		draw_text(width - 24 -margin - box_w, margin + 2, text);
+		draw_text(width - 24 -margin - box_w, margin - 2, text);
+		
+		draw_set_color(c_white);
+		draw_text(width - 24 -margin - box_w, margin, text);
+		draw_sprite_stretched(sCheckboxFull, 0, width - 24 - margin, margin, 24, 24);	
 	}
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle);
-	draw_text(width - box_w / 2 - margin, margin + box_h / 2, text);
+	
+
 	//draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);
