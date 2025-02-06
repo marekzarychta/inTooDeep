@@ -93,6 +93,7 @@ if (!gui) {
 			
 		} 
 		oGlobal.gui = true;
+		audio_play_sound(snd_ghost,0,false);
 		gui = true;
 		//messTimer = messBuffer
 		
