@@ -25,7 +25,7 @@ if (activeTask != noone && instance_exists(activeTask)) {
 	
 	var width = display_get_gui_width();
 	
-	var box_w = 320;
+	var box_w = 400;
 	var box_h = 150;
 	var margin = 20;
 	
