@@ -140,7 +140,7 @@ if (!gui) {
 		
 		
 				if (oGlobal.gold >= item._value) {
-					if (oPlayer.current_health < oPlayer.max_health) {
+					if (oPlayer.current_health + item.healValue <= oPlayer.max_health) {
 						oGlobal.gold -= item._value;
 						
 						oPlayer.current_health += item.healValue;
