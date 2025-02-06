@@ -1,5 +1,6 @@
 /// @description stun after being attacked
 // You can write your code in this editor
+if(oPlayer.isDashing){
 if(!audio_is_playing(snd_slime_hit)) {
 	
 	audio_play_sound(snd_slime_hit, 0, false);
@@ -9,3 +10,4 @@ if(!audio_is_playing(snd_slime_hit)) {
 flashAlpha = 0.8;
 stunned = true;
 stun_duration = room_speed * 5; // Stun for 5 seconds
+}
