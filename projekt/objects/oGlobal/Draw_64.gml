@@ -45,7 +45,7 @@ if (activeTask != noone && instance_exists(activeTask)) {
 	draw_set_valign(fa_top);
 	
 	if (val > 0) {
-		text = task.desc + ": "+string(task.counter) + " : " + string(task._value);
+		text = task.desc + ": "+string(task.counter) + " of " + string(task._value);
 		draw_set_color(c_black);
 		draw_text(width - 26 -margin - box_w, margin, text);
 		draw_text(width - 22 -margin - box_w, margin, text);
@@ -56,7 +56,7 @@ if (activeTask != noone && instance_exists(activeTask)) {
 		draw_text(width - 24 -margin - box_w, margin, text);
 		draw_sprite_stretched(sCheckboxEmpty, 0, width - 24 - margin, margin, 24, 24);
 	} else {
-		text = task.desc + ": "+string(task._value) + " : " + string(task._value);
+		text = task.desc + ": "+string(task._value) + " of " + string(task._value);
 		draw_set_color(c_black);
 		draw_text(width - 26 -margin - box_w, margin, text);
 		draw_text(width - 22 -margin - box_w, margin, text);
