@@ -29,7 +29,18 @@ choice = 0;
 
 shopContent = ds_list_create();
 
+free = false;
+
+setted = 20;
+
+if (room == demo) free = true;
+
 var item1 = instance_create_layer(x, y, layer, oHeal);
+
+if (free) {
+	item1._value = 0;
+}
+
 ds_list_add(shopContent, item1);
 
 sprites = [sNPCShopIdle, sNPCShopApproach, sNPCShopMove, sNPCShopLeave, sNPCShopNearby];
@@ -37,5 +48,6 @@ sprites = [sNPCShopIdle, sNPCShopApproach, sNPCShopMove, sNPCShopLeave, sNPCShop
 var item2 = instance_create_layer(x, y, layer, oHeal);
 item2.name = "Big Beer";
 item2.healValue = 2;
-item2._value = 35;
+item2._value = setted * 2 - 5;
 ds_list_add(shopContent, item2);
+

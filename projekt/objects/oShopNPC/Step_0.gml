@@ -147,6 +147,11 @@ if (!gui) {
 						oPlayer.flashColor = c_green;
 						oPlayer.flashAlpha = 0.8;
 						
+						if (free && item._value == 0) {
+							itrm._value = setted;
+							free = false;
+						}
+						
 					} else {
 						createFollowingTextbox(oPlayer.x, oPlayer.y, "i'm already fine");
 						grunt();
