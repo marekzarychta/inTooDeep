@@ -124,8 +124,10 @@ markedChange = false;
 if (openable && marked && !animating) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
         textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
+		textBoxInstance.depo = true;
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
+		textBoxInstance.depo = true;
     }
 
 } else {
@@ -139,9 +141,12 @@ if (openable && marked && !animating) {
     if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
         textBoxInstance2 = createTextbox(x, y - 20, text2); // Tworzymy textbox
 		textBoxInstance2.normal = false;
+		textBoxInstance2.depo = true;
+		
     } else if instance_exists(textBoxInstance2) {
         textBoxInstance2.textVal = text2;
 		textBoxInstance2.normal = false;
+		textBoxInstance2.depo = true;
     }
 
 } else {

@@ -7,7 +7,16 @@ if (!gamepad_is_connected(0)){
 	}
 }
 else{
-	key_icon = sButtonY;
+	if (depo) {
+		if (normal) {
+			key_icon = sLB;
+		} else {
+			key_icon = sRB; //dla retrive useKey2
+		}
+	} else {
+	
+		key_icon = sButtonY;
+	}
 }
 draw_sprite_stretched(key_icon, 0, x-16, y-4, 16, 16);  // Centered at (x, y)
 draw_set_font(Fnt_super_small);
