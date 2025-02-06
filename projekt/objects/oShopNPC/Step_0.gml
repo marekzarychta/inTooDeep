@@ -148,7 +148,7 @@ if (!gui) {
 						oPlayer.flashAlpha = 0.8;
 						
 						if (free && item._value == 0) {
-							itrm._value = setted;
+							item._value = setted;
 							free = false;
 						}
 						
