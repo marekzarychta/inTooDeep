@@ -81,6 +81,8 @@ if (room != przejscie) {
 	interface = instance_create_layer(x, y, layer, oInterface);
 	camera = instance_create_layer(x, y, layer, oCamera);
 	pause = instance_create_layer(x, y, layer, oPause);
+	activeTask = noone;
+	prevActiveTask = noone;
 
 	var transition = instance_create_layer(x, y, oGlobal.layer, oTransition);
 	//camera.persistent = true;

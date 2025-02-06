@@ -1,6 +1,6 @@
 dialogues = [["Welcome, welcome\ntraveller to our...\nI mean my little\nshop hehehehehe", 
 "I have something\nhere that may\nsuit your needs,\nit'll put you right\nback on your feet!", 
-"First time huh?\nI guess you can get\na special discount for\nthat hehehehehe",
+"First time huh?\nI guess you can get\na special discount\nfor that\nhehehehehe",
 "What do you want?"
 ],
 ["Hello there fellow\ntraveller! Already\nback here? You\ncan't take care of\nyourself? hehehe",
@@ -20,7 +20,7 @@ gui = false;
 iterator = 0;
 
 room_num = 0;
-if (room != "demo") room_num = 1;
+if (room_get_name(room) != "demo") room_num = 1;
 
 talk = 0;
 max_talk = array_length(dialogues[room_num]) - 1;
