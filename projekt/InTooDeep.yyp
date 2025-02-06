@@ -79,10 +79,10 @@
     {"$GMFolder":"","%Name":"interactiveSprites","folderPath":"folders/Sprites/interactiveSprites.yy","name":"interactiveSprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"interfaceSprites","folderPath":"folders/Sprites/interfaceSprites.yy","name":"interfaceSprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"buttonSprites","folderPath":"folders/Sprites/interfaceSprites/buttonSprites.yy","name":"buttonSprites","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"menuSprites","folderPath":"folders/Sprites/interfaceSprites/menuSprites.yy","name":"menuSprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"healthbarSprites","folderPath":"folders/Sprites/interfaceSprites/healthbarSprites.yy","name":"healthbarSprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"inventorySprites","folderPath":"folders/Sprites/interfaceSprites/inventorySprites.yy","name":"inventorySprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"keySprites","folderPath":"folders/Sprites/interfaceSprites/keySprites.yy","name":"keySprites","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"menuSprites","folderPath":"folders/Sprites/interfaceSprites/menuSprites.yy","name":"menuSprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"miniSprites","folderPath":"folders/Sprites/interfaceSprites/miniSprites.yy","name":"miniSprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"weightbarSprites","folderPath":"folders/Sprites/interfaceSprites/weightbarSprites.yy","name":"weightbarSprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"movableSprites","folderPath":"folders/Sprites/movableSprites.yy","name":"movableSprites","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -100,7 +100,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.11.0.179",
   },
   "name":"InTooDeep",
   "resources":[
