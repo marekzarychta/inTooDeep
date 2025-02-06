@@ -84,17 +84,17 @@ if (gui) {
 	
 			var no_y = gui_y - sprite_height - offset - 24;
 			draw_set_color(c_black);
-			draw_text(text_x + 42, no_y - 24 - 4 * padding, "accept");
-			draw_text(text_x + 38, no_y - 24 - 4 * padding, "accept");
-			draw_text(text_x + 40, no_y - 26 - 4 * padding, "accept");
-			draw_text(text_x + 40, no_y - 22 - 4 * padding, "accept");
-			draw_text(text_x + 42, no_y, "decline");
-			draw_text(text_x + 38, no_y, "decline");
-			draw_text(text_x + 40, no_y - 2, "decline");
-			draw_text(text_x + 40, no_y + 2, "decline");
+			draw_text(text_x + 42, no_y - 24 - 4 * padding, "Accept");
+			draw_text(text_x + 38, no_y - 24 - 4 * padding, "Accept");
+			draw_text(text_x + 40, no_y - 26 - 4 * padding, "Accept");
+			draw_text(text_x + 40, no_y - 22 - 4 * padding, "Accept");
+			draw_text(text_x + 42, no_y, "Decline");
+			draw_text(text_x + 38, no_y, "Decline");
+			draw_text(text_x + 40, no_y - 2, "Decline");
+			draw_text(text_x + 40, no_y + 2, "Decline");
 			draw_set_color(c_white);
-			draw_text(text_x + 40, no_y - 24 - 4 * padding, "accept");
-			draw_text(text_x + 40, no_y, "decline");
+			draw_text(text_x + 40, no_y - 24 - 4 * padding, "Accept");
+			draw_text(text_x + 40, no_y, "Decline");
 			//draw_line_width(text_x + padding, (choice ? no_y - 36 - 2 * padding : no_y - 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
 			//draw_line_width(text_x + padding, (choice ? no_y - 12 - 2 * padding : no_y + 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
 
