@@ -19,4 +19,4 @@ instance_create_layer(health_x, health_y, "GUI", oHealthBar);
 instance_create_layer(weight_x, weight_y, "GUI", oWeightBar);
 
 
-instance_create_layer(-room_width, 0, "GUI", oInventoryUI);
+//instance_create_layer(-room_width, 0, "GUI", oInventoryUI);

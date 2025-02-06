@@ -10,8 +10,8 @@
 	var closeKey = keyboard_check_pressed(vk_escape) + gamepad_button_check_pressed(0,gp_face2);
 	closeKey = clamp(closeKey,0,1);
 	
-	var inventoryKey = keyboard_check_pressed(vk_tab) + gamepad_button_check_pressed(0,gp_shoulderl);
-	inventoryKey = clamp(inventoryKey,0,1);
+	//var inventoryKey = keyboard_check_pressed(vk_tab) + gamepad_button_check_pressed(0,gp_shoulderl);
+	//inventoryKey = clamp(inventoryKey,0,1);
 	
 	var upKey = keyboard_check_pressed(vk_up) + gamepad_button_check_pressed(0,gp_padu);
     upKey = clamp(upKey, 0, 1);

@@ -156,7 +156,7 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
     
 	
 	
-		if (oPlayer.useKey) {
+		if (oPlayer.depositKey) {
 			if !InventoryIsEmpty(oInventory) {
 				audio_play_sound(snd_pickup, 0, false);
 

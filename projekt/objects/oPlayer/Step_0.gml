@@ -63,7 +63,7 @@ if isAlive {
 	}
 
 
-if oInventoryUI.opened || !isActive || (instance_exists(oTaskNPC) && oTaskNPC.gui) { 
+if /*oInventoryUI.opened ||*/ !isActive || (instance_exists(oTaskNPC) && oTaskNPC.gui) { 
 	blockControls(true);
 	xspd = smooth(xspd, 0, 0.92);	// Zatrzymaj ruch w bok
 	// Wyzerowanie poprzednich inputów
@@ -85,7 +85,7 @@ else{
 	
 	}
 
-	if(useKey || useKey2){
+	if(useKey || useKey2 || depositKey){
 		isInteracting = true;
 	} else{
 		isInteracting = false;
