@@ -1,5 +1,9 @@
 if (gui) {
-	
+	if(gamepad_is_connected(0)){
+		keyicon = sButtonY;
+	}else{
+		keyicon = keyicon;
+	}
 	// Pobranie aktywnej kamery
 	var cam = view_get_camera(0);
 
@@ -50,7 +54,7 @@ draw_set_halign(fa_left);
 	draw_text(text_x + padding, text_y + padding, mess);
 	
 	if (talk != max_talk) {
-		draw_sprite_stretched(sKeyE, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
+		draw_sprite_stretched(keyicon, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
 		draw_sprite_stretched(sArrow, 0, text_x + box_w - 38, text_y + box_h - 48, 31, 31);
 	}
 	padding = 4;
@@ -130,8 +134,8 @@ draw_set_halign(fa_left);
 		//draw_line_width(text_x + padding, (choice ? no_y - 12 - 2 * padding : no_y + 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
 
 		draw_sprite_stretched(sSelectedBox, 0, text_x + 2 * padding, no_y - 84 - 9 * padding + choice * (24 + 4 * padding), box_w - 4 * padding, 24 + 3 * padding);
-		draw_sprite_stretched(sKeyE, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
-		draw_sprite_stretched(sKeyE, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
+		draw_sprite_stretched(keyicon, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
+		draw_sprite_stretched(keyicon, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
 		draw_sprite_stretched(sArrow, 0, text_x + box_w - 38, text_y + box_h - 48, 31, 31);
 	}
 	draw_set_halign(fa_center);

@@ -45,7 +45,7 @@ if (gui) {
 	var box_w = 380;
 	var box_h = 250;
 	
-	var offset = 210;
+	 
 
 	// Obliczenie pozycji GUI nad obiektem
 	var text_x = gui_x - box_w / 2;
@@ -71,7 +71,12 @@ if (gui) {
 	draw_text(text_x + padding, text_y + padding, mess);
 	
 	if (talk <= max_talk) {
-		draw_sprite_stretched(sKeyE, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
+		if(gamepad_is_connected(0)){
+			keyicon = sButtonY;
+		}else{
+			keyicon = sKeyE;
+		}
+		draw_sprite_stretched(keyicon, 0, text_x + box_w - 70, text_y + box_h - 48, 32, 32);
 		draw_sprite_stretched(sArrow, 0, text_x + box_w - 38, text_y + box_h - 48, 32, 32);
 	}
 	
