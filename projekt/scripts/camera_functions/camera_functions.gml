@@ -6,7 +6,11 @@ function instantCameraMoveToPos(_x, _y) {
 
 function shakeCamera(_time, _magnitude, _fade/*_range, _vel, _vertically*/) {
 	
-	var instance = instance_create_layer(oCamera.midX, oCamera.midY, "Player_overlay", oShake);
+	if (layer_exists("Player_overlay")) {
+		var instance = instance_create_layer(oCamera.midX, oCamera.midY, "Player_overlay", oShake);
+	} else {
+		var instance = instance_create_layer(oCamera.midX, oCamera.midY, layer, oShake);
+	}
 	//instance._vertically = _vertically;
 	//instance.range = _range;
 	//instance.vel = _vel

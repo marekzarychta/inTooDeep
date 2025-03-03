@@ -1,11 +1,17 @@
-if mouse_x > x && mouse_x < x + w && mouse_y > y && mouse_y < y + h {
-	sprite_index = sprite_hover;
-	hover = true;
-} else {
-	sprite_index = sprite;	
-	hover = false;
-}
+//if (!diff) {
+	if mouse_x > x && mouse_x < x + w && mouse_y > y && mouse_y < y + h {
+		sprite_index = sprite_hover;
+		hover = true;
+	} else {
+		sprite_index = sprite;	
+		hover = false;
+	}
 
-if (hover && mouse_check_button_released(mb_left)) || diff {
-	action();
-}
+	if (hover && mouse_check_button_released(mb_left)) || diff {
+		action();
+	}
+//} else {
+//	if (!instance_exists(oMenu)) {
+		
+//	}
+//}

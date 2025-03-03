@@ -17,15 +17,27 @@ if (shake_time <= 0)
 	if (shake_magnitude <= 0) 
 	{ 
 		shaking = false;
-		if (!edge) {
-			slowCameraMoveToPos(oPlayer.x, oPlayer.y, 2);
+		if (instance_exists(oPlayer)) {
+			if (!edge) {
+				slowCameraMoveToPos(oPlayer.x, oPlayer.y, 2);
+			} else {
+				instantCameraMoveToPos(oPlayer.x, oPlayer.y);	
+			}
 		} else {
-			instantCameraMoveToPos(oPlayer.x, oPlayer.y);	
+			
+			slowCameraMoveToPos(room_width / 2, room_height / 2, 2);
+			
 		}
 	    oCamera.changing = true;
 		oCamera.shaking = false;
-		if (abs(oPlayer.x - oCamera.midX) < oCamera.boxSizeX - 1 && abs(oPlayer.y - oCamera.midY) < 2) {
-			instance_destroy();
+		if (instance_exists(oPlayer)) {
+			if (abs(oPlayer.x - oCamera.midX) < oCamera.boxSizeX - 1 && abs(oPlayer.y - oCamera.midY) < 2) {
+				instance_destroy();
+			}
+		} else {
+			if (abs(room_width / 2 - oCamera.midX) < 2 && abs(room_height / 2 - oCamera.midY) < 2) {
+				instance_destroy();
+			}
 		}
 	} 
 } 

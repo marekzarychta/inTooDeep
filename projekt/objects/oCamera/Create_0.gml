@@ -6,6 +6,9 @@ centrVel = 2.5//1.85;
 if instance_exists(oPlayer) {
 	midX = oPlayer.x;
 	midY = oPlayer.y;
+} else {
+	midX = room_width / 2;
+	midY = room_height / 2;
 }
 
 xspd = 0;
