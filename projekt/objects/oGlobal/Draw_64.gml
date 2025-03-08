@@ -25,9 +25,10 @@ if (activeTask != noone && instance_exists(activeTask)) {
 	
 	var width = display_get_gui_width();
 	
-	var box_w = 400;
+	var box_w = 380;
 	var box_h = 150;
-	var margin = 20;
+	var margin = 40;
+	var marginUp = 20;
 	
 	var color = make_color_rgb(100, 100, 100);
 	draw_set_color(color);
@@ -43,29 +44,70 @@ if (activeTask != noone && instance_exists(activeTask)) {
 	
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
-	
+	text = task.desc;
+	box_w = string_width(text);
+	draw_set_color(c_black);
+	draw_text(width - 26 -margin - box_w, marginUp, text);
+	draw_text(width - 22 -margin - box_w, marginUp, text);
+	draw_text(width - 24 -margin - box_w, marginUp + 2, text);
+	draw_text(width - 24 -margin - box_w, marginUp - 2, text);
+		
+	draw_set_color(c_white);
+	draw_text(width - 24 -margin - box_w, marginUp, text);
+	var h = string_height(text);
+	var offUp = -(20 + h / 2 - 2);
 	if (val > 0) {
-		text = task.desc + ": "+string(task.counter) + " of " + string(task._value);
+		text = string(task.counter) + " of " + string(task._value);
 		draw_set_color(c_black);
-		draw_text(width - 26 -margin - box_w, margin, text);
-		draw_text(width - 22 -margin - box_w, margin, text);
-		draw_text(width - 24 -margin - box_w, margin + 2, text);
-		draw_text(width - 24 -margin - box_w, margin - 2, text);
+		draw_text(width - 26 -margin - box_w, marginUp + h, text);
+		draw_text(width - 22 -margin - box_w, marginUp + h, text);
+		draw_text(width - 24 -margin - box_w, marginUp + h + 2, text);
+		draw_text(width - 24 -margin - box_w, marginUp + h - 2, text);
 		
 		draw_set_color(c_white);
-		draw_text(width - 24 -margin - box_w, margin, text);
-		draw_sprite_stretched(sCheckboxEmpty, 0, width - 24 - margin, margin, 24, 24);
+		draw_text(width - 24 -margin - box_w, marginUp + h, text);
+		margin -= 10;
+		var size = 48;
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin + 3, marginUp + offUp + h + 2, size, size, c_black, 1);
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin - 3, marginUp + offUp + h + 2, size, size, c_black, 1);
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin, marginUp + offUp + h + 5, size, size, c_black, 1);
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin, marginUp + offUp + h - 1, size, size, c_black, 1);
+		size -= 2;
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin + 1, marginUp + offUp + h + 2, size, size, c_white, 1);
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin - 1, marginUp + offUp + h + 2, size, size, c_white, 1);
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin, marginUp + offUp + h + 4, size, size, c_white, 1);
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin, marginUp + offUp + h + 0, size, size, c_white, 1);
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin, marginUp + offUp + h + 2, size, size, c_white, 1);
+
+		size += 1;
+		draw_sprite_stretched_ext(sCheckboxEmpty, 0, width - 24 - margin, marginUp + offUp + h + 2, size, size, c_white, 1);
+
 	} else {
-		text = task.desc + ": "+string(task._value) + " of " + string(task._value);
+		text = string(task._value) + " of " + string(task._value);
 		draw_set_color(c_black);
-		draw_text(width - 26 -margin - box_w, margin, text);
-		draw_text(width - 22 -margin - box_w, margin, text);
-		draw_text(width - 24 -margin - box_w, margin + 2, text);
-		draw_text(width - 24 -margin - box_w, margin - 2, text);
+		draw_text(width - 26 -margin - box_w, marginUp + h, text);
+		draw_text(width - 22 -margin - box_w, marginUp + h, text);
+		draw_text(width - 24 -margin - box_w, marginUp + h + 2, text);
+		draw_text(width - 24 -margin - box_w, marginUp + h - 2, text);
 		
 		draw_set_color(c_white);
-		draw_text(width - 24 -margin - box_w, margin, text);
-		draw_sprite_stretched(sCheckboxFull, 0, width - 24 - margin, margin, 24, 24);	
+		draw_text(width - 24 -margin - box_w, marginUp + h, text);
+		margin -= 10;
+		var size = 48;
+
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin + 3, marginUp + offUp + h + 2, size, size, c_black, 1);
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin - 3, marginUp + offUp + h + 2, size, size, c_black, 1);
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin, marginUp + offUp + h + 5, size, size, c_black, 1);
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin, marginUp + offUp + h - 1, size, size, c_black, 1);
+		size -= 2;
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin + 1, marginUp + offUp + h + 2, size, size, c_white, 1);
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin - 1, marginUp + offUp + h + 2, size, size, c_white, 1);
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin, marginUp + offUp + h + 4, size, size, c_white, 1);
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin, marginUp + offUp + h + 0, size, size, c_white, 1);
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin, marginUp + offUp + h + 2, size, size, c_white, 1);
+
+		size += 1;
+		draw_sprite_stretched_ext(sCheckboxFull, 0, width - 24 - margin, marginUp + offUp + h + 2, size, size, c_white, 1);
 	}
 	
 

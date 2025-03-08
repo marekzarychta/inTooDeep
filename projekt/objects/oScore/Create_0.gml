@@ -3,7 +3,7 @@ time = 500;
 //ds_list_add(words, "Level "+string(oGlobal.lvlNum)+" passed!\nYou've managed to get:");
 
 index = 0;
-
+first_click = false;
 iter = 0;
 
 sentence = "Level "+string(oGlobal.roomCounter)+" passed!\nYou've managed to get:";
@@ -18,4 +18,5 @@ val = 0;
 
 timer2 = 0;
 count = ds_list_size(oGlobal.inventory.inventory);
-hajs = oGlobal.gold - count * 15;
+deposit_count = ds_list_size(global.lista);
+hajs = oGlobal.gold - (count + deposit_count) * 15;

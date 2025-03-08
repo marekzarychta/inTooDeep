@@ -42,8 +42,8 @@ if (gui) {
 	} 
 	
 	var padding = 4;
-	var box_w = 380;
-	var box_h = 250;
+	var box_w = 400;
+	var box_h = 260;
 	
 	 
 

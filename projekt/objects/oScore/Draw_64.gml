@@ -28,17 +28,51 @@ if (show) {
 	draw_sprite_stretched_ext(sDialogueBox, 0, box_x + 6 * box_w, offset2, box_w, box_w, c_grey, 1);
 	
 	
-	
-	
-	
 	for (var i = 0; i < count; i++) {
+		draw_sprite_stretched_ext(sDialogueBox, 0, box_x + 2 * i * box_w, offset2, box_w, box_w, c_grey, 1);
+	}
+	
+	if (deposit_count != 0) {
+		draw_sprite_stretched_ext(sDialogueBox, 0, box_x + 2 * count * box_w - 20, offset2 - 90, box_w * ( 2 * deposit_count - 1) + 40, box_w + 110, make_color_rgb(110, 110, 110), 1);
+		draw_set_font(Fnt_dialogues);
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		
+		var text = "Retrived from deposit";
+		if (deposit_count == 1) text = "Retrived\nfrom deposit";
+		var offset = 45;
+		var offDepRig = (box_w * ( 2 * deposit_count - 1) + 40) / 2;
+		draw_set_color(c_black);
+		draw_text( box_x + 2 * count * box_w - 20 + offDepRig + 2, offset2 - offset, text);
+		draw_text( box_x + 2 * count * box_w - 20 + offDepRig - 2, offset2 - offset, text);
+		draw_text( box_x + 2 * count * box_w - 20 + offDepRig, offset2 - offset - 2, text);
+		draw_text( box_x + 2 * count * box_w - 20 + offDepRig, offset2 - offset + 2, text);
+
+		
+
+		draw_set_color(c_white);
+		draw_text( box_x + 2 * count * box_w - 20 + offDepRig, offset2 - offset, text);
+	
+	}
+	
+	
+	
+	
+	for (var i = count; i < count + deposit_count; i++) {
+		
+		draw_sprite_stretched_ext(sDialogueBox, 0, box_x + 2 * i * box_w, offset2, box_w, box_w, make_color_rgb(90, 90, 90), 1);
+	}
+	draw_set_font(Fnt_dialogues_bigger);
+	//draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	for (var i = 0; i < (count + deposit_count); i++) {
 		
 		draw_sprite_stretched(sGoldBar, iter, box_x + i * 2 * box_w, 20 + offset2 - box_w / 2, box_w, box_w);
 	}
 	var offset3 = offset2 + 150;
 	var rOff = 120;
 	if (_count) {
-		for (var i = 0; i < count; i++) {
+		for (var i = 0; i < (count + deposit_count); i++) {
 			draw_sprite_stretched(sPlus, 0, box_x + rOff - 70 + i * 2 * box_w, _y + 10 + offset3, 30, 30)
 			draw_set_color(c_black);
 			draw_text( box_x + rOff+ i * 2 * box_w + 2, _y + offset3, string(val));
