@@ -1,4 +1,6 @@
-var keyNext = keyboard_check_pressed(vk_enter);
+var keyNext = keyboard_check_pressed(vk_enter) + keyboard_check_pressed(ord("E")) + keyboard_check_pressed(vk_space) + gamepad_button_check_pressed(0,gp_face1);
+
+keyNext = clamp(keyNext, 0, 1);
 
 if (keyNext) {
 	if (!first_click) {
@@ -6,6 +8,7 @@ if (keyNext) {
 		val = 15;
 		hajs = oGlobal.gold;
 		first_click = true;
+		timer_count = buffer_count;
 	}
 	else {
 		time = 0;

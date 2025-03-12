@@ -125,7 +125,7 @@ if (!gui) {
     var downKey = keyboard_check_pressed(ord("S")) + keyboard_check_pressed(vk_down) + gamepad_button_check_pressed(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
-	var acceptKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0,gp_face4);
+	var acceptKey = keyboard_check_pressed(ord("E")) + gamepad_button_check_pressed(0,gp_face1);
 	downKey = clamp(downKey, 0, 1);
 	
 	

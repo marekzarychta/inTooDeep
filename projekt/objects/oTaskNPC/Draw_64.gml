@@ -72,7 +72,7 @@ if (gui) {
 	
 	if (talk <= max_talk) {
 		if(gamepad_is_connected(0)){
-			keyicon = sButtonY;
+			keyicon = sButtonA;
 		}else{
 			keyicon = sKeyE;
 		}

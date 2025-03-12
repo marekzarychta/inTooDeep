@@ -49,7 +49,7 @@ draw_set_halign(fa_left);
 	draw_set_color(c_white);
 	draw_text(text_x + padding, text_y + padding, mess);
 	if(gamepad_is_connected(0)){
-		keyicon = sButtonY;
+		keyicon = sButtonA;
 	}else{
 		keyicon = sKeyE;
 	}

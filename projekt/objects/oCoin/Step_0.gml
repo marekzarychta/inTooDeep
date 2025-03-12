@@ -44,6 +44,13 @@ if !in_inventory {
 		//Stop movement to collide
 		xspd = 0;
 	}
+	
+	if (collectable && instance_exists(oPlayer)) {
+		if (abs(oPlayer.x - x) < 100 && abs(oPlayer.y - y) < 2) {
+			var dir = sign(oPlayer.x - x);
+			xspd = dir * magneticVel;
+		}
+	}
 
 	//Move X
 	x += xspd;
@@ -103,6 +110,8 @@ if !in_inventory {
 	} else {
 		collectable = true;	
 	}
+	
+
 
 	if place_meeting(x, y, oPlayer) && collectable {
 	

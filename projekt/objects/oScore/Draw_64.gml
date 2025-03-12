@@ -38,8 +38,8 @@ if (show) {
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
 		
-		var text = "Retrived from deposit";
-		if (deposit_count == 1) text = "Retrived\nfrom deposit";
+		var text = "Retrieved from deposit";
+		if (deposit_count == 1) text = "Retrieved\nfrom deposit";
 		var offset = 45;
 		var offDepRig = (box_w * ( 2 * deposit_count - 1) + 40) / 2;
 		draw_set_color(c_black);

@@ -1,1 +1,2 @@
 keyboard = true;
+onlyOne = false;

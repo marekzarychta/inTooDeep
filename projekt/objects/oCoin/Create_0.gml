@@ -10,6 +10,12 @@ onGround = false;
 
 xspd = 0;
 
+magneticVel = 2.2;
+
+//if (instance_exists(oPlayer)) {
+//	magneticVel = 2 * oPlayer.moveSpd[0];
+//}
+
 random_set_seed(random(400));
 
 var zakres = irandom(1); 

@@ -22,8 +22,28 @@ if (active) {
 	var downKey = keyboard_check_pressed(vk_down) + keyboard_check_pressed(ord("S")) + gamepad_button_check_pressed(0,gp_padd);
 	downKey = clamp(downKey, 0, 1);
 	
+	if (upKey || downKey) keyboard = true;
+	
+	
+	var deadzone = 0.2; // Ustawienie strefy martwej
+	
+	var axisY = gamepad_axis_value(0, gp_axislv);
+
+
+	if (abs(axisY) < deadzone) {
+	    axisY = 0;
+		onlyOne = true;
+	} else {
+		if (onlyOne) {
+			axisY = (axisY - sign(axisY) * deadzone) / (1 - deadzone);
+			if (axisY > 0) downKey = 1;
+			else upKey = 1;
+			onlyOne = false;
+		}
+	}
+	
 	var acceptKey = keyboard_check_pressed(ord("E")) + keyboard_check_pressed(vk_enter) + mouse_check_button_pressed(mb_left) + gamepad_button_check_pressed(0,gp_face1);
-	downKey = clamp(downKey, 0, 1);
+	acceptKey = clamp(acceptKey, 0, 1);
 
 	if (!keyboard) {
 		if (mouse_x > x + upButton[0] && mouse_x < x + upButton[2] && mouse_y > upButton[1] && mouse_y < upButton[3]) {
@@ -37,12 +57,13 @@ if (active) {
 
 		if (downKey) {
 			option++;
-			option %= 3;
+			//option %= 3;
+			if (option > 2) option = 1;
 		}
 
 		if (upKey) {
 			option--;
-			if (option < 0) option = 2;
+			if (option < 1) option = 2;
 		}
 	}
 
