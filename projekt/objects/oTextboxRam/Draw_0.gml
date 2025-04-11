@@ -15,4 +15,4 @@ textVal = "to ram through walls\nand enemies\nwhile moving";
 // Draw the text, centered vertically with the icon and offset by 3 pixels
 
 
-draw_text(x , y+string_height(textVal), textVal);
+draw_text(x , y+string_height(textVal)/2, textVal);
