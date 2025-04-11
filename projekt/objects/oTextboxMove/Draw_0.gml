@@ -9,8 +9,10 @@ draw_set_font(Fnt_super_small);
 // Draw the text, centered vertically with the icon and offset by 3 pixels
 
 if(!gamepad_is_connected(0)){
-draw_sprite_stretched(sKeyA, 0, x-17, y-4, 16, 16);  // Centered at (x, y)
-draw_sprite_stretched(sKeyD, 0, x, y - 4 , 16, 16);  // Centered at (x, y)
+draw_sprite_stretched(sKeyA, 0, x-17, y-2, 16, 16);  // Centered at (x, y)
+draw_sprite_stretched(sKeyD, 0, x, y - 2 , 16, 16);  // Centered at (x, y)
+draw_sprite_stretched(sKeyArrowLeft, 0, x-17, y-20, 16, 16);
+draw_sprite_stretched(sKeyArrowRight, 0, x, y-20, 16, 16);
 draw_sprite_stretched(sKeySpace, 0, x-16, y - 6 +string_height(textVal2)/2 + 20, 32, 16);  // Centered at (x, y)
 }else{
 draw_sprite_stretched(sStick, 0, x, y, 16, 16);
