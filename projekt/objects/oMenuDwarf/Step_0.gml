@@ -1,3 +1,5 @@
+
+
 if (!instance_exists(oMenu) && instance_exists(oShake) && !oShake.shaking) {
 	sprite_index = sMenuDwarfAnimation;
 }

@@ -10,8 +10,8 @@ task0.persistent = true;
 task0.numer = 0;
 task0._value = 10;
 task0.desc = "Destroy "+string(task0._value)+" vases";
-task0.words = ["A dwarf!\nYou have a moment?", "I want to prove\nI'm the strongest\njar around here.", "If you help me fight\nthe other...\npretenders, I'll make\nsure you get\na reward!"];
-task0.endWords = ["At last! Behold,\ndwarf. You are\nspeaking to the\nstrongest jar\nof these caves.", "What? A reward?\nAh... yes,\nTHAT reward. You've\nearned it, I suppose."];
+task0.words = ["\"A dwarf!\nYou have a moment?\"", "\"I want to prove\nI'm the strongest\njar around here.\"", "\"If you help me fight\nthe other...\npretenders, I'll make\nsure you get\na reward!\""];
+task0.endWords = ["\"At last! Behold,\ndwarf. You are\nspeaking to the\nstrongest jar\nof these caves.\"", "\"What? A reward?\nAh... yes,\nTHAT reward. You've\nearned it, I suppose.\""];
 task0.counter = 0;
 task0.prevCounter = 0;
 ds_list_add(global.task_list, task0);
@@ -22,8 +22,8 @@ task1.persistent = true;
 task1.numer = 1;
 task1._value = 5;
 task1.desc = "Kill "+string(task1._value)+" skeletons";
-task1.words = ["GRRRR...","GRR??","<seems like it just\nwants some bones to\nplay with>","<if only there was a\ngood source of them\naround...>"];
-task1.endWords = ["<You see the dog\nwag its tail joyfully>", "<One of his heads\nslightly nods\ntowards a little sack\nof coins laying\nat its feet>"];
+task1.words = ["\"GRRRR...\"","\"GRR??\"","seems like it just\nwants some bones to\nplay with","if only there was a\ngood source of them\naround..."];
+task1.endWords = ["You see the dog\nwag its tail joyfully", "One of his heads\nslightly nods\ntowards a little sack\nof coins laying\nat its feet"];
 task1.counter = 0;
 task1.prevCounter = 0;
 ds_list_add(global.task_list, task1);
@@ -44,9 +44,9 @@ task3.persistent = true;
 task3.numer = 3;
 task3._value = 5;
 task3.desc = "Extinguish the\ntorches in the\nlibrary. Dashing\nwill probably do\nthe trick.";
-task3.words = ["Those filthy\nskeletons lit this\nplace up with\ntorches!", "How is an old ghost\nlike me supposed to\nget some sleep?"]; //18
+task3.words = ["\"Those filthy\nskeletons lit this\nplace up with\ntorches!\"", "\"How is an old ghost\nlike me supposed to\nget some sleep?\""]; //18
 task3.counter = 0;
-task3.endWords = ["Many thanks! You\nare free to take\nwhat gold I had with\nme when I died.", "Don't think I'll\nneed it."];
+task3.endWords = ["\"Many thanks! You\nare free to take\nwhat gold I had with\nme when I died.\"", "\"Don't think I'll\nneed it.\""];
 task3.prevCounter = 0;
 ds_list_add(global.task_list, task3);
 

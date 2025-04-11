@@ -13,6 +13,8 @@ time = 40;
 vel = (sprite_height + 40) / time;
 count = 0;
 
+	audio_play_sound(snd_ambient, 0, true);
+
 //if (sprite_exists(sMenuDwarfAnimation)) {
 //	sMenuDwarfAnimation.speed = 0;
 //}

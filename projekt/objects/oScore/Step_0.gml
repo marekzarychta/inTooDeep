@@ -73,8 +73,9 @@ if (timer2 > val * 10) {
 //zliczanie głównego licznika
 if (adding && timer2 % 3 == 0) {
 	hajs++;
-	if (hajs == oGlobal.gold) {
+	if (hajs >= oGlobal.gold) {
 		adding = false;
+		hajs = oGlobal.gold;
 	}
 	
 }

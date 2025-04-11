@@ -172,6 +172,8 @@ if (!gui) {
 					oGlobal.gui = false;
 					oPlayer.isActive = true;
 					talk = 0;
+					var textbox = createMiniTextbox(oPlayer.x, oPlayer.y, "gold", "+20", 80);
+					audio_play_sound(snd_pickup, 0, false);
 				}
 			}
 			

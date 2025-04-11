@@ -1,5 +1,9 @@
 draw_set_font(Fnt_textbox_player);
 
+if (followTimer == followBuffer) alphaSpeed = 2 / followBuffer;
+
+show_debug_message(string(alphaSpeed));
+
 textWidth = string_width(textVal);
 // Jeśli textbox ma podążać za graczem
 if (followPlayer) {

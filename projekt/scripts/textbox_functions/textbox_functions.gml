@@ -53,7 +53,7 @@ function createFollowingTextbox(x, y, text) {
     return textbox;
 }
 
-function createMiniTextbox(x,y, value, sgn){
+function createMiniTextbox(x,y, value, sgn, time = 40){
 	var textbox = instance_create_layer(x, y - 32, layer_get_id("Text"), oMiniTextbox);
     textbox.textVal = sgn;
 	if(value=="health"){
@@ -65,7 +65,8 @@ function createMiniTextbox(x,y, value, sgn){
 	} else if (value == "gold") {
 		textbox.icon = sItem;
 	}
-    textbox.followTimer = 40; // Set a timer for 2 seconds (assuming 60 FPS)
+    textbox.followTimer = time; // Set a timer for 2 seconds (assuming 60 FPS)
+    textbox.followBuffer = time; // Set a timer for 2 seconds (assuming 60 FPS)
     textbox.followPlayer = true; // Enable following behavior
     
     return textbox;

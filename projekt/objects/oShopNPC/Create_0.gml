@@ -1,11 +1,11 @@
-dialogues = [["Welcome, welcome\ntraveller to our...\nI mean my little\nshop hehehehehe", 
-"I have something\nhere that may\nsuit your needs,\nit'll put you right\nback on your feet!", 
-"First time huh?\nI guess you can get\na special discount\nfor that\nhehehehehe",
-"What do you want?"
+dialogues = [["\"Welcome, welcome\ntraveller to our...\nI mean my little\nshop hehehehehe\"", 
+"\"I have something\nhere that may\nsuit your needs,\nit'll put you right\nback on your feet!\"", 
+"\"First time huh?\nI guess you can get\na special discount\nfor that\nhehehehehe\"",
+"\"What do you want?\""
 ],
-["Hello there fellow\ntraveller! Already\nback here? You\ncan't take care of\nyourself? hehehe",
-"No freebies this\ntime though...",
-"What do you want?"
+["\"Hello there fellow\ntraveller! Already\nback here? You\ncan't take care of\nyourself? hehehe\"",
+"\"No freebies this\ntime though...\"",
+"\"What do you want?\""
 ]];
 
 openable = false;

@@ -41,9 +41,10 @@ if (gui) {
 		mess = task_obj.endWords[talk];
 	} 
 	
-	var padding = 4;
-	var box_w = 400;
-	var box_h = 260;
+	var padding_y = 4;
+	var padding_x = 14;
+	var box_w = 410;
+	var box_h = 265;
 	
 	 
 
@@ -62,13 +63,13 @@ if (gui) {
 	draw_set_halign(fa_left);
 	// Rysowanie tekstu
 	draw_set_color(c_black);
-	draw_text(text_x + 2 + padding, text_y + padding, mess);
+	draw_text(text_x + 2 + padding_x, text_y + padding_y, mess);
 	
-	draw_text(text_x - 2 + padding, text_y + padding, mess);
-	draw_text(text_x + padding, text_y + 2 + padding, mess);
-	draw_text(text_x + padding, text_y - 2+ padding, mess);
+	draw_text(text_x - 2 + padding_x, text_y + padding_y, mess);
+	draw_text(text_x + padding_x, text_y + 2 + padding_y, mess);
+	draw_text(text_x + padding_x, text_y - 2+ padding_y, mess);
 	draw_set_color(c_white);
-	draw_text(text_x + padding, text_y + padding, mess);
+	draw_text(text_x + padding_x, text_y + padding_y, mess);
 	
 	if (talk <= max_talk) {
 		if(gamepad_is_connected(0)){
@@ -85,25 +86,25 @@ if (gui) {
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_middle);
 			// yes/no cordinates
+			padding_y = 4;
 	
-	
-			var no_y = gui_y - sprite_height - offset - 24;
+			var no_y = gui_y - sprite_height - offset - 30;
 			draw_set_color(c_black);
-			draw_text(text_x + 42, no_y - 24 - 4 * padding, "Accept");
-			draw_text(text_x + 38, no_y - 24 - 4 * padding, "Accept");
-			draw_text(text_x + 40, no_y - 26 - 4 * padding, "Accept");
-			draw_text(text_x + 40, no_y - 22 - 4 * padding, "Accept");
+			draw_text(text_x + 42, no_y - 24 - 4 * padding_y, "Accept");
+			draw_text(text_x + 38, no_y - 24 - 4 * padding_y, "Accept");
+			draw_text(text_x + 40, no_y - 26 - 4 * padding_y, "Accept");
+			draw_text(text_x + 40, no_y - 22 - 4 * padding_y, "Accept");
 			draw_text(text_x + 42, no_y, "Decline");
 			draw_text(text_x + 38, no_y, "Decline");
 			draw_text(text_x + 40, no_y - 2, "Decline");
 			draw_text(text_x + 40, no_y + 2, "Decline");
 			draw_set_color(c_white);
-			draw_text(text_x + 40, no_y - 24 - 4 * padding, "Accept");
+			draw_text(text_x + 40, no_y - 24 - 4 * padding_y, "Accept");
 			draw_text(text_x + 40, no_y, "Decline");
-			//draw_line_width(text_x + padding, (choice ? no_y - 36 - 2 * padding : no_y - 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
-			//draw_line_width(text_x + padding, (choice ? no_y - 12 - 2 * padding : no_y + 12), text_x + 3 * padding, (choice ? no_y - 24 - 2 * padding : no_y), 2);
+			//draw_line_width(text_x + padding_y, (choice ? no_y - 36 - 2 * padding_y : no_y - 12), text_x + 3 * padding_y, (choice ? no_y - 24 - 2 * padding_y : no_y), 2);
+			//draw_line_width(text_x + padding_y, (choice ? no_y - 12 - 2 * padding_y : no_y + 12), text_x + 3 * padding_y, (choice ? no_y - 24 - 2 * padding_y : no_y), 2);
 
-			draw_sprite_stretched(sSelectedBox, 0, text_x + 2 * padding, (choice ? no_y - 36 - 5 * padding : no_y - padding - 12), box_w - 4 * padding, 24 + 3 * padding);
+			draw_sprite_stretched(sSelectedBox, 0, text_x + 2 * padding_x, (choice ? no_y - 36 - 5 * padding_y : no_y - padding_y - 12), box_w - 4 * padding_x, 24 + 3 * padding_y);
 			
 
 		}
