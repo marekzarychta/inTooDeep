@@ -6,7 +6,7 @@ if life % 16 == 0 {
 }
 
 if (instance_exists(idEnemy)) {
-x = idEnemy.x - idEnemy.face * offset_x;
+x = idEnemy.x - face * offset_x;
 
 y = idEnemy.y - 16 + addy;
 
