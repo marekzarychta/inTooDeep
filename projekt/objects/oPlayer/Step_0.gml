@@ -53,6 +53,10 @@ else{
 }
 if isAlive {
 	
+	//przetłumaczenie pozycji w grze na pozycję na ekranie - do GUI
+	screenpos_x = ((x - camera_get_view_x(view_camera[0])) * 4);
+	screenpos_y = ((y - camera_get_view_y(view_camera[0])) * 4);
+
 	HPManage();
 	
 	InventoryCalculateWeight(oInventory);
@@ -305,10 +309,10 @@ if (!isDashing) {
 						instance_destroy();
 	                }
 	            } else if currentWeightLevel < required_weight {
-	                if (!instance_exists(oTextboxPlayer)) {
+	                if (!instance_exists(oTextboxPlayerGUI)) {
 						grunt();
 					
-	                    createFollowingTextbox(x - 16, y - 16, message);
+	                    createFollowingTextboxGUI(screenpos_x, screenpos_y, message);
 	                }
 					
 					if (xspd < 0) {
@@ -356,9 +360,9 @@ if (!isDashing) {
 			x += _pixelCheck;
 		}
 	
-		if (!instance_exists(oTextboxPlayer)) {
+		if (!instance_exists(oTextboxPlayerGUI)) {
 			grunt();
-	        createFollowingTextbox(x - 16, y - 16, "this opens somewhere else...");
+	        createFollowingTextboxGUI(screenpos_x, screenpos_y, "this opens somewhere else...");
 	    }
 		//Stop movement to collide
 		xspd = 0;	

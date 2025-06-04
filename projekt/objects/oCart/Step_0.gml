@@ -35,7 +35,7 @@ if (place_meeting(x, y, oPlayer) || (oCart == object_index)) {
 
 if (openable && marked) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
+        textBoxInstance = createTextboxGUI(x, y - 40*4, text); // Tworzymy textbox
 		textBoxInstance.depo = true;
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
@@ -51,7 +51,7 @@ if (openable && marked) {
 
 if (openable && marked) {
     if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance2 = createTextbox(x, y - 20, text2); // Tworzymy textbox
+        textBoxInstance2 = createTextboxGUI(x, y - 20, text2); // Tworzymy textbox
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
     } else if instance_exists(textBoxInstance2) {

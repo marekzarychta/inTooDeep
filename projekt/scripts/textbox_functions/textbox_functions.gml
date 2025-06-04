@@ -40,12 +40,40 @@ function createTextbox(x, y, text) {
     return textbox;
 }
 
+function createTextboxGUI(x, y, text) {
+    if (debug_mode) show_debug_message("Creating textbox at: " + string(x) + ", " + string(y) + " with text: " + text);
+    var textbox = instance_create_layer(x, y, layer_get_id("GUI"), oTextboxGUI);
+	oTextboxGUI.parentX = x;
+	oTextboxGUI.parentY = y;
+
+    textbox.textVal = text;
+    return textbox;
+}
+
+function getScreenPos(){
+	var _x = (x - view_get_camera_x(view_camera[0])*4);
+	var _y = (x - view_get_camera_x(view_camera[0])*4);
+}
+
 function createFollowingTextbox(x, y, text) {
 	
     if (debug_mode) show_debug_message("Creating textbox at: " + string(x) + ", " + string(y) + " with text: " + text);
     
     // Create the textbox slightly above the player’s position
     var textbox = instance_create_layer(x, y - 32, layer_get_id("GUI"), oTextboxPlayer);
+    textbox.textVal = text;
+    textbox.followTimer = 120; // Set a timer for 2 seconds (assuming 60 FPS)
+    textbox.followPlayer = true; // Enable following behavior
+    
+    return textbox;
+}
+
+function createFollowingTextboxGUI(x, y, text) {
+	
+    if (debug_mode) show_debug_message("Creating textbox at: " + string(x) + ", " + string(y) + " with text: " + text);
+    
+    // Create the textbox slightly above the player’s position
+    var textbox = instance_create_layer(x, y - 32, layer_get_id("GUI"), oTextboxPlayerGUI);
     textbox.textVal = text;
     textbox.followTimer = 120; // Set a timer for 2 seconds (assuming 60 FPS)
     textbox.followPlayer = true; // Enable following behavior
