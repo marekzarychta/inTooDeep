@@ -42,7 +42,7 @@ function createTextbox(x, y, text) {
 
 function createTextboxGUI(x, y, text) {
     if (debug_mode) show_debug_message("Creating textbox at: " + string(x) + ", " + string(y) + " with text: " + text);
-    var textbox = instance_create_layer(x, y, layer_get_id("GUI"), oTextboxGUI);
+    var textbox = instance_create_layer(((x - camera_get_view_x(view_camera[0])) * 4), ((y - camera_get_view_y(view_camera[0])) * 4), layer_get_id("GUI"), oTextboxGUI);
 	oTextboxGUI.parentX = x;
 	oTextboxGUI.parentY = y;
 

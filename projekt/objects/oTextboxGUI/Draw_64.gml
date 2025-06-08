@@ -18,7 +18,7 @@ else{
 		key_icon = sButtonY;
 	}
 }
-draw_sprite_stretched(key_icon, 0, x-16, y-4, 16, 16);  // Centered at (x, y)
+draw_sprite_stretched(key_icon, 0, x-64, y+16, 32, 32);  // Centered at (x, y)
 draw_set_font(Fnt_popup);
 // Set text color
 draw_set_color(c_white);
