@@ -135,13 +135,13 @@ if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 			
 			} else {
 				grunt();
-				textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"it's full");
+				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"it's full");
 			}
 				
 				
 		} else{
 			grunt();
-			textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to deposit");
+			textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to deposit");
 		
 		}
 	}
@@ -160,7 +160,7 @@ if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 
 		} else {
 			grunt();
-			textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to retrive");
+			textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to retrive");
 		
 		}
 	}
@@ -214,7 +214,7 @@ if (onTracks) {
 	            // Check if there is already an instance of oTextbox in the same spot
 	            //if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
 				//	show_debug_message("x");
-	            //    createFollowingTextbox(x-16, y-16, "it has too be havie");
+	            //    createFollowingTextboxGUI(x-16, y-16, "it has too be havie");
 	            //}
 	        }
 	    }
@@ -235,7 +235,7 @@ if (onTracks) {
 	            // Check if there is already an instance of oTextbox in the same spot
 	            //if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
 				//	show_debug_message("x");
-	            //    createFollowingTextbox(x-16, y-16, "it has too be havie");
+	            //    createFollowingTextboxGUI(x-16, y-16, "it has too be havie");
 	            //}
 	        }
 	    }

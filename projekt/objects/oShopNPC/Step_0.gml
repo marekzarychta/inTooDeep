@@ -153,12 +153,12 @@ if (!gui) {
 						}
 						
 					} else {
-						createFollowingTextbox(oPlayer.x, oPlayer.y, "i'm already fine");
+						createFollowingTextboxGUI(oPlayer.x, oPlayer.y, "i'm already fine");
 						grunt();
 					}
 					
 				} else {
-					createFollowingTextbox(oPlayer.x, oPlayer.y, "it's too expensive");
+					createFollowingTextboxGUI(oPlayer.x, oPlayer.y, "it's too expensive");
 					grunt();
 				}
 			} else {

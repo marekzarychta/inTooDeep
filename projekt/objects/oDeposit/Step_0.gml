@@ -139,7 +139,7 @@ if (openable && marked && !animating) {
 
 if (openable && marked && !animating) {
     if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance2 = createTextboxGUI(x, y - 20, text2); // Tworzymy textbox
+        textBoxInstance2 = createTextboxGUI(x, y - 40, text2); // Tworzymy textbox
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
 		
@@ -178,7 +178,7 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
 				
 			} else{
 				grunt();
-				textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to deposit");
+				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to deposit");
 		
 			}
 		}
@@ -204,7 +204,7 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
 
 			} else{
 				grunt();
-				textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to retrive");
+				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to retrive");
 		
 			}
 		}
