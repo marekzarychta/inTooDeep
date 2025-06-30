@@ -20,7 +20,7 @@ if (gui) {
 
 
 		
-	var mess = dialogues[room_num][talk];
+	var mess = get_trans(dialogues[room_num][talk]);
 	var padding_y = 10;
 	var padding_x = 8;
 	var box_w = 390;
@@ -114,10 +114,10 @@ draw_set_halign(fa_left);
 		draw_text(text_x + padding_x + 40, no_y - 46 - 4 * padding_y, item.name);
 		draw_text(text_x + box_w - rightOffset, no_y - 46 - 4 * padding_y, string(item._value) + " g");
 		
-		draw_text(text_x + 2 + padding_x + 40, no_y - 24, "Leave");
-		draw_text(text_x - 2 + padding_x + 40, no_y - 24, "Leave");
-		draw_text(text_x + padding_x + 40, no_y - 26, "Leave");
-		draw_text(text_x + padding_x + 40, no_y - 22, "Leave");
+		draw_text(text_x + 2 + padding_x + 40, no_y - 24, get_trans("oShopNPC_buttonLeave"));
+		draw_text(text_x - 2 + padding_x + 40, no_y - 24, get_trans("oShopNPC_buttonLeave"));
+		draw_text(text_x + padding_x + 40, no_y - 26, get_trans("oShopNPC_buttonLeave"));
+		draw_text(text_x + padding_x + 40, no_y - 22, get_trans("oShopNPC_buttonLeave"));
 		
 		if (instance_exists(oGlobal) && item._value > oGlobal.gold) {
 			draw_set_color(make_color_rgb(240, 50, 50));
@@ -129,7 +129,7 @@ draw_set_halign(fa_left);
 		draw_set_color(c_white);
 		draw_text(text_x + padding_x + 40, no_y - 48 - 4 * padding_y, item.name);
 		
-		draw_text(text_x + padding_x + 40, no_y - 24, "Leave");
+		draw_text(text_x + padding_x + 40, no_y - 24, get_trans("oShopNPC_buttonLeave"));
 	
 	
 		//draw_line_width(text_x + padding_y, (choice ? no_y - 36 - 2 * padding_y : no_y - 12), text_x + 3 * padding_y, (choice ? no_y - 24 - 2 * padding_y : no_y), 2);

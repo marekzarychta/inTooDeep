@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"language_functions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"language_functions",
+  "parent":{
+    "name":"languages",
+    "path":"folders/Scripts/languages.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

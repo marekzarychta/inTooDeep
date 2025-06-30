@@ -1,3 +1,7 @@
+global.ENG_dictionary = ENG_dictionary();
+global.PL_dictionary = PL_dictionary();
+global.current_dictionary = global.ENG_dictionary;
+
 global.lista = ds_list_create();
 
 global.task_list = ds_list_create();

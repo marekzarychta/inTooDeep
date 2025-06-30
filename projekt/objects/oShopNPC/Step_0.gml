@@ -1,3 +1,4 @@
+// lang debug
 if (prevMarked != marked) {
 	prevMarked = marked;
 	markedChange = true;
@@ -33,7 +34,7 @@ if (animating) {
 markedChange = false;
 
 if (!gui) {
-	var text = "talk";
+	var text = get_trans("oShopNPC_textbox");
 	if (!variable_instance_exists(id, "textBoxInstance")) {
 	    textBoxInstance = noone;
 	}
@@ -153,12 +154,12 @@ if (!gui) {
 						}
 						
 					} else {
-						createFollowingTextbox(oPlayer.x, oPlayer.y, "i'm already fine");
+						createFollowingTextbox(oPlayer.x, oPlayer.y, get_trans("oShopNPC_fail1"));
 						grunt();
 					}
 					
 				} else {
-					createFollowingTextbox(oPlayer.x, oPlayer.y, "it's too expensive");
+					createFollowingTextbox(oPlayer.x, oPlayer.y, get_trans("oShopNPC_fail2"));
 					grunt();
 				}
 			} else {
@@ -175,9 +176,6 @@ if (!gui) {
 		talk = 0;
 	}
 }
-
-
-
 
 if (gui) {
 	if (textBoxInstance != noone && instance_exists(textBoxInstance)) { // Jeśli istnieje textbox

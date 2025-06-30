@@ -112,6 +112,8 @@ function LoseHP(rootObject) {
     }
 }
 
+//function
+
 function GainHP() {
     if current_health < max_health {
         current_health++;

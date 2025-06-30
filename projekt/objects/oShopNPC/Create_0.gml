@@ -1,12 +1,5 @@
-dialogues = [["\"Welcome, welcome\ntraveller to our...\nI mean my little\nshop hehehehehe\"", 
-"\"I have something\nhere that may\nsuit your needs,\nit'll put you right\nback on your feet!\"", 
-"\"First time huh?\nI guess you can get\na special discount\nfor that\nhehehehehe\"",
-"\"What do you want?\""
-],
-["\"Hello there fellow\ntraveller! Already\nback here? You\ncan't take care of\nyourself? hehehe\"",
-"\"No freebies this\ntime though...\"",
-"\"What do you want?\""
-]];
+dialogues = [["oShopNPC_dialogue1", "oShopNPC_dialogue2", "oShopNPC_dialogue3", "oShopNPC_dialogue4"],
+["oShopNPC_dialogue5", "oShopNPC_dialogue6", "oShopNPC_dialogue4"]];
 
 openable = false;
 marked = false;
@@ -46,8 +39,7 @@ ds_list_add(shopContent, item1);
 sprites = [sNPCShopIdle, sNPCShopApproach, sNPCShopMove, sNPCShopLeave, sNPCShopNearby];
 
 var item2 = instance_create_layer(x, y, layer, oHeal);
-item2.name = "Big Beer";
+item2.name = get_trans("oShopNPC_beer");
 item2.healValue = 2;
 item2._value = setted * 2 - 5;
 ds_list_add(shopContent, item2);
-

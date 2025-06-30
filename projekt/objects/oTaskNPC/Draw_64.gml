@@ -27,7 +27,7 @@ if (gui) {
 		
 		
 		if (isTaskAcitve) {
-			mess = task_obj.desc + "\nYou have to do\n" + string(task._value - task.counter) + " more.";
+			mess = task_obj.desc + get_trans("oTaskNPC_remaining1") + string(task._value - task.counter) + get_trans("oTaskNPC_remaining2");
 		} else {
 			if (talk <= max_talk) {
 				mess = task_obj.words[talk];

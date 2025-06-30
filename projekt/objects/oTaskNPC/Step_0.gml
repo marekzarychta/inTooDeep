@@ -17,7 +17,7 @@ if (sprite_index == sJarAwake && image_index >= image_number - 1) {
 }
 
 if (!gui) {
-	var text = "talk";
+	var text = get_trans("oTaskNPC_textbox");
 	if (!variable_instance_exists(id, "textBoxInstance")) {
 	    textBoxInstance = noone;
 	}
@@ -172,7 +172,7 @@ if (!gui) {
 					oGlobal.gui = false;
 					oPlayer.isActive = true;
 					talk = 0;
-					var textbox = createMiniTextbox(oPlayer.x, oPlayer.y, "gold", "+20", 80);
+					var textbox = createMiniTextbox(oPlayer.x, oPlayer.y, get_trans("oTaskNPC_gold"), "+20", 80);
 					audio_play_sound(snd_pickup, 0, false);
 				}
 			}

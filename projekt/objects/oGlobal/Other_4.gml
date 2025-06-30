@@ -93,3 +93,4 @@ if (room != przejscie) {
 	instance_create_layer(x,y,layer,oParallax);
 }
 
+change_language();

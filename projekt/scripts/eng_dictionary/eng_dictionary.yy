@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"eng_dictionary",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"eng_dictionary",
+  "parent":{
+    "name":"languages",
+    "path":"folders/Scripts/languages.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
