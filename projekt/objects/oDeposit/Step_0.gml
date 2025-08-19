@@ -123,7 +123,7 @@ markedChange = false;
 
 if (openable && marked && !animating) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance = createTextboxGUI(x, y - 40, text); // Tworzymy textbox
+        textBoxInstance = createTextboxGUI(x, y - 48, text); // Tworzymy textbox
 		textBoxInstance.depo = true;
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
@@ -137,25 +137,25 @@ if (openable && marked && !animating) {
     }
 }
 
-if (openable && marked && !animating) {
-    if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance2 = createTextboxGUI(x, y - 40, text2); // Tworzymy textbox
-		textBoxInstance2.normal = false;
-		textBoxInstance2.depo = true;
+//if (openable && marked && !animating) {
+//    if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
+//        textBoxInstance2 = createTextboxGUI(x, y - 60, text2); // Tworzymy textbox
+//		textBoxInstance2.normal = false;
+//		textBoxInstance2.depo = true;
 		
-    } else if instance_exists(textBoxInstance2) {
-        textBoxInstance2.textVal = text2;
-		textBoxInstance2.normal = false;
-		textBoxInstance2.depo = true;
-    }
+//    } else if instance_exists(textBoxInstance2) {
+//        textBoxInstance2.textVal = text2;
+//		textBoxInstance2.normal = false;
+//		textBoxInstance2.depo = true;
+//    }
 
-} else {
-    if (textBoxInstance2 != noone && instance_exists(textBoxInstance2)) { // Jeśli istnieje textbox
-        instance_destroy(textBoxInstance2); // Usuwamy go
-        textBoxInstance2 = noone; // Resetujemy wskaźnik
+//} else {
+//    if (textBoxInstance2 != noone && instance_exists(textBoxInstance2)) { // Jeśli istnieje textbox
+//        instance_destroy(textBoxInstance2); // Usuwamy go
+//        textBoxInstance2 = noone; // Resetujemy wskaźnik
 		
-    }
-}
+//    }
+//}
 		
 if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.opened*/ && oPlayer.isAlive {
     
@@ -178,7 +178,9 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
 				
 			} else{
 				grunt();
+				if(!instance_exists(oTextboxPlayerGUI)){
 				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to deposit");
+				}
 		
 			}
 		}
@@ -204,7 +206,9 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
 
 			} else{
 				grunt();
-				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to retrive");
+				if(!instance_exists(oTextboxPlayerGUI)){
+				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"Nothing to retrieve...");
+				}
 		
 			}
 		}
