@@ -24,7 +24,7 @@ function setOnGround(_val = true){
 if(debug_mode){
 getControls();
 
-	if (keyboard_check_pressed(ord("1"))) {
+	if (keyboard_check_pressed(ord("N"))) {
 	    noclip = !noclip; // Przełącz tryb noclip
 	    if (noclip) {
 			isAlive = false;

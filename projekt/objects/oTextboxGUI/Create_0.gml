@@ -6,3 +6,5 @@ depo = false;
 parentX = 0;
 parentY = 0;
 //draw_text(x + sprite_width + 5, y, textVal);
+drawX = 0;
+drawY = 0;

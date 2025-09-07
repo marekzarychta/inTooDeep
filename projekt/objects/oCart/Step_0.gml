@@ -11,9 +11,9 @@ var _subPixel = 0.5;
 var text, text2;
 
 //if !InventoryIsEmpty(oInventory) {
-	text = "   deposit";
+	text = "Deposit";
 //} else {
-	text2 = "   retrieve";
+	text2 = "Retrieve";
 
 
 
