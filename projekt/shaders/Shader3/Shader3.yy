@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"Shader3",
+  "name":"Shader3",
+  "parent":{
+    "name":"playerSprites",
+    "path":"folders/Sprites/entitySprites/playerSprites.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

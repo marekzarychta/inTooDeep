@@ -1,3 +1,26 @@
+function setUIvisibility(_vis) {
+	if (layer_exists("Popups")) {
+		layer_set_visible(layer_get_id("Popups"), _vis);
+
+	}
+	if (layer_exists("UI")) {
+		layer_set_visible(layer_get_id("UI"), _vis);
+
+	}
+	if (layer_exists("Text")) {
+		layer_set_visible(layer_get_id("Text"), _vis);	
+
+	}	
+	if (layer_exists("GUI")) {
+		layer_set_visible(layer_get_id("GUI"), _vis);	
+
+	}	
+	
+	if (instance_exists(oGlobal)) {
+		oGlobal.cutscene = !_vis;	
+	}
+}
+
 function getStringWithLines(text, width, padding) {
 	var lines = ds_list_create();
 	var len = getNumberOfWords(text);

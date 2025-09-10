@@ -6,6 +6,7 @@ if (fade_in) {
 } else if (fade_out) {
     _y += speed;
     if (_y >= height_rect) {
+		setUIvisibility(true);
         instance_destroy(); 
     }
 }

@@ -413,6 +413,29 @@ function controlsSetup() {
 
     jumpKeyBuffered = 0;
     jumpKeyBufferTimer = 0;
+	attackKey = 0
+	
+	dashKey = 0
+    rightKey = 0
+
+
+    leftKey = 0
+
+	useKey = 0
+	
+	depositKey = 0
+	
+	useKey2 = 0
+	
+	closeKey = 0
+
+    jumpKeyPressed = 0
+    jumpKey = 0
+	
+	upKeyPressed = 0
+    upKey = 0 
+
+    downKey = 0
 }
 
 global.controlsBlocked = false;
@@ -421,7 +444,9 @@ function blockControls(block){
 	global.controlsBlocked = block;
 }
 function getControls() {
-	if (global.controlsBlocked) return; // Sprawdzenie, czy sterowanie jest zablokowane
+	if (global.controlsBlocked) {
+		return; // Sprawdzenie, czy sterowanie jest zablokowane
+	}
 	//attackKey = keyboard_check(ord("X")) + gamepad_button_check(0,gp_face3);
 	attackKey = 0;
 	attackKey = clamp(attackKey, 0, 1);

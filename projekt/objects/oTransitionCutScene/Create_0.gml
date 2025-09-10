@@ -12,3 +12,9 @@ _y = height_rect;
 if (instance_exists(oGlobal)) {
 	layer = oGlobal.layer;
 }
+
+setUIvisibility(false);
+
+
+
+

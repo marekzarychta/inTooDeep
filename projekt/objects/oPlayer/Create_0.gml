@@ -166,3 +166,4 @@ slopeDownFloorPlat = noone; //used to overwirte currentFloorPlat on semisolid fr
 moveplatXspd = 0
 moveplatMaxYspd = 8;
 controlsSetup();
+

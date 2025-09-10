@@ -5,6 +5,8 @@ global.gold = 0;
 
 gui = false;
 
+cutscene = false;
+
 task0 = instance_create_layer(x, y, layer, oTask);
 task0.persistent = true;
 task0.numer = 0;

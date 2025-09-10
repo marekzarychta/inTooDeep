@@ -1,3 +1,5 @@
+if (cutscene) return;
+
 draw_set_font(Fnt_dialogues);
 draw_set_color(c_white);
 draw_set_halign(fa_left);
