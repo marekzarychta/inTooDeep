@@ -838,8 +838,8 @@ if (!isDashing) {
 	
 	y += yspd;
 	
-	show_debug_message("hang: " + string(coyoteHangTimer));
-    show_debug_message("jump: " + string(coyoteJumpTimer));
+	//show_debug_message("hang: " + string(coyoteHangTimer));
+    //show_debug_message("jump: " + string(coyoteJumpTimer));
 	
 	if (instance_exists(forgetFloorPlat) && !place_meeting(x, y, forgetFloorPlat)) {
 		forgetFloorPlat = noone;

@@ -23,6 +23,7 @@ if isAlive {
 	
 
 	
+	
 	//if place_meeting(x, y, oPlayer) {
 	//	//show_debug_message("Kolizja");	
 	//}
@@ -225,6 +226,8 @@ if (following) {
 	//Move
 	x += xspd;
 } else if dying {
+	xspd = 0;
+	yspd = 0;
 	if(death_flag == 1) {
 		sprite_index = sprites[3];
 	} else if(death_flag == 2) {
@@ -234,6 +237,7 @@ if (following) {
 	
 	if image_index >= image_number - 1 {
 		dying = false;	
+		dead = true;
 		
 		var coin = instance_create_layer(x, y - 5,  layer_get_id("Player_below"), oCoin);
 		coin.image_xscale = 0.4;
@@ -244,6 +248,65 @@ if (following) {
 	}
 } else {
 	sprite_index = sprites[4];	
+		var _subPixel = .5;
+	if (hitCounter < 2) {
+	
+		if (knockback_duration > 0) {
+		    // Odrzut
+		    xspd = knockback_x;
+		    yspd = knockback_y;
+		
+
+		    // Zmniejszaj czas trwania odrzutu
+		    knockback_duration--;
+
+		    // Powoli zmniejszaj prędkość odrzutu (opcjonalnie dla efektu oporu)
+		    knockback_x *= 0.8;
+		    knockback_y *= 0.8;
+		} else {
+		    // Normalne poruszanie się, gdy knockback się skończy
+		    knockback_x = 0;
+		    knockback_y = 0;
+		}
+		
+		if place_meeting(x + xspd, y, oWall) 
+		{
+		
+
+		    if !place_meeting(x + xspd, y - abs(xspd) - 1, oWall) {
+		        while place_meeting(x + xspd, y, oWall) {
+		            y -= _subPixel
+		        };
+		        isSlope = true;
+		    } else {
+				if following {
+			        //Walk up to wall precisely
+			        var _pixelCheck = _subPixel * sign(xspd);
+
+			        //Move as close to the wall as possible in 0.5px increments
+			        while !place_meeting(x + _pixelCheck, y, oWall) {
+			            x += _pixelCheck;
+			        }
+			        xspd = 0;
+				} else {
+					moveDir *= -1;
+				}
+		    }
+		
+		}
+	
+		checkingForSlopesGoingDown(id);
+		
+		
+		if (wasHit && !(knockback_duration > 0)) {
+			xspd = 0;
+			attackTimer++;
+		}
+		
+		x += xspd;
+	}
+	
+	
 }
 
 

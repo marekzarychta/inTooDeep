@@ -19,7 +19,7 @@ if place_meeting(x, y , oWall) && place_meeting(x, y , oEnemyParent) {
 
 // oHitbox -> Collision Event with oEnemy
 if (other.health_points != undefined && !other.wasHit && isDashing) {
-	if (other.isAlive) {
+	if (other.hitCounter < 2) {
 		audio_play_sound(snd_hit,0,false);
 		part_emitter_region(global.particleSystem, emitter, other.x - 4 + other.image_xscale * 4, other.x + 4 + other.image_xscale * 4, other.bbox_top + 4, other.bbox_bottom - 4, ps_shape_ellipse, ps_distr_invgaussian);
 		part_emitter_burst(global.particleSystem, emitter, oGlobal.hitParticleType, 100);
@@ -43,6 +43,7 @@ if (other.health_points != undefined && !other.wasHit && isDashing) {
     //show_debug_message("Wróg trafiony! Obecne HP wroga: " + string(other.health_points));
 	
 	
+	
 	//-----------------------------------
 	//!!DO EDYCJI - JAK STOIMY ZA ŚRODKIEM PRZECIWNIKA TO GO WYWALI W DRUGĄ STRONĘ!!
 	
@@ -55,6 +56,12 @@ if (other.health_points != undefined && !other.wasHit && isDashing) {
     other.knockback_y = directionKnockbackY;//lengthdir_y(other.knockback_power, -directionKnockback);
     other.knockback_duration = 10; // Czas trwania knockbacku
 	
+	if (other.dead) {
+		other.hitCounter++;
+		other.colapse_dir = moveDir;
+		show_debug_message("hits: "+string(other.hitCounter));
+		instance_destroy(other);
+	}
 }
 
 //instance_destroy();

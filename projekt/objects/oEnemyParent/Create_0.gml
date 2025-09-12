@@ -14,9 +14,11 @@ health_points = 0;
 wasHit = false;
 isAlive = true;
 dying = false;
+dead = false;
 attacking = false;
 attackTimer = 0;
 attackBuffer = 30;
+hitCounter = 0;
 //nearest_logical_wall = instance_nearest(x, y, oLogicalWall);
 
 //if(nearest_logical_wall != noone){
@@ -67,3 +69,8 @@ isSlope = false;
 
 death_flag = 1;
 sprites = [];
+
+colapse_dir = 1;
+timer_not_ground = 0;
+buffer_not_ground = 30;
+fallen_death = false;
