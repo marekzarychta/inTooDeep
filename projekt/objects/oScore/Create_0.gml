@@ -7,6 +7,30 @@ first_click = false;
 iter = 0;
 
 sentence = "Level "+string(oGlobal.roomCounter)+" passed!\nYou've managed to get:";
+
+file = file_text_open_read("levels.txt");
+var last = 0;
+if (file != -1) {
+	while (!file_text_eof(file)) {
+		last = file_text_read_real(file);
+	}
+	file_text_close(file);
+}
+
+var num = oGlobal.roomCounter;
+
+if (last < num) {
+
+	file = file_text_open_append("levels.txt");
+
+	if (file != -1) {
+	
+		file_text_write_string(file, " "+string(num));
+		file_text_close(file);
+	}
+}
+
+
 show = false;
 
 timer_count = 0;

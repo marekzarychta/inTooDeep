@@ -51,10 +51,14 @@ if (other.health_points != undefined && !other.wasHit && isDashing) {
 	var directionKnockbackX = face;
 	//-----------------------------------
 
+	
+
 	var directionKnockbackY = -1;//point_direction(other.x, other.y, x, y);
 	other.knockback_x = other.knockback_power * directionKnockbackX; //lengthdir_x(other.knockback_power, -directionKnockback);
-    other.knockback_y = directionKnockbackY;//lengthdir_y(other.knockback_power, -directionKnockback);
-    other.knockback_duration = 10; // Czas trwania knockbacku
+	other.knockback_y = directionKnockbackY;//lengthdir_y(other.knockback_power, -directionKnockback);
+	other.knockback_duration = 10; // Czas trwania knockbacku
+	
+	
 	
 	if (other.dead) {
 		other.hitCounter++;
@@ -62,6 +66,8 @@ if (other.health_points != undefined && !other.wasHit && isDashing) {
 		show_debug_message("hits: "+string(other.hitCounter));
 		instance_destroy(other);
 	}
+	
+	
 }
 
 //instance_destroy();

@@ -72,5 +72,5 @@ sprites = [];
 
 colapse_dir = 1;
 timer_not_ground = 0;
-buffer_not_ground = 30;
+buffer_not_ground = 60;
 fallen_death = false;

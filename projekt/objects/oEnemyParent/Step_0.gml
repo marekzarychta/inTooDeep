@@ -228,6 +228,7 @@ if (following) {
 } else if dying {
 	xspd = 0;
 	yspd = 0;
+	knockback_duration = 0;
 	if(death_flag == 1) {
 		sprite_index = sprites[3];
 	} else if(death_flag == 2) {
@@ -246,6 +247,7 @@ if (following) {
 		var task = ds_list_find_value(global.task_list, 1);
 		task.counter++;
 	}
+	
 } else {
 	sprite_index = sprites[4];	
 		var _subPixel = .5;
