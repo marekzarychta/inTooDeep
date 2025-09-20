@@ -73,6 +73,13 @@ roomCounter = 1;
 
 importantObjects = [oInventory, oChest, oItemTemplate, oBox, oCart, oBreakableWallOrange, oBreakableWallRed, oDoor, oDoorButton]; 
 
+//counter for coin pickup streak
+coin_chain = 0;
+coin_chain_timer = 50;
+
+//cooldown for coin pickup sound to avoid overlapping
+coin_sound_cooldown = 0;
+
 global.particleSystem = part_system_create();
 
 {
