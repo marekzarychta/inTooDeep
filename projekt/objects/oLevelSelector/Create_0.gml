@@ -7,5 +7,9 @@ if (file != -1) {
 		var i = int64(file_text_read_real(file));
 		ds_list_add(active, i);
 	}
+	file_text_close(file);
 }
-file_text_close(file);
+
+
+active = false;
+vel = (sprite_height + 40) / 40;

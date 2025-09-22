@@ -12,6 +12,7 @@
     {"name":"inst_774A2115","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_396592B3","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_57BB97E1","path":"rooms/Menu/Menu.yy",},
+    {"name":"inst_2B68C5B0","path":"rooms/Menu/Menu.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -31,6 +32,7 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oLight","path":"objects/oLight/oLight.yy",},"propertyId":{"name":"scale_y","path":"objects/oLight/oLight.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1.5",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5,"scaleY":1.5,"x":224.0,"y":256.0,},
         {"$GMRInstance":"v2","%Name":"inst_57BB97E1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_57BB97E1","objectId":{"name":"oMenuDwarf","path":"objects/oMenuDwarf/oMenuDwarf.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.188872,"scaleY":3.188872,"x":16.0,"y":16.0,},
+        {"$GMRInstance":"v2","%Name":"inst_2B68C5B0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2B68C5B0","objectId":{"name":"oLevelSelector","path":"objects/oLevelSelector/oLevelSelector.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":32.0,"y":-272.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Assets_2","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_125AB318","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_125AB318","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":3.1888719,"scaleY":3.188872,"spriteId":{"name":"sMenuDwarfAnimation","path":"sprites/sMenuDwarfAnimation/sMenuDwarfAnimation.yy",},"x":-2.0,"y":-15.0,},
