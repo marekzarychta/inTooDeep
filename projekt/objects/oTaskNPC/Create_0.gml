@@ -18,6 +18,8 @@ talk = 0;
 
 choice = true;
 
+played_sound = false;
+
 isTaskAcitve = false;
 _finished = false;
 done = false;

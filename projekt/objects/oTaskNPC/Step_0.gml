@@ -50,6 +50,11 @@ if (!gui) {
 		}
 	}
 	
+	if (done && !played_sound) {
+		played_sound = true;
+		//zmienić na właściwy dźwięk - MAREK
+		audio_play_sound(snd_jump,0,false);
+	}
 	
 	
 	if (instance_exists(oGlobal.activeTask)) {
@@ -167,13 +172,17 @@ if (!gui) {
 			if (done) {
 				if (talk > max_end_talk) {
 					_finished = true;
-					oGlobal.gold += 20;
+					for (var gold = 0; gold < 20; gold++) {
+						var coin = instance_create_layer(x, y - 5,  layer_get_id("Player_below"), oCoin);
+						coin.image_xscale = 0.4;
+						coin.image_yscale = 0.4;
+					}
 					gui = false;
 					oGlobal.gui = false;
 					oPlayer.isActive = true;
 					talk = 0;
-					var textbox = createMiniTextbox(oPlayer.x, oPlayer.y, "gold", "+20", 80);
-					audio_play_sound(snd_pickup, 0, false);
+					//var textbox = createMiniTextbox(oPlayer.x, oPlayer.y, "gold", "+20", 80);
+					//audio_play_sound(snd_pickup, 0, false);
 				}
 			}
 			
