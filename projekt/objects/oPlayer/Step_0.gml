@@ -799,9 +799,9 @@ if (!isDashing) {
 		k = 0;
 		dashTimer--;
 		dashCooldownTimer = dashCooldown;	
-		if (hasDashed && !instance_exists(oDashCooldownBar)) { // Pasek tworzy się tylko po dashu
-        var cooldownBar = instance_create_depth(x, y, -10, oDashCooldownBar);
-    }
+		//if (hasDashed && !instance_exists(oDashCooldownBar)) { // Pasek tworzy się tylko po dashu
+	        //var cooldownBar = instance_create_depth(x, y, -10, oDashCooldownBar);
+	    //}
 		if(debug_mode) show_debug_message("dash cooldown");
 		
 	}

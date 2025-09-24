@@ -1,17 +1,20 @@
+draw_self();
+
 // We only ever need RGB from our game screen (disables alpha)
 gpu_set_blendenable(false);
 
 if(pause) {
 
 	surface_set_target(application_surface);
+	
 	if(surface_exists(pauseSurf)) {
 		draw_surface(pauseSurf, 0, 0);
+		//draw_self();
 	} else { // Restore from buffer if lost
 		pauseSurf = surface_create(resW, resH);
 		buffer_set_surface(pauseSurfBuffer, pauseSurf, 0);
 	}
 	surface_reset_target();
-
 }
 
 // We hit escape to pause the game
@@ -26,6 +29,7 @@ if ((pauseKey)) {
 		// Deactivate anything besides this instance
 		instance_deactivate_all(true);
 		instance_activate_object(oGlobal);
+		instance_activate_object(oPause);
 		// Capture the game moment when pause was hit
 		pauseSurf = surface_create(resW, resH);
 		surface_set_target(pauseSurf);

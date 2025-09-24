@@ -407,6 +407,7 @@
     {"id":{"name":"sParticleSlimeLava","path":"sprites/sParticleSlimeLava/sParticleSlimeLava.yy",},},
     {"id":{"name":"sParticleSmoke","path":"sprites/sParticleSmoke/sParticleSmoke.yy",},},
     {"id":{"name":"sParticleTorch","path":"sprites/sParticleTorch/sParticleTorch.yy",},},
+    {"id":{"name":"sPauseUI","path":"sprites/sPauseUI/sPauseUI.yy",},},
     {"id":{"name":"sPlatform","path":"sprites/sPlatform/sPlatform.yy",},},
     {"id":{"name":"sPlayerAttack","path":"sprites/sPlayerAttack/sPlayerAttack.yy",},},
     {"id":{"name":"sPlayerDash","path":"sprites/sPlayerDash/sPlayerDash.yy",},},
@@ -498,13 +499,13 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"initRoom","path":"rooms/initRoom/initRoom.yy",},},
+    {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
+    {"roomId":{"name":"Menu","path":"rooms/Menu/Menu.yy",},},
     {"roomId":{"name":"demo","path":"rooms/demo/demo.yy",},},
     {"roomId":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
     {"roomId":{"name":"demo3","path":"rooms/demo3/demo3.yy",},},
     {"roomId":{"name":"przejscie","path":"rooms/przejscie/przejscie.yy",},},
-    {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
