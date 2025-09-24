@@ -54,7 +54,7 @@ if (instance_exists(oGlobal)) {
 				if (instance_exists(oCamera)) {
 					//start_x = oCamera._camX;
 					//start_y = oCamera._camY;	
-					y = -1920;
+					y = -window_get_height();
 					x = 0;
 					animation = true;
 				}
@@ -85,7 +85,7 @@ if (animation) {
 //	}
 //}
 
-var multply = 4;
+var multply = window_get_width() / sprite_width;
 if (pause) {
 	if (!keyboard) {
 		if (mx > x + multply * buttons[0][0] && mx < x + multply * buttons[0][2] && my > multply * buttons[0][1] && my < multply * buttons[0][3]) {

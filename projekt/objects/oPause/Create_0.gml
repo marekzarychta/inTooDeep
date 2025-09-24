@@ -11,8 +11,8 @@ checkpoint = false;
 wasPaused = false;
 animation = false;
 
-time = 40;
-vely = (1960) / time;
+time = 20;
+vely = (window_get_height()) / time;
 start_x = 0;
 start_y = 0;
 index = 0;
