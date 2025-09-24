@@ -8,6 +8,9 @@ gui = false;
 cutscene = false;
 played_entry_cutscene = false;
 
+
+
+
 task0 = instance_create_layer(x, y, layer, oTask);
 task0.persistent = true;
 task0.numer = 0;

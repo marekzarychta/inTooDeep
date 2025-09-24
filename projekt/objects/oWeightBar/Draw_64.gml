@@ -8,8 +8,12 @@
 
     var stretchLenght =  8 * MAX_WEIGHT_WIDTH / MAX_WEIGHT;
 
+	var counter = 0;
+
     for (var i = 0; i < currentWeight; i++) {
         var xx =  x + 72 + 6 + i * stretch + i*3;
+		
+		
         if (oPlayer.currentWeightLevel == 2) draw_sprite_stretched(sWeightPoint, 0, xx, y + 24, stretchLenght, 18);
         else if (oPlayer.currentWeightLevel == 3) draw_sprite_stretched(sWeightPoint, 0, xx, y + 24, stretchLenght, 18);
         else draw_sprite_stretched(sWeightPoint, 0, xx, y + 24, stretchLenght, 18);
