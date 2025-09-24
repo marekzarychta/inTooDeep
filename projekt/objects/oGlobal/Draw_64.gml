@@ -39,7 +39,7 @@ if (!cutscene) {
 	
 		var val = task._value - task.counter;
 		var text = "";
-	
+		var strip_val = 1 - task.counter / task._value;
 	
 		//color = make_color_rgb(240, 50, 50);
 	
@@ -58,6 +58,16 @@ if (!cutscene) {
 		draw_text(width - 24 -margin - box_w, marginUp, text);
 		var h = string_height(text);
 		var offUp = -(20 + h / 2 - 2);
+		
+		var text_len = string_width(string(task.counter) + " of " + string(task._value));
+		draw_set_color(c_green);
+		draw_rectangle(width - 26 -margin - box_w, marginUp + h + 39, (width - 6) - (20 + margin + box_w) * strip_val, marginUp + h + 75, 0);
+		draw_set_color(c_white);
+		draw_sprite_stretched_ext(sSelectedBox, 0, width - 26 -margin - box_w, marginUp + h + 38, 20+margin +box_w, 36, c_white, 1);
+		draw_sprite_stretched_ext(sSelectedBox, 0, width - 26 -margin - box_w, marginUp + h + 42, 20+margin +box_w, 36, c_white, 1);
+		draw_sprite_stretched_ext(sSelectedBox, 0, width - 28 -margin - box_w, marginUp + h + 40, 20+margin +box_w, 36, c_white, 1);
+		draw_sprite_stretched_ext(sSelectedBox, 0, width - 24 -margin - box_w, marginUp + h + 40, 20+margin +box_w, 36, c_white, 1);
+		
 		if (val > 0) {
 			text = string(task.counter) + " of " + string(task._value);
 			draw_set_color(c_black);

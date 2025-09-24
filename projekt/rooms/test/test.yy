@@ -37,6 +37,7 @@
     {"name":"inst_46810556","path":"rooms/test/test.yy",},
     {"name":"inst_30FE0A4B","path":"rooms/test/test.yy",},
     {"name":"inst_3E1E1255","path":"rooms/test/test.yy",},
+    {"name":"inst_302022D8","path":"rooms/test/test.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -69,6 +70,9 @@
         {"$GMRInstance":"v2","%Name":"inst_597DACFC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_597DACFC","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTorch","path":"objects/oTorch/oTorch.yy",},"propertyId":{"name":"counts","path":"objects/oTorch/oTorch.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1024.0,"y":336.0,},
+        {"$GMRInstance":"v2","%Name":"inst_302022D8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_302022D8","objectId":{"name":"oTaskNPC","path":"objects/oTaskNPC/oTaskNPC.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oTaskNPC","path":"objects/oTaskNPC/oTaskNPC.yy",},"propertyId":{"name":"taskNumer","path":"objects/oTaskNPC/oTaskNPC.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":768.0,"y":336.0,},
       ],"layers":[],"name":"Player","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Player_below","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Player_below","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances_2","depth":500,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
