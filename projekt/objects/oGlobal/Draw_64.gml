@@ -9,12 +9,12 @@ if (!cutscene) {
 		//draw_sprite_stretched(sDialogueBox, 0, 20, height_, 200, 100);
 		draw_sprite_stretched(sItem, 0, 20, height_ + 10, 64, 64);
 		draw_set_color(c_black);
-		draw_text(102, height_ + 50, string(gold)+" c");
-		draw_text(98, height_ + 50, string(gold)+" c");
-		draw_text(100, height_ + 52, string(gold)+" c");
-		draw_text(100, height_ + 48, string(gold)+" c");
+		draw_text(102, height_ + 50, string(gold));
+		draw_text(98, height_ + 50, string(gold));
+		draw_text(100, height_ + 52, string(gold));
+		draw_text(100, height_ + 48, string(gold));
 		draw_set_color(c_white);
-		draw_text(100, height_ + 50, string(gold)+" c");
+		draw_text(100, height_ + 50, string(gold));
 	
 	
 	
