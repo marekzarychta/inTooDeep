@@ -233,6 +233,7 @@
     {"id":{"name":"snd_grunt","path":"sounds/snd_grunt/snd_grunt.yy",},},
     {"id":{"name":"snd_hit","path":"sounds/snd_hit/snd_hit.yy",},},
     {"id":{"name":"snd_jump","path":"sounds/snd_jump/snd_jump.yy",},},
+    {"id":{"name":"snd_pickup_coin","path":"sounds/snd_pickup_coin/snd_pickup_coin.yy",},},
     {"id":{"name":"snd_pickup","path":"sounds/snd_pickup/snd_pickup.yy",},},
     {"id":{"name":"snd_player_damaged_2","path":"sounds/snd_player_damaged_2/snd_player_damaged_2.yy",},},
     {"id":{"name":"snd_player_damaged","path":"sounds/snd_player_damaged/snd_player_damaged.yy",},},
