@@ -1,25 +1,25 @@
 {
   "$GMTileSet":"v1",
-  "%Name":"TileSet7",
+  "%Name":"mushroomTileset1",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":0,
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"TileSet7",
+  "name":"mushroomTileset1",
   "out_columns":7,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
-    "name":"Tile Sets",
-    "path":"folders/Tile Sets.yy",
+    "name":"mushrooms",
+    "path":"folders/Tile Sets/mushrooms.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"sTileset5",
-    "path":"sprites/sTileset5/sTileset5.yy",
+    "name":"sTileset17",
+    "path":"sprites/sTileset17/sTileset17.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
