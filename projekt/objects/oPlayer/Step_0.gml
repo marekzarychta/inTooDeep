@@ -784,6 +784,14 @@ if (!isDashing) {
 		dashTimer--;	
 		isDashing = true;
 		hasDashed = true;
+		
+		if (dashTimer % 3 == 0) {
+			ds_list_add(dashEffect, [image_number, x, y]);
+			if (ds_list_size(dashEffect) > num_after_effect + 1) {
+				ds_list_delete(dashEffect, 0);	
+			}
+		}
+		
 		xspd = smooth(xspd, (sign(moveDir) * moveSpd[currentWeightLevel] * 1.2), 0.6);
 		//part_type_direction(oGlobal.dashParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
 		//part_type_direction(oGlobal.dashWhiteParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
@@ -819,6 +827,7 @@ if (!isDashing) {
 		
 	} else if dashTimer == 0 {
 		isDashing = false;
+		ds_list_clear(dashEffect);
 		k = 0;
 		dashTimer--;
 		dashCooldownTimer = dashCooldown;	

@@ -9,6 +9,8 @@ k = 0;
 lastCheckpoint = noone;
 transition = noone;
 
+dashEffect = ds_list_create();
+num_after_effect = 2;
 
 function checkForSemiSolid(_x, _y) {
 	var _rtrn = noone;
@@ -97,7 +99,7 @@ isLadder = false;
 topLadder = false;
 
 //dash
-dashBuffer = 30;
+dashBuffer = 120;
 dashTimer = 0;
 dashCooldown = 30;
 dashCooldownTimer = 0;
