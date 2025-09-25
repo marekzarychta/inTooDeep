@@ -32,7 +32,7 @@ task3.prevCounter = 0;
 
 
 
-if (room != przejscie) {
+if (room != przejscie && room != endRoom) {
 
 	if (!layer_exists("GUI")) {
 		layer_create(-20, "GUI");	

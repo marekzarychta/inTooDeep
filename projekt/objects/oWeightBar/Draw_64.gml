@@ -3,8 +3,11 @@
 
     SetWeights();
     draw_sprite(sWeightBar, 0, x, y);
-
-    var currentWeight = oPlayer.inventoryWeight / 2;
+	var currentWeight = 0;
+	if (instance_exists(oPlayer)) {
+		currentWeight = oPlayer.inventoryWeight / 2;
+	
+	}
 
     var stretchLenght =  8 * MAX_WEIGHT_WIDTH / MAX_WEIGHT;
 
