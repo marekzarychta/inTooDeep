@@ -307,9 +307,18 @@ if (!isDashing) {
 	            } else if currentWeightLevel < required_weight {
 	                if (!instance_exists(oTextboxPlayer)) {
 						grunt();
-					
+						
 	                    createFollowingTextbox(x - 16, y - 16, message);
 	                }
+					
+					//animacja kamyczków na ścianie
+					with (b) {
+						if (!wrong_weight_anim) {
+						wrong_weight_anim = true;	 
+						num = 0;
+						time = 0;
+						}
+					}
 					
 					if (xspd < 0) {
 						part_emitter_region(global.particleSystem, emitter, b.bbox_left - 1, b.bbox_left, b.bbox_top /*+ (b.bbox_bottom - b.bbox_top)*/, b.bbox_bottom, ps_shape_rectangle, ps_distr_linear);
@@ -565,6 +574,14 @@ if (!isDashing) {
 			part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingParticleType, random(60) + 20);
 		
 			shakeCamera(8, 2.0, 0.4);
+			
+			with (breakableWall) {
+				if (!wrong_weight_anim) {
+				wrong_weight_anim = true;	 
+				num = 0;
+				time = 0;
+				}
+			}
 		}
 	}
 	

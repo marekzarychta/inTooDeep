@@ -16,6 +16,8 @@ weight = 0;
 value = 0;
 name = "";
 
+wrong_weight_anim = false;
+
 inv_sprite = sSpriteTemplete;
 
 emitter = part_emitter_create(global.particleSystem);
