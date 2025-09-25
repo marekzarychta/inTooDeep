@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_vase_break",
+  "%Name":"snd_vase_break_2",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.72705215,
-  "name":"snd_vase_break",
+  "duration":0.62201816,
+  "name":"snd_vase_break_2",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_vase_break.mp3",
+  "soundFile":"snd_vase_break_2.mp3",
   "type":0,
-  "volume":0.1,
+  "volume":0.2,
 }

@@ -245,6 +245,7 @@
     {"id":{"name":"snd_skeleton_attack","path":"sounds/snd_skeleton_attack/snd_skeleton_attack.yy",},},
     {"id":{"name":"snd_slime_hit","path":"sounds/snd_slime_hit/snd_slime_hit.yy",},},
     {"id":{"name":"snd_torch_snuff","path":"sounds/snd_torch_snuff/snd_torch_snuff.yy",},},
+    {"id":{"name":"snd_vase_break_2","path":"sounds/snd_vase_break_2/snd_vase_break_2.yy",},},
     {"id":{"name":"snd_vase_break_low","path":"sounds/snd_vase_break_low/snd_vase_break_low.yy",},},
     {"id":{"name":"snd_vase_break","path":"sounds/snd_vase_break/snd_vase_break.yy",},},
     {"id":{"name":"snd_wall_destroy","path":"sounds/snd_wall_destroy/snd_wall_destroy.yy",},},
