@@ -32,3 +32,45 @@ if (!cutscene) {
 		}
 	}
 }
+
+if (room == demo) {
+	
+	if (!played_intro && !audio_is_playing(snd_level1_intro)) {
+		snd_id = audio_play_sound(snd_level1_intro, 0, false);
+		
+	}
+	
+	if (!audio_is_playing(snd_id)) {
+		played_intro = false;
+		audio_play_sound(snd_level1_loop, 0, true);
+	}
+	
+	
+} else if (room == demo2) {
+	if (!audio_is_playing(snd_id)) {
+		snd_id = audio_play_sound(snd_level2_loop, 0, true);
+	}
+} else if (room == demo3) {
+	
+	if (!played_intro && !audio_is_playing(snd_level3_intro)) {
+		snd_id = audio_play_sound(snd_level3_intro, 0, false);
+		
+	}
+	
+	if (!audio_is_playing(snd_id)) {
+		played_intro = false;
+		audio_play_sound(snd_level3_loop, 0, true);
+	}
+	
+	
+} else if (room == przejscie) {
+	if (!played_intro && !audio_is_playing(snd_jingle_intro)) {
+		snd_id = audio_play_sound(snd_jingle_intro, 0, false);
+		
+	}
+	
+	if (!audio_is_playing(snd_id)) {
+		played_intro = false;
+		audio_play_sound(snd_jingle_loop, 0, true);
+	}
+}

@@ -13,6 +13,8 @@ textVal = "to ram through walls\nand enemies\nwhile moving";
 // Set text color
 
 // Draw the text, centered vertically with the icon and offset by 3 pixels
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 
 
 draw_text(x , y+string_height(textVal)/2, textVal);

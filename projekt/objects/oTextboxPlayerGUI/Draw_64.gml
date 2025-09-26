@@ -1,5 +1,9 @@
 draw_set_font(Fnt_popup);
 
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+
 // Rysuj obrys (czarny)
 draw_set_color(c_black);
 for (var ox = -2; ox <= 2; ox++) {

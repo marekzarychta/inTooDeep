@@ -13,6 +13,9 @@ alfa = 0;
 timer = 0;
 alfa_end = false;
 
+played_intro = false;
+snd_id = noone;
+
 task0 = instance_create_layer(x, y, layer, oTask);
 task0.persistent = true;
 task0.numer = 0;

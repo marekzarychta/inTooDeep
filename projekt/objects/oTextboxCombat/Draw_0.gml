@@ -14,5 +14,7 @@ draw_set_color(c_white);
 
 //draw_sprite_stretched(sKeyArrowLeft, 0, x-16, y-4, 16, 16);  // Centered at (x, y)
 draw_sprite_stretched(attack_key, 0, x, y, 16, 16);  // Centered at (x, y)
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 
 draw_text(x + 42 , y-5+string_height(textVal)/2, textVal);

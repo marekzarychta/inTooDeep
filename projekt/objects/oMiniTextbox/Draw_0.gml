@@ -5,6 +5,8 @@ x = obj_player.x+14;
 y = obj_player.y-24;
 // Set text color
 draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 
 // Draw the text, centered vertically with the icon and offset by 3 pixels
 // Rysuj tekst, dynamicznie wyśrodkowując go

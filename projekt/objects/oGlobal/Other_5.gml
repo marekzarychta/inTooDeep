@@ -9,4 +9,7 @@ if (instance_exists(oPlayer)) {
 }
 
 
+audio_stop_all()	
+
+
 

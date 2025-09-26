@@ -43,6 +43,8 @@ if (openable && marked) {
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
 		textBoxInstance.depo = true;
+		textBoxInstance.parentX = x - 43
+		textBoxInstance.parentY = y -45
     }
 
 } else {
@@ -62,6 +64,8 @@ if (openable && marked) {
         textBoxInstance2.textVal = text2;
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
+		textBoxInstance2.parentX = x + 30
+		textBoxInstance2.parentY = y - 45
     }
 
 } else {

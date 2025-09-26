@@ -9,7 +9,8 @@ if (instance_exists(pause)) {
 	instance_destroy(pause);	
 }
 
-
+played_intro = false;
+snd_id = noone;
 	
 gold = global.gold;
 	

@@ -8,6 +8,10 @@ draw_set_font(Fnt_super_small);
 
 // Draw the text, centered vertically with the icon and offset by 3 pixels
 
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+
 if(!gamepad_is_connected(0)){
 draw_sprite_stretched(sKeyA, 0, x-17, y-2, 16, 16);  // Centered at (x, y)
 draw_sprite_stretched(sKeyD, 0, x, y - 2 , 16, 16);  // Centered at (x, y)

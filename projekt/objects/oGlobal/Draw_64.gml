@@ -3,6 +3,7 @@ if (!cutscene) {
 	draw_set_alpha(alfa);
 	draw_set_font(Fnt_UI_big);
 	draw_set_color(c_white);
+	draw_line_width((60 + window_get_width() - string_width(start_text[roomCounter - 1]))/ 2 , window_get_height() / 2, (60 + window_get_width() + string_width(start_text[roomCounter - 1]))/ 2 , window_get_height() / 2, 6)
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_text(window_get_width() / 2, window_get_height() / 2, start_text[roomCounter - 1]);
