@@ -1,4 +1,4 @@
-if (x < 112) {
+if (x < 96) {
 	x += 3;
 	blockControls(true);
 	if (instance_exists(oPlayer)) {
