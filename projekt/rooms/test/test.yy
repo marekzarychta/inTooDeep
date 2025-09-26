@@ -32,11 +32,7 @@
     {"name":"inst_50FD2F8","path":"rooms/test/test.yy",},
     {"name":"inst_3D05416C","path":"rooms/test/test.yy",},
     {"name":"inst_597DACFC","path":"rooms/test/test.yy",},
-    {"name":"inst_14E34E60","path":"rooms/test/test.yy",},
-    {"name":"inst_7ED6BA7","path":"rooms/test/test.yy",},
-    {"name":"inst_42431F16","path":"rooms/test/test.yy",},
-    {"name":"inst_791CFEBF","path":"rooms/test/test.yy",},
-    {"name":"inst_4DF41B58","path":"rooms/test/test.yy",},
+
   ],
   "isDnd":false,
   "layers":[
