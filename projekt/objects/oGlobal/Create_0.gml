@@ -8,7 +8,7 @@ gui = false;
 cutscene = false;
 played_entry_cutscene = false;
 
-start_text = ["Cave", "Tower", "Hell"]
+start_text = ["The Lost Library", "Slimy Ramparts", "Ruins of Sysop"]
 alfa = 0;
 timer = 0;
 alfa_end = false;
