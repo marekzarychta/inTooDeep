@@ -41,6 +41,7 @@ if (gui) {
 	//draw_rectangle(text_x , text_y, text_x + box_w, text_y + box_h, false);
 	draw_sprite_stretched(sDialogueBox, 0, text_x , text_y, box_w, box_h);
 draw_set_halign(fa_left);
+draw_set_valign(fa_top);
 	// Rysowanie tekstu
 	draw_set_color(c_black);
 	draw_text(text_x + 2 + padding_x, text_y + padding_y, mess);

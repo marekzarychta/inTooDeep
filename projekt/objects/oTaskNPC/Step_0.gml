@@ -74,6 +74,7 @@ if (!gui) {
 	if (openable && marked && messTimer >= messBuffer && !_finished) {
 		if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
 		    textBoxInstance = createTextboxGUI(x - 15, y - 40, text); // Tworzymy textbox
+			
 		} else if instance_exists(textBoxInstance) {
 		    textBoxInstance.textVal = text;
 		}

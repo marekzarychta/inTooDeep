@@ -1,5 +1,5 @@
 if (openable && marked && !animating) {
-	var offset_y = 150;
+	var offset_y = 120;
 	var size = 55;
 	
 	//tworzymy ramke oraz bloczki wagowe

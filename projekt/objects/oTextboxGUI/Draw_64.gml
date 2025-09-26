@@ -21,6 +21,10 @@ else{
 }
 draw_set_font(Fnt_popup);
 
+if (quest) {
+	draw_set_valign(fa_bottom);	
+}
+
 // Rysuj obrys (czarny)
 draw_set_color(c_black);
 for (var ox = -2; ox <= 2; ox++) {

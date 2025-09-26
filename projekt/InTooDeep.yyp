@@ -270,7 +270,7 @@
     {"id":{"name":"snd_scroll","path":"sounds/snd_scroll/snd_scroll.yy",},},
     {"id":{"name":"snd_shopkeeper","path":"sounds/snd_shopkeeper/snd_shopkeeper.yy",},},
     {"id":{"name":"snd_skeleton_attack","path":"sounds/snd_skeleton_attack/snd_skeleton_attack.yy",},},
-	{"id":{"name":"snd_skeleton_fall","path":"sounds/snd_skeleton_fall/snd_skeleton_fall.yy",},},
+    {"id":{"name":"snd_skeleton_fall","path":"sounds/snd_skeleton_fall/snd_skeleton_fall.yy",},},
     {"id":{"name":"snd_slime_hit","path":"sounds/snd_slime_hit/snd_slime_hit.yy",},},
     {"id":{"name":"snd_torch_snuff","path":"sounds/snd_torch_snuff/snd_torch_snuff.yy",},},
     {"id":{"name":"snd_vase_break_2","path":"sounds/snd_vase_break_2/snd_vase_break_2.yy",},},
@@ -582,9 +582,8 @@
     {"roomId":{"name":"demo2","path":"rooms/demo2/demo2.yy",},},
     {"roomId":{"name":"demo3","path":"rooms/demo3/demo3.yy",},},
     {"roomId":{"name":"test","path":"rooms/test/test.yy",},},
-	    {"roomId":{"name":"endRoom","path":"rooms/endRoom/endRoom.yy",},},
+    {"roomId":{"name":"endRoom","path":"rooms/endRoom/endRoom.yy",},},
     {"roomId":{"name":"przejscie","path":"rooms/przejscie/przejscie.yy",},},
-
   ],
   "templateType":"game",
   "TextureGroups":[
