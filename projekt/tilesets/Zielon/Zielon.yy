@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"Zielon",
-  "out_columns":0,
+  "out_columns":20,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -17,7 +17,10 @@
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
-  "spriteId":null,
+  "spriteId":{
+    "name":"sTileset6v2",
+    "path":"sprites/sTileset6v2/sTileset6v2.yy",
+  },
   "spriteNoExport":false,
   "textureGroupId":{
     "name":"Default",
@@ -31,5 +34,5 @@
   "tileWidth":16,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":0,
+  "tile_count":400,
 }
