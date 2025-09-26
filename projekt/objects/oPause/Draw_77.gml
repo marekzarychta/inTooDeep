@@ -11,8 +11,10 @@ if(pause) {
 		draw_surface(pauseSurf, 0, 0);
 		//draw_self();
 	} else { // Restore from buffer if lost
-		pauseSurf = surface_create(resW, resH);
-		buffer_set_surface(pauseSurfBuffer, pauseSurf, 0);
+		if (buffer_exists(pauseSurfBuffer)) {
+			pauseSurf = surface_create(resW, resH);
+			buffer_set_surface(pauseSurfBuffer, pauseSurf, 0);
+		}
 	}
 	surface_reset_target();
 }

@@ -6,6 +6,10 @@ if (!fallen_death) {
 	i.yspd = -1;
 
 	var bone_num = irandom_range(2, 5);
+	var coin = instance_create_layer(x, y - 5,  layer_get_id("Player_below"), oCoin);
+	coin.image_xscale = 0.4;
+	coin.image_yscale = 0.4;
+	
 
 	for (var v = 0; v < bone_num; v++) {
 	i = instance_create_layer(x + 4, y - 6 + v, layer_get_id("Player_below"), oBone);
@@ -22,6 +26,13 @@ if (!fallen_death) {
 	i.yspd = 0;
 
 	var bone_num = irandom_range(2, 5);
+	
+	var coin = instance_create_layer(x, y - 5,  layer_get_id("Player_below"), oCoin);
+	coin.image_xscale = 0.4;
+	coin.image_yscale = 0.4;
+	coin = instance_create_layer(x, y - 5,  layer_get_id("Player_below"), oCoin);
+	coin.image_xscale = 0.4;
+	coin.image_yscale = 0.4;
 
 	for (var v = 0; v < bone_num; v++) {
 		var bone_dir = (irandom_range(1, 2) * 2) - 3;

@@ -21,6 +21,8 @@ else{
 }
 draw_set_font(Fnt_popup);
 
+draw_set_valign(fa_top);	
+
 if (quest) {
 	draw_set_valign(fa_bottom);	
 }

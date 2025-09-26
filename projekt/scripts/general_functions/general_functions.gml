@@ -235,6 +235,9 @@ function save() {
 
 function load(state) {
 	
+	
+	
+	
 	for (var i = 0; i < ds_list_size(global.task_list); i++) {
 		var task = ds_list_find_value(global.task_list, i);
 		task.counter = task.prevCounter;
@@ -291,6 +294,8 @@ function load(state) {
 	with (oVase) {
 		instance_destroy();	
 	}
+
+	audio_stop_all();
 
 	ds_list_clear(oGlobal.inventory.inventory);
 	ds_list_clear(global.lista);
