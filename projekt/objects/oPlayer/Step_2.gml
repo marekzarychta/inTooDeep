@@ -38,8 +38,14 @@ if (instance_exists(backpack)) {
     if (!isLadder) {
         backpack.layer = layer_get_id("Player_below");
 			backpack.sprite_index = backpackSprites[currentWeightLevel];
+						if(inventoryWeight == maxInventoryWeight){
+				backpack.sprite_index = backpackSprites[4];
+			}
     } else {
         backpack.layer = layer_get_id("Player_overlay");
 			backpack.sprite_index = backpackSpritesClimb[currentWeightLevel];
+			if(inventoryWeight == maxInventoryWeight){
+				backpack.sprite_index = backpackSpritesClimb[4];
+			}
     }
 }

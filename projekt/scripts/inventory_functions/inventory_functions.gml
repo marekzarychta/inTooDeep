@@ -232,7 +232,7 @@ function OpenDeposit(rootObject) {
     rootObject.but1Dep.x = rootObject.ox + INVENTORY_GRID_X * 16 + x_offset * 2;
     rootObject.but1Dep.y = rootObject.oy + y_offset;
 
-    draw_text(rootObject.ox + INVENTORY_GRID_X * 16 + x_offset * 2 + 5, rootObject.oy + y_offset + 25, "deposit");
+    draw_text(rootObject.ox + INVENTORY_GRID_X * 16 + x_offset * 2 + 5, rootObject.oy + y_offset + 25, "Deposit");
 
     draw_sprite_stretched(but1Dep.sprite_index, 0, but1Dep.x, but1Dep.y, 32, 16);
     draw_set_font(Fnt_small);

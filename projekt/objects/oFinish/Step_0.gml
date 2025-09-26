@@ -28,7 +28,7 @@ if !opened {
     // Tworzenie lub usuwanie `oTextbox`
     if (openable && marked) {
         if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-            textBoxInstance = createTextbox(x, y, text); // Tworzymy textbox
+            textBoxInstance = createTextboxGUI(x, y, text); // Tworzymy textbox
         } else if instance_exists(textBoxInstance) {
             textBoxInstance.textVal = text;
         }

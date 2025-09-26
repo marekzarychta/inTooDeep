@@ -1,7 +1,9 @@
 //flashing effects
 flashAlpha = 0;
 flashColor = c_red;
-
+//pozycja gracza na ekranie - do GUI
+screenpos_x = 0;
+screenpos_y = 0;
 //hitbox_delay = 0;
 //backpack object
 k = 0;

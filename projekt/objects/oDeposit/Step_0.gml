@@ -123,11 +123,12 @@ markedChange = false;
 
 if (openable && marked && !animating) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
+        textBoxInstance = createTextboxGUI(x, y - 60, text); // Tworzymy textbox
 		textBoxInstance.depo = true;
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
 		textBoxInstance.depo = true;
+		show_debug_message("deposit: "+string(textBoxInstance.x) + " " + string(textBoxInstance.y));
     }
 
 } else {
@@ -139,7 +140,7 @@ if (openable && marked && !animating) {
 
 if (openable && marked && !animating) {
     if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance2 = createTextbox(x, y - 20, text2); // Tworzymy textbox
+        textBoxInstance2 = createTextboxGUI(x, y - 48, text2); // Tworzymy textbox
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
 		
@@ -147,6 +148,8 @@ if (openable && marked && !animating) {
         textBoxInstance2.textVal = text2;
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
+				show_debug_message("retrieve: "+string(textBoxInstance2.x) + " " + string(textBoxInstance2.y));
+
     }
 
 } else {
@@ -178,7 +181,9 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
 				
 			} else{
 				grunt();
-				textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to deposit");
+				if(!instance_exists(oTextboxPlayerGUI)){
+					textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to deposit");
+				}
 		
 			}
 		}
@@ -204,7 +209,9 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
 
 			} else{
 				grunt();
-				textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to retrive");
+				if(!instance_exists(oTextboxPlayerGUI)){
+				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"Nothing to retrieve...");
+				}
 		
 			}
 		}

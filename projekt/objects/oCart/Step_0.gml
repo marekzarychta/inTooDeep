@@ -11,9 +11,9 @@ var _subPixel = 0.5;
 var text, text2;
 
 //if !InventoryIsEmpty(oInventory) {
-	text = "   deposit";
+	text = "Deposit";
 //} else {
-	text2 = "   retrieve";
+	text2 = "Retrieve";
 
 
 
@@ -35,7 +35,7 @@ if (place_meeting(x, y, oPlayer) || (oCart == object_index)) {
 
 if (openable && marked) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
+        textBoxInstance = createTextboxGUI(x, y - 40*4, text); // Tworzymy textbox
 		textBoxInstance.depo = true;
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
@@ -51,7 +51,7 @@ if (openable && marked) {
 
 if (openable && marked) {
     if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance2 = createTextbox(x, y - 20, text2); // Tworzymy textbox
+        textBoxInstance2 = createTextboxGUI(x, y - 20, text2); // Tworzymy textbox
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
     } else if instance_exists(textBoxInstance2) {
@@ -135,13 +135,17 @@ if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 			
 			} else {
 				grunt();
-				textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"it's full");
+				if(!instance_exists(oTextboxPlayerGUI)){
+				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"it's full");
+				}
 			}
 				
 				
 		} else{
 			grunt();
-			textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to deposit");
+			if(!instance_exists(oTextboxPlayerGUI)){
+			textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to deposit");
+			}
 		
 		}
 	}
@@ -160,7 +164,9 @@ if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 
 		} else {
 			grunt();
-			textbox = createFollowingTextbox(oPlayer.x,oPlayer.y,"nothing to retrive");
+			if(!instance_exists(oTextboxPlayerGUI)){
+			textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"Nothing to retrieve...");
+			}
 		
 		}
 	}
@@ -214,7 +220,7 @@ if (onTracks) {
 	            // Check if there is already an instance of oTextbox in the same spot
 	            //if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
 				//	show_debug_message("x");
-	            //    createFollowingTextbox(x-16, y-16, "it has too be havie");
+	            //    createFollowingTextboxGUI(x-16, y-16, "it has too be havie");
 	            //}
 	        }
 	    }
@@ -235,7 +241,7 @@ if (onTracks) {
 	            // Check if there is already an instance of oTextbox in the same spot
 	            //if (!instance_place(x, y - sprite_height, oTextboxPlayer)) {
 				//	show_debug_message("x");
-	            //    createFollowingTextbox(x-16, y-16, "it has too be havie");
+	            //    createFollowingTextboxGUI(x-16, y-16, "it has too be havie");
 	            //}
 	        }
 	    }
