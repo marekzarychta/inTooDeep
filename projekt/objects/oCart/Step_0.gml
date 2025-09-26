@@ -38,7 +38,7 @@ if (place_meeting(x, y, oPlayer) || (oCart == object_index)) {
 
 if (openable && marked) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance = createTextboxGUI(x - 38, y - 45, text); // Tworzymy textbox
+        textBoxInstance = createTextboxGUI(x - 43, y - 45, text); // Tworzymy textbox
 		textBoxInstance.depo = true;
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;

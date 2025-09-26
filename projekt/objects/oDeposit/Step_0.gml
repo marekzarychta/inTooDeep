@@ -127,7 +127,7 @@ markedChange = false;
 if (openable && marked && !animating) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
 
-        textBoxInstance = createTextboxGUI(x - 38, y - 60, text); // Tworzymy textbox
+        textBoxInstance = createTextboxGUI(x - 43, y - 60, text); // Tworzymy textbox
 
         //textBoxInstance = createTextbox(x - 50, y - 40, text); // Tworzymy textbox
 
