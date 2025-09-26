@@ -68,6 +68,9 @@ function createTextboxGUI(valx, valy, text) {
     var textbox = instance_create_layer(((valx - camera_get_view_x(view_camera[0])) * 4), ((valy - camera_get_view_y(view_camera[0])) * 4), layer_get_id("GUI"), oTextboxGUI);
 	textbox.parentX = valx;
 	textbox.parentY = valy;
+	textbox.drawX = (valx - camera_get_view_x(view_camera[0])) * 4;
+	textbox.drawY = (valy - camera_get_view_y(view_camera[0])) * 4;
+
 
     textbox.textVal = text;
     return textbox;

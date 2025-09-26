@@ -2,14 +2,17 @@
 var text, text2;
 
 //if !InventoryIsEmpty(oInventory) {
-	text = "take";
+	text = "leave";
 //} else {
-	text2 = "leave";
+	text2 = "take";
 //}
 
 //if InventoryIsEmpty(oInventory) && ds_list_size(global.lista) == 0 {
 	//text = "   deposit";	
 //}
+
+drawX = (x - camera_get_view_x(view_camera[0])) * 4;
+drawY = (y - camera_get_view_y(view_camera[0])) * 4;
 
 if (!variable_instance_exists(id, "textBoxInstance")) {
     textBoxInstance = noone;
@@ -124,9 +127,9 @@ markedChange = false;
 if (openable && marked && !animating) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
 
-        //textBoxInstance = createTextboxGUI(x, y - 60, text); // Tworzymy textbox
+        textBoxInstance = createTextboxGUI(x - 38, y - 60, text); // Tworzymy textbox
 
-        textBoxInstance = createTextbox(x - 50, y - 40, text); // Tworzymy textbox
+        //textBoxInstance = createTextbox(x - 50, y - 40, text); // Tworzymy textbox
 
 		textBoxInstance.depo = true;
     } else if instance_exists(textBoxInstance) {
@@ -145,9 +148,9 @@ if (openable && marked && !animating) {
 if (openable && marked && !animating) {
     if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
 
-        //textBoxInstance2 = createTextboxGUI(x, y - 48, text2); // Tworzymy textbox
+        textBoxInstance2 = createTextboxGUI(x + 30, y - 60, text2); // Tworzymy textbox
 
-        textBoxInstance2 = createTextbox(x + 40, y - 40, text2); // Tworzymy textbox
+        //textBoxInstance2 = createTextbox(x + 40, y - 40, text2); // Tworzymy textbox
 
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;

@@ -52,5 +52,6 @@ current_slot = 0;
 but1Dep = noone;
 
 
-
+drawX = (x - camera_get_view_x(view_camera[0])) * 4;
+drawY = (y - camera_get_view_y(view_camera[0])) * 4;
 
