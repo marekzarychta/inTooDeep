@@ -13,6 +13,8 @@ if (!fallen_death) {
 	i.xspd = colapse_dir * random_range(3, 5);
 	i.yspd = -random(1.5);
 	}
+	
+		audio_play_sound(snd_skeleton_fall, 0, false);
 } else {
 	var i = instance_create_layer(x, y - 5, layer_get_id("Player_below"), oBone);
 	i.sprite_index = sHeadBone

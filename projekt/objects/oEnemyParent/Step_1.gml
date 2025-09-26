@@ -10,6 +10,7 @@ if (!place_meeting(x, y + 1, oWall) && !place_meeting(x, y + 1, oWallSemiSolid))
 		var task = ds_list_find_value(global.task_list, 1);
 		task.counter++;
 		
+		audio_play_sound(snd_skeleton_fall, 0, false);
 		instance_destroy();
 	} else {
 		timer_not_ground = 0;	

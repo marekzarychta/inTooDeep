@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_hit",
+  "%Name":"snd_skeleton_fall",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.51997733,
-  "name":"snd_hit",
+  "duration":0.7512018,
+  "name":"snd_skeleton_fall",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_hit.mp3",
+  "soundFile":"snd_skeleton_fall.mp3",
   "type":0,
-  "volume":0.25,
+  "volume":0.1,
 }
