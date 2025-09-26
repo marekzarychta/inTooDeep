@@ -541,6 +541,7 @@
     {"id":{"name":"sWeightBarCart","path":"sprites/sWeightBarCart/sWeightBarCart.yy",},},
     {"id":{"name":"sWeightBarDeposit","path":"sprites/sWeightBarDeposit/sWeightBarDeposit.yy",},},
     {"id":{"name":"sWeightMini","path":"sprites/sWeightMini/sWeightMini.yy",},},
+    {"id":{"name":"sWeightPoint_3","path":"sprites/sWeightPoint_3/sWeightPoint_3.yy",},},
     {"id":{"name":"sWeightPoint_full","path":"sprites/sWeightPoint_full/sWeightPoint_full.yy",},},
     {"id":{"name":"sWeightPoint","path":"sprites/sWeightPoint/sWeightPoint.yy",},},
     {"id":{"name":"sWeightPoint1","path":"sprites/sWeightPoint1/sWeightPoint1.yy",},},
