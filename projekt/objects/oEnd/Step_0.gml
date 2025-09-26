@@ -15,13 +15,11 @@ if (time % 3 == 0 && !dots && !finish) {
 }
 
 if (dots) {
-	if (time % 50 == 49) {
-		index++;	
-		if (index > string_length(text)) {
-			dots = false;
-			
-			time = 0;
-		}
+	index++;
+	
+	if (index > string_length(text) - 3) {
+		dots = true;
+		time = 0;
 	}
 }
 

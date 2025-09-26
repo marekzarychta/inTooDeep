@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.626939,
+  "duration":0.5965986,
   "name":"snd_skeleton_attack",
   "parent":{
     "name":"Sounds",
