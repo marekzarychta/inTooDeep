@@ -25,9 +25,9 @@ if (other.current_health != undefined && other.timerEnemyHit == 0 && isDamaging 
     audio_play_sound(sound_to_play, 0, false);
 
     other.flashAlpha = 0.8;
-	other.flashColor = c_red;
+	other.flashColor = c_white;
     other.timerEnemyHit = other.bufferEnemyHit;
-    other.image_index = 0;
+    //other.image_index = 0;
 }
 
 

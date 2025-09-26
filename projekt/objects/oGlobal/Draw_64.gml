@@ -73,9 +73,9 @@ if (!cutscene) {
 		//draw_set_color(c_green);
 		//draw_rectangle(width - 26 -margin - box_w, marginUp + h + 39, (width - 6) - (20 + margin + box_w) * strip_val, marginUp + h + 75, 0);
 		//draw_set_color(c_white);
-		for (var i = 0; i < task.counter; i++) {
-			draw_sprite_stretched(sWeightPoint3, 0, width - 26 -margin - box_w + block_size * i, marginUp + h + 40, block_size, 36);
-		}
+		//for (var i = 0; i < task.counter; i++) {
+		//	draw_sprite_stretched(sWeightPoint3, 0, width - 26 -margin - box_w + block_size * i, marginUp + h + 40, block_size, 36);
+		//}
 		
 		
 		draw_sprite_stretched_ext(sSelectedBox, 0, width - 26 -margin - box_w, marginUp + h + 38, 20+margin +box_w, 36, c_white, 1);
