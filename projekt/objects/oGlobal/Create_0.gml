@@ -6,6 +6,12 @@ global.gold = 0;
 gui = false;
 
 cutscene = false;
+played_entry_cutscene = false;
+
+start_text = ["Cave", "Tower", "Hell"]
+alfa = 0;
+timer = 0;
+alfa_end = false;
 
 task0 = instance_create_layer(x, y, layer, oTask);
 task0.persistent = true;

@@ -1,5 +1,11 @@
 if (active) {
 
+	if (y < 0) {
+		y += vel;
+	} else {
+		y = 0;	
+		count = 0;
+	}
 	
 	
 	if (mouse_x != prev_mouseX || mouse_y != prev_mouseY) {
@@ -13,6 +19,8 @@ if (active) {
 	} else if (option == 1) {
 		sprite_index = sMenuUITop;	
 	} else if (option == 2) {
+		sprite_index = sMenuUIMid;	
+	} else if (option == 3) {
 		sprite_index = sMenuUIBottom;	
 	}
 
@@ -48,8 +56,10 @@ if (active) {
 	if (!keyboard) {
 		if (mouse_x > x + upButton[0] && mouse_x < x + upButton[2] && mouse_y > upButton[1] && mouse_y < upButton[3]) {
 			option = 1;
+		} else if (mouse_x > x + midButton[0] && mouse_x < x + midButton[2] && mouse_y > midButton[1] && mouse_y < midButton[3]) {
+			option = 2;	
 		} else if (mouse_x > x + downButton[0] && mouse_x < x + downButton[2] && mouse_y > downButton[1] && mouse_y < downButton[3]) {
-			option = 2;
+			option = 3;
 		} else {
 			option = 0;
 		}
@@ -58,12 +68,12 @@ if (active) {
 		if (downKey) {
 			option++;
 			//option %= 3;
-			if (option > 2) option = 1;
+			if (option > 3) option = 1;
 		}
 
 		if (upKey) {
 			option--;
-			if (option < 1) option = 2;
+			if (option < 1) option = 3;
 		}
 	}
 
@@ -75,14 +85,38 @@ if (active) {
 				active = false;
 			} 
 		} else if (option == 2) {
+			if (instance_exists(oLevelSelector)) {
+				
+				active = false;
+				level_select = true;
+			} 
+		} else if (option == 3) {
 			if (instance_exists(oMenuButton_exit)) {
 				oMenuButton_exit.diff = true;
 			} 
 		}
 	}
+} else if (level_select) {
+	sprite_index = sMenuUI;
+	y -= vel;
+	if (count < time) {
+		count++;
+	} else if (count == time) {
+		if (instance_exists(oLevelSelector)) {
+			oLevelSelector.active = true;
+			oLevelSelector.y = oLevelSelector.start_y;
+			count++;
+		} 	
+	}
+	if (y < -sprite_height) {
+		y = -sprite_height;	
+	}
 } else {
 	sprite_index = sMenuUI;
 	y -= vel;
+	if (y < -sprite_height) {
+		y = -sprite_height;	
+	}
 	if (count < time) {
 		count++;
 	} else {

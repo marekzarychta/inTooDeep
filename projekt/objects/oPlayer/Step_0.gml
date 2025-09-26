@@ -311,9 +311,20 @@ if (!isDashing) {
 	            } else if currentWeightLevel < required_weight {
 	                if (!instance_exists(oTextboxPlayerGUI)) {
 						grunt();
+
 					
 	                    createFollowingTextboxGUI(screenpos_x, screenpos_y, message);
+
 	                }
+					
+					//animacja kamyczków na ścianie
+					with (b) {
+						if (!wrong_weight_anim) {
+						wrong_weight_anim = true;	 
+						num = 0;
+						time = 0;
+						}
+					}
 					
 					if (xspd < 0) {
 						part_emitter_region(global.particleSystem, emitter, b.bbox_left - 1, b.bbox_left, b.bbox_top /*+ (b.bbox_bottom - b.bbox_top)*/, b.bbox_bottom, ps_shape_rectangle, ps_distr_linear);
@@ -510,7 +521,13 @@ if (!isDashing) {
 			
 			health_points = 0;
 			
+			
 		}
+		
+		if (abs(yspd) >= termVel) {
+			enemy.fallen_death = true;
+		}
+		
 		if (enemy.isAlive) {
 			audio_play_sound(snd_hit, 0, false);
 			enemy.flashAlpha = 0.8;
@@ -563,6 +580,14 @@ if (!isDashing) {
 			part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingParticleType, random(60) + 20);
 		
 			shakeCamera(8, 2.0, 0.4);
+			
+			with (breakableWall) {
+				if (!wrong_weight_anim) {
+				wrong_weight_anim = true;	 
+				num = 0;
+				time = 0;
+				}
+			}
 		}
 	}
 	
@@ -765,6 +790,14 @@ if (!isDashing) {
 		dashTimer--;	
 		isDashing = true;
 		hasDashed = true;
+		
+		if (dashTimer % 3 == 0) {
+			ds_list_add(dashEffect, [image_number, x, y]);
+			if (ds_list_size(dashEffect) > num_after_effect + 1) {
+				ds_list_delete(dashEffect, 0);	
+			}
+		}
+		
 		xspd = smooth(xspd, (sign(moveDir) * moveSpd[currentWeightLevel] * 1.2), 0.6);
 		//part_type_direction(oGlobal.dashParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
 		//part_type_direction(oGlobal.dashWhiteParticleType, 90 + face * 90, 90 + face * 90, 0, 1);
@@ -800,12 +833,13 @@ if (!isDashing) {
 		
 	} else if dashTimer == 0 {
 		isDashing = false;
+		ds_list_clear(dashEffect);
 		k = 0;
 		dashTimer--;
 		dashCooldownTimer = dashCooldown;	
-		if (hasDashed && !instance_exists(oDashCooldownBar)) { // Pasek tworzy się tylko po dashu
-        var cooldownBar = instance_create_depth(x, y, -10, oDashCooldownBar);
-    }
+		//if (hasDashed && !instance_exists(oDashCooldownBar)) { // Pasek tworzy się tylko po dashu
+	        //var cooldownBar = instance_create_depth(x, y, -10, oDashCooldownBar);
+	    //}
 		if(debug_mode) show_debug_message("dash cooldown");
 		
 	}

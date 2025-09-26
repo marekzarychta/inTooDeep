@@ -42,7 +42,7 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
 		ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
@@ -56,12 +56,26 @@ function save() {
 		show_debug_message("enemy");
 	}
 	
+	with (oBone) {
+		obj_data = ds_map_create();
+        
+        ds_map_add(obj_data, "object_index", object_index);
+		ds_map_add(obj_data, "x", x);
+        ds_map_add(obj_data, "y", y);
+		ds_map_add(obj_data, "sprite_index", sprite_index);
+		        ds_map_add(obj_data, "layer", layer);
+		ds_map_add(obj_data, "imagex", image_xscale);
+        ds_map_add(obj_data, "imagey", image_yscale);
+		
+		ds_list_add(state, obj_data);
+	}
+	
 	with (oTaskNPC) {
 		obj_data = ds_map_create();
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
 		ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);
@@ -79,7 +93,7 @@ function save() {
         
         ds_map_add(obj_data, "object_index", object_index);
         ds_map_add(obj_data, "x", x);
-        ds_map_add(obj_data, "y", y)
+        ds_map_add(obj_data, "y", y);
         ds_map_add(obj_data, "layer", layer);
 		ds_map_add(obj_data, "imagex", image_xscale);
         ds_map_add(obj_data, "imagey", image_yscale);	
@@ -250,6 +264,9 @@ function load(state) {
 	with (oItemTemplate) {
         instance_destroy();
     }
+	with (oBone) {
+        instance_destroy();
+    }
 	with (oBox) {
 		if (!object_is_ancestor(id.object_index, oBox))
 			instance_destroy();
@@ -363,6 +380,13 @@ function load(state) {
 			new_instance.target.opened =ds_map_find_value(obj_data, "opened");
 			new_instance.clicked = ds_map_find_value(obj_data, "clicked");
 			new_instance.clickable = ds_map_find_value(obj_data, "clickable");
+
+			
+		}
+		
+		if (new_instance.object_index == oBone) {
+			
+			new_instance.sprite_index = ds_map_find_value(obj_data, "sprite_index"); 
 
 			
 		}

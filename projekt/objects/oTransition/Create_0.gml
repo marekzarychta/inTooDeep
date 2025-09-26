@@ -5,6 +5,9 @@ alpha = 0; // Jeśli fade-in, zaczynamy od pełnej czerni
 speed = 0.02;          // Prędkość efektu
 
 nextRoom = true;
+setnextroom = false;
+setnextroom_value = Menu;
+
 
 if (instance_exists(oGlobal)) {
 	layer = oGlobal.layer;

@@ -35,3 +35,5 @@ rightEdgeY = room_height - _camHeight;
 
 _camX = 0;
 _camY = 0;
+
+screen_mode = false;

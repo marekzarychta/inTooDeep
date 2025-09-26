@@ -29,6 +29,7 @@ outRangeSprite = sprites[scenerio][6];
 
 textBoxInstance = noone;
 textBoxInstance2 = noone;
+depositBar = noone;
 
 bagWeight = 0;
 

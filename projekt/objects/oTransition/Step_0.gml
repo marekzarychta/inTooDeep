@@ -2,16 +2,21 @@ if (fade_out) {
     alpha += speed;
     if (alpha >= 1) {
         alpha = 1;
-        // Po zakończeniu przejścia załaduj kolejny poziom
-		if (nextRoom) {
-		    if (room == Menu || room == initRoom) {
-				if (instance_exists(oGlobal)) {
-					oGlobal.roomCounter++;	
-				}
-				room_goto_next();
-			} else {
+        // Po zakończeniu przejścia załaduj wybrany poziom
+		if (setnextroom) {
+			room_goto(setnextroom_value);	
+		} else {
+			// Po zakończeniu przejścia załaduj kolejny poziom
+			if (nextRoom) {
+			    if (room == Menu || room == initRoom) {
+					if (instance_exists(oGlobal)) {
+						oGlobal.roomCounter++;	
+					}
+					room_goto_next();
+				} else {
 				
-				room_goto(przejscie);
+					room_goto(przejscie);
+				}
 			}
 		}
         fade_out = false;

@@ -1,0 +1,1 @@
+//show_debug_message("x: " + string(device_mouse_x(0)) + " y: " + string(device_mouse_y(0)) + "\n");
