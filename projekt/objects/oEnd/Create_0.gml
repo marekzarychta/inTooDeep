@@ -1,4 +1,4 @@
-text = "That's all for now, stay tuned..."
+text = "Thank you for playing the game!\nThat's all for now, but\nstay tuned for more!"
 
 setUIvisibility(false);
 

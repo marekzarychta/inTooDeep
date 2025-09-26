@@ -8,7 +8,7 @@ gui = false;
 cutscene = false;
 played_entry_cutscene = false;
 
-start_text = ["Cave", "Tower", "Hell"]
+start_text = ["Level 1\nTHE LOST LIBRARY", "Level 2\nSLIMY RAMPARTS", "Level 3\nRUINS OF SYSOP"]
 alfa = 0;
 timer = 0;
 alfa_end = false;

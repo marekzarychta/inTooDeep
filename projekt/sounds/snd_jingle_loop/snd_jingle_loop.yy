@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_jingle_loop",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":90.62666,
+  "name":"snd_jingle_loop",
+  "parent":{
+    "name":"music",
+    "path":"folders/Sounds/music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_jingle_loop.wav",
+  "type":0,
+  "volume":0.1,
+}
