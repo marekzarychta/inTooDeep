@@ -120,11 +120,12 @@ if place_meeting(x, y, oPlayer) && collectable {
     oGlobal.coin_chain += 1;
     oGlobal.coin_chain_timer = 30;
 
-    var pitch = min(1.0 + oGlobal.coin_chain * 0.1, 2.0);
+
+    var pitch = min(0.9 + oGlobal.coin_chain * 0.1, 2.0);
 
     // Sprawdź cooldown
     if oGlobal.coin_sound_cooldown <= 0 {
-        var snd_inst = audio_play_sound(snd_pickup, 0, false);
+        var snd_inst = audio_play_sound(snd_pickup_coin, 0, false);
         audio_sound_pitch(snd_inst, pitch);
         oGlobal.coin_sound_cooldown = 5; // np. 5 klatek = 0.083 sekundy
     }

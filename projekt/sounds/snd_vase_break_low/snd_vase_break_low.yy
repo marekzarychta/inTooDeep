@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.757551,
+  "duration":0.72705215,
   "name":"snd_vase_break_low",
   "parent":{
     "name":"Sounds",
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"snd_vase_break_low.mp3",
   "type":0,
-  "volume":0.12,
+  "volume":0.1,
 }

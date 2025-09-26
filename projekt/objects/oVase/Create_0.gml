@@ -9,6 +9,9 @@ sprite_index = vase_sprites[random_range(0,4)];
 //see if was hit
 wasHit = false;
 
-function playSound(){
-	audio_play_sound(snd_vase_break_low,0,false);
+sounds = [snd_vase_break, snd_vase_break_low, snd_vase_break_2];
+
+function playSound() {
+    var index = irandom(array_length(sounds) - 1);
+    audio_play_sound(sounds[index], 0, false);
 }
