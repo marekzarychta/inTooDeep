@@ -4,6 +4,7 @@ if (active) {
 		y += vel;
 	} else {
 		y = 0;	
+		count = 0;
 	}
 	
 	
@@ -85,8 +86,9 @@ if (active) {
 			} 
 		} else if (option == 2) {
 			if (instance_exists(oLevelSelector)) {
-				oLevelSelector.active = true;
+				
 				active = false;
+				level_select = true;
 			} 
 		} else if (option == 3) {
 			if (instance_exists(oMenuButton_exit)) {
@@ -94,9 +96,27 @@ if (active) {
 			} 
 		}
 	}
+} else if (level_select) {
+	sprite_index = sMenuUI;
+	y -= vel;
+	if (count < time) {
+		count++;
+	} else if (count == time) {
+		if (instance_exists(oLevelSelector)) {
+			oLevelSelector.active = true;
+			oLevelSelector.y = oLevelSelector.start_y;
+			count++;
+		} 	
+	}
+	if (y < -sprite_height) {
+		y = -sprite_height;	
+	}
 } else {
 	sprite_index = sMenuUI;
 	y -= vel;
+	if (y < -sprite_height) {
+		y = -sprite_height;	
+	}
 	if (count < time) {
 		count++;
 	} else {

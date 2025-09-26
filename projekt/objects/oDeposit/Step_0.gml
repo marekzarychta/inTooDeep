@@ -2,9 +2,9 @@
 var text, text2;
 
 //if !InventoryIsEmpty(oInventory) {
-	text = "   deposit";
+	text = "take";
 //} else {
-	text2 = "   retrieve";
+	text2 = "leave";
 //}
 
 //if InventoryIsEmpty(oInventory) && ds_list_size(global.lista) == 0 {
@@ -123,7 +123,7 @@ markedChange = false;
 
 if (openable && marked && !animating) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance = createTextbox(x, y - 40, text); // Tworzymy textbox
+        textBoxInstance = createTextbox(x - 50, y - 40, text); // Tworzymy textbox
 		textBoxInstance.depo = true;
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
@@ -139,9 +139,31 @@ if (openable && marked && !animating) {
 
 if (openable && marked && !animating) {
     if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance2 = createTextbox(x, y - 20, text2); // Tworzymy textbox
+        textBoxInstance2 = createTextbox(x + 40, y - 40, text2); // Tworzymy textbox
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
+		textBoxInstance2.left = false;
+		
+    } else if instance_exists(textBoxInstance2) {
+        textBoxInstance2.textVal = text2;
+		textBoxInstance2.normal = false;
+		textBoxInstance2.depo = true;
+    }
+
+} else {
+    if (textBoxInstance2 != noone && instance_exists(textBoxInstance2)) { // Jeśli istnieje textbox
+        instance_destroy(textBoxInstance2); // Usuwamy go
+        textBoxInstance2 = noone; // Resetujemy wskaźnik
+		
+    }
+}
+
+if (openable && marked && !animating) {
+    if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
+        textBoxInstance2 = createTextbox(x + 40, y - 40, text2); // Tworzymy textbox
+		textBoxInstance2.normal = false;
+		textBoxInstance2.depo = true;
+		textBoxInstance2.left = false;
 		
     } else if instance_exists(textBoxInstance2) {
         textBoxInstance2.textVal = text2;

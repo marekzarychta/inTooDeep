@@ -1,4 +1,12 @@
 if (!cutscene) {
+	
+	draw_set_alpha(alfa);
+	draw_set_font(Fnt_UI_big);
+	draw_set_color(c_white);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text(window_get_width() / 2, window_get_height() / 2, start_text[roomCounter - 1]);
+	draw_set_alpha(1);
 
 	draw_set_font(Fnt_dialogues);
 	draw_set_color(c_white);

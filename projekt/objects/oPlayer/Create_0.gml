@@ -99,7 +99,7 @@ isLadder = false;
 topLadder = false;
 
 //dash
-dashBuffer = 120;
+dashBuffer = 30;
 dashTimer = 0;
 dashCooldown = 30;
 dashCooldownTimer = 0;

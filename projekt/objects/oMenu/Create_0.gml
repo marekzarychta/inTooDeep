@@ -1,6 +1,7 @@
 option = 0;
 
 active = true;
+level_select = false;
 keyboard = false;
 
 prev_mouseX = mouse_x;
