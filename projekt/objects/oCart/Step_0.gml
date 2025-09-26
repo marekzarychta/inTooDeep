@@ -6,14 +6,17 @@ if (place_meeting(x, y + 1, oTracks)) {
 	moveDir = 0;
 }
 
+drawX = (x - camera_get_view_x(view_camera[0])) * 4;
+drawY = (y - camera_get_view_y(view_camera[0])) * 4;
+
 var _subPixel = 0.5;
 
 var text, text2;
 
 //if !InventoryIsEmpty(oInventory) {
-	text = "Deposit";
+	text = "leave";
 //} else {
-	text2 = "Retrieve";
+	text2 = "take";
 
 
 
@@ -35,7 +38,7 @@ if (place_meeting(x, y, oPlayer) || (oCart == object_index)) {
 
 if (openable && marked) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance = createTextboxGUI(x, y - 40*4, text); // Tworzymy textbox
+        textBoxInstance = createTextboxGUI(x - 38, y - 45, text); // Tworzymy textbox
 		textBoxInstance.depo = true;
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
@@ -51,9 +54,10 @@ if (openable && marked) {
 
 if (openable && marked) {
     if (textBoxInstance2 == noone || !instance_exists(textBoxInstance2)) { // Tylko jeśli textbox nie istnieje
-        textBoxInstance2 = createTextboxGUI(x, y - 20, text2); // Tworzymy textbox
+        textBoxInstance2 = createTextboxGUI(x + 30, y - 45, text2); // Tworzymy textbox
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
+		textBoxInstance2.left = false;
     } else if instance_exists(textBoxInstance2) {
         textBoxInstance2.textVal = text2;
 		textBoxInstance2.normal = false;

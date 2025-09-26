@@ -29,7 +29,7 @@ for (var ox = -2; ox <= 2; ox++) {
 			
 			if (left) {
 				draw_set_halign(fa_left);
-				draw_text(drawX + 20  + ox, drawY-8+string_height(textVal)/2+ oy, textVal);
+				draw_text(drawX + 36  + ox, drawY-8+string_height(textVal)/2+ oy, textVal);
 			} else {
 				draw_set_halign(fa_right);
 				draw_text(drawX - 4  + ox, drawY-8+string_height(textVal)/2+ oy, textVal);

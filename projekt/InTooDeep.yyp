@@ -524,6 +524,7 @@
     {"id":{"name":"sWeight","path":"sprites/sWeight/sWeight.yy",},},
     {"id":{"name":"sWeightBar","path":"sprites/sWeightBar/sWeightBar.yy",},},
     {"id":{"name":"sWeightMini","path":"sprites/sWeightMini/sWeightMini.yy",},},
+    {"id":{"name":"sWeightPoint_full","path":"sprites/sWeightPoint_full/sWeightPoint_full.yy",},},
     {"id":{"name":"sWeightPoint","path":"sprites/sWeightPoint/sWeightPoint.yy",},},
     {"id":{"name":"sWeightPoint1","path":"sprites/sWeightPoint1/sWeightPoint1.yy",},},
     {"id":{"name":"sWeightPoint2_1","path":"sprites/sWeightPoint2_1/sWeightPoint2_1.yy",},},
