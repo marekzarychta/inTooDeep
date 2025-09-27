@@ -75,7 +75,7 @@ if (!cutscene) {
 		draw_rectangle(width - 26 -margin - box_w, marginUp + h + 39, (width - 6) - (20 + margin + box_w) * strip_val, marginUp + h + 75, 0);
 		draw_set_color(c_white);
 		for (var i = 0; i < task.counter; i++) {
-			draw_sprite_stretched(sWeightPoint2_1, 0, width - 26 -margin - box_w + block_size * i, marginUp + h + 40, block_size, 36);
+			draw_sprite_stretched(sWeightPoint_3, 0, width - 26 -margin - box_w + block_size * i, marginUp + h + 40, block_size, 36);
 		}
 		
 		
