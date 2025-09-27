@@ -33,6 +33,12 @@ if (!cutscene) {
 	}
 }
 
+if (room != endRoom && room != przejscie) {
+	if(!audio_is_playing(snd_ambient)){
+		audio_play_sound(snd_ambient,0,true);
+	}	
+}
+
 if (room == demo) {
 	
 	if (!played_intro && !audio_is_playing(snd_level1_intro)) {
@@ -47,7 +53,7 @@ if (room == demo) {
 	
 	
 } else if (room == demo2) {
-	if (!audio_is_playing(snd_id)) {
+	if (!audio_is_playing(snd_level2_loop)) {
 		snd_id = audio_play_sound(snd_level2_loop, 0, true);
 	}
 } else if (room == demo3) {

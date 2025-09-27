@@ -9,6 +9,10 @@ if (x < 96) {
 	blockControls(true);
 	
 	if (index = 0) {
+		if (standing_timer == 0) {
+			oFallingRocks.play = true;	
+		}
+		
 		if (standing_timer < standing_buffer1) {
 			standing_timer++;	
 		} else {
