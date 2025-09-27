@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":95.74401,
+  "duration":95.74399,
   "name":"snd_jingle_intro",
   "parent":{
     "name":"music",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_jingle_intro.wav",
+  "soundFile":"snd_jingle_intro.ogg",
   "type":0,
   "volume":0.1,
 }

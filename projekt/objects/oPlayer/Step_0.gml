@@ -298,7 +298,7 @@ if (!isDashing) {
 	    var wall_info = breakableWalls[i];
 	    var wall_obj = wall_info.wall;
 	    var required_weight = wall_info.weight;
-	    var message = "i need more weight...";
+	    var message = "Won't budge...";
 
 	    if (place_meeting(x + sign(xspd), y, wall_obj) && dashTimer > 0) {
 	        var b = instance_place(x + sign(xspd), y, wall_obj);
@@ -373,7 +373,7 @@ if (!isDashing) {
 	
 		if (!instance_exists(oTextboxPlayerGUI)) {
 			grunt();
-	        createFollowingTextboxGUI(screenpos_x, screenpos_y, "this opens somewhere else...");
+	        createFollowingTextboxGUI(screenpos_x, screenpos_y, "This must open elsewhere...");
 	    }
 		//Stop movement to collide
 		xspd = 0;	

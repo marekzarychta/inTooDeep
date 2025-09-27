@@ -199,7 +199,7 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
 	
 		if (oPlayer.depositKey) {
 			if !InventoryIsEmpty(oInventory) {
-				audio_play_sound(snd_pickup, 0, false);
+				audio_play_sound(snd_place, 0, false);
 
 				//for (var i = ds_list_size(oInventory.inventory) - 1; i >= 0 ; i--) {	
 				var i = ds_list_size(oInventory.inventory) - 1
@@ -215,7 +215,7 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
 			} else{
 				grunt();
 				if(!instance_exists(oTextboxPlayerGUI)){
-					textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to deposit");
+					textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"My backpack is empty");
 				}
 		
 			}
@@ -243,7 +243,7 @@ if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.
 			} else{
 				grunt();
 				if(!instance_exists(oTextboxPlayerGUI)){
-				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"Nothing to retrieve...");
+				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"It's empty");
 				}
 		
 			}

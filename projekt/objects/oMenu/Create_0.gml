@@ -18,6 +18,10 @@ count = 0;
 
 	audio_play_sound(snd_ambient, 0, true);
 
+// Tworzenie instancji obiektu QR GUI
+//instance_create_layer(0, 0, "GUI", oItch);
+
+
 //if (sprite_exists(sMenuDwarfAnimation)) {
 //	sMenuDwarfAnimation.speed = 0;
 //}

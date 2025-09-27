@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_level3_loop.wav",
-  "type":0,
+  "soundFile":"snd_level3_loop.ogg",
+  "type":1,
   "volume":0.1,
 }

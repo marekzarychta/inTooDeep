@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":119.29222,
+  "duration":119.2922,
   "name":"snd_level2_loop",
   "parent":{
     "name":"music",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_level2_loop.wav",
-  "type":0,
+  "soundFile":"snd_level2_loop.ogg",
+  "type":1,
   "volume":0.1,
 }

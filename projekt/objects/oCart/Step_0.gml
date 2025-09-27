@@ -144,7 +144,7 @@ if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 			} else {
 				grunt();
 				if(!instance_exists(oTextboxPlayerGUI)){
-				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"it's full");
+				textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"It's full");
 				}
 			}
 				
@@ -152,7 +152,7 @@ if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 		} else{
 			grunt();
 			if(!instance_exists(oTextboxPlayerGUI)){
-			textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"nothing to deposit");
+			textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"My backpack is empty");
 			}
 		
 		}
@@ -173,7 +173,7 @@ if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 		} else {
 			grunt();
 			if(!instance_exists(oTextboxPlayerGUI)){
-			textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"Nothing to retrieve...");
+			textbox = createFollowingTextboxGUI(oPlayer.x,oPlayer.y,"It's empty");
 			}
 		
 		}

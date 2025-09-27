@@ -17,7 +17,7 @@ if (sprite_index == sJarAwake && image_index >= image_number - 1) {
 }
 
 if (!gui) {
-	var text = "talk";
+	var text = "Talk";
 	if (!variable_instance_exists(id, "textBoxInstance")) {
 	    textBoxInstance = noone;
 	}

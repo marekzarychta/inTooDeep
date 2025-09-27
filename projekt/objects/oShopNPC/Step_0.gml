@@ -33,7 +33,7 @@ if (animating) {
 markedChange = false;
 
 if (!gui) {
-	var text = "talk";
+	var text = "Talk";
 	if (!variable_instance_exists(id, "textBoxInstance")) {
 	    textBoxInstance = noone;
 	}
@@ -153,13 +153,18 @@ if (!gui) {
 						}
 						
 					} else {
-						createFollowingTextboxGUI(oPlayer.x, oPlayer.y, "i'm already fine");
+						if(!instance_exists(oTextboxPlayerGUI)){
+						createFollowingTextboxGUI(oPlayer.x, oPlayer.y, "I'm already fine");
 						grunt();
+						}
 					}
 					
 				} else {
-					createFollowingTextboxGUI(oPlayer.x, oPlayer.y, "it's too expensive");
+					
+						if(!instance_exists(oTextboxPlayerGUI)){
+					createFollowingTextboxGUI(oPlayer.x, oPlayer.y, "It's too expensive");
 					grunt();
+						}
 				}
 			} else {
 				closeKey = 1;

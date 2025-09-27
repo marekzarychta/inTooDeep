@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_jingle_loop.wav",
+  "soundFile":"snd_jingle_loop.ogg",
   "type":0,
   "volume":0.1,
 }

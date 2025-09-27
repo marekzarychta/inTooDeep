@@ -589,7 +589,7 @@ function chestHandling(_text) {
     }
     var text;
     if _text == "" {
-        text = "open";
+        text = "Open";
     } else {
         text = _text;
     }

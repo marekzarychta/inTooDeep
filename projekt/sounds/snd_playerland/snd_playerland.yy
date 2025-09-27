@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.235102,
+  "duration":0.20215419,
   "name":"snd_playerland",
   "parent":{
     "name":"Sounds",

@@ -125,6 +125,7 @@ if (active) {
 		//}
 		shakeCamera(14, 4, 1);
 		audio_play_sound(snd_wall_destroy, 0, false);
+		audio_play_sound(snd_roar,0,false);
 		instance_destroy();
 	}
 }
