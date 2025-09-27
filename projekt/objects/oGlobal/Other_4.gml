@@ -45,10 +45,7 @@ if (room != przejscie && room != endRoom) {
 		layer_create(-20, "GUI");	
 	}
 
-	if(room==demo or room == demo2 or room == demo3 and !audio_is_playing(snd_ambient)){
-		audio_play_sound(snd_ambient,0,true);
-		
-	}
+	
 
 	if (layer_exists("Player")) {
 		if (!layer_exists("Player_below")) {
