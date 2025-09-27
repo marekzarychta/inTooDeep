@@ -268,6 +268,7 @@
     {"id":{"name":"snd_playerland","path":"sounds/snd_playerland/snd_playerland.yy",},},
     {"id":{"name":"snd_playerstep_rock","path":"sounds/snd_playerstep_rock/snd_playerstep_rock.yy",},},
     {"id":{"name":"snd_playerstep","path":"sounds/snd_playerstep/snd_playerstep.yy",},},
+    {"id":{"name":"snd_rockfall","path":"sounds/snd_rockfall/snd_rockfall.yy",},},
     {"id":{"name":"snd_scroll","path":"sounds/snd_scroll/snd_scroll.yy",},},
     {"id":{"name":"snd_shopkeeper","path":"sounds/snd_shopkeeper/snd_shopkeeper.yy",},},
     {"id":{"name":"snd_skeleton_attack","path":"sounds/snd_skeleton_attack/snd_skeleton_attack.yy",},},
