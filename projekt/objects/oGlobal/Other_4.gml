@@ -38,6 +38,9 @@ if (room != przejscie && room != endRoom) {
 	//if (!cutscene) {
 	//	setUIvisibility(true);
 	//}
+	
+	start_room_text_anim = true;
+	
 	if (!instance_exists(oTransitionCutScene)) {
 		setUIvisibility(true);	
 	}

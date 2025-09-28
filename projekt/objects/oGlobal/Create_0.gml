@@ -3,6 +3,10 @@ global.lista = ds_list_create();
 global.task_list = ds_list_create();
 global.gold = 0;
 
+password = "ejzert"
+ejzert_mode = false;
+last_signs = ds_list_create();
+
 gui = false;
 
 cutscene = false;
@@ -10,8 +14,12 @@ played_entry_cutscene = false;
 
 start_text = ["Level 1\nTHE LOST LIBRARY", "Level 2\nSLIMY RAMPARTS", "Level 3\nRUINS OF SYSOP"]
 alfa = 0;
+start_room_text_anim = false;
+prev_char = ""
 timer = 0;
 alfa_end = false;
+
+speed_run_timer = 0;
 
 played_intro = false;
 snd_id = noone;
@@ -348,6 +356,19 @@ part_type_direction(crumblingParticleType, 240, 300, 0.0, 1);
 part_type_speed(crumblingParticleType, 0.1, 0.1, 0.0, 0);
 //part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
 part_type_gravity(crumblingParticleType, 0.08, 270);
+
+speed_run_mode_particle = part_type_create();
+
+part_type_sprite(speed_run_mode_particle, sParticleSpeedMode, 0, 0, 1);
+part_type_life(speed_run_mode_particle, 3, 20);
+part_type_size(speed_run_mode_particle, 0.15, 0.25, -0.01, 0);
+//part_type_orientation(speed_run_mode_particle, 0, 0, 0, 0, 0);
+part_type_blend(speed_run_mode_particle, 0);
+
+part_type_direction(speed_run_mode_particle, 0, 359, 0.5, 1);
+part_type_speed(speed_run_mode_particle, 0.3, 0.3, -0.01, 0.000);
+//part_type_alpha3(crumblingParticleType, 0.7, 0.8, 0.02);
+//part_type_gravity(speed_run_mode_particle, 0.01, 90);
 
 crumblingLeftParticleType = part_type_create();
 

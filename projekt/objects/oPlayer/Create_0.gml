@@ -57,8 +57,9 @@ emitter = part_emitter_create(global.particleSystem);
 emitterR = part_emitter_create(global.particleSystem);
 emitterhandL = part_emitter_create(global.particleSystem);
 emitterhandR = part_emitter_create(global.particleSystem);
+emitter_Spd = part_emitter_create(global.particleSystem);
 
-
+timer = 0;
 
 reviveTimer = 0;
 reviveBuffer = 100;

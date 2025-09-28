@@ -1,14 +1,36 @@
 if (!cutscene) {
 	
-	draw_set_alpha(alfa);
-	draw_set_font(Fnt_UI_big);
-	draw_set_color(c_white);
-	draw_line_width((-30 + window_get_width() - string_width(start_text[roomCounter - 1]))/ 2 , window_get_height() / 2, (60 + window_get_width() + string_width(start_text[roomCounter - 1]))/ 2 , window_get_height() / 2, 6)
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle);
-	draw_text(window_get_width() / 2, window_get_height() / 2, start_text[roomCounter - 1]);
-	draw_set_alpha(1);
-
+	if (start_room_text_anim) {
+		draw_set_alpha(alfa);
+		draw_set_font(Fnt_UI_big);
+		draw_set_color(c_white);
+		draw_line_width((-30 + window_get_width() - string_width(start_text[roomCounter - 1]))/ 2 , window_get_height() / 2, (60 + window_get_width() + string_width(start_text[roomCounter - 1]))/ 2 , window_get_height() / 2, 6)
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		draw_text(window_get_width() / 2, window_get_height() / 2, start_text[roomCounter - 1]);
+		draw_set_alpha(1);
+	}
+	
+	if (ejzert_mode) {
+		
+		var time = current_time - speed_run_timer;
+		var sec = floor(time / 1000);
+		var _min = floor(sec / 60);
+		var _sec = sec % 60;
+		draw_set_font(Fnt_UI_big);
+		draw_set_color(c_white);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_middle);
+		draw_text(375, 16 + sprite_get_height(sHealthBar) / 2, (_min < 10 ? "0" : "") + string(_min)+":"+(_sec < 10 ? "0" : "")+string(_sec));
+		
+		draw_set_alpha(alfa);
+		
+		//draw_line_width((-30 + window_get_width() - string_width(start_text[roomCounter - 1]))/ 2 , window_get_height() / 2, (60 + window_get_width() + string_width(start_text[roomCounter - 1]))/ 2 , window_get_height() / 2, 6)
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		draw_text(window_get_width() / 2, window_get_height() / 2, "Speedrun mode activated");
+		draw_set_alpha(1);
+	}
 	draw_set_font(Fnt_dialogues);
 	draw_set_color(c_white);
 	draw_set_halign(fa_left);

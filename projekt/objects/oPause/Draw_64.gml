@@ -10,8 +10,12 @@ if (pause) {
 	//draw_text(960, 500, "PAUSED");
 	
 	//draw_self();
+	
+	var w = display_get_gui_width();
+	var h = display_get_gui_height();
+	
 	var multply = window_get_width() / sprite_width;
-	draw_sprite_stretched(sPauseUI, index, 0, y, window_get_width(), window_get_height());
+	draw_sprite_stretched(sPauseUI, index, 0, y, w, h);
 	
 	//draw_set_color(c_white);
 	//draw_set_font(Fnt_UI);

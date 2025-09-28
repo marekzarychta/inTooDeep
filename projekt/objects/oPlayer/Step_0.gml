@@ -19,6 +19,16 @@ function setOnGround(_val = true){
 	
 }
 
+//timer++;
+
+if (instance_exists(oGlobal) && oGlobal.ejzert_mode) {
+	
+	//if (timer % 10 == 0) {
+		part_emitter_region(global.particleSystem, emitter_Spd, bbox_left, bbox_right, bbox_bottom, bbox_top - 5, ps_shape_ellipse, ps_distr_gaussian);
+	
+		part_emitter_burst(global.particleSystem, emitter_Spd, oGlobal.speed_run_mode_particle, 100);
+	//}
+}
 
 
 if(debug_mode){
@@ -486,7 +496,9 @@ if (!isDashing) {
 		//Add jump to count
 		jumpCount++;
 		jumpStartTimer = jumpDuration;
-		yspd = -10; //? to jest i tak nadpisane
+		if (instance_exists(oGlobal) && oGlobal.ejzert_mode) {
+			yspd = -10; //? to jest i tak nadpisane
+		}
 		//Set jump hold timer
 		jumpHoldTimer = jumpHoldFrames[jumpCount-1];
 		
@@ -574,7 +586,12 @@ if (!isDashing) {
 	            }
 	        }
 	    } else if ((place_meeting(x, y + yspd, oBreakableWallRed) || place_meeting(x, y + yspd, oBreakableWallOrange)) && yspd > 0) {
-			var breakableWall = instance_place(x, y + yspd, oWall);
+			var breakableWall;
+			if (place_meeting(x, y + yspd, oBreakableWallRed)) {
+				breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
+			} else {
+				breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
+			}
 			part_emitter_region(global.particleSystem, emitter, (breakableWall.bbox_left > x - 24 ? breakableWall.bbox_left : x - 24),(breakableWall.bbox_right < x + 24 ? breakableWall.bbox_right : x + 24), breakableWall.bbox_bottom - 4, breakableWall.bbox_bottom - 1, ps_shape_rectangle, ps_distr_gaussian);
 			
 			part_emitter_burst(global.particleSystem, emitter, oGlobal.crumblingParticleType, random(60) + 20);
@@ -582,10 +599,10 @@ if (!isDashing) {
 			shakeCamera(8, 2.0, 0.4);
 			
 			with (breakableWall) {
-				if (!wrong_weight_anim) {
-				wrong_weight_anim = true;	 
-				num = 0;
-				time = 0;
+				if (instance_exists(breakableWall) && !wrong_weight_anim) {
+					wrong_weight_anim = true;	 
+					num = 0;
+					time = 0;
 				}
 			}
 		}
