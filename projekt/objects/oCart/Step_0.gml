@@ -106,6 +106,7 @@ if marked && openable && ds_list_size(content) == 0 {
 
 if (marked && openable && oPlayer.isInteracting) && oPlayer.isAlive {
 	
+	setVibration(15, 0.1);
 		//audio_play_sound(snd_pickup, 0, false);
 		
 	//odbieram wszystko z wagonika
@@ -219,6 +220,7 @@ if (onTracks) {
 	        if (mass >= weightChangeValue[1] && abs(xspd) > 1) {
 	            with (b) {
 					emittingDestruction(75, b.id)
+					setVibration(30, 1);
 	                instance_destroy();
 	            }
 	        } else {
@@ -240,6 +242,7 @@ if (onTracks) {
 	        if (mass >= weightChangeValue[2] && abs(xspd) > 1) {
 	            with (b) {
 					emittingDestruction(100, b.id)
+					setVibration(30, 1);
 	                instance_destroy();
 	            }
 	        } else {

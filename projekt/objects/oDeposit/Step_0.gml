@@ -195,7 +195,7 @@ if (openable && marked && !animating) {
 		
 if (marked && openable && !animating && oPlayer.isInteracting) /*&& !oInventory.opened*/ && oPlayer.isAlive {
     
-	
+		setVibration(10, 0.1);
 	
 		if (oPlayer.depositKey) {
 			if !InventoryIsEmpty(oInventory) {

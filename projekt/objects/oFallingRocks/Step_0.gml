@@ -7,6 +7,7 @@ if (play) {
 	if(image_index==11){
 		if(!audio_is_playing(snd_purr)){
 			audio_play_sound(snd_purr,0,false);
+			setVibration(30, 1);
 		}		
 	}
 	image_speed = 0.5;

@@ -19,6 +19,7 @@ if place_meeting(x, y , oWall) && place_meeting(x, y , oEnemyParent) {
 
 // oHitbox -> Collision Event with oEnemy
 if (other.health_points != undefined && !other.wasHit && isDamaging) {
+	setVibration(15, 0.8);
 	if (other.isAlive) {
 		audio_play_sound(snd_hit,0,false);
 		part_emitter_region(global.particleSystem, emiter, other.x - 4 + other.image_xscale * 4, other.x + 4 + other.image_xscale * 4, other.bbox_top + 4, other.bbox_bottom - 4, ps_shape_ellipse, ps_distr_invgaussian);

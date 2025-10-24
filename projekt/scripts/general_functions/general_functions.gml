@@ -1,3 +1,16 @@
+function setVibration(_time, _force) {
+	if (!instance_exists(oVibration)) {
+		var inst = instance_create_layer(x, y, layer, oVibration);
+		inst.vib_buffer = _time;
+		inst.force = _force;
+	} else {
+		var inst = instance_nearest(x, y, oVibration);
+		inst.vib_buffer = _time;
+		inst.force = _force;
+		inst.vib_timer = 0;
+	}
+}
+
 function emittingDestruction(_howMany, _id) {
 	part_emitter_region(global.particleSystem, _id.emitter, _id.bbox_left , _id.bbox_right, _id.bbox_top, _id.bbox_bottom, ps_shape_rectangle, ps_distr_invgaussian);
 	//part_type_color1(oGlobal.destructionParticleType, c_red);

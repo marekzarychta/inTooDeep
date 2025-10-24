@@ -19,7 +19,7 @@ if place_meeting(x, y , oWall) && place_meeting(x, y , oEnemyParent) {
 if (other.current_health != undefined && other.timerEnemyHit == 0 && isDamaging && other.isAlive) {
     createMiniTextbox(other.x, other.y, "health", "-");
     LoseHP(other);
-
+	setVibration(15, 0.8);
     // Funkcja losująca dźwięk
     var sound_to_play = choose(snd_player_damaged, snd_player_damaged_2);
     audio_play_sound(sound_to_play, 0, false);

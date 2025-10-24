@@ -316,6 +316,7 @@ if (!isDashing) {
 	            if (currentWeightLevel >= required_weight) {
 	                with (b) {
 						emittingDestruction(b.object_index == oBreakableWallOrange ? 75 : 100, b.id);
+						setVibration(30, 1);
 						instance_destroy();
 	                }
 	            } else if currentWeightLevel < required_weight {
@@ -364,7 +365,7 @@ if (!isDashing) {
 		var box = instance_place(x + xspd, y, oBox);
 	    if (box != noone) {
 			box.moveDir = sign(moveDir);
-			
+			setVibration(15, 0.5);
 			box.moveTimer = 0;
 			dashTimer = 0;
 		}
@@ -537,6 +538,7 @@ if (!isDashing) {
 		}
 		
 		if (abs(yspd) >= termVel) {
+			setVibration(20, 0.6);
 			enemy.fallen_death = true;
 		}
 		
@@ -573,6 +575,7 @@ if (!isDashing) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallOrange);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
+					setVibration(30, 1);
 					emittingDestruction(75, id);
 	                instance_destroy();
 	            }
@@ -581,6 +584,7 @@ if (!isDashing) {
 	        var breakableWall = instance_place(x, y + yspd, oBreakableWallRed);
 	        if (breakableWall != noone) {
 	            with (breakableWall) {
+					setVibration(30, 1);
 					emittingDestruction(100, id);
 	                instance_destroy();
 	            }
