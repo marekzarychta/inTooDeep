@@ -30,7 +30,7 @@ Gra wspiera zarówno klawiaturę, jak i kontrolery (gamepad jest zalecany).
 Projekt został zrealizowany przy użyciu:
 * **Silnik:** GameMaker
 * **Grafika:** Aseprite
-* **Język:** GDScript
+* **Język:** GameMaker Language
 
 ## 👥 Autorzy (Krasnal Shortworks)
 
