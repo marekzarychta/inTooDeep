@@ -2,7 +2,7 @@
 
 # InTooDeep (PL)
 
-> *"You're a dwarf who's dug too deep and awakened an ancient evil."*
+> *"Jesteś krasnoludem, który dokopał się za głęboko i przebudził pradawne zło."*
 
 **InTooDeep** to platformówka logiczna 2D z unikalną mechaniką obciążenia, stworzona przez zespół **Krasnal Shortworks**. Wcielasz się w krasnoluda, który w chciwym poszukiwaniu skarbów dokopał się zbyt głęboko, budząc starożytne zło. Twoim celem jest ucieczka na powierzchnię z jak największą ilością złota.
 
