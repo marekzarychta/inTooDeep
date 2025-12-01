@@ -2,7 +2,7 @@
 
 > *"You're a dwarf who's dug too deep and awakened an ancient evil."*
 
-**InTooDeep** to platformówka 2D z unikalną mechaniką obciążenia, stworzona przez zespół **Krasnal Shortworks**. Wcielasz się w krasnoluda, który w chciwym poszukiwaniu skarbów dokopał się zbyt głęboko, budząc starożytne zło. Twoim celem jest ucieczka na powierzchnię z jak największą ilością złota.
+**InTooDeep** to platformówka logiczna 2D z unikalną mechaniką obciążenia, stworzona przez zespół **Krasnal Shortworks**. Wcielasz się w krasnoluda, który w chciwym poszukiwaniu skarbów dokopał się zbyt głęboko, budząc starożytne zło. Twoim celem jest ucieczka na powierzchnię z jak największą ilością złota.
 
 Gra wyróżnia się **systemem wagi** – każdy zebrany przedmiot wpływa na fizykę postaci, utrudniając poruszanie się i skakanie, co zmusza gracza do balansowania między poziomami obciążenia.
 
@@ -21,6 +21,13 @@ Gra wyróżnia się **systemem wagi** – każdy zebrany przedmiot wpływa na fi
 
 *  **II miejsce** w kategorii *Design* podczas 17. edycji konkursu **ZTGK** (Zespołowe Tworzenie Gier Komputerowych).
 
+## Mogłeś/aś nas spotkać na:
+
+*  ZTGK 2025
+*  PGA 2025
+*  MFKiG 2025
+*  BitBoat 2025
+
 ## 🕹️ Sterowanie
 
 Gra wspiera zarówno klawiaturę, jak i kontrolery (gamepad jest zalecany).
@@ -32,7 +39,7 @@ Projekt został zrealizowany przy użyciu:
 * **Grafika:** Aseprite
 * **Język:** GameMaker Language
 
-## 👥 Autorzy (Krasnal Shortworks)
+## Autorzy (Krasnal Shortworks)
 
 * **Kamil Tasarz**
 * **Bartłomiej Ejzert**
