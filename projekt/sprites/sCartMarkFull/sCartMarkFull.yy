@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sCartMarkFull",
   "bboxMode":2,
   "bbox_bottom":19,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"29fc0c8b-f67d-4126-8ef5-798ed59c3602","name":"29fc0c8b-f67d-4126-8ef5-798ed59c3602","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"29fc0c8b-f67d-4126-8ef5-798ed59c3602","name":"29fc0c8b-f67d-4126-8ef5-798ed59c3602","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

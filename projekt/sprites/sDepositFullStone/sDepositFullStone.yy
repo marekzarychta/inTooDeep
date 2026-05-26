@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sDepositFullStone",
   "bboxMode":0,
   "bbox_bottom":35,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"c88fcc35-baae-45c8-b61b-caf15f50ce7e","name":"c88fcc35-baae-45c8-b61b-caf15f50ce7e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c88fcc35-baae-45c8-b61b-caf15f50ce7e","name":"c88fcc35-baae-45c8-b61b-caf15f50ce7e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

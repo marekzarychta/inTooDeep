@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sTorchStandHighEmpty",
   "bboxMode":0,
   "bbox_bottom":37,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"c02ad29e-b9f7-46be-bfd3-f582f42fbd91","name":"c02ad29e-b9f7-46be-bfd3-f582f42fbd91","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c02ad29e-b9f7-46be-bfd3-f582f42fbd91","name":"c02ad29e-b9f7-46be-bfd3-f582f42fbd91","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

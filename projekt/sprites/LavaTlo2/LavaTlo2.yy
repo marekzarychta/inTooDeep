@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"LavaTlo2",
   "bboxMode":0,
   "bbox_bottom":269,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"ad3a9ac3-fd03-4dbb-a301-871e155dd5cb","name":"ad3a9ac3-fd03-4dbb-a301-871e155dd5cb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"ad3a9ac3-fd03-4dbb-a301-871e155dd5cb","name":"ad3a9ac3-fd03-4dbb-a301-871e155dd5cb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

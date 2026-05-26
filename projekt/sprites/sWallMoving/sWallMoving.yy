@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sWallMoving",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"0d4655e6-6b38-4a03-9cd1-cf8ce0c29299","name":"0d4655e6-6b38-4a03-9cd1-cf8ce0c29299","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"0d4655e6-6b38-4a03-9cd1-cf8ce0c29299","name":"0d4655e6-6b38-4a03-9cd1-cf8ce0c29299","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":8,
   "gridY":8,

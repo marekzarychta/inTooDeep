@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sPlayerLadderIdle",
   "bboxMode":2,
   "bbox_bottom":31,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"a1e2b7f3-76f3-4158-aaab-c6e8aa5d6751","name":"a1e2b7f3-76f3-4158-aaab-c6e8aa5d6751","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"a1e2b7f3-76f3-4158-aaab-c6e8aa5d6751","name":"a1e2b7f3-76f3-4158-aaab-c6e8aa5d6751","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

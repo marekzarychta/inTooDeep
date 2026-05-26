@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sWeightPoint2",
   "bboxMode":0,
   "bbox_bottom":12,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"2fef3863-2cb1-4b9c-8943-b7bdf87a39bb","name":"2fef3863-2cb1-4b9c-8943-b7bdf87a39bb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"2fef3863-2cb1-4b9c-8943-b7bdf87a39bb","name":"2fef3863-2cb1-4b9c-8943-b7bdf87a39bb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

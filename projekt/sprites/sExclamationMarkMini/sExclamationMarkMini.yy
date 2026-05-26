@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sExclamationMarkMini",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"3a7d3990-c99f-42b4-a49e-7c88c7b77fd0","name":"3a7d3990-c99f-42b4-a49e-7c88c7b77fd0","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"3a7d3990-c99f-42b4-a49e-7c88c7b77fd0","name":"3a7d3990-c99f-42b4-a49e-7c88c7b77fd0","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

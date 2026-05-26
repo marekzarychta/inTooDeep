@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sDepositEmptyStone",
   "bboxMode":0,
   "bbox_bottom":35,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"9842b424-9683-4f5e-bd31-a7a6ebe89165","name":"9842b424-9683-4f5e-bd31-a7a6ebe89165","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"9842b424-9683-4f5e-bd31-a7a6ebe89165","name":"9842b424-9683-4f5e-bd31-a7a6ebe89165","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

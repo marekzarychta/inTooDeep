@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sBreakableWall_Red_Lava",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"055190d1-5686-47ce-a1d3-23b3a108827f","name":"055190d1-5686-47ce-a1d3-23b3a108827f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"055190d1-5686-47ce-a1d3-23b3a108827f","name":"055190d1-5686-47ce-a1d3-23b3a108827f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":8,
   "gridY":8,

@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sSakiewka",
   "bboxMode":0,
   "bbox_bottom":37,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"00a20a91-2d7a-4f9d-a4a4-58c6ebfc923e","name":"00a20a91-2d7a-4f9d-a4a4-58c6ebfc923e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"00a20a91-2d7a-4f9d-a4a4-58c6ebfc923e","name":"00a20a91-2d7a-4f9d-a4a4-58c6ebfc923e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

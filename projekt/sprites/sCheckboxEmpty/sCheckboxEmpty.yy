@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sCheckboxEmpty",
   "bboxMode":0,
   "bbox_bottom":23,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"109d0edd-ddf0-4bd3-94d9-1976203db9b4","name":"109d0edd-ddf0-4bd3-94d9-1976203db9b4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"109d0edd-ddf0-4bd3-94d9-1976203db9b4","name":"109d0edd-ddf0-4bd3-94d9-1976203db9b4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

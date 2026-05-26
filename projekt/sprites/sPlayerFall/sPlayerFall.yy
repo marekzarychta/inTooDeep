@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sPlayerFall",
   "bboxMode":2,
   "bbox_bottom":31,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"2c326478-cdbc-4ff5-bf4a-79a1dd1f3b1c","name":"2c326478-cdbc-4ff5-bf4a-79a1dd1f3b1c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"2c326478-cdbc-4ff5-bf4a-79a1dd1f3b1c","name":"2c326478-cdbc-4ff5-bf4a-79a1dd1f3b1c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

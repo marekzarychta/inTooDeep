@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sBackpackMediumClimb",
   "bboxMode":2,
   "bbox_bottom":31,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"2a657c8a-9763-42cb-a9dd-0c65421af2bd","name":"2a657c8a-9763-42cb-a9dd-0c65421af2bd","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"2a657c8a-9763-42cb-a9dd-0c65421af2bd","name":"2a657c8a-9763-42cb-a9dd-0c65421af2bd","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

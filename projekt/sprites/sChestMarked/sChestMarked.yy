@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sChestMarked",
   "bboxMode":0,
   "bbox_bottom":31,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"ab6b5bac-7eaf-4a3e-9cd8-dc81d3615b1a","name":"ab6b5bac-7eaf-4a3e-9cd8-dc81d3615b1a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"ab6b5bac-7eaf-4a3e-9cd8-dc81d3615b1a","name":"ab6b5bac-7eaf-4a3e-9cd8-dc81d3615b1a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":16,
   "gridY":16,

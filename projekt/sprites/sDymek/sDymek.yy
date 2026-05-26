@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sDymek",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"76bf65a2-8bcd-4b64-a7c6-6825725e28c3","name":"76bf65a2-8bcd-4b64-a7c6-6825725e28c3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"76bf65a2-8bcd-4b64-a7c6-6825725e28c3","name":"76bf65a2-8bcd-4b64-a7c6-6825725e28c3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

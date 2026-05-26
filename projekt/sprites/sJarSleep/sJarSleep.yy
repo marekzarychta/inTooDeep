@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sJarSleep",
   "bboxMode":0,
   "bbox_bottom":31,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"f9523c6e-cf7c-4fec-9d8e-c83e9e06e3b1","name":"f9523c6e-cf7c-4fec-9d8e-c83e9e06e3b1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"f9523c6e-cf7c-4fec-9d8e-c83e9e06e3b1","name":"f9523c6e-cf7c-4fec-9d8e-c83e9e06e3b1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

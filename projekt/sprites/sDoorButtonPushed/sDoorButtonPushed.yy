@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sDoorButtonPushed",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,9 +12,9 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"b334a951-473a-4147-b61d-8cd7d44e51b3","name":"b334a951-473a-4147-b61d-8cd7d44e51b3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"1f977473-b536-440b-8034-77e36ac6a029","name":"1f977473-b536-440b-8034-77e36ac6a029","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"54df12e5-f50c-40e4-b6cc-1af2af1410e7","name":"54df12e5-f50c-40e4-b6cc-1af2af1410e7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"b334a951-473a-4147-b61d-8cd7d44e51b3","name":"b334a951-473a-4147-b61d-8cd7d44e51b3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"1f977473-b536-440b-8034-77e36ac6a029","name":"1f977473-b536-440b-8034-77e36ac6a029","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"54df12e5-f50c-40e4-b6cc-1af2af1410e7","name":"54df12e5-f50c-40e4-b6cc-1af2af1410e7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

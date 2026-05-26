@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sMenuDwarfStill",
   "bboxMode":0,
   "bbox_bottom":79,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"eb9bbd3e-112c-49b6-a35d-31a5b86e8b6f","name":"eb9bbd3e-112c-49b6-a35d-31a5b86e8b6f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"eb9bbd3e-112c-49b6-a35d-31a5b86e8b6f","name":"eb9bbd3e-112c-49b6-a35d-31a5b86e8b6f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

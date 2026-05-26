@@ -40,11 +40,13 @@ if (openable && marked) {
     if (textBoxInstance == noone || !instance_exists(textBoxInstance)) { // Tylko jeśli textbox nie istnieje
         textBoxInstance = createTextboxGUI(x - 43, y - 45, text); // Tworzymy textbox
 		textBoxInstance.depo = true;
+		textBoxInstance.depth = -500;
     } else if instance_exists(textBoxInstance) {
         textBoxInstance.textVal = text;
 		textBoxInstance.depo = true;
-		textBoxInstance.parentX = x - 43
-		textBoxInstance.parentY = y -45
+		textBoxInstance.parentX = x - 43;
+		textBoxInstance.parentY = y -45;
+		textBoxInstance.depth = -500;
     }
 
 } else {
@@ -60,12 +62,14 @@ if (openable && marked) {
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
 		textBoxInstance2.left = false;
+		textBoxInstance2.depth = -500;
     } else if instance_exists(textBoxInstance2) {
         textBoxInstance2.textVal = text2;
 		textBoxInstance2.normal = false;
 		textBoxInstance2.depo = true;
-		textBoxInstance2.parentX = x + 30
-		textBoxInstance2.parentY = y - 45
+		textBoxInstance2.parentX = x + 30;
+		textBoxInstance2.parentY = y - 45;
+		textBoxInstance2.depth = -500;
     }
 
 } else {

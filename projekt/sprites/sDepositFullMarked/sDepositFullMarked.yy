@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sDepositFullMarked",
   "bboxMode":0,
   "bbox_bottom":31,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"a91fc2eb-b9ba-4750-b90b-6f771b8e79ae","name":"a91fc2eb-b9ba-4750-b90b-6f771b8e79ae","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"a91fc2eb-b9ba-4750-b90b-6f771b8e79ae","name":"a91fc2eb-b9ba-4750-b90b-6f771b8e79ae","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sWeightMini",
   "bboxMode":0,
   "bbox_bottom":6,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"43a28eb6-0f72-4fb8-8b68-9f31bb7d10e3","name":"43a28eb6-0f72-4fb8-8b68-9f31bb7d10e3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"43a28eb6-0f72-4fb8-8b68-9f31bb7d10e3","name":"43a28eb6-0f72-4fb8-8b68-9f31bb7d10e3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

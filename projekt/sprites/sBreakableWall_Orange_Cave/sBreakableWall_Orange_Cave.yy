@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sBreakableWall_Orange_Cave",
   "bboxMode":0,
   "bbox_bottom":15,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"f8a80225-41d2-463e-8e77-54a85d5bb607","name":"f8a80225-41d2-463e-8e77-54a85d5bb607","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"f8a80225-41d2-463e-8e77-54a85d5bb607","name":"f8a80225-41d2-463e-8e77-54a85d5bb607","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":8,
   "gridY":8,

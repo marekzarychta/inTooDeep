@@ -103,6 +103,7 @@ function createFollowingTextboxGUI(x, y, text) {
     textbox.textVal = text;
     textbox.followTimer = 120; // Set a timer for 2 seconds (assuming 60 FPS)
     textbox.followPlayer = true; // Enable following behavior
+	textbox.depth = -1000;
     
     return textbox;
 }
