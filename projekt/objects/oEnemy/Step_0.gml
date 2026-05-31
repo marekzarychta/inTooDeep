@@ -10,7 +10,7 @@ if (isAlive && xspd != 0)
     
     var ground_ahead = place_meeting(x + look_ahead, y + 1, oWall);
     
-    if (!ground_ahead && onGround)
+    if (!ground_ahead && onGround && !special_slope)
 	{
         
         x -= xspd; 
